@@ -1,6 +1,6 @@
 # AI Thư Viện (SmartLib AI) - Hệ thống Web AI Thư Viện
 
-> **Đồ án môn học:** Trí tuệ nhân tạo (CS2046)  
+> **BTL môn học:** Trí tuệ nhân tạo (CS2046)  
 > **Phiên bản:** 0.1 • Tháng 11/2026  
 > **Tài liệu đặc tả chi tiết:** [`documents/SPEC.md`](documents/SPEC.md)
 
