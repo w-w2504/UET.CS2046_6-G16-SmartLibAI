@@ -1,0 +1,49 @@
+# ==============================================================================
+# Caddyfile - AI Thư Viện (SmartLib AI)
+# Cấu hình Reverse Proxy & HTTPS theo đặc tả Mục 2.1 & 14.5
+# ==============================================================================
+
+{$PUBLIC_HOSTNAME:localhost} {
+    # Tự động quản lý SSL / TLS qua ACME Let's Encrypt
+    email {$ACME_EMAIL:admin@example.com}
+
+    # Thư mục chứa tài nguyên tĩnh đã build của React Frontend
+    root * /srv/web
+    file_server
+
+    # Định tuyến Reverse Proxy cho API Backend
+    # Cấu hình timeout tối thiểu 35s để API có thể trả 504 sau deadline 30s
+    handle /api/v1/* {
+        reverse_proxy api:8000 {
+            transport http {
+                response_header_timeout 35s
+                dial_timeout 5s
+            }
+            # Bảo đảm IP thật từ client được chuyển tiếp an toàn
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Real-IP {remote_host}
+        }
+    }
+
+    # SPA Client-side routing: nếu không tìm thấy tệp tĩnh, trả về index.html
+    handle {
+        try_files {path} /index.html
+    }
+
+    # Security Headers
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy strict-origin-when-cross-origin
+    }
+
+    # Ghi log chuẩn định dạng JSON, quay vòng 10MB x 3 tệp
+    log {
+        output file /var/log/caddy/access.log {
+            roll_size 10mb
+            roll_keep 3
+        }
+        format json
+    }
+}
+

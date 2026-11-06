@@ -1,0 +1,225 @@
+/* ==============================================================================
+   Thiết kế giao diện AI Thư Viện theo đặc tả Mục 13.4
+   ============================================================================== */
+
+:root {
+  --bg-app: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #475569;
+  --color-primary: #1D4ED8;
+  --color-primary-hover: #1E40AF;
+  --border-color: #CBD5E1;
+  --color-error: #B91C1C;
+  --color-warning: #B45309;
+  --color-success: #15803D;
+  --radius: 8px;
+  --font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-main);
+  background-color: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Container chuẩn 1280px/1200px */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 16px;
+  }
+}
+
+/* Header */
+.app-header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: background 0.15s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: #EFF6FF;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Thao tác nút & ô nhập (cao tối thiểu 44px) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: #F1F5F9;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input-field {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  width: 100%;
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+/* Banner thông báo / Alert */
+.alert {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.alert-error {
+  background-color: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: var(--color-error);
+}
+
+.alert-warning {
+  background-color: #FFFBEB;
+  border: 1px solid #FCD34D;
+  color: var(--color-warning);
+}
+
+.alert-info {
+  background-color: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: var(--color-primary);
+}
+
+/* Badge & Tag */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background-color: #F1F5F9;
+  color: var(--text-muted);
+}
+
+.badge-blue {
+  background-color: #DBEAFE;
+  color: #1E40AF;
+}
+
+/* Khung đọc toàn văn */
+.reader-text {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 72ch;
+  color: #1E293B;
+}
+
+.highlighted-chunk {
+  background-color: #FEF08A;
+  border-radius: 4px;
+  padding: 2px 0;
+}
+

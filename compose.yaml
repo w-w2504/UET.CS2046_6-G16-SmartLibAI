@@ -1,0 +1,98 @@
+# ==============================================================================
+# Docker Compose - AI Thư Viện (SmartLib AI)
+# Kiến trúc triển khai logic theo Mục 2.1 & 14.5 - 14.6
+# ==============================================================================
+
+services:
+  # --- Reverse Proxy & Static Web Server ---
+  caddy:
+    image: caddy:2.8-alpine
+    container_name: smartlib-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - PUBLIC_HOSTNAME=${PUBLIC_HOSTNAME:-localhost}
+      - ACME_EMAIL=${ACME_EMAIL:-admin@example.com}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - web-dist:/srv/web:ro
+      - caddy-data:/data
+      - caddy-config:/config
+      - ./data/logs/caddy:/var/log/caddy
+    depends_on:
+      api:
+        condition: service_healthy
+      web:
+        condition: service_completed_successfully
+    networks:
+      - smartlib-net
+
+  # --- Build Service for React Frontend (Runs once to build static assets) ---
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    container_name: smartlib-web-build
+    volumes:
+      - web-dist:/app/dist
+
+  # --- FastAPI Backend Service (1 Worker, Internal Network) ---
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: smartlib-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - SNAPSHOT_ROOT=/data/snapshots
+      - CONTROL_ROOT=/data/control
+      - MODEL_ROOT=/models
+    volumes:
+      - ./data/snapshots:/data/snapshots:ro
+      - ./data/control:/data/control:rw
+      - ./models:/models:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - smartlib-net
+
+  # --- Pipeline Service (Run on-demand for import/build/validate) ---
+  pipeline:
+    build:
+      context: .
+      dockerfile: pipeline/Dockerfile
+    container_name: smartlib-pipeline
+    env_file:
+      - .env
+    environment:
+      - SNAPSHOT_ROOT=/data/snapshots
+      - CONTROL_ROOT=/data/control
+      - MODEL_ROOT=/models
+    volumes:
+      - ./data/raw:/data/raw:rw
+      - ./data/snapshots:/data/snapshots:rw
+      - ./data/control:/data/control:rw
+      - ./data/reports:/data/reports:rw
+      - ./models:/models:rw
+    profiles:
+      - tools
+    networks:
+      - smartlib-net
+
+networks:
+  smartlib-net:
+    driver: bridge
+
+volumes:
+  web-dist:
+  caddy-data:
+  caddy-config:
+

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smartlib-pipeline"
+version = "0.1.0"
+description = "Pipeline and CLI tools for AI Thư Viện (SmartLib AI)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1.7",
+    "pydantic>=2.9.0",
+]
+
+[project.scripts]
+ai-library = "ai_library.cli:main"
+
