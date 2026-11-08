@@ -27,12 +27,21 @@ def main():
 
 @main.command(name="import")
 @click.option("--batch", required=True, type=click.Path(exists=True), help="Đường dẫn thư mục đợt nhập dữ liệu thô")
-def import_batch(batch: str):
+@click.option("--taxonomy", type=click.Path(exists=True, dir_okay=False), default=None, help="Taxonomy chung; mặc định data/taxonomy.json hoặc TAXONOMY_PATH")
+@click.option("--metadata-only", is_flag=True, help="Chỉ kiểm tra metadata, không đọc chapters.jsonl")
+def import_batch(batch: str, taxonomy: str | None, metadata_only: bool):
     """Nhập đợt dữ liệu thô và kiểm tra schema theo Mục 3.1."""
     try:
-        batch_path = Path(batch)
-        print_json_summary("ok", f"Đã nhận đợt nhập từ {batch_path}", {"batch": str(batch_path)})
-        sys.exit(0)
+        from ai_library.importer import validate_and_load_batch
+
+        report, _ = validate_and_load_batch(batch, taxonomy_path=taxonomy, metadata_only=metadata_only)
+        failed = any(report.quarantined.values()) or report.received["books"] == 0
+        print_json_summary(
+            "error" if failed else "ok",
+            "Đã kiểm tra dữ liệu; chưa xây dựng hoặc phát hành snapshot",
+            report.model_dump(),
+        )
+        sys.exit(1 if failed else 0)
     except Exception as e:
         print_json_summary("error", f"Lỗi xử lý import: {e}")
         sys.exit(1)
