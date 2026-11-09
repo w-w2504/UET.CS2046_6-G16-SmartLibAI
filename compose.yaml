@@ -73,10 +73,12 @@ services:
     env_file:
       - .env
     environment:
+      - TAXONOMY_PATH=/data/taxonomy.json
       - SNAPSHOT_ROOT=/data/snapshots
       - CONTROL_ROOT=/data/control
       - MODEL_ROOT=/models
     volumes:
+      - ./data/taxonomy.json:/data/taxonomy.json:ro
       - ./data/raw:/data/raw:rw
       - ./data/snapshots:/data/snapshots:rw
       - ./data/control:/data/control:rw

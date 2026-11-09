@@ -58,6 +58,9 @@ data/snapshots/*
 !data/snapshots/.gitkeep
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/sample_batch/
+data/raw/sample_batch/*
+!data/raw/sample_batch/catalog.jsonl
 data/reports/*
 !data/reports/.gitkeep
 data/control/*.json

@@ -124,6 +124,29 @@ npm run dev
 
 Công cụ dòng lệnh `ai-library` dùng để chuẩn bị, kiểm tra và phát hành các snapshot dữ liệu bất biến:
 
+Catalog mẫu 20 sách được chia sẻ tại `data/raw/sample_batch/catalog.jsonl`.
+Importer dùng duy nhất taxonomy chung `data/taxonomy.json` (có thể chỉ định bằng
+`--taxonomy` hoặc biến `TAXONOMY_PATH`), không dùng taxonomy riêng trong batch.
+Ở giai đoạn metadata, chạy từ thư mục gốc repository:
+
+```bash
+python -B -m pip show pydantic click
+# Sau khi môi trường đã có dependencies trong pipeline/pyproject.toml:
+cd pipeline
+python -B -m ai_library.cli import --batch ../data/raw/sample_batch --metadata-only
+# Hoặc dùng môi trường Docker đã chuẩn bị:
+# docker compose run --rm pipeline import --batch /data/raw/sample_batch --metadata-only
+```
+
+`--metadata-only` bỏ qua các chương mẫu cũ; importer hiện chưa sử dụng
+`id_registry.json` nên registry cũ không phải căn cứ ánh xạ cho catalog mới.
+Không cần thêm chương hoặc toàn văn. Lệnh import chỉ validation/nạp trong bộ nhớ,
+in số nhận/hợp lệ/cách ly và trả exit code 1 khi có lỗi hoặc catalog rỗng;
+không ghi database hoặc snapshot. Các nguồn `pending` được nhận để phát triển
+nội bộ, chưa đồng nghĩa được duyệt phát hành.
+Các lệnh build/validate bên dưới hiện còn là khung, chưa tạo hoặc kiểm định
+embedding/snapshot thực tế.
+
 ```bash
 # 1. Nhập và kiểm tra dữ liệu thô
 docker compose run --rm pipeline import --batch /data/raw/batch_01

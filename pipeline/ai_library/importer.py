@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
 from pydantic import BaseModel, Field  # type: ignore
@@ -49,7 +50,12 @@ class ImportReport(BaseModel):
     errors: List[Dict[str, Any]]
 
 
-def validate_and_load_batch(batch_dir: Path | str) -> Tuple[ImportReport, Dict[str, Any]]:
+def validate_and_load_batch(
+    batch_dir: Path | str,
+    *,
+    taxonomy_path: Path | str | None = None,
+    metadata_only: bool = False,
+) -> Tuple[ImportReport, Dict[str, Any]]:
     """Đọc và kiểm tra đợt dữ liệu nhập theo Mục 3.1 & 9.2."""
     bpath = Path(batch_dir)
     batch_id = bpath.name
@@ -66,17 +72,20 @@ def validate_and_load_batch(batch_dir: Path | str) -> Tuple[ImportReport, Dict[s
     valid_chapters: Dict[str, List[ChapterImport]] = {}
 
     # 1. Đọc taxonomy
-    taxonomy_file = bpath / "taxonomy.json"
-    valid_genre_codes = set()
-    valid_topic_codes = set()
-    if taxonomy_file.exists():
-        with open(taxonomy_file, "r", encoding="utf-8") as f:
-            tax_data = json.load(f)
-            valid_genre_codes = {g["code"] for g in tax_data.get("genres", [])}
-            valid_topic_codes = {t["code"] for t in tax_data.get("topics", [])}
+    taxonomy_file = Path(taxonomy_path) if taxonomy_path is not None else Path(
+        os.getenv("TAXONOMY_PATH", str(Path(__file__).resolve().parents[2] / "data" / "taxonomy.json"))
+    )
+    with open(taxonomy_file, "r", encoding="utf-8") as f:
+        tax_data = json.load(f)
+    valid_genre_codes = {g["code"] for g in tax_data["genres"]}
+    valid_topic_codes = {t["code"] for t in tax_data["topics"]}
+    if not valid_genre_codes or not valid_topic_codes:
+        raise ValueError(f"Taxonomy phải có genres và topics: {taxonomy_file}")
 
     # 2. Đọc và kiểm tra catalog.jsonl
     catalog_file = bpath / "catalog.jsonl"
+    if not catalog_file.is_file():
+        raise FileNotFoundError(f"Không tìm thấy catalog: {catalog_file}")
     if catalog_file.exists():
         with open(catalog_file, "r", encoding="utf-8") as f:
             for line_no, line in enumerate(f, start=1):
@@ -87,19 +96,23 @@ def validate_and_load_batch(batch_dir: Path | str) -> Tuple[ImportReport, Dict[s
                 try:
                     obj = json.loads(line)
                     book = BookImport(**obj)
+                    if not book.book_id.strip() or not book.work_id.strip():
+                        raise ValueError("book_id và work_id không được để trống")
+                    if book.book_id in valid_books:
+                        raise ValueError(f"book_id trùng: {book.book_id}")
 
                     # Kiểm tra tính hợp lệ nghiệp vụ
-                    if not book.title.strip() or not book.authors or not book.summary.strip():
+                    if not book.title.strip() or not book.authors or any(not a.strip() for a in book.authors) or not book.summary.strip():
                         raise ValueError("title, authors hoặc summary không được để trống")
                     if not book.sources:
                         raise ValueError("sources phải có ít nhất một bản ghi căn cứ")
                     
                     # Kiểm tra taxonomy
                     for g in book.genres:
-                        if valid_genre_codes and g not in valid_genre_codes:
+                        if g not in valid_genre_codes:
                             raise ValueError(f"Mã thể loại '{g}' không có trong taxonomy")
                     for t in book.topics:
-                        if valid_topic_codes and t not in valid_topic_codes:
+                        if t not in valid_topic_codes:
                             raise ValueError(f"Mã chủ đề '{t}' không có trong taxonomy")
 
                     valid_books[book.book_id] = book
@@ -115,7 +128,7 @@ def validate_and_load_batch(batch_dir: Path | str) -> Tuple[ImportReport, Dict[s
 
     # 3. Đọc và kiểm tra chapters.jsonl
     chapters_file = bpath / "chapters.jsonl"
-    if chapters_file.exists():
+    if not metadata_only and chapters_file.exists():
         with open(chapters_file, "r", encoding="utf-8") as f:
             for line_no, line in enumerate(f, start=1):
                 line = line.strip()
