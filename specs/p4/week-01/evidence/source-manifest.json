@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "verification_date": "2026-11-10",
+  "timezone": "Asia/Saigon",
+  "base_commit": "b37287e166c718356ecd494fd4ff996f11ebbfae",
+  "source_state": "uncommitted_worktree",
+  "verification": {
+    "C05_pytest_passed": 5,
+    "C14_pytest_passed": 28,
+    "C18_browser_passed": 12,
+    "web_build_exit_code": 0,
+    "playwright": "1.60.0",
+    "react": "18.3.1",
+    "vite": "5.4.21"
+  },
+  "files": [
+    {
+      "path": "documents/SPEC.md",
+      "sha256": "7f4a97bf28972fabc8f5409c2f59d539e09093cfc07705f8075da1298ea3eecc"
+    },
+    {
+      "path": "pipeline/ai_library/faiss_smoke.py",
+      "sha256": "47be1071b93bfe717543ca5827b19bf66fc42d8c533fe090576acc224d21dbb9"
+    },
+    {
+      "path": "pipeline/ai_library/book_index.py",
+      "sha256": "143b53ba31e8f22f12c3db2ce403d547ba9ef430abc7faa6db212d1940ad2a22"
+    },
+    {
+      "path": "pipeline/tests/test_faiss_smoke.py",
+      "sha256": "557ec4b0b7580c3f4f912691c2845d7a8a30fa19597573e7cfdfdcbaccb80e02"
+    },
+    {
+      "path": "pipeline/tests/test_book_index.py",
+      "sha256": "ae22543f02786d1ca3053878f039b0bf474d4bb277a5a18efa9852a8b501d548"
+    },
+    {
+      "path": "pipeline/requirements-faiss.txt",
+      "sha256": "d13bf7bca2139b427d5320452d31af7e8a94dd5d4b0ba72fa56a35149f099ee4"
+    },
+    {
+      "path": "web/src/App.tsx",
+      "sha256": "6c8fcf351c2446730562f5b2d46c8b317c16c5a97da69ae6916333839cac9dfd"
+    },
+    {
+      "path": "web/src/components/Header.tsx",
+      "sha256": "71ae2e11cb96fd65e593460417d98d3e60d9a705a0f9b5755908172d1fc9bedb"
+    },
+    {
+      "path": "web/src/pages/ExplorePage.tsx",
+      "sha256": "022dbaaee7ee982696e48d99dd31d93ebd498723f9a30d131062329fe610e98c"
+    },
+    {
+      "path": "web/src/pages/ReaderPage.tsx",
+      "sha256": "e09ad6aca41fcf725b05f0531fe562980c3ea082c9a9bb7e52dca2c26d0f372f"
+    },
+    {
+      "path": "web/src/services/readerClient.ts",
+      "sha256": "7a108789f61e3b958487feceb6dc95e7c11445563780998c7a69249e94da19a8"
+    },
+    {
+      "path": "web/src/fixtures/reader.ts",
+      "sha256": "2f12bedb9de3c4a83e28600e70515fe4e0ca009c30cbb0c91a901bc6608fefd9"
+    },
+    {
+      "path": "web/src/types/api.ts",
+      "sha256": "812ff2b507bfcbf1b1d8d3390b73f192d1ac7ad62e548a51658b0fa5ca6c6493"
+    },
+    {
+      "path": "web/src/styles/index.css",
+      "sha256": "d5f67773622db2d8bca4164bf434e6fcfb836d773bd00a98c530abc859119def"
+    },
+    {
+      "path": "web/src/vite-env.d.ts",
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "web/package-lock.json",
+      "sha256": "1046013acbeaf8dea17a8efa446fc472071bff1e7c07f9e158e792a17a6e484f"
+    },
+    {
+      "path": "web/tests/check_reader_browser.py",
+      "sha256": "8a7ccd3cfffe450fbdf91f17699ab97f1a289f83b356275ad910525192443e1b"
+    },
+    {
+      "path": "specs/p4/week-01/C05.md",
+      "sha256": "40138179221ab5d0d2660060106ff7cac4cd1726bc81cbc3e608e41c54e5763c"
+    },
+    {
+      "path": "specs/p4/week-01/C14.md",
+      "sha256": "89044258ffbe581c00855e6d19547fb05cdebc799fd3b5569bcfd9ba7c9a5e32"
+    },
+    {
+      "path": "specs/p4/week-01/C18.md",
+      "sha256": "2c35410de945274f5d8b541fa7ceb657cb86c7da51ac1cc50a7a9a599ed2aafc"
+    },
+    {
+      "path": "specs/p4/week-01/acceptance.md",
+      "sha256": "fbad6058645a839a7051290e164e6b761baf8064ede973dd5b8a54802a673489"
+    },
+    {
+      "path": "specs/p4/week-01/README.md",
+      "sha256": "b34d6dc939939105145e9cd2dacf37a785886590ed75eb9e80e54f3bb81d50b8"
+    }
+  ],
+  "production_assets": [
+    {
+      "path": "web/dist/assets/index-CQH4kwwK.js",
+      "sha256": "2080b58263e586e15ed46b3128349669aa60558fe2b84771540f07f98059251c",
+      "size_bytes": 173117
+    },
+    {
+      "path": "web/dist/assets/index-DUp2fPmw.css",
+      "sha256": "0b54bfa605592a2629ca5fa03d26b8402f578a44948ad678e8cd651371dd2a99",
+      "size_bytes": 5642
+    },
+    {
+      "path": "web/dist/index.html",
+      "sha256": "f6f9df7558032865bbbe8cfaabb00f3048838438d8936abe3beb79e4abc9f4d4",
+      "size_bytes": 490
+    }
+  ]
+}

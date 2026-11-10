@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { ExplorePage } from './pages/ExplorePage';
 import { DetailPage } from './pages/DetailPage';
@@ -9,6 +9,7 @@ import { checkHealth } from './services/apiClient';
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentSearch, setCurrentSearch] = useState(window.location.search);
   const [seedCount, setSeedCount] = useState(0);
 
   const updateSeeds = () => {
@@ -23,16 +24,18 @@ export const App: React.FC = () => {
 
     const handlePopState = () => {
       setCurrentPath(window.location.pathname);
+      setCurrentSearch(window.location.search);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigate = (path: string) => {
+  const navigate = useCallback((path: string) => {
     window.history.pushState({}, '', path);
-    setCurrentPath(path);
+    setCurrentPath(window.location.pathname);
+    setCurrentSearch(window.location.search);
     window.scrollTo(0, 0);
-  };
+  }, []);
 
   // Router parsing
   const renderPage = () => {
@@ -50,7 +53,10 @@ export const App: React.FC = () => {
       const parts = currentPath.replace('/read/', '').split('/');
       const bookId = parts[0];
       const chapterId = parts[1];
-      return <ReaderPage bookId={bookId} chapterId={chapterId} onNavigate={navigate} />;
+      const params = new URLSearchParams(currentSearch);
+      return <ReaderPage bookId={bookId} chapterId={chapterId} onNavigate={navigate}
+        snapshotId={params.get('snapshot_id') || undefined}
+        fixture={import.meta.env.DEV && params.get('reader_fixture') === '1'} />;
     }
 
     return (

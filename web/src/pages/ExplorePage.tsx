@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Filter, BookOpen } from 'lucide-react';
+import { Search, BookOpen } from 'lucide-react';
 import { BookSummary } from '../types/api';
 import { apiRequest } from '../services/apiClient';
 import { loadTabState, saveTabState } from '../services/tabStorage';
@@ -9,7 +9,7 @@ interface ExplorePageProps {
   onSeedChange: () => void;
 }
 
-export const ExplorePage: React.FC<ExplorePageProps> = ({ onNavigate, onSeedChange }) => {
+export const ExplorePage: React.FC<ExplorePageProps> = ({ onNavigate }) => {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState<BookSummary[]>([]);
   const [loading, setLoading] = useState(false);

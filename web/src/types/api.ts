@@ -93,10 +93,20 @@ export interface Highlight {
   paragraph_end: number;
 }
 
-export interface ChapterDetailResponse {
-  chapter: ChapterSummary;
+export interface ChapterDetail extends ChapterSummary {
   text: string;
   paragraphs: Paragraph[];
+}
+
+export interface ChaptersResponse {
+  book_id: string;
+  items: ChapterSummary[];
+  snapshot_id: string;
+  request_id: string;
+}
+
+export interface ChapterDetailResponse {
+  chapter: ChapterDetail;
   highlight: Highlight | null;
   snapshot_id: string;
   request_id: string;

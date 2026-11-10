@@ -1,6 +1,5 @@
 import React from 'react';
 import { BookOpen, Sparkles, Compass } from 'lucide-react';
-import { loadTabState } from '../services/tabStorage';
 
 interface HeaderProps {
   currentPath: string;
