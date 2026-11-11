@@ -118,6 +118,8 @@ npm run dev
 # Truy cập tại http://localhost:3000 (đã cấu hình proxy /api/v1 sang localhost:8000)
 ```
 
+Để kiểm tra khung C04 bằng metadata C02 khi chưa có backend, từ thư mục `web` chạy `npm run dev:demo`. Kiểm tra build bằng `npm run build`. Hướng dẫn route Reader minh họa và vị trí bàn giao P1/P3/P4 nằm trong [`web/README.md`](web/README.md).
+
 ---
 
 ## 5. Vận hành Pipeline dữ liệu (CLI `ai-library`)
