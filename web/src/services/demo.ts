@@ -1,4 +1,5 @@
-import type { DemoCatalog } from './catalogParser';
+import type { ChapterDetailResponse, ChaptersResponse } from '../types/api';
+import type { DemoCatalog } from './demoTypes';
 
 export const isDemo = import.meta.env.DEV && import.meta.env.VITE_DEMO_MODE === 'true';
 export const scenarioKey = 'smartlib_demo_scenario';
@@ -59,10 +60,17 @@ export function demoResponse(catalog: DemoCatalog, endpoint: string, options: Re
   if (match) {
     const book = catalog.books.find(b => b.book_id === decodeURIComponent(match[1]));
     if (!book) throw new Error('Không tìm thấy sách trong dữ liệu C02.');
-    return match[2] ? { ...common, items: scenario === 'empty' ? [] : catalog.chapters.filter(c => c.book_id === book.book_id).map(({ paragraphs: _paragraphs, ...chapter }) => chapter) } : { ...common, book };
+    if (!match[2]) return { ...common, book };
+    return {
+      ...common,
+      book_id: book.book_id,
+      items: scenario === 'empty' ? [] : catalog.chapters
+        .filter(c => c.book_id === book.book_id)
+        .map(({ book_id, chapter_id, order_no, title }) => ({ book_id, chapter_id, order_no, title })),
+    } satisfies ChaptersResponse;
   }
   const chapter = catalog.chapters.find(c => url.pathname === '/chapters/' + c.chapter_id);
-  if (chapter) return { ...common, chapter, paragraphs: scenario === 'empty' ? [] : chapter.paragraphs };
+  if (chapter) return { ...common, chapter, highlight: null } satisfies ChapterDetailResponse;
   if (url.pathname === '/qa') return { ...common, status: 'insufficient_evidence', answer: '', message: 'Chế độ demo chưa kết nối hỏi đáp AI.', citations: [] };
   throw new Error('Không tìm thấy nội dung trong dữ liệu demo.');
 }

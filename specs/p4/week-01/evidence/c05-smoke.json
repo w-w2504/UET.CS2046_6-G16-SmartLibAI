@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "task_id": "C05",
+  "data_kind": "synthetic_fixture",
+  "claim": "faiss_roundtrip_only",
+  "full_system_acceptance": false,
+  "index_type": "IndexFlatIP",
+  "dimension": 384,
+  "vector_count": 5,
+  "query_count": 3,
+  "absolute_tolerance": 1e-06,
+  "checks": {
+    "fixture_float32": true,
+    "fixture_finite": true,
+    "fixture_normalized": true,
+    "index_shape": true,
+    "nearest_rows": true,
+    "all_rows_returned": true,
+    "scores_match_numpy": true,
+    "scores_descending": true,
+    "restored_shape": true,
+    "restored_metric": true,
+    "restored_rows": true,
+    "restored_scores": true
+  },
+  "nearest_rows": [
+    0,
+    1,
+    2
+  ],
+  "versions": {
+    "python": "3.14.8",
+    "faiss_cpu": "1.15.1",
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "index_sha256": "33879609ff38d000ca4f932e134d03122d9de25c11e6cdb75198f1119cc8775b"
+}

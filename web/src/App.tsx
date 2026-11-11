@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { ExplorePage } from './pages/ExplorePage';
 import { DetailPage } from './pages/DetailPage';
@@ -12,6 +12,7 @@ import { DemoPanel } from './components/DemoPanel';
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentSearch, setCurrentSearch] = useState(window.location.search);
   const [seedCount, setSeedCount] = useState(0);
   const [snapshotId, setSnapshotId] = useState(getSnapshotId);
   const [storageNotice, setStorageNotice] = useState<string | null>(null);
@@ -31,17 +32,21 @@ export const App: React.FC = () => {
 
     const handlePopState = () => {
       setCurrentPath(window.location.pathname);
+      setCurrentSearch(window.location.search);
+      setSnapshotId(getSnapshotId());
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigate = (path: string) => {
+  const navigate = useCallback((path: string) => {
     const target = withSnapshot(path);
     window.history.pushState({}, '', target);
-    setCurrentPath(new URL(target, window.location.origin).pathname);
+    setCurrentPath(window.location.pathname);
+    setCurrentSearch(window.location.search);
+    setSnapshotId(getSnapshotId());
     window.scrollTo(0, 0);
-  };
+  }, []);
 
   // Router parsing
   const renderPage = () => {
@@ -58,7 +63,10 @@ export const App: React.FC = () => {
     const readerRoute = currentPath.match(/^\/read\/([^/]+)(?:\/([^/]+))?\/?$/);
     if (readerRoute) {
       const [, bookId, chapterId] = readerRoute;
-      return <ReaderPage key={bookId} bookId={bookId} chapterId={chapterId} onNavigate={navigate} />;
+      const params = new URLSearchParams(currentSearch);
+      return <ReaderPage bookId={bookId} chapterId={chapterId} onNavigate={navigate}
+        snapshotId={params.get('snapshot_id') || undefined}
+        fixture={import.meta.env.DEV && params.get('reader_fixture') === '1'} />;
     }
 
     return (

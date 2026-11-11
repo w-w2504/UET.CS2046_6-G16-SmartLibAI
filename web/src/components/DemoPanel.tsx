@@ -1,7 +1,5 @@
 import { getScenario, scenarioKey } from '../services/demo';
 
-import { withSnapshot } from '../services/navigation';
-
 export function DemoPanel() {
   return (
     <aside className="demo-panel app-container" aria-label="Chế độ kiểm thử C04">
@@ -17,8 +15,8 @@ export function DemoPanel() {
         <option value="error">Lỗi kết nối</option>
       </select>
       <p style={{ marginTop: 12 }}>
-        <a href={withSnapshot('/read/SLB_B0001/chuong-minh-hoa')}>Kiểm tra trang tạm Reader</a>
-        {' '}· ID chương chỉ minh họa đường dẫn, chưa có nội dung đọc.
+        <a href="/read/B_reader_fixture?reader_fixture=1&snapshot_id=reader-fixture-v1">Kiểm tra trình đọc bằng chương mẫu</a>
+        {' '}· Chương mẫu tự viết, tách biệt với sách C02.
       </p>
     </aside>
   );

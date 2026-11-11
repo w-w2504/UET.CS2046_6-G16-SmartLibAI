@@ -24,10 +24,9 @@ export interface BookSource {
   content_type: 'metadata' | 'summary' | 'cover' | 'fulltext';
   source_url: string;
   source_note: string;
-  // API thật trả approved; dữ liệu nhập C02 dùng thêm pending/rejected.
-  rights_status: 'approved' | 'pending' | 'rejected';
+  rights_status: 'approved';
   rights_note: string;
-  reviewed_at?: string | null;
+  reviewed_at: string;
 }
 
 export interface BookDetail extends BookSummary {
@@ -94,10 +93,20 @@ export interface Highlight {
   paragraph_end: number;
 }
 
-export interface ChapterDetailResponse {
-  chapter: ChapterSummary;
+export interface ChapterDetail extends ChapterSummary {
   text: string;
   paragraphs: Paragraph[];
+}
+
+export interface ChaptersResponse {
+  book_id: string;
+  items: ChapterSummary[];
+  snapshot_id: string;
+  request_id: string;
+}
+
+export interface ChapterDetailResponse {
+  chapter: ChapterDetail;
   highlight: Highlight | null;
   snapshot_id: string;
   request_id: string;

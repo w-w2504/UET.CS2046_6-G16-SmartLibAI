@@ -17,50 +17,109 @@ Hệ thống **AI Thư Viện** cung cấp nền tảng số hóa danh mục sá
 
 ## 2. Cấu trúc thư mục dự án
 
+Bố cục mã nguồn và tài liệu dưới đây bám các mục 2.1, 3.1, 9.3 và 14.6 của
+[`documents/SPEC.md`](documents/SPEC.md), tài liệu gốc của toàn dự án.
+Các module P4 và báo cáo được bổ sung theo commit riêng của từng task.
+
 ```text
 UET.CS2046_6-G16-SmartLibAI/
-├── .env.example               # Mẫu biến môi trường cho Docker & Local
-├── .gitignore                 # Bỏ qua dependencies, secrets, models, snapshots
-├── Caddyfile                  # Cấu hình Reverse Proxy HTTPS & phục vụ static web
-├── compose.yaml               # Docker Compose triển khai toàn bộ hệ thống
-├── README.md                  # Hướng dẫn cài đặt và vận hành
+├── .env.example               # Biến môi trường mẫu, không chứa secret thật
+├── .gitignore
+├── Caddyfile                  # HTTPS, static web và reverse proxy /api/v1
+├── compose.yaml               # Web build, API một worker và pipeline theo lệnh
+├── README.md
 ├── documents/
-│   └── SPEC.md                # Tài liệu đặc tả hệ thống hoàn chỉnh (SRS)
-├── api/                       # Phân hệ Backend API (FastAPI)
+│   └── SPEC.md                # Đặc tả gốc, căn cứ thiết kế và nghiệm thu
+├── specs/
+│   └── p4/                    # Phân công, đặc tả task và nghiệm thu theo tuần
+│       ├── README.md
+│       ├── AGENTS.md
+│       ├── templates/
+│       └── week-01/ ... week-04/
+├── api/                       # Backend FastAPI, chỉ đọc catalog/index/model
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   └── src/
-│       ├── main.py            # Entrypoint FastAPI & Exception Handlers
-│       ├── config.py          # Pydantic Settings
-│       ├── middleware/        # X-Request-ID Middleware
-│       ├── routes/            # /api/v1 (health, books, search, recommend, reader, qa)
-│       ├── schemas/           # Pydantic schemas theo hợp đồng API
-│       └── services/          # SnapshotService, AI loaders
-├── pipeline/                  # Phân hệ Pipeline Dữ liệu (CLI ai-library)
+│   ├── src/
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   ├── middleware/        # request_id và xử lý request chung
+│   │   ├── routes/            # API theo hợp đồng mục 12
+│   │   ├── schemas/           # Pydantic request/response
+│   │   └── services/          # Nạp snapshot và các thành phần phục vụ
+│   └── tests/
+├── pipeline/                  # Chuẩn bị dữ liệu/index offline
 │   ├── Dockerfile
 │   ├── pyproject.toml
 │   ├── requirements.txt
-│   └── ai_library/
-│       └── cli.py             # CLI lệnh: import, build, validate, activate, rollback
-├── web/                       # Phân hệ Frontend (React + TypeScript + Vite)
+│   ├── requirements-faiss.txt # Môi trường kiểm chứng FAISS của P4
+│   ├── ai_library/
+│   │   ├── cli.py             # import/build/validate/activate/rollback/list/remove
+│   │   ├── importer.py
+│   │   ├── schema.py          # SQLite theo mô hình mục 9.3
+│   │   ├── text_utils.py
+│   │   ├── collation.py
+│   │   ├── faiss_smoke.py     # C05: kiểm chứng FAISS bằng fixture
+│   │   └── book_index.py      # C14: nhận vector P3, tạo index/mapping và loader
+│   └── tests/
+├── web/                       # React + TypeScript + Vite
 │   ├── Dockerfile
 │   ├── package.json
+│   ├── package-lock.json
 │   ├── vite.config.ts
-│   └── src/
-│       ├── App.tsx            # Client-side router & Navigation
-│       ├── main.tsx
-│       ├── components/        # Header, BookCard, Filters
-│       ├── pages/             # Khám phá, Chi tiết, Gợi ý, Trình đọc
-│       ├── services/          # apiClient, tabStorage (sessionStorage)
-│       ├── styles/            # Thiết kế giao diện (index.css)
-│       └── types/             # TypeScript API contracts
-└── data/                      # Lưu trữ dữ liệu và kiểm soát snapshot
-    ├── control/               # active.json, activation_request.json
-    ├── snapshots/             # <snapshot_id>/{catalog.sqlite, books.faiss, chunks/}
-    ├── raw/                   # Dữ liệu đợt nhập thô (catalog.jsonl, chapters.jsonl)
-    ├── reports/               # Báo cáo kiểm tra và biên bản nhập
-    └── taxonomy.json          # Danh mục mã thể loại và chủ đề đã duyệt
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   ├── components/
+│   │   ├── pages/             # Khám phá, chi tiết, gợi ý và trình đọc
+│   │   ├── services/          # API client, reader client, trạng thái tab
+│   │   ├── fixtures/          # Dữ liệu mẫu, chỉ bật chủ động trong dev
+│   │   ├── styles/
+│   │   └── types/
+│   └── tests/                 # Kiểm chứng browser của trình đọc
+├── data/
+│   ├── raw/                   # Batch nhập: catalog, chapters, taxonomy, registry
+│   ├── reports/               # Báo cáo pipeline
+│   ├── snapshots/             # Artefact phát hành bất biến
+│   ├── control/               # Con trỏ active và điều phối vận hành
+│   └── taxonomy.json          # Nguồn taxonomy biên tập hiện có
+├── models/                    # Artefact encoder theo revision, giữ ngoài Git
+└── openspec/                  # Quy trình và hồ sơ thực hiện, chỉ ở local
 ```
+
+Layout của **snapshot hoàn chỉnh** phải theo mục 14.6:
+
+```text
+data/snapshots/<snapshot_id>/
+├── catalog.sqlite
+├── books.faiss
+├── mapping.jsonl
+├── chunks/<book_id>.faiss
+└── manifest.json
+
+data/control/
+├── active.json
+├── activation_request.json
+├── activation_result.json
+└── snapshots_registry.json
+
+models/<revision>/...
+```
+
+Đây là cấu trúc artefact cần được pipeline tạo và kiểm định; các thư mục dữ liệu
+trong Git chưa đồng nghĩa đã có snapshot hợp lệ. API mount snapshots/models
+read-only và control read-write; pipeline nhập/build offline theo mục 14.6.
+P3 sinh vector, P4 kiểm tra và xây FAISS/mapping; P1/P2 dùng chung index và vector.
+
+Batch nhập chuẩn theo mục 3.1 chứa `catalog.jsonl`, `chapters.jsonl`,
+`taxonomy.json`, `id_registry.json` và thư mục `raw/`. Importer hiện dùng taxonomy
+chung hoặc đường dẫn `--taxonomy`; cách đóng băng taxonomy/registry cho từng batch
+còn cần đồng bộ với hợp đồng chuẩn, không được coi công cụ hiện tại đã hoàn tất
+yêu cầu này. Chi tiết hiện trạng importer tại mục 5.
+
+Thành phần C14 gồm `books.faiss`, `mapping.jsonl`, `index_manifest.json`; đây là
+bộ index để bàn giao và kiểm thử, còn snapshot hoàn chỉnh cần đầy đủ artefact
+nêu trên. Tài liệu và bằng chứng P4 nằm tại [`specs/p4/`](specs/p4/README.md).
+Hồ sơ `openspec/` được giữ local qua `.git/info/exclude`.
 
 ---
 

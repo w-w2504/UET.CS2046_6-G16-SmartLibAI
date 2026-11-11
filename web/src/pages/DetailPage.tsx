@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Sparkles, Check, ArrowLeft } from 'lucide-react';
-import { BookDetail } from '../types/api';
+import type { BookDetail } from '../types/api';
+import type { DemoBookDetail } from '../services/demoTypes';
 import { apiRequest } from '../services/apiClient';
+import { isDemo } from '../services/demo';
 import { loadTabState, saveTabState } from '../services/tabStorage';
 import { LoadingState, ErrorState } from '../components/ui';
 import { genreLabel, topicLabel } from '../services/taxonomy';
@@ -12,8 +14,11 @@ interface DetailPageProps {
   onSeedChange: () => void;
 }
 
+type DetailState = { mode: 'api'; book: BookDetail } | { mode: 'demo'; book: DemoBookDetail };
+
 export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSeedChange }) => {
-  const [book, setBook] = useState<BookDetail | null>(null);
+  const [detail, setDetail] = useState<DetailState | null>(null);
+  const book = detail?.book;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isSeed, setIsSeed] = useState(false);
@@ -28,9 +33,13 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
       setLoading(true);
       setError(null);
       try {
-        const res = await apiRequest<{ book: BookDetail }>(`/books/${bookId}`);
-        if (!active) return;
-        setBook(res.data.book);
+        if (isDemo) {
+          const res = await apiRequest<{ book: DemoBookDetail }>(`/books/${bookId}`);
+          if (active) setDetail({ mode: 'demo', book: res.data.book });
+        } else {
+          const res = await apiRequest<{ book: BookDetail }>(`/books/${bookId}`);
+          if (active) setDetail({ mode: 'api', book: res.data.book });
+        }
       } catch (err: any) {
         if (!active) return;
         setError(err.message || 'Không tìm thấy thông tin sách');

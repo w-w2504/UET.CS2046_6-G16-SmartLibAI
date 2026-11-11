@@ -1,7 +1,5 @@
-import type { BookDetail, BookSource, ChapterSummary, Paragraph } from '../types/api';
-
-export interface DemoChapter extends ChapterSummary { paragraphs: Paragraph[] }
-export interface DemoCatalog { books: BookDetail[]; chapters: DemoChapter[] }
+import type { DemoBookDetail, DemoBookSource, DemoCatalog } from './demoTypes';
+export type { DemoCatalog, DemoChapter } from './demoTypes';
 
 function object(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Bản ghi phải là object JSON.');
@@ -22,7 +20,7 @@ function lines<T>(raw: string, filename: string, parse: (row: Record<string, unk
     catch (error) { throw new Error(`${filename}, dòng ${index + 1}: ${error instanceof Error ? error.message : 'JSON không hợp lệ.'}`); }
   });
 }
-function source(value: unknown): BookSource {
+function source(value: unknown): DemoBookSource {
   const row = object(value);
   const content = row.content_type;
   const status = row.rights_status;
@@ -37,7 +35,7 @@ function source(value: unknown): BookSource {
   };
 }
 
-// C02 JSONL -> hợp đồng frontend. Không thay đổi ID, nội dung hay trạng thái quyền.
+// C02 JSONL -> dữ liệu demo riêng; không gán quyền approved cho nguồn chưa duyệt.
 export function parseCatalog(catalogText: string, chaptersText = ''): DemoCatalog {
   const bookIds = new Set<string>();
   const approvedFulltext = new Set<string>();
@@ -58,7 +56,7 @@ export function parseCatalog(catalogText: string, chaptersText = ''): DemoCatalo
       genres: strings(row.genres, 'genres'), topics: strings(row.topics, 'topics'), summary: text(row.summary, 'summary'),
       language: text(row.language ?? 'vi', 'language'), cover_url: cover, sources,
       has_fulltext: false, rag_available: false,
-    } satisfies BookDetail;
+    } satisfies DemoBookDetail;
   });
   const chapterIds = new Set<string>();
   const chapterOrders = new Set<string>();
@@ -73,11 +71,13 @@ export function parseCatalog(catalogText: string, chaptersText = ''): DemoCatalo
     const orderKey = `${bookId}/${order}`;
     if (chapterOrders.has(orderKey)) throw new Error(`order_no trùng trong sách ${bookId}.`);
     chapterOrders.add(orderKey);
-    const paragraphs = strings(row.paragraphs, 'paragraphs');
+    const paragraphs = strings(row.paragraphs, 'paragraphs').map(paragraph => paragraph
+      .replace(/\r\n?/g, '\n').normalize('NFC').replace(/[^\S\n]+$/gm, '').trim());
     if (!paragraphs.length) throw new Error('paragraphs không được rỗng.');
     let offset = 0;
     return {
       book_id: bookId, chapter_id: id, order_no: order, title: text(row.title, 'title'),
+      text: paragraphs.join('\n\n'),
       paragraphs: paragraphs.map((paragraph, index) => {
         const start = offset; offset += Array.from(paragraph).length + 2;
         return { paragraph_id: `${id}-p${index + 1}`, order_no: index + 1, text: paragraph, char_start: start, char_end: offset - 2 };

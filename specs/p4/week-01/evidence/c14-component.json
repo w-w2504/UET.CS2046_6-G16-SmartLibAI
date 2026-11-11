@@ -1,0 +1,48 @@
+{
+  "task_id": "C14",
+  "data_kind": "synthetic_fixture",
+  "real_p3_integration": false,
+  "full_snapshot": false,
+  "snapshot_id": "c14-fixture-v1",
+  "dimension": 384,
+  "book_ids": [
+    "B_fixture_z",
+    "B_fixture_a",
+    "B_fixture_b"
+  ],
+  "hits": [
+    {
+      "book_id": "B_fixture_a",
+      "row_id": 1,
+      "score": 1.0
+    },
+    {
+      "book_id": "B_fixture_z",
+      "row_id": 0,
+      "score": 1.0
+    },
+    {
+      "book_id": "B_fixture_b",
+      "row_id": 2,
+      "score": 0.0
+    }
+  ],
+  "vector_roundtrip": true,
+  "files": [
+    {
+      "path": "books.faiss",
+      "sha256": "aef7ce407d90da85a91d8ffc95b22f4d0e07911b0a3030ba044a02bd38f06dad",
+      "size_bytes": 4653
+    },
+    {
+      "path": "index_manifest.json",
+      "sha256": "7d8b16c4b0233e38e4a1c81fb57357150a5b944cb56c5f2d70dccfbc51ddfb18",
+      "size_bytes": 678
+    },
+    {
+      "path": "mapping.jsonl",
+      "sha256": "929d78f02b19194f69de94f87033cdb70a3e9fa574e9c32a785030d9e1dc256e",
+      "size_bytes": 522
+    }
+  ]
+}
