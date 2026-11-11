@@ -24,9 +24,10 @@ export interface BookSource {
   content_type: 'metadata' | 'summary' | 'cover' | 'fulltext';
   source_url: string;
   source_note: string;
-  rights_status: 'approved';
+  // API thật trả approved; dữ liệu nhập C02 dùng thêm pending/rejected.
+  rights_status: 'approved' | 'pending' | 'rejected';
   rights_note: string;
-  reviewed_at: string;
+  reviewed_at?: string | null;
 }
 
 export interface BookDetail extends BookSummary {
