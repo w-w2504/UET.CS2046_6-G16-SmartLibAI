@@ -1,6 +1,8 @@
 import React from 'react';
 import { BookOpen, Sparkles, Compass } from 'lucide-react';
 
+import { withSnapshot } from '../services/navigation';
+
 interface HeaderProps {
   currentPath: string;
   onNavigate: (path: string) => void;
@@ -12,7 +14,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, seedCou
     <header className="app-header">
       <div className="app-container header-inner">
         <a
-          href="/"
+          href={withSnapshot('/')}
           className="brand-title"
           onClick={(e) => {
             e.preventDefault();
@@ -25,8 +27,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, seedCou
 
         <nav className="nav-links" aria-label="Điều hướng chính">
           <a
-            href="/"
+            href={withSnapshot('/')}
             className={`nav-link ${currentPath === '/' ? 'active' : ''}`}
+            aria-current={currentPath === '/' ? 'page' : undefined}
             onClick={(e) => {
               e.preventDefault();
               onNavigate('/');
@@ -37,15 +40,16 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, seedCou
           </a>
 
           <a
-            href="/recommendations"
+            href={withSnapshot('/recommendations')}
             className={`nav-link ${currentPath === '/recommendations' ? 'active' : ''}`}
+            aria-current={currentPath === '/recommendations' ? 'page' : undefined}
             onClick={(e) => {
               e.preventDefault();
               onNavigate('/recommendations');
             }}
           >
             <Sparkles size={18} style={{ display: 'inline', marginRight: 6, verticalAlign: -3 }} />
-            Gợi ý {seedCount > 0 && <span className="badge badge-blue">{seedCount}</span>}
+            Gợi ý <span className="badge badge-blue" aria-label={`${seedCount} sách đã chọn`}>{seedCount}</span>
           </a>
         </nav>
       </div>

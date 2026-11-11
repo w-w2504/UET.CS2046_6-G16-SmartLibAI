@@ -1,0 +1,37 @@
+{
+  "task_id": "C18",
+  "scope": "PR3 integration",
+  "data_kind": "C02_metadata_and_authored_reader_mocks",
+  "provider_called": false,
+  "real_api_acceptance": false,
+  "browser": "157.0.4341.46",
+  "python": "3.14.8",
+  "tests": [
+    {
+      "test": "query_only_snapshot_history_header",
+      "status": "passed"
+    },
+    {
+      "test": "c02_catalog_detail_header_1280",
+      "status": "passed"
+    },
+    {
+      "test": "c02_catalog_detail_header_390",
+      "status": "passed"
+    },
+    {
+      "test": "demo_reader_fixture_storage_independent",
+      "status": "passed"
+    },
+    {
+      "test": "reader_transport_no_demo_fallback",
+      "status": "passed"
+    },
+    {
+      "test": "production_excludes_demo_catalog_reader_fixture",
+      "status": "passed"
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}

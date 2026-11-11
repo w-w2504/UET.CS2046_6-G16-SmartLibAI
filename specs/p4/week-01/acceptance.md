@@ -73,3 +73,37 @@ Kết quả browser cụ thể và số bài đạt lấy từ JSON của lượ
 Phần mã C05/C14 và trình đọc cơ bản C18 đã có kiểm chứng kỹ thuật bằng fixture. C14 còn chờ vector P3 thật; API/schema backend đọc thuộc C25 vẫn chưa hoàn tất. Đây là nghiệm thu phần việc P4 tuần 1 trong phạm vi đã thống nhất, **không phải xác nhận đạt đầy đủ SPEC hoặc tích hợp cuối tuần của cả nhóm**.
 
 Ảnh, log, JSON và manifest nguồn nằm trong `evidence/`; không chứa API key hay toàn văn sách thật. Không dùng đường dẫn OpenSpec local làm bằng chứng duy nhất.
+
+## 8. Kiểm chứng tích hợp PR #3 — 11/11/2026
+
+Các mục 1–7 và bằng chứng trực tiếp trong `evidence/` ghi nhận lượt 10/11. Phần này ghi riêng lượt gộp feature `7fcaaaf0c763d6fab855b33b6a2e4fa77e061eda` với develop `43fd3be95c57dba8cbb8df2383f643de0fcea7fe`, theo gói người dùng đã duyệt. Không thay thế kết quả lịch sử hoặc suy ra API/vector thật đã nghiệm thu.
+
+### Thay đổi đã đối chiếu
+
+- Giải quyết 5 conflict Git: `web/package-lock.json`, `App.tsx`, `Header.tsx`, `ExplorePage.tsx`, `ReaderPage.tsx`; CSS/type tự gộp vẫn được review theo SPEC.
+- Giữ nguyên lockfile feature, Header/Explore và khung demo/accessibility develop, Reader C18 và validator/transport. App đồng bộ pathname/query/snapshot, kể cả Back/Forward chỉ đổi query.
+- Tách type nguồn demo/import khỏi API BookSource; chuẩn hóa mock chương theo SPEC 12.4 và offset Unicode theo 9.4. Nguồn C02 giữ trạng thái ban đầu; không thêm toàn văn.
+- Giữ hai chế độ độc lập: danh mục C02 qua demo adapter, Reader qua API riêng hoặc fixture dev bật chủ động; không fallback ngầm. Link thử Reader trong DemoPanel mở đúng snapshot chương tự viết.
+- Không sửa SPEC, data, pipeline hoặc API backend trong lượt tích hợp này. C05/C14 không chạy lại vì mã không đổi; chưa có nghiệm thu P3/API thật mới.
+
+### Kết quả thực chạy
+
+| Căn cứ SPEC | Kiểm chứng | Kết quả | Bằng chứng |
+| --- | --- | --- | --- |
+| 2.1, N08 phần frontend | `npm ci` với lock feature; `npm run build` | exit 0; TypeScript và production build đạt | [cài dependency](evidence/pr3-integration/npm-ci.txt), [build](evidence/pr3-integration/build.txt) |
+| 9.4, 12.3–12.4, 13.4–13.5 | `node scripts/check-demo.mjs` | exit 0; 20 metadata C02 giữ quyền nguồn, không có toàn văn; mock chương nested và offset Unicode, route/layout/storage đạt | [checker demo](evidence/pr3-integration/demo-check.txt) |
+| 12.4, 13.4/13.6, phần đọc E2E-09 | 12 browser checks C18 trên mã gộp | **12/12 đạt** bằng authored fixture/API mock | [C18 browser](evidence/pr3-integration/c18-browser.json) |
+| 13.5 | Query-only snapshot, Back/Forward, Header href/seed count | đạt; URL ưu tiên storage, không ghi đè snapshot lưu của phiên thật | [6 integration checks](evidence/pr3-integration/pr3-integration-browser.json) |
+| N07, 13.4 | C02 catalog/detail/Header/skip-link ở 390/1280, nút Đọc disabled, chọn seed, tìm kiếm minh họa | đạt, không tràn ngang; quyền pending hiển thị đúng | Cùng integration report; [mobile detail](evidence/pr3-integration/c02-detail-390.png), [desktop detail](evidence/pr3-integration/c02-detail-1280.png) |
+| N03, 12.4 | Tách storage/demo/reader fixture; Reader không fallback demo khi API lỗi; production không chứa catalog/fixture | đạt, không gọi QA/provider thật | Cùng integration report |
+
+Hai bộ browser tổng cộng **18/18 checks đạt**; không quy đổi thành điểm chất lượng AI. Môi trường Python 3.14.8, Playwright 1.60.0, Edge `157.0.4341.46`, Node 24.21.0/npm 11.19.0. Hash nguồn, lock và assets của lượt kiểm chứng trước commit nằm trong [source manifest tích hợp](evidence/pr3-integration/source-manifest.json).
+
+Review chéo giữa các agent phần App/UI và type/demo không phát hiện lỗi mới chặn tích hợp. Đã xem ảnh Reader/C02 ở 390/1280. Bằng chứng mới nằm trong thư mục riêng; không ghi đè các ảnh/log/manifest 10/11.
+
+### Giới hạn còn giữ
+
+- Checker chủ động gây lỗi `storage unavailable (test)` để kiểm tra fallback; cảnh báo này là tình huống kiểm thử, checker kết thúc exit 0.
+- `npm ci` vẫn báo hai cảnh báo dependency đã biết (1 moderate, 1 high); không nâng dependency hay chạy audit fix trong gói này.
+- C02 chỉ metadata và nguồn pending; fixture Reader là văn bản tự viết. Chưa nghiệm thu API C25/C29, vector P3 thật, QA/citation, Docker/VM, triển khai công khai hoặc toàn bộ SPEC.
+- Hồ sơ OpenSpec `p4-w01-pr3-integration` giữ local; báo cáo và evidence này đủ độc lập để review PR.

@@ -5,6 +5,7 @@ Run dev on :3000 and production preview on :4173 before this script.
 
 import argparse
 import json
+import os
 import platform
 import sys
 import traceback
@@ -14,7 +15,7 @@ from urllib.parse import parse_qs, urlparse
 from playwright.sync_api import expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]
-EVIDENCE = ROOT / "specs/p4/week-01/evidence"
+DEFAULT_OUTPUT = ROOT / "specs/p4/week-01/evidence/pr3-integration"
 SNAPSHOT = "browser-fixture-v1"
 BOOK = "B_browser"
 REQUEST_ID = "00000000-0000-4000-8000-000000000001"
@@ -70,7 +71,8 @@ def check_no_overflow(page):
     assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'), 'Horizontal overflow'
 
 
-def run(base_url, production_url):
+def run(base_url, production_url, output_dir=DEFAULT_OUTPUT):
+    EVIDENCE = Path(output_dir).resolve()
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     results = []
     with sync_playwright() as playwright:
@@ -326,5 +328,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--base-url', default='http://127.0.0.1:3000')
     parser.add_argument('--production-url', default='http://127.0.0.1:4173')
+    parser.add_argument('--output-dir', type=Path, default=os.environ.get('SMARTLIB_EVIDENCE_DIR', str(DEFAULT_OUTPUT)))
     args = parser.parse_args()
-    raise SystemExit(run(args.base_url, args.production_url))
+    raise SystemExit(run(args.base_url, args.production_url, args.output_dir))
