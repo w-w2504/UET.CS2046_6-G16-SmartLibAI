@@ -172,7 +172,7 @@ Kích hoạt: nhập đợt dữ liệu mới hoặc sửa bản ghi. Kết qu�
 
 5. Kiểm tra schema, nguồn, trùng ID, văn bản rỗng và liên kết. Bản ghi lỗi được cách ly, không đưa vào chỉ mục.
 
-6. Tạo vector sách và, nếu có, vector đoạn theo cùng cấu hình embedding và snapshot. Kiểm tra giới hạn token; mọi vector phải hữu hạn, khác 0 và chuẩn hóa L2 trước khi xây chỉ mục.
+6. Tạo vector sách và, nếu có, vector đoạn theo cùng cấu hình embedding và snapshot. C11 có thể tạo riêng vector sách để phát triển nội bộ theo mục 3.2. Kiểm tra giới hạn token; mọi vector phải hữu hạn, khác 0 và chuẩn hóa L2 trước khi xây chỉ mục.
 
 7. Đóng gói SQLite, FAISS và mapping; kiểm tra mọi ID tra được, hash, số lượng và chiều vector khớp. Chạy truy xuất mẫu; lưu cấu hình, thống kê và báo cáo kiểm tra trong manifest.
 
@@ -186,13 +186,13 @@ Snapshot cũ còn được phục vụ theo ID cho các trích dẫn đã phát 
 
 ### 3.1 Hợp đồng dữ liệu nhập và báo cáo pipeline
 
-Đợt nhập gồm catalog.jsonl, chapters.jsonl, taxonomy.json, id_registry.json và thư mục raw. Tệp văn bản UTF-8; mỗi dòng JSONL là một object. Không nhập HTML vào kho phục vụ. catalog.jsonl dùng BookImport; chapters.jsonl dùng ChapterImport. Pipeline từ chối trường ngoài schema và ghi field cụ thể. Dữ liệu nguồn phải do thành viên thu thập, kiểm tra và duyệt.
+Đợt nhập gồm catalog.jsonl, chapters.jsonl, taxonomy.json, id_registry.json và thư mục raw. Tệp văn bản UTF-8; mỗi dòng JSONL là một object. Không nhập HTML vào kho phục vụ. catalog.jsonl dùng BookImport; chapters.jsonl dùng ChapterImport. Pipeline từ chối trường ngoài schema và ghi field cụ thể. Thành viên thu thập và kiểm tra dữ liệu. Duyệt dữ liệu tự biên soạn theo mục 3.2. Duyệt quyền sử dụng nội dung bên thứ ba theo từng nguồn và phạm vi.
 
 | Schema | Các trường và điều kiện |
 | --- | --- |
 | BookImport | book_id, work_id, title, authors[], genres[], topics[], summary, language="vi", sources[], cover_url nullable, fulltext_approved:boolean. Dùng mã genre/topic có trong taxonomy. title, authors, summary không rỗng; sources có ít nhất một bản ghi căn cứ cho metadata và mô tả. |
 | ChapterImport | book_id, chapter_id, order_no:int≥1, title:string, paragraphs:string[]. Danh sách đoạn không rỗng. chapter_id không đổi khi cập nhật cùng chương; ghép đoạn chuẩn hóa bằng hai ký tự LF để tạo text. |
-| SourceImport | source_id?:string, thiếu thì pipeline lấy/cấp qua registry; content_type:metadata/summary/cover/fulltext; source_url:string; source_note:string; rights_status:approved/pending/rejected; rights_note:string; reviewed_at:string\|null; reviewed_by:string\|null. approved bắt buộc hai trường duyệt. reviewed_by chỉ ở kho nội bộ. |
+| SourceImport | source_id?:string, thiếu thì pipeline lấy/cấp qua registry; content_type:metadata/summary/cover/fulltext; source_url:string; source_note:string; rights_status:approved/pending/rejected; rights_note:string; reviewed_at:string\|null; reviewed_by:string\|null. rights_status ghi nhận phê duyệt theo phạm vi ghi trong rights_note. Với metadata/summary tự biên soạn được duyệt theo lô ở mục 3.2, hai trường người và thời điểm duyệt có thể để null. Phê duyệt quyền sử dụng nội dung bên thứ ba yêu cầu cả hai trường. reviewed_by chỉ ở kho nội bộ. |
 | Taxonomy | schema_version, genres:[{code,label}], topics:[{code,label}]. code duy nhất trong từng loại; code theo [a-z][a-z0-9_]\*. Giá trị nhãn thực do nhóm duyệt; tài liệu không tự sinh danh mục nhãn. |
 | IdRegistry | Danh sách ID đã cấp và quan hệ book_id → work_id; lịch sử ID ngừng dùng. Không tái sử dụng ID đã cấp cho thực thể khác; không lấy tên sách làm khóa. |
 | ImportReport | batch_id, received, valid, quarantined, errors:[{record_type, record_id nullable, line_no, field, code, message}]. Tổng valid + quarantined bằng received đối với từng loại bản ghi. |
@@ -202,6 +202,14 @@ book_id, work_id, chapter_id và paragraph_id nhận diện thực thể ổn đ
 Pipeline duy trì registry cho paragraph_id: khóa tra là chapter_id + hash text chuẩn hóa + số lần xuất hiện của đoạn giống nhau trong chương; khóa đã có dùng lại ID, khóa mới cấp P_UUID và ghi registry trước build. Source ID dùng R_UUID, tra lại theo book_id + content_type + source_url. Không phát UUID mới ở mỗi lần build cho thực thể đã có. Import và registry phải được lưu cùng dữ liệu để tái tạo snapshot.
 
 Nhóm chịu trách nhiệm xác nhận tác phẩm trùng và tác giả chuẩn; pipeline không tự gộp chỉ vì tên giống nhau. Một lỗi khóa ngoại của chương làm cách ly toàn bộ phần toàn văn liên quan; metadata hợp lệ vẫn có thể được nhận với has_fulltext=false. Bản phát hành nghiệm thu phải còn 200–300 sách hợp lệ và ít nhất 20 work_id khác nhau có một book_id đọc được và RAG sẵn sàng. Bản phát triển thiếu phạm vi được ghi rõ, không gắn nhãn đạt nghiệm thu.
+
+### 3.2 Duyệt dữ liệu cho demo và C11 nội bộ
+
+Nhóm đã rà soát và duyệt theo lô 20 bộ dữ kiện thư mục do nhóm tuyển chọn độc lập và 20 tóm tắt tiếng Việt do nhóm tự biên soạn. Với các nguồn này, `rights_status=approved` ghi nhận chấp thuận dùng trong demo/nội bộ. `rights_note` ghi rõ phạm vi. URL dùng để đối chiếu thông tin. Phê duyệt này không xác nhận giấy phép hay quyền phát hành nội dung bên thứ ba. Demo loại trừ toàn văn, bản dịch và ảnh bìa.
+
+C11 nạp lô bằng `load_c11_books(...)` với taxonomy chuẩn `data/taxonomy.json`. Hàm dùng importer ở chế độ `metadata_only=True` và yêu cầu lô hợp lệ, mỗi sách có cả nguồn metadata và summary ở trạng thái `approved`, `fulltext_approved=false` và `cover_url=null`.
+
+C11 chỉ đưa năm dòng biểu diễn sách ở mục 10.4 vào E5 cục bộ. Lưu vector, mapping và chỉ mục thử nghiệm trong kho nội bộ ngoài cây snapshot phục vụ. Phạm vi duyệt loại trừ chương, vector đoạn, Reader, RAG và phát hành công khai.
 
 ## 4 Luồng tương tác tổng thể
 
@@ -438,13 +446,13 @@ SQLite bật foreign_keys=ON khi tạo và kiểm tra. Trong các bảng dưới
 | books<br>PK(S, book_id) | work_id TEXT FK works; title TEXT; title_sort_key BLOB; summary TEXT; language TEXT CHECK="vi"; has_fulltext INTEGER; cover_url TEXT nullable. title và summary sau chuẩn hóa có ít nhất một ký tự. |
 | book_authors<br>PK(S, book_id, order_no) | author_name TEXT; order_no INTEGER; FK books. Không trùng author_name đã chuẩn hóa trong cùng sách; giữ thứ tự hiển thị do nhóm duyệt. |
 | taxonomy<br>PK(S, kind, code) | kind TEXT ∈ genre/topic; code TEXT; label TEXT. book_labels(S,book_id,kind,code) có PK toàn bộ cột và FK tới books, taxonomy. |
-| sources<br>PK(S, source_id) | book_id FK books; content_type ∈ metadata/summary/cover/fulltext; source_url TEXT; source_note TEXT; rights_status ∈ approved/pending/rejected; rights_note TEXT; reviewed_at TEXT nullable theo RFC3339 UTC; reviewed_by TEXT nullable nội bộ. approved phải có reviewed_by và reviewed_at. |
+| sources<br>PK(S, source_id) | book_id FK books; content_type ∈ metadata/summary/cover/fulltext; source_url TEXT; source_note TEXT; rights_status ∈ approved/pending/rejected; rights_note TEXT; reviewed_at TEXT nullable theo RFC3339 UTC; reviewed_by TEXT nullable nội bộ. Phê duyệt quyền nội dung bên thứ ba phải có reviewed_by và reviewed_at. Lô demo nội bộ áp dụng mục 3.2. |
 | chapters<br>PK(S, chapter_id) | book_id FK books; order_no INTEGER; title TEXT; text TEXT; text_hash TEXT SHA-256. UNIQUE(S,book_id,order_no). Chương phải có ít nhất một đoạn hợp lệ. |
 | paragraphs<br>PK(S, paragraph_id) | chapter_id FK chapters; order_no INTEGER; text TEXT; char_start INTEGER; char_end INTEGER. UNIQUE(S,chapter_id,order_no); 0≤start&lt;end≤độ dài chương; text đúng lát cắt [start,end). |
 | chunks<br>PK(S, chunk_id) | book_id, chapter_id FK cùng quan hệ; paragraph_start/end INTEGER là order_no đoạn, hai đầu bao gồm; char_start/end INTEGER là offset chương [start,end); text TEXT; token_count INTEGER; content_hash TEXT. Lát cắt nguồn phải bằng text. |
 | vector_mapping<br>PK(S,index_name,row_id) | object_id TEXT; content_hash TEXT. UNIQUE(S,index_name,object_id); row_id liên tiếp từ 0; index_name="books" hoặc "chunks:" + book_id. Validator kiểm tra FK theo loại chỉ mục, row count và đúng quan hệ sách. |
 
-Chỉ nguồn approved mới được trả qua API công khai. has_fulltext=true khi toàn văn được duyệt và toàn bộ chương/đoạn đọc được; rag_available là thuộc tính dẫn xuất từ khả năng nạp chỉ mục đoạn và dịch vụ RAG, không suy ra chỉ từ has_fulltext. Nếu quyền cover chưa được duyệt, cover_url=null. Nếu summary chưa được phép dùng, sách không được phát hành trong catalog phục vụ AI.
+API công khai chỉ trả nguồn approved có căn cứ sử dụng công khai và đủ thông tin duyệt. has_fulltext=true khi toàn văn được duyệt và toàn bộ chương/đoạn đọc được; rag_available là thuộc tính dẫn xuất từ khả năng nạp chỉ mục đoạn và dịch vụ RAG, không suy ra chỉ từ has_fulltext. Nếu quyền cover chưa được duyệt, cover_url=null. Phát hành công khai catalog AI yêu cầu căn cứ sử dụng công khai cho metadata và summary. Quyền tái sử dụng nội dung bên thứ ba dùng khi phát hành phải được duyệt riêng theo nguồn và phạm vi. Lô chỉ có phê duyệt nội dung theo mục 3.2 bị chặn khỏi catalog và chỉ mục công khai.
 
 URL nguồn/ảnh chỉ nhận https hoặc http tuyệt đối đã được duyệt; cấm javascript, data, file và URL có userinfo. API public không tải URL do client gửi. Link ngoài dùng rel=noopener noreferrer; ảnh lỗi đổi placeholder, không tự tìm ảnh khác. URL là dữ liệu nguồn, không phải căn cứ đủ để xác nhận quyền sử dụng.
 
@@ -817,7 +825,7 @@ ErrorResponse = {code, message, field?, module?, request_id}. message bằng ti�
 
 ### 14.2 Phát hành và phục hồi snapshot
 
-staged → validated → active → retired. Chỉ bộ validated được kích hoạt. Lỗi ở staged / validated không đổi active. Chuyển active dưới khóa trong một tiến trình, request giữ tham chiếu bộ cũ đến khi hoàn tất. Khi khởi động lại, chỉ nạp manifest active đã ghi thành công; lỗi nạp làm phân hệ liên quan not_ready, không dùng bộ trộn phiên bản.
+staged → validated → active → retired. Chỉ bộ validated đủ điều kiện phát hành công khai theo mục 9 được kích hoạt hoặc chọn để rollback. Vector và chỉ mục nội bộ theo mục 3.2 nằm ngoài cây snapshots phục vụ và không được đăng ký vào snapshots_registry hoặc trỏ từ active. Lỗi ở staged / validated không đổi active. Chuyển active dưới khóa trong một tiến trình, request giữ tham chiếu bộ cũ đến khi hoàn tất. Khi khởi động lại, chỉ nạp manifest active đã ghi thành công; lỗi nạp làm phân hệ liên quan not_ready, không dùng bộ trộn phiên bản.
 
 Giữ snapshot cũ phục vụ dẫn chứng; rollback chọn lại một snapshot đã kiểm tra và nạp thử. Xóa vật lý snapshot phải qua thao tác vận hành riêng; nếu nguồn đã gỡ, API trả 404 khi mở trích dẫn thay vì chuyển sang văn bản khác.
 

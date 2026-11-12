@@ -86,45 +86,44 @@ def validate_and_load_batch(
     catalog_file = bpath / "catalog.jsonl"
     if not catalog_file.is_file():
         raise FileNotFoundError(f"Không tìm thấy catalog: {catalog_file}")
-    if catalog_file.exists():
-        with open(catalog_file, "r", encoding="utf-8") as f:
-            for line_no, line in enumerate(f, start=1):
-                line = line.strip()
-                if not line:
-                    continue
-                report.received["books"] += 1
-                try:
-                    obj = json.loads(line)
-                    book = BookImport(**obj)
-                    if not book.book_id.strip() or not book.work_id.strip():
-                        raise ValueError("book_id và work_id không được để trống")
-                    if book.book_id in valid_books:
-                        raise ValueError(f"book_id trùng: {book.book_id}")
+    with catalog_file.open(encoding="utf-8") as f:
+        for line_no, line in enumerate(f, start=1):
+            line = line.strip()
+            if not line:
+                continue
+            report.received["books"] += 1
+            try:
+                obj = json.loads(line)
+                book = BookImport(**obj)
+                if not book.book_id.strip() or not book.work_id.strip():
+                    raise ValueError("book_id và work_id không được để trống")
+                if book.book_id in valid_books:
+                    raise ValueError(f"book_id trùng: {book.book_id}")
 
-                    # Kiểm tra tính hợp lệ nghiệp vụ
-                    if not book.title.strip() or not book.authors or any(not a.strip() for a in book.authors) or not book.summary.strip():
-                        raise ValueError("title, authors hoặc summary không được để trống")
-                    if not book.sources:
-                        raise ValueError("sources phải có ít nhất một bản ghi căn cứ")
-                    
-                    # Kiểm tra taxonomy
-                    for g in book.genres:
-                        if g not in valid_genre_codes:
-                            raise ValueError(f"Mã thể loại '{g}' không có trong taxonomy")
-                    for t in book.topics:
-                        if t not in valid_topic_codes:
-                            raise ValueError(f"Mã chủ đề '{t}' không có trong taxonomy")
+                # Kiểm tra tính hợp lệ nghiệp vụ
+                if not book.title.strip() or not book.authors or any(not a.strip() for a in book.authors) or not book.summary.strip():
+                    raise ValueError("title, authors hoặc summary không được để trống")
+                if not book.sources:
+                    raise ValueError("sources phải có ít nhất một bản ghi căn cứ")
 
-                    valid_books[book.book_id] = book
-                    report.valid["books"] += 1
-                except Exception as e:
-                    report.quarantined["books"] += 1
-                    report.errors.append({
-                        "record_type": "book",
-                        "line_no": line_no,
-                        "code": "validation_error",
-                        "message": str(e),
-                    })
+                # Kiểm tra taxonomy
+                for g in book.genres:
+                    if g not in valid_genre_codes:
+                        raise ValueError(f"Mã thể loại '{g}' không có trong taxonomy")
+                for t in book.topics:
+                    if t not in valid_topic_codes:
+                        raise ValueError(f"Mã chủ đề '{t}' không có trong taxonomy")
+
+                valid_books[book.book_id] = book
+                report.valid["books"] += 1
+            except Exception as e:
+                report.quarantined["books"] += 1
+                report.errors.append({
+                    "record_type": "book",
+                    "line_no": line_no,
+                    "code": "validation_error",
+                    "message": str(e),
+                })
 
     # 3. Đọc và kiểm tra chapters.jsonl
     chapters_file = bpath / "chapters.jsonl"
@@ -159,5 +158,28 @@ def validate_and_load_batch(
         "books": valid_books,
         "chapters": valid_chapters,
         "taxonomy": {"genres": valid_genre_codes, "topics": valid_topic_codes},
+        "taxonomy_labels": {"genre": tax_data["genres"], "topic": tax_data["topics"]},
     }
 
+
+def load_c11_books(
+    batch_dir: Path | str,
+    *,
+    taxonomy_path: Path | str | None = None,
+) -> Dict[str, BookImport]:
+    """Nạp metadata và tóm tắt đã duyệt cho embedding nội bộ."""
+    report, data = validate_and_load_batch(
+        batch_dir, taxonomy_path=taxonomy_path, metadata_only=True,
+    )
+    books = data["books"]
+    if not books or report.errors:
+        raise ValueError("C11 yêu cầu toàn bộ catalog hợp lệ")
+
+    for book in books.values():
+        if book.fulltext_approved or book.cover_url is not None or {
+            (source.content_type, source.rights_status) for source in book.sources
+        } != {("metadata", "approved"), ("summary", "approved")}:
+            raise ValueError(
+                f"C11 chỉ nhận metadata và summary đã duyệt cho demo nội bộ: {book.book_id}"
+            )
+    return books

@@ -29,16 +29,31 @@ def main():
 @click.option("--batch", required=True, type=click.Path(exists=True), help="Đường dẫn thư mục đợt nhập dữ liệu thô")
 @click.option("--taxonomy", type=click.Path(exists=True, dir_okay=False), default=None, help="Taxonomy chung; mặc định data/taxonomy.json hoặc TAXONOMY_PATH")
 @click.option("--metadata-only", is_flag=True, help="Chỉ kiểm tra metadata, không đọc chapters.jsonl")
-def import_batch(batch: str, taxonomy: str | None, metadata_only: bool):
-    """Nhập đợt dữ liệu thô và kiểm tra schema theo Mục 3.1."""
-    try:
-        from ai_library.importer import validate_and_load_batch
+@click.option("--sqlite", type=click.Path(dir_okay=False), help="Tệp SQLite catalog nội bộ")
+@click.option("--snapshot", help="ID snapshot mới để ghi vào SQLite")
+def import_batch(batch: str, taxonomy: str | None, metadata_only: bool, sqlite: str | None, snapshot: str | None):
+    """Kiểm tra đợt nhập và tùy chọn ghi catalog nội bộ vào SQLite."""
+    if sqlite and (not metadata_only or not snapshot):
+        raise click.UsageError("--sqlite yêu cầu --metadata-only và --snapshot")
+    if snapshot is not None and sqlite is None:
+        raise click.UsageError("--snapshot yêu cầu --sqlite")
 
-        report, _ = validate_and_load_batch(batch, taxonomy_path=taxonomy, metadata_only=metadata_only)
+    try:
+        if sqlite:
+            from ai_library.catalog_sqlite import import_catalog_to_sqlite
+
+            report = import_catalog_to_sqlite(batch, sqlite, snapshot_id=snapshot, taxonomy_path=taxonomy)
+        else:
+            from ai_library.importer import validate_and_load_batch
+
+            report, _ = validate_and_load_batch(batch, taxonomy_path=taxonomy, metadata_only=metadata_only)
         failed = any(report.quarantined.values()) or report.received["books"] == 0
+        message = "Đã kiểm tra dữ liệu; chưa xây dựng hoặc phát hành snapshot"
+        if sqlite:
+            message = "Đợt nhập không hợp lệ" if failed else "Đã ghi catalog nội bộ vào SQLite"
         print_json_summary(
             "error" if failed else "ok",
-            "Đã kiểm tra dữ liệu; chưa xây dựng hoặc phát hành snapshot",
+            message,
             report.model_dump(),
         )
         sys.exit(1 if failed else 0)
