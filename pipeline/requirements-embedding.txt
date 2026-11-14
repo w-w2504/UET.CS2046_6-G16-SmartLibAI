@@ -1,0 +1,7 @@
+# Phụ thuộc trực tiếp cho encoder C11 trên CPU.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.10.0+cpu
+transformers==4.57.6
+numpy>=1.26.0
+click>=8.1.7
+pydantic>=2.9.0
