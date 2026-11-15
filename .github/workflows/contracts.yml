@@ -95,6 +95,7 @@ jobs:
           echo "MODEL_CACHE=$MODEL_CACHE" >> "$GITHUB_ENV"
           mkdir -p "$MODEL_CACHE"
           docker run --rm -i --user "$(id -u):$(id -g)" \
+            -e HF_HOME=/tmp/c08-huggingface \
             --mount "type=bind,source=$MODEL_CACHE,target=/cache" "$IMAGE" python - <<'PY'
           from pathlib import Path
           from huggingface_hub import HfApi, snapshot_download
