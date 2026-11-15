@@ -1,0 +1,7 @@
+{
+  "code": "payload_too_large",
+  "message": "Nội dung yêu cầu vượt quá 64 KiB",
+  "module": null,
+  "field": null,
+  "request_id": "00000000-0000-4000-8000-000000000019"
+}

@@ -1,0 +1,7 @@
+{
+  "code": "resource_not_found",
+  "message": "Không tìm thấy phiên bản dữ liệu",
+  "module": "catalog",
+  "field": null,
+  "request_id": "00000000-0000-4000-8000-00000000001c"
+}

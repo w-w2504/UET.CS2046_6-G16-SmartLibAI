@@ -1,0 +1,7 @@
+{
+  "code": "unsupported_media_type",
+  "message": "Yêu cầu phải sử dụng định dạng application/json",
+  "module": null,
+  "field": null,
+  "request_id": "00000000-0000-4000-8000-00000000001a"
+}

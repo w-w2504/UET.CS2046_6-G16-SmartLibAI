@@ -1,0 +1,25 @@
+{
+  "book_id": "B_reader_fixture",
+  "items": [
+    {
+      "chapter_id": "H_reader_1",
+      "book_id": "B_reader_fixture",
+      "title": "Chương mẫu 1 — Bắt đầu",
+      "order_no": 1
+    },
+    {
+      "chapter_id": "H_reader_2",
+      "book_id": "B_reader_fixture",
+      "title": "Chương mẫu 2 — Khám phá",
+      "order_no": 2
+    },
+    {
+      "chapter_id": "H_reader_3",
+      "book_id": "B_reader_fixture",
+      "title": "Chương mẫu 3 — Ghi chép",
+      "order_no": 3
+    }
+  ],
+  "request_id": "00000000-0000-4000-8000-00000000000d",
+  "snapshot_id": "reader-fixture-v1"
+}

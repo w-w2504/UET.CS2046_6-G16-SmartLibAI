@@ -1,0 +1,302 @@
+{
+  "items": [
+    {
+      "book_id": "SLB_B0001",
+      "work_id": "SLB_W0001",
+      "title": "Cha con nghĩa nặng",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0002",
+      "work_id": "SLB_W0002",
+      "title": "Giông tố",
+      "authors": [
+        "Vũ Trọng Phụng"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Giông tố là tiểu thuyết hiện thực phê phán của Vũ Trọng Phụng, xoay quanh những biến cố liên quan đến Thị Mịch và tên địa chủ giàu có Nghị Hách. Qua số phận các nhân vật thuộc nhiều tầng lớp, tác phẩm phơi bày sự bất công, sức mạnh của đồng tiền và những thủ đoạn của giới có quyền thế trong xã hội Việt Nam trước Cách mạng tháng Tám.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0003",
+      "work_id": "SLB_W0003",
+      "title": "Số đỏ",
+      "authors": [
+        "Vũ Trọng Phụng"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Số đỏ là tiểu thuyết trào phúng của Vũ Trọng Phụng, kể về Xuân Tóc Đỏ, một kẻ lang thang bất ngờ bước vào giới thượng lưu Hà Nội những năm 1930. Nhờ những tình huống trớ trêu và sự giả tạo của xã hội đương thời, Xuân dần trở thành nhân vật được tung hô. Qua hành trình ấy, tác phẩm châm biếm thói chạy theo Âu hóa, sự khoe mẽ và những nghịch lý đạo đức của tầng lớp thị dân.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0004",
+      "work_id": "SLB_W0004",
+      "title": "Tắt đèn",
+      "authors": [
+        "Ngô Tất Tố"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Tắt đèn là tiểu thuyết hiện thực của Ngô Tất Tố, kể về chị Dậu, một người phụ nữ nông dân phải xoay xở để cứu chồng và bảo vệ gia đình giữa cảnh sưu thuế hà khắc ở nông thôn Việt Nam trước Cách mạng tháng Tám. Những cuộc đối đầu với cai lệ và cường hào làm nổi bật tình thương gia đình, sức phản kháng của người nông dân và sự bất công trong xã hội đương thời.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0005",
+      "work_id": "SLB_W0005",
+      "title": "Sống mòn",
+      "authors": [
+        "Nam Cao"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Sống mòn là tiểu thuyết của Nam Cao, kể về giáo Thứ, một trí thức nghèo làm nghề dạy học tại một trường tư trước Cách mạng tháng Tám. Giữa những lo toan cơm áo, cuộc sống tù túng và các mâu thuẫn nội tâm, những hoài bão của Thứ dần bị bào mòn. Tác phẩm khắc họa bi kịch tinh thần của tầng lớp trí thức nghèo và những trăn trở về nhân phẩm, lý tưởng, ý nghĩa cuộc sống.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0006",
+      "work_id": "SLB_W0006",
+      "title": "Đôi lứa xứng đôi (tập truyện ngắn)",
+      "authors": [
+        "Nam Cao"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "truyen_ngan"
+      ],
+      "summary": "Đôi lứa xứng đôi là tập truyện ngắn của Nam Cao xuất bản năm 1941, gồm bảy truyện phản ánh đời sống người nông dân và những con người nghèo khổ trong xã hội Việt Nam trước Cách mạng tháng Tám. Nổi bật là truyện Đôi lứa xứng đôi, sau được đổi tên thành Chí Phèo, khắc họa bi kịch bị tha hóa và khát vọng được làm người. Tập sách thể hiện giá trị hiện thực và tinh thần nhân đạo trong sáng tác của Nam Cao.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0007",
+      "work_id": "SLB_W0007",
+      "title": "Hoàng tử bé",
+      "authors": [
+        "Antoine de Saint-Exupéry"
+      ],
+      "genres": [
+        "van_hoc_nuoc_ngoai"
+      ],
+      "summary": "Hoàng tử bé là câu chuyện của Antoine de Saint-Exupéry về một cậu bé sống trên tiểu hành tinh nhỏ, rời xa bông hồng mình chăm sóc để khám phá những thế giới khác. Trong hành trình ấy, cậu gặp nhiều người lớn kỳ lạ, kết bạn với một con cáo và gặp người phi công giữa sa mạc. Qua những cuộc gặp gỡ, tác phẩm gợi suy ngẫm về tình bạn, tình yêu, trách nhiệm và cách con người nhìn nhận những điều quan trọng trong cuộc sống.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0008",
+      "work_id": "SLB_W0008",
+      "title": "Những người khốn khổ",
+      "authors": [
+        "Victor Hugo"
+      ],
+      "genres": [
+        "van_hoc_nuoc_ngoai",
+        "tieu_thuyet"
+      ],
+      "summary": "Những người khốn khổ là tiểu thuyết của Victor Hugo, kể về Jean Valjean, một người tù khổ sai tìm cách làm lại cuộc đời sau khi được trả tự do. Trong hành trình bảo vệ và nuôi dưỡng cô bé Cosette, ông liên tục bị thanh tra Javert truy đuổi. Qua số phận của Jean Valjean, Fantine, Cosette và nhiều nhân vật khác, tác phẩm phản ánh bất công trong xã hội Pháp thế kỷ XIX, đồng thời đề cao lòng nhân ái, sự tha thứ và khát vọng hướng thiện.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0009",
+      "work_id": "SLB_W0009",
+      "title": "Kiêu hãnh và định kiến",
+      "authors": [
+        "Jane Austen"
+      ],
+      "genres": [
+        "van_hoc_nuoc_ngoai",
+        "tieu_thuyet"
+      ],
+      "summary": "Kiêu hãnh và định kiến là tiểu thuyết của Jane Austen, kể về Elizabeth Bennet, một cô gái thông minh và độc lập sống trong xã hội Anh đầu thế kỷ XIX. Giữa áp lực hôn nhân và những khác biệt về địa vị, Elizabeth có nhiều hiểu lầm với quý ông giàu có Fitzwilliam Darcy. Qua sự thay đổi trong cách nhìn nhận của hai nhân vật, tác phẩm khám phá tình yêu, định kiến giai cấp, lòng tự trọng và quyền lựa chọn hạnh phúc của phụ nữ.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0010",
+      "work_id": "SLB_W0010",
+      "title": "Thế giới của Sophie",
+      "authors": [
+        "Jostein Gaarder"
+      ],
+      "genres": [
+        "van_hoc_nuoc_ngoai",
+        "triet_hoc",
+        "tieu_thuyet"
+      ],
+      "summary": "Thế giới của Sophie là tiểu thuyết triết học của Jostein Gaarder, kể về Sophie Amundsen, một thiếu nữ Na Uy bất ngờ nhận được những lá thư đặt câu hỏi về bản thân và nguồn gốc thế giới. Dưới sự hướng dẫn bí ẩn của Alberto Knox, Sophie khám phá lịch sử triết học phương Tây, từ các triết gia Hy Lạp cổ đại đến những tư tưởng hiện đại. Xen giữa các bài học là bí ẩn về cô gái Hilde, khiến Sophie phải suy ngẫm về thực tại, sự tồn tại và ý nghĩa cuộc sống.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0011",
+      "work_id": "SLB_W0011",
+      "title": "Life 3.0: Loài người trong kỷ nguyên trí tuệ nhân tạo",
+      "authors": [
+        "Max Tegmark"
+      ],
+      "genres": [
+        "khoa_hoc_ky_thuat"
+      ],
+      "summary": "Life 3.0: Loài người trong kỷ nguyên trí tuệ nhân tạo là cuốn sách của Max Tegmark khám phá tương lai của con người khi AI ngày càng phát triển. Tác giả phân biệt các giai đoạn tiến hóa của sự sống và hình dung viễn cảnh máy móc có thể vượt qua trí tuệ con người. Cuốn sách phân tích tác động của AI đến việc làm, xã hội, an ninh và đạo đức, đồng thời đặt ra những câu hỏi về an toàn AI, khả năng kiểm soát trí tuệ siêu việt và cách định hướng công nghệ phục vụ lợi ích nhân loại.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0012",
+      "work_id": "SLB_W0012",
+      "title": "Lược sử thời gian",
+      "authors": [
+        "Stephen Hawking"
+      ],
+      "genres": [
+        "khoa_hoc_ky_thuat"
+      ],
+      "summary": "Lược sử thời gian là cuốn sách khoa học phổ thông của Stephen Hawking, khám phá những câu hỏi lớn về nguồn gốc, cấu trúc và số phận của vũ trụ. Bằng cách giải thích các khái niệm vật lý hiện đại theo hướng dễ tiếp cận, tác giả dẫn dắt người đọc qua thuyết Big Bang, sự giãn nở của vũ trụ, không gian và thời gian, lỗ đen, mũi tên thời gian và hành trình tìm kiếm một lý thuyết thống nhất các quy luật vật lý.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0013",
+      "work_id": "SLB_W0013",
+      "title": "Lược sử vạn vật",
+      "authors": [
+        "Bill Bryson"
+      ],
+      "genres": [
+        "khoa_hoc_ky_thuat"
+      ],
+      "summary": "Lược sử vạn vật là cuốn sách khoa học phổ thông của Bill Bryson, đưa người đọc khám phá lịch sử tự nhiên từ sự hình thành vũ trụ, Trái Đất đến nguồn gốc và tiến hóa của sự sống. Thông qua những câu chuyện về các nhà khoa học và các phát hiện quan trọng, tác giả giải thích nhiều vấn đề thuộc thiên văn học, địa chất, vật lý, hóa học và sinh học bằng lối kể gần gũi, hài hước, đồng thời cho thấy con người đã khám phá thế giới tự nhiên như thế nào.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0014",
+      "work_id": "SLB_W0014",
+      "title": "Việt Nam sử lược",
+      "authors": [
+        "Trần Trọng Kim"
+      ],
+      "genres": [
+        "lich_su"
+      ],
+      "summary": "Việt Nam sử lược là công trình lịch sử của Trần Trọng Kim, xuất bản lần đầu năm 1920 và được biên soạn bằng chữ quốc ngữ. Tác phẩm hệ thống các giai đoạn lịch sử Việt Nam từ thời dựng nước, Bắc thuộc, thời kỳ tự chủ, các triều đại phong kiến đến đầu thế kỷ XX. Với cách trình bày theo tiến trình lịch sử, sách giới thiệu những biến cố chính trị, chiến tranh và sự thay đổi của xã hội, đồng thời phản ánh phương pháp và quan điểm sử học của tác giả trong bối cảnh đương thời.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0015",
+      "work_id": "SLB_W0015",
+      "title": "Đại Việt sử ký toàn thư",
+      "authors": [
+        "Ngô Sĩ Liên",
+        "Các sử thần đời Lê"
+      ],
+      "genres": [
+        "lich_su"
+      ],
+      "summary": "Đại Việt sử ký toàn thư là bộ chính sử quan trọng của Việt Nam, được Ngô Sĩ Liên biên soạn vào thế kỷ XV và tiếp tục được các sử thần đời Lê chỉnh lý, bổ sung. Viết theo thể biên niên, tác phẩm ghi chép lịch sử từ thời Hồng Bàng đến thời Lê trung hưng, bao gồm sự hình thành các triều đại, những cuộc chiến tranh, biến cố chính trị và tổ chức xã hội. Bộ sử là nguồn tư liệu có giá trị cho việc nghiên cứu lịch sử Việt Nam, đồng thời phản ánh quan điểm sử học của các thời kỳ biên soạn.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0016",
+      "work_id": "SLB_W0016",
+      "title": "Hoàng Lê nhất thống chí",
+      "authors": [
+        "Ngô gia văn phái"
+      ],
+      "genres": [
+        "lich_su",
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Hoàng Lê nhất thống chí là tác phẩm tiểu thuyết lịch sử chương hồi của Ngô gia văn phái, tái hiện những biến động chính trị và xã hội Việt Nam cuối thế kỷ XVIII, đầu thế kỷ XIX. Tác phẩm khắc họa sự suy tàn của chính quyền Lê–Trịnh, sự trỗi dậy của phong trào Tây Sơn, chiến thắng quân Thanh của vua Quang Trung và số phận vua Lê Chiêu Thống. Qua các sự kiện và nhân vật lịch sử, tác phẩm phản ánh một giai đoạn chuyển giao quyền lực đầy biến động.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0017",
+      "work_id": "SLB_W0017",
+      "title": "Đắc nhân tâm",
+      "authors": [
+        "Dale Carnegie"
+      ],
+      "genres": [
+        "tam_ly_ky_nang"
+      ],
+      "summary": "Đắc nhân tâm là cuốn sách về nghệ thuật giao tiếp và ứng xử của Dale Carnegie, giới thiệu những nguyên tắc giúp xây dựng quan hệ tích cực trong công việc và cuộc sống. Thông qua các câu chuyện và tình huống thực tế, tác giả nhấn mạnh việc chân thành quan tâm đến người khác, biết lắng nghe, thể hiện sự trân trọng và thấu hiểu quan điểm đối phương. Cuốn sách cũng đề cập cách tạo thiện cảm, thuyết phục và gây ảnh hưởng tích cực mà không áp đặt người khác.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0018",
+      "work_id": "SLB_W0018",
+      "title": "Tư duy nhanh và chậm",
+      "authors": [
+        "Daniel Kahneman"
+      ],
+      "genres": [
+        "tam_ly_ky_nang"
+      ],
+      "summary": "Tư duy nhanh và chậm là cuốn sách tâm lý học của Daniel Kahneman, khám phá cách con người suy nghĩ, phán đoán và đưa ra quyết định. Tác giả giới thiệu hai hệ thống tư duy: Hệ thống 1 hoạt động nhanh, tự động và trực giác, trong khi Hệ thống 2 chậm hơn, đòi hỏi sự tập trung và suy xét. Thông qua các nghiên cứu và thí nghiệm, sách phân tích những thiên kiến nhận thức như hiệu ứng mỏ neo, sự tự tin thái quá và tâm lý sợ mất mát, giúp người đọc hiểu rõ hơn những sai lệch có thể xảy ra trong quá trình ra quyết định.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0019",
+      "work_id": "SLB_W0019",
+      "title": "Đạo Đức kinh",
+      "authors": [
+        "Lão Tử"
+      ],
+      "genres": [
+        "triet_hoc"
+      ],
+      "summary": "Đạo Đức kinh là tác phẩm triết học cổ điển Trung Hoa, theo truyền thống được gắn với Lão Tử và là nền tảng quan trọng của tư tưởng Đạo gia. Qua những chương ngắn, tác phẩm bàn về Đạo, Đức, nguyên lý vô vi và lối sống thuận theo tự nhiên. Các tư tưởng trong sách đề cao sự giản dị, khiêm nhường, tiết chế ham muốn và tránh cưỡng ép trong hành động, đồng thời gợi suy ngẫm về cách con người ứng xử, tổ chức xã hội và thực hành quyền lực.",
+      "has_fulltext": false,
+      "cover_url": null
+    },
+    {
+      "book_id": "SLB_B0020",
+      "work_id": "SLB_W0020",
+      "title": "Bàn về tự do",
+      "authors": [
+        "John Stuart Mill"
+      ],
+      "genres": [
+        "triet_hoc"
+      ],
+      "summary": "Bàn về tự do là tác phẩm triết học chính trị của John Stuart Mill, xuất bản năm 1859, bàn về quyền tự do cá nhân và giới hạn quyền lực của nhà nước, xã hội đối với mỗi người. Tác giả trình bày nguyên tắc gây hại, cho rằng việc can thiệp cưỡng chế vào tự do cá nhân chỉ có thể được biện minh nhằm ngăn ngừa tổn hại cho người khác. Tác phẩm bảo vệ tự do tư tưởng, tự do ngôn luận, quyền phát triển cá tính và cảnh báo nguy cơ áp đặt quan điểm của số đông lên cá nhân.",
+      "has_fulltext": false,
+      "cover_url": null
+    }
+  ],
+  "total": 20,
+  "offset": 0,
+  "limit": 20,
+  "request_id": "00000000-0000-4000-8000-000000000001",
+  "snapshot_id": "p3-contract-fixture"
+}

@@ -1,0 +1,7 @@
+{
+  "code": "method_not_allowed",
+  "message": "Phương thức HTTP không được hỗ trợ",
+  "module": null,
+  "field": null,
+  "request_id": "00000000-0000-4000-8000-00000000001d"
+}

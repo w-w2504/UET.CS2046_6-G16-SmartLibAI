@@ -2,12 +2,15 @@ from fastapi import APIRouter, Request, HTTPException
 from src.schemas.search import SearchRequest, SearchResponse
 from src.services.snapshot import snapshot_service
 
+from src.routes.contract import errors, query_boundary, require_valid_boundary
+
 router = APIRouter(tags=["Semantic Search"])
 
 
-@router.post("/search", response_model=SearchResponse)
+@router.post("/search", response_model=SearchResponse, responses=errors(400, 404, 415, 503, 504), dependencies=query_boundary())
 async def semantic_search(payload: SearchRequest, request: Request) -> SearchResponse:
     """Tìm kiếm ngữ nghĩa sách (Mục 10 & Mục 12.4)."""
+    require_valid_boundary(request)
     req_id = getattr(request.state, "request_id", "unknown")
     sid = payload.snapshot_id or snapshot_service.active_snapshot_id
     
