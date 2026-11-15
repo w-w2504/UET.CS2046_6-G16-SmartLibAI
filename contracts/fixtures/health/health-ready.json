@@ -1,0 +1,8 @@
+{
+  "catalog_ready": true,
+  "search_ready": true,
+  "recommend_ready": true,
+  "rag_ready": true,
+  "request_id": "00000000-0000-4000-8000-000000000015",
+  "snapshot_id": "reader-fixture-v1"
+}

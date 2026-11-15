@@ -1,9 +1,15 @@
-import type { ChapterDetailResponse, ChaptersResponse } from '../types/api';
+import type { BookSummary, ChapterDetailResponse, ChaptersResponse, SearchResponse } from '../types/api';
 import type { DemoCatalog } from './demoTypes';
+import qaCases from '../fixtures/generated/qa.json';
 
 export const isDemo = import.meta.env.DEV && import.meta.env.VITE_DEMO_MODE === 'true';
 export const scenarioKey = 'smartlib_demo_scenario';
 export function getScenario() { try { return sessionStorage.getItem(scenarioKey) || 'normal'; } catch { return 'normal'; } }
+
+function summary(book: BookSummary): BookSummary {
+  const { book_id, work_id, title, authors, genres, summary, has_fulltext, cover_url } = book;
+  return { book_id, work_id, title, authors, genres, summary, has_fulltext, cover_url };
+}
 
 function integer(value: unknown, fallback: number, min: number, max: number) {
   if (value == null) return fallback;
@@ -14,25 +20,44 @@ function integer(value: unknown, fallback: number, min: number, max: number) {
 
 // Mô phỏng hợp đồng API để thử UI, không phải thuật toán AI.
 export function demoResponse(catalog: DemoCatalog, endpoint: string, options: RequestInit = {}, scenario = 'normal'): unknown {
-  const common = { snapshot_id: 'demo-c02', request_id: 'demo-request' };
+  const common = { snapshot_id: 'demo-c02', request_id: crypto.randomUUID() };
   if (endpoint === '/health') return { ...common, catalog_ready: true, search_ready: true, recommend_ready: true, rag_ready: false };
   if (scenario === 'error') throw new Error('Lỗi giả lập để kiểm tra giao diện. Chọn trạng thái Bình thường rồi thử lại.');
   const url = new URL(endpoint, 'http://demo.local');
   const body = typeof options.body === 'string' ? JSON.parse(options.body) : {};
   let items = catalog.books;
+  const filters = body.filters ?? {
+    authors: url.searchParams.getAll('authors'),
+    genres: url.searchParams.getAll('genres'),
+    has_fulltext: url.searchParams.has('has_fulltext') ? url.searchParams.get('has_fulltext') === 'true' : null,
+  };
+  const matchesFilters = (book: BookSummary) =>
+    (!filters.authors?.length || book.authors.some(author => filters.authors.includes(author))) &&
+    (!filters.genres?.length || book.genres.some(genre => filters.genres.includes(genre))) &&
+    (filters.has_fulltext == null || book.has_fulltext === filters.has_fulltext);
   if (url.pathname === '/books' || url.pathname === '/search') {
-    const q = String(body.q || '').toLocaleLowerCase('vi');
-    const fulltext = body.filters?.has_fulltext ?? (url.searchParams.has('has_fulltext') ? url.searchParams.get('has_fulltext') === 'true' : null);
-    items = items.filter(b => (!q || [b.title, ...b.authors, b.summary].join(' ').toLocaleLowerCase('vi').includes(q)) && (fulltext === null || b.has_fulltext === fulltext));
+    const q = String(body.q || '').normalize('NFC').trim().toLocaleLowerCase('vi');
+    items = items.filter(b => matchesFilters(b) &&
+      (!q || [b.title, ...b.authors, b.summary].join(' ').toLocaleLowerCase('vi').includes(q)));
     if (scenario === 'empty') items = [];
     const total = items.length;
     const offset = url.pathname === '/search' ? 0 : integer(url.searchParams.get('offset'), 0, 0, Number.MAX_SAFE_INTEGER);
     const limit = url.pathname === '/search' ? integer(body.k, 10, 1, 20) : integer(url.searchParams.get('limit'), 20, 1, 20);
-    return { ...common, status: total ? 'ok' : 'no_candidates', message: null, items: items.slice(offset, offset + limit), total, offset, limit };
+    const summaries = items.slice(offset, offset + limit).map(summary);
+    if (url.pathname === '/search') {
+      const status = !summaries.length ? 'no_candidates' : scenario === 'weak_match' ? 'weak_match' : 'ok';
+      const message = status === 'no_candidates' ? 'Không có sách thỏa bộ lọc'
+        : status === 'weak_match' ? 'Kết quả có thể chưa sát nhu cầu' : null;
+      return {
+        ...common, status, message, items: summaries.map((item, index) => ({ ...item, rank: index + 1 })),
+      } satisfies SearchResponse;
+    }
+    return { ...common, items: summaries, total, offset, limit };
   }
-  if (url.pathname === '/recommend') {
-    const seeds: string[] = body.seed_book_ids ?? [];
-    const excludes: string[] = body.exclude_book_ids ?? [];
+  const similar = url.pathname.match(/^\/books\/([^/]+)\/similar$/);
+  if (url.pathname === '/recommend' || similar) {
+    const seeds: string[] = similar ? [decodeURIComponent(similar[1])] : body.seed_book_ids ?? [];
+    const excludes: string[] = similar ? [] : body.exclude_book_ids ?? [];
     if (!Array.isArray(seeds) || seeds.length < 1 || seeds.length > 3 || !Array.isArray(excludes)) throw new Error('Hãy chọn từ 1 đến 3 tác phẩm.');
     const selected = seeds.map(id => {
       const book = items.find(b => b.book_id === id);
@@ -49,12 +74,22 @@ export function demoResponse(catalog: DemoCatalog, endpoint: string, options: Re
     const hidden = new Set(items.filter(b => excludes.includes(b.book_id)).map(b => b.work_id));
     const seen = new Set<string>();
     items = items.filter(book => {
-      if (works.has(book.work_id) || hidden.has(book.work_id) || seen.has(book.work_id)) return false;
+      if (!matchesFilters(book) || works.has(book.work_id) || hidden.has(book.work_id) || seen.has(book.work_id)) return false;
       seen.add(book.work_id); return true;
     });
-    const k = integer(body.k, 5, 1, 10);
+    const k = integer(similar ? url.searchParams.get('k') : body.k, 5, 1, 10);
     if (scenario === 'empty') items = [];
-    return { ...common, status: items.length ? 'ok' : 'no_candidates', message: 'Danh sách minh họa từ dữ liệu C02, chưa xếp hạng bằng AI.', items: items.slice(0, k).map((book, i) => ({ ...book, rank: i + 1, reason_codes: ['content_similarity'], reason_text: 'Kết quả minh họa để kiểm tra giao diện; chưa tính độ tương đồng.', evidence_fields: [] })) };
+    return { ...common, status: items.length ? 'ok' : 'no_candidates',
+      message: items.length ? null : 'Không còn sách phù hợp',
+      items: items.slice(0, k).map((book, i) => ({
+        ...summary(book), rank: i + 1, reason_codes: ['content_similarity'],
+        reason_text: 'Kết quả minh họa để kiểm tra giao diện; chưa tính độ tương đồng.',
+        evidence_fields: [
+          { book_id: book.book_id, field: 'summary', value: null, seed_book_id: null },
+          ...selected.map(seed => ({ book_id: seed.book_id, field: 'summary', value: null, seed_book_id: seed.book_id })),
+        ],
+      })),
+    };
   }
   const match = url.pathname.match(/^\/books\/([^/]+)(\/chapters)?$/);
   if (match) {
@@ -71,7 +106,14 @@ export function demoResponse(catalog: DemoCatalog, endpoint: string, options: Re
   }
   const chapter = catalog.chapters.find(c => url.pathname === '/chapters/' + c.chapter_id);
   if (chapter) return { ...common, chapter, highlight: null } satisfies ChapterDetailResponse;
-  if (url.pathname === '/qa') return { ...common, status: 'insufficient_evidence', answer: '', message: 'Chế độ demo chưa kết nối hỏi đáp AI.', citations: [] };
+  if (url.pathname === '/qa') {
+    const fixture = qaCases.answered;
+    if (body.book_id === fixture.citations[0].book_id && body.snapshot_id === fixture.snapshot_id &&
+        (scenario === 'answered' || scenario === 'insufficient_evidence' || scenario === 'out_of_scope')) {
+      return { ...structuredClone(qaCases[scenario]), request_id: common.request_id };
+    }
+    return { ...common, status: 'insufficient_evidence', answer: '', message: 'Chế độ demo chưa kết nối hỏi đáp AI.', citations: [] };
+  }
   throw new Error('Không tìm thấy nội dung trong dữ liệu demo.');
 }
 

@@ -1,0 +1,8 @@
+{
+  "catalog_ready": false,
+  "search_ready": false,
+  "recommend_ready": false,
+  "rag_ready": false,
+  "request_id": "00000000-0000-4000-8000-000000000017",
+  "snapshot_id": null
+}

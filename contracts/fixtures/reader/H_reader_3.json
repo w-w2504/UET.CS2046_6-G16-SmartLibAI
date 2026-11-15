@@ -1,0 +1,28 @@
+{
+  "chapter": {
+    "chapter_id": "H_reader_3",
+    "book_id": "B_reader_fixture",
+    "title": "Chương mẫu 3 — Ghi chép",
+    "order_no": 3,
+    "paragraphs": [
+      {
+        "paragraph_id": "P_reader_3_1",
+        "order_no": 1,
+        "text": "Trước khi rời thư viện, An ghi lại câu hỏi cho buổi đọc tiếp theo.",
+        "char_start": 0,
+        "char_end": 66
+      },
+      {
+        "paragraph_id": "P_reader_3_2",
+        "order_no": 2,
+        "text": "Bộ chương này chỉ dùng để kiểm thử giao diện phát triển, không đại diện cho toàn văn sách đã được duyệt.",
+        "char_start": 68,
+        "char_end": 172
+      }
+    ],
+    "text": "Trước khi rời thư viện, An ghi lại câu hỏi cho buổi đọc tiếp theo.\n\nBộ chương này chỉ dùng để kiểm thử giao diện phát triển, không đại diện cho toàn văn sách đã được duyệt."
+  },
+  "highlight": null,
+  "request_id": "00000000-0000-4000-8000-000000000010",
+  "snapshot_id": "reader-fixture-v1"
+}

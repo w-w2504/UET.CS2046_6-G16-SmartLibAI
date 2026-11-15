@@ -1,0 +1,28 @@
+{
+  "chapter": {
+    "chapter_id": "H_reader_2",
+    "book_id": "B_reader_fixture",
+    "title": "Chương mẫu 2 — Khám phá",
+    "order_no": 2,
+    "paragraphs": [
+      {
+        "paragraph_id": "P_reader_2_1",
+        "order_no": 1,
+        "text": "An đi qua những kệ sách và chọn một chỗ ngồi gần cửa sổ.",
+        "char_start": 0,
+        "char_end": 56
+      },
+      {
+        "paragraph_id": "P_reader_2_2",
+        "order_no": 2,
+        "text": "Mỗi chương mẫu có nội dung riêng để kiểm tra việc chuyển chương và tránh hiển thị nhầm văn bản.",
+        "char_start": 58,
+        "char_end": 153
+      }
+    ],
+    "text": "An đi qua những kệ sách và chọn một chỗ ngồi gần cửa sổ.\n\nMỗi chương mẫu có nội dung riêng để kiểm tra việc chuyển chương và tránh hiển thị nhầm văn bản."
+  },
+  "highlight": null,
+  "request_id": "00000000-0000-4000-8000-00000000000f",
+  "snapshot_id": "reader-fixture-v1"
+}

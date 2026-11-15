@@ -1,0 +1,39 @@
+{
+  "answered": {
+    "status": "answered",
+    "answer": "Dấu lá 🌿 nằm giữa dòng chữ. [C1]",
+    "message": null,
+    "citations": [
+      {
+        "chunk_id": "K_de677f9b3e2473178a156cb5df21b5b8929563915f110fc80dcf788fa2269303",
+        "char_start": 83,
+        "char_end": 185,
+        "paragraph_start": 2,
+        "paragraph_end": 2,
+        "label": "C1",
+        "snapshot_id": "reader-fixture-v1",
+        "book_id": "B_reader_fixture",
+        "chapter_id": "H_reader_1",
+        "quote": "Dấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử."
+      }
+    ],
+    "request_id": "00000000-0000-4000-8000-000000000012",
+    "snapshot_id": "reader-fixture-v1"
+  },
+  "insufficient_evidence": {
+    "status": "insufficient_evidence",
+    "answer": "",
+    "message": "Chưa tìm được đoạn đủ căn cứ để trả lời",
+    "citations": [],
+    "request_id": "00000000-0000-4000-8000-000000000013",
+    "snapshot_id": "reader-fixture-v1"
+  },
+  "out_of_scope": {
+    "status": "out_of_scope",
+    "answer": "",
+    "message": "Câu hỏi nằm ngoài phạm vi sách đang đọc",
+    "citations": [],
+    "request_id": "00000000-0000-4000-8000-000000000014",
+    "snapshot_id": "reader-fixture-v1"
+  }
+}

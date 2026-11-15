@@ -2,12 +2,15 @@ from fastapi import APIRouter, Request, HTTPException
 from src.schemas.qa import QARequest, QAResponse
 from src.services.snapshot import snapshot_service
 
+from src.routes.contract import errors, query_boundary, require_valid_boundary
+
 router = APIRouter(tags=["Evidence-grounded RAG QA"])
 
 
-@router.post("/qa", response_model=QAResponse)
+@router.post("/qa", response_model=QAResponse, responses=errors(400, 404, 409, 415, 429, 503, 504), dependencies=query_boundary())
 async def ask_question(payload: QARequest, request: Request) -> QAResponse:
     """Hỏi đáp có dẫn chứng trong đúng 1 ấn bản (Mục 11 & Mục 12.4)."""
+    require_valid_boundary(request)
     req_id = getattr(request.state, "request_id", "unknown")
     sid = payload.snapshot_id or snapshot_service.active_snapshot_id
     
