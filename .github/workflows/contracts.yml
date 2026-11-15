@@ -18,6 +18,7 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: pip install -r api/requirements-contract.txt
+      - run: pip install "numpy>=1.26.0" ./pipeline
       - run: python -m pytest api/tests
       - run: python api/scripts/build_contract_fixtures.py
       - run: python api/scripts/export_openapi.py --check
@@ -26,3 +27,113 @@ jobs:
       - run: git diff --exit-code -- contracts/ web/src/fixtures/generated/
       - run: npm run build --prefix web
       - run: node web/scripts/check-demo.mjs
+
+  c08-docker:
+    if: github.ref_name == 'feature/p1-c03-c08-support' || github.head_ref == 'feature/p1-c03-c08-support'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      IMAGE: smartlib-api:c08
+      MODEL_CACHE: ${{ runner.temp }}/c08-model-hub
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Compose and build the API image
+        run: |
+          cp .env.example .env
+          docker compose config --quiet
+          docker compose --profile tools config --quiet
+          docker compose config --format json | python -c '
+          import json, sys
+          from pathlib import Path
+          api = json.load(sys.stdin)["services"]["api"]
+          assert Path(api["build"]["context"]).resolve() == Path.cwd()
+          assert api["build"]["dockerfile"] == "api/Dockerfile"
+          assert api["environment"]["MODEL_ROOT"] == "/models"
+          assert any(v["target"] == "/models" and v.get("read_only") for v in api["volumes"])
+          '
+          docker build --file api/Dockerfile --tag "$IMAGE" .
+
+      - name: Check installed dependencies and offline import without model cache
+        run: |
+          docker run --rm --network none --read-only "$IMAGE" python -m pip check
+          encoder_hash=$(sha256sum pipeline/ai_library/e5_encoder.py | cut -d ' ' -f 1)
+          docker run --rm -i --network none --read-only \
+            -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e MODEL_ROOT=/models \
+            -e "C11_ENCODER_HASH=$encoder_hash" "$IMAGE" python - <<'PY'
+          import hashlib
+          from importlib.metadata import version
+          import os
+          from pathlib import Path
+          import sys
+
+          from ai_library import e5_encoder
+          from src.main import app
+          from src.services.query_encoder import QueryEncoderProvider
+
+          source = Path(e5_encoder.__file__)
+          assert "site-packages" in source.parts, source
+          assert hashlib.sha256(source.read_bytes()).hexdigest() == os.environ["C11_ENCODER_HASH"]
+          assert "torch" not in sys.modules and "transformers" not in sys.modules
+          assert "/api/v1/search" in app.openapi()["paths"]
+          assert not Path("/models/hub").exists()
+          for line in Path("/app/requirements-embedding.txt").read_text().splitlines():
+              if line.startswith(("torch==", "transformers==")):
+                  name, expected = line.split("==")
+                  installed = version(name)
+                  assert installed == expected, (name, installed, expected)
+                  print(f"{name}=={installed}")
+          try:
+              QueryEncoderProvider(Path("/models")).get(e5_encoder.embedding_config())
+          except e5_encoder.ModelUnavailableError:
+              print("Missing cache correctly rejected")
+          else:
+              raise AssertionError("Encoder must reject a missing cache")
+          PY
+
+      - name: Prepare the pinned C11 model cache
+        run: |
+          mkdir -p "$MODEL_CACHE"
+          docker run --rm -i --user "$(id -u):$(id -g)" \
+            --mount "type=bind,source=$MODEL_CACHE,target=/cache" "$IMAGE" python - <<'PY'
+          from pathlib import Path
+          from huggingface_hub import HfApi, snapshot_download
+          from ai_library.e5_encoder import MODEL_ID, REVISION
+
+          files = set(HfApi().list_repo_files(MODEL_ID, revision=REVISION))
+          weights = "model.safetensors" if "model.safetensors" in files else "pytorch_model.bin"
+          assert weights in files, "Pinned revision does not expose supported weights"
+          snapshot = Path(snapshot_download(
+              MODEL_ID, revision=REVISION, cache_dir="/cache",
+              allow_patterns=["*.json", "*.model", weights],
+          ))
+          assert snapshot.name == REVISION and (snapshot / weights).is_file()
+          print(f"Prepared {MODEL_ID}@{REVISION} using {weights}")
+          PY
+
+      - name: Encode a real query offline in a read-only container
+        run: |
+          docker run --rm -i --network none --read-only \
+            --mount "type=bind,source=$MODEL_CACHE,target=/models/hub,readonly" \
+            -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e MODEL_ROOT=/models \
+            "$IMAGE" python - <<'PY'
+          import os
+          from pathlib import Path
+          import numpy as np
+          from ai_library.e5_encoder import E5Encoder, embedding_config
+          from src.config import settings
+          from src.services.query_encoder import QueryEncoderProvider, encode_query
+
+          cache = settings.model_path / "hub"
+          assert cache == Path("/models/hub")
+          assert os.statvfs(cache).f_flag & os.ST_RDONLY
+          cfg = embedding_config()
+          assert cfg["prefixes"]["query"] == "query: "
+          provider = QueryEncoderProvider(settings.model_path)
+          encoder = provider.get(cfg)
+          assert isinstance(encoder, E5Encoder) and provider.get(cfg) is encoder
+          vector = encode_query(encoder, "sách về lịch sử Việt Nam")
+          norm = float(np.linalg.norm(vector.astype(np.float64)))
+          assert vector.shape == (384,) and vector.dtype == np.float32
+          assert np.isfinite(vector).all() and abs(norm - 1) <= 1e-5, norm
+          print(f"Offline E5 query: shape={vector.shape}, dtype={vector.dtype}, norm={norm:.8f}")
+          PY
