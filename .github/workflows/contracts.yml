@@ -57,6 +57,7 @@ jobs:
           docker run --rm --network none --read-only "$IMAGE" python -m pip check
           encoder_hash=$(sha256sum pipeline/ai_library/e5_encoder.py | cut -d ' ' -f 1)
           docker run --rm -i --network none --read-only \
+            --tmpfs /tmp:rw,nosuid,nodev \
             -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e MODEL_ROOT=/models \
             -e "C11_ENCODER_HASH=$encoder_hash" "$IMAGE" python - <<'PY'
           import hashlib
@@ -83,7 +84,12 @@ jobs:
                   print(f"{name}=={installed}")
           try:
               QueryEncoderProvider(Path("/models")).get(e5_encoder.embedding_config())
-          except e5_encoder.ModelUnavailableError:
+          except e5_encoder.ModelUnavailableError as exc:
+              from huggingface_hub.errors import LocalEntryNotFoundError
+              cause = exc
+              while cause is not None and not isinstance(cause, LocalEntryNotFoundError):
+                  cause = cause.__cause__ or cause.__context__
+              assert cause is not None, "Expected a Hub cache miss"
               print("Missing cache correctly rejected")
           else:
               raise AssertionError("Encoder must reject a missing cache")
@@ -115,6 +121,7 @@ jobs:
       - name: Encode a real query offline in a read-only container
         run: |
           docker run --rm -i --network none --read-only \
+            --tmpfs /tmp:rw,nosuid,nodev \
             --mount "type=bind,source=$MODEL_CACHE,target=/models/hub,readonly" \
             -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 -e MODEL_ROOT=/models \
             "$IMAGE" python - <<'PY'
