@@ -34,7 +34,6 @@ jobs:
     timeout-minutes: 35
     env:
       IMAGE: smartlib-api:c08
-      MODEL_CACHE: ${{ runner.temp }}/c08-model-hub
     steps:
       - uses: actions/checkout@v4
       - name: Validate Compose and build the API image
@@ -92,6 +91,8 @@ jobs:
 
       - name: Prepare the pinned C11 model cache
         run: |
+          MODEL_CACHE="$RUNNER_TEMP/c08-model-hub"
+          echo "MODEL_CACHE=$MODEL_CACHE" >> "$GITHUB_ENV"
           mkdir -p "$MODEL_CACHE"
           docker run --rm -i --user "$(id -u):$(id -g)" \
             --mount "type=bind,source=$MODEL_CACHE,target=/cache" "$IMAGE" python - <<'PY'
