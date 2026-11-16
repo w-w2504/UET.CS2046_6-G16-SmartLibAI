@@ -1,0 +1,5 @@
+# C05 verification dependencies observed on Windows x86_64 / Python 3.14.
+# This is a focused FAISS test environment, not the full application lockfile.
+faiss-cpu==1.15.1
+numpy==2.5.4
+pytest==9.2.0

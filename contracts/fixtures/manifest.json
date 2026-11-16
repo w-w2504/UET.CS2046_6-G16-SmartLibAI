@@ -1,0 +1,690 @@
+[
+  {
+    "scenario_id": "books",
+    "method": "GET",
+    "path": "/api/v1/books",
+    "request": null,
+    "query": {},
+    "status": 200,
+    "response": "catalog/books.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000001",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "books-empty",
+    "method": "GET",
+    "path": "/api/v1/books",
+    "request": null,
+    "query": {
+      "has_fulltext": true
+    },
+    "status": 200,
+    "response": "catalog/books-empty.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000002",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "books-past-end",
+    "method": "GET",
+    "path": "/api/v1/books",
+    "request": null,
+    "query": {
+      "offset": 20
+    },
+    "status": 200,
+    "response": "catalog/books-past-end.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000003",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "detail",
+    "method": "GET",
+    "path": "/api/v1/books/{id}",
+    "request": null,
+    "query": {
+      "id": "SLB_B0001"
+    },
+    "status": 200,
+    "response": "catalog/detail.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000004",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "facets",
+    "method": "GET",
+    "path": "/api/v1/facets",
+    "request": null,
+    "query": {},
+    "status": 200,
+    "response": "catalog/facets.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000005",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl",
+      "data/taxonomy.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "search-ok",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": {
+      "q": "Tìm một tác phẩm văn học"
+    },
+    "query": {},
+    "status": 200,
+    "response": "search/search-ok.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000006",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "search-weak_match",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": {
+      "q": "Tìm một tác phẩm văn học"
+    },
+    "query": {},
+    "status": 200,
+    "response": "search/search-weak_match.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000007",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "search-no_candidates",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": {
+      "q": "Tìm một tác phẩm văn học",
+      "filters": {
+        "has_fulltext": true
+      }
+    },
+    "query": {},
+    "status": 200,
+    "response": "search/search-no_candidates.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000008",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "recommend-ok",
+    "method": "POST",
+    "path": "/api/v1/recommend",
+    "request": {
+      "seed_book_ids": [
+        "SLB_B0002"
+      ]
+    },
+    "query": {},
+    "status": 200,
+    "response": "recommend/recommend-ok.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000009",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "similar-ok",
+    "method": "GET",
+    "path": "/api/v1/books/{id}/similar",
+    "request": null,
+    "query": {
+      "id": "SLB_B0002"
+    },
+    "status": 200,
+    "response": "recommend/similar-ok.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000000a",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "recommend-no_candidates",
+    "method": "POST",
+    "path": "/api/v1/recommend",
+    "request": {
+      "seed_book_ids": [
+        "SLB_B0002"
+      ],
+      "filters": {
+        "has_fulltext": true
+      }
+    },
+    "query": {},
+    "status": 200,
+    "response": "recommend/recommend-no_candidates.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000000b",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "similar-no_candidates",
+    "method": "GET",
+    "path": "/api/v1/books/{id}/similar",
+    "request": null,
+    "query": {
+      "id": "SLB_B0002",
+      "has_fulltext": true
+    },
+    "status": 200,
+    "response": "recommend/similar-no_candidates.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000000c",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "data/raw/sample_batch/catalog.jsonl"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "chapters",
+    "method": "GET",
+    "path": "/api/v1/books/{id}/chapters",
+    "request": null,
+    "query": {
+      "id": "B_reader_fixture",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "status": 200,
+    "response": "reader/chapters.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000000d",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "H_reader_1",
+    "method": "GET",
+    "path": "/api/v1/chapters/{id}",
+    "request": null,
+    "query": {
+      "id": "H_reader_1",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "status": 200,
+    "response": "reader/H_reader_1.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000000e",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "H_reader_2",
+    "method": "GET",
+    "path": "/api/v1/chapters/{id}",
+    "request": null,
+    "query": {
+      "id": "H_reader_2",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "status": 200,
+    "response": "reader/H_reader_2.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000000f",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "H_reader_3",
+    "method": "GET",
+    "path": "/api/v1/chapters/{id}",
+    "request": null,
+    "query": {
+      "id": "H_reader_3",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "status": 200,
+    "response": "reader/H_reader_3.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000010",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "chapter-highlight",
+    "method": "GET",
+    "path": "/api/v1/chapters/{id}",
+    "request": null,
+    "query": {
+      "id": "H_reader_1",
+      "snapshot_id": "reader-fixture-v1",
+      "chunk_id": "K_de677f9b3e2473178a156cb5df21b5b8929563915f110fc80dcf788fa2269303"
+    },
+    "status": 200,
+    "response": "reader/chapter-highlight.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000011",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "qa-answered",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "Ký hiệu nào nằm giữa dòng?",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 200,
+    "response": "qa/qa-answered.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000012",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "qa-insufficient_evidence",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "An bao nhiêu tuổi?",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 200,
+    "response": "qa/qa-insufficient_evidence.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000013",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "qa-out_of_scope",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "So sánh hai tác phẩm khác.",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 200,
+    "response": "qa/qa-out_of_scope.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000014",
+      "Cache-Control": "no-store"
+    },
+    "sources": [
+      "web/src/fixtures/reader-source.json"
+    ],
+    "mock": true
+  },
+  {
+    "scenario_id": "health-ready",
+    "method": "GET",
+    "path": "/api/v1/health",
+    "request": null,
+    "query": {},
+    "status": 200,
+    "response": "health/health-ready.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000015",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "health-degraded",
+    "method": "GET",
+    "path": "/api/v1/health",
+    "request": null,
+    "query": {},
+    "status": 200,
+    "response": "health/health-degraded.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000016",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "health-no-active",
+    "method": "GET",
+    "path": "/api/v1/health",
+    "request": null,
+    "query": {},
+    "status": 200,
+    "response": "health/health-no-active.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000017",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "invalid_json",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": "{",
+    "query": {},
+    "status": 400,
+    "response": "errors/invalid_json.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000018",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "payload_too_large",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": {
+      "repeat_bytes": 65537
+    },
+    "query": {},
+    "status": 413,
+    "response": "errors/payload_too_large.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000019",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "unsupported_media_type",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": "văn bản",
+    "query": {},
+    "status": 415,
+    "response": "errors/unsupported_media_type.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000001a",
+      "Cache-Control": "no-store",
+      "Content-Type": "application/json"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "invalid_input",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": {
+      "q": "sách",
+      "k": true
+    },
+    "query": {},
+    "status": 422,
+    "response": "errors/invalid_input.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000001b",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "resource_not_found",
+    "method": "GET",
+    "path": "/api/v1/books",
+    "request": null,
+    "query": {
+      "snapshot_id": "missing"
+    },
+    "status": 404,
+    "response": "errors/resource_not_found.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000001c",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "method_not_allowed",
+    "method": "GET",
+    "path": "/api/v1/search",
+    "request": null,
+    "query": {},
+    "status": 405,
+    "response": "errors/method_not_allowed.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000001d",
+      "Cache-Control": "no-store",
+      "Allow": "POST"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "fulltext_unavailable",
+    "method": "GET",
+    "path": "/api/v1/books/{id}/chapters",
+    "request": null,
+    "query": {
+      "id": "SLB_B0001"
+    },
+    "status": 409,
+    "response": "errors/fulltext_unavailable.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000001e",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "qa-fulltext-unavailable",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "SLB_B0001",
+      "question": "An làm gì?"
+    },
+    "query": {},
+    "status": 409,
+    "response": "errors/qa-fulltext-unavailable.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-00000000001f",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "rate_limited",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "An làm gì?",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 429,
+    "response": "errors/rate_limited.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000020",
+      "Cache-Control": "no-store",
+      "Retry-After": "30"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "internal_error",
+    "method": "GET",
+    "path": "/api/v1/facets",
+    "request": null,
+    "query": {},
+    "status": 500,
+    "response": "errors/internal_error.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000021",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "service_unavailable",
+    "method": "POST",
+    "path": "/api/v1/search",
+    "request": {
+      "q": "sách"
+    },
+    "query": {},
+    "status": 503,
+    "response": "errors/service_unavailable.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000022",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "qa-quota",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "An làm gì?",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 503,
+    "response": "errors/qa-quota.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000023",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "invalid_generation",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "An làm gì?",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 503,
+    "response": "errors/invalid_generation.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000024",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  },
+  {
+    "scenario_id": "request_timeout",
+    "method": "POST",
+    "path": "/api/v1/qa",
+    "request": {
+      "book_id": "B_reader_fixture",
+      "question": "An làm gì?",
+      "snapshot_id": "reader-fixture-v1"
+    },
+    "query": {},
+    "status": 504,
+    "response": "errors/request_timeout.json",
+    "headers": {
+      "X-Request-ID": "00000000-0000-4000-8000-000000000025",
+      "Cache-Control": "no-store"
+    },
+    "sources": [],
+    "mock": true
+  }
+]

@@ -6,8 +6,10 @@ from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from src.config import settings
+from src.middleware.contract import ContractMiddleware, error_response
 from src.middleware.request_id import RequestIDMiddleware
 from src.routes import health, books, search, recommend, reader, qa
+from src.schemas.common import Filters
 
 # Thiết lập logging chuẩn
 logging.basicConfig(
@@ -42,29 +44,50 @@ app.add_middleware(
 )
 
 # 2. Gắn Middleware X-Request-ID
+app.add_middleware(ContractMiddleware)
 app.add_middleware(RequestIDMiddleware)
 
 
 # 3. Chuẩn hóa Exception Handlers theo đặc tả Mục 12.3 & 14.1
+# Thứ tự trường body tại §12.4. Không dùng thứ tự kế thừa của model.
+BODY_FIELD_ORDER = {
+    "/api/v1/search": ("q", "k", "filters", "snapshot_id"),
+    "/api/v1/recommend": ("seed_book_ids", "exclude_book_ids", "k", "filters", "snapshot_id"),
+    "/api/v1/qa": ("book_id", "question", "snapshot_id"),
+}
+FILTER_FIELD_ORDER = tuple(Filters.model_fields)
+
+
+def validation_order(location, body_fields, query_fields):
+    source, *fields = location or ("",)
+    order = {"body": body_fields, "query": query_fields}.get(source, ())
+    key = []
+    for field in fields:
+        if isinstance(field, int):
+            key.append((field, ""))
+        elif field in order:
+            key.append((order.index(field), ""))
+        else:
+            key.append((len(order), field))
+        order = FILTER_FIELD_ORDER if source == "body" and field == "filters" else ()
+    # POST operations define body fields and no query fields in the contract.
+    sources = ("path", "body", "query") if body_fields else ("path", "query", "body")
+    return (sources.index(source) if source in sources else len(sources), key)
+
+
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     """Bắt lỗi 422 cú pháp/kiểu đầu vào và format theo ErrorResponse."""
     req_id = getattr(request.state, "request_id", "unknown")
-    errors = exc.errors()
-    first_error = errors[0] if errors else {}
-    field_loc = ".".join(str(loc) for loc in first_error.get("loc", []) if loc != "body")
-    
-    return JSONResponse(
-        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-        content={
-            "code": "invalid_input",
-            "message": f"Dữ liệu đầu vào không hợp lệ: {first_error.get('msg', 'Giá trị không đúng')}",
-            "field": field_loc or None,
-            "module": None,
-            "request_id": req_id,
-        },
-        headers={"X-Request-ID": req_id}
-    )
+    errors = [*exc.errors(), *getattr(request.state, "boundary_errors", ())]
+    if any(error["type"] == "json_invalid" for error in errors):
+        return error_response(req_id, 400, "invalid_json", "Nội dung JSON không hợp lệ")
+    body_fields = BODY_FIELD_ORDER.get(request.url.path.rstrip("/"), ())
+    query_fields = getattr(request.state, "query_fields", ())
+    first = min(errors, key=lambda error: validation_order(error.get("loc", ()), body_fields, query_fields))
+    loc = first.get("loc", ())
+    field = ".".join(map(str, loc[1:] if loc and loc[0] in {"body", "query", "path"} else loc))
+    return error_response(req_id, 422, "invalid_input", "Dữ liệu đầu vào không hợp lệ", field or None)
 
 
 @app.exception_handler(StarletteHTTPException)
@@ -97,7 +120,7 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
             message = "Đã vượt quá giới hạn tần suất yêu cầu"
         else:
             code = f"http_{exc.status_code}"
-            message = str(exc.detail)
+            message = "Đã xảy ra lỗi khi xử lý yêu cầu"
 
     return JSONResponse(
         status_code=exc.status_code,
@@ -108,7 +131,7 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
             "module": module,
             "request_id": req_id,
         },
-        headers={"X-Request-ID": req_id}
+        headers={**(exc.headers or {}), "X-Request-ID": req_id, "Cache-Control": "no-store"}
     )
 
 
@@ -127,7 +150,7 @@ async def general_exception_handler(request: Request, exc: Exception):
             "module": None,
             "request_id": req_id,
         },
-        headers={"X-Request-ID": req_id}
+        headers={"X-Request-ID": req_id, "Cache-Control": "no-store"}
     )
 
 

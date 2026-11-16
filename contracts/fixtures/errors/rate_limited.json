@@ -1,0 +1,7 @@
+{
+  "code": "rate_limited",
+  "message": "Đã vượt quá giới hạn tần suất yêu cầu",
+  "module": "rag",
+  "field": null,
+  "request_id": "00000000-0000-4000-8000-000000000020"
+}

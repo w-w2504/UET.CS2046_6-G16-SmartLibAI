@@ -1,0 +1,3651 @@
+{
+  "components": {
+    "schemas": {
+      "BookDetail": {
+        "additionalProperties": false,
+        "description": "Chi tiết đầy đủ của một sách.",
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "cover_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cover Url"
+          },
+          "genres": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Genres",
+            "type": "array"
+          },
+          "has_fulltext": {
+            "title": "Has Fulltext",
+            "type": "boolean"
+          },
+          "language": {
+            "const": "vi",
+            "title": "Language",
+            "type": "string"
+          },
+          "rag_available": {
+            "title": "Rag Available",
+            "type": "boolean"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/BookSource"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "topics": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Topics",
+            "type": "array"
+          },
+          "work_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Work Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "book_id",
+          "work_id",
+          "title",
+          "authors",
+          "genres",
+          "summary",
+          "has_fulltext",
+          "cover_url",
+          "topics",
+          "language",
+          "sources",
+          "rag_available"
+        ],
+        "title": "BookDetail",
+        "type": "object"
+      },
+      "BookDetailResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "book": {
+            "$ref": "#/components/schemas/BookDetail"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "snapshot_id",
+          "request_id",
+          "book"
+        ],
+        "title": "BookDetailResponse",
+        "type": "object"
+      },
+      "BookSource": {
+        "additionalProperties": false,
+        "description": "Thông tin nguồn và căn cứ bản quyền đã duyệt.",
+        "properties": {
+          "content_type": {
+            "enum": [
+              "metadata",
+              "summary",
+              "cover",
+              "fulltext"
+            ],
+            "title": "Content Type",
+            "type": "string"
+          },
+          "reviewed_at": {
+            "title": "Reviewed At",
+            "type": "string"
+          },
+          "rights_note": {
+            "title": "Rights Note",
+            "type": "string"
+          },
+          "rights_status": {
+            "const": "approved",
+            "title": "Rights Status",
+            "type": "string"
+          },
+          "source_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Source Id",
+            "type": "string"
+          },
+          "source_note": {
+            "title": "Source Note",
+            "type": "string"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "content_type",
+          "source_url",
+          "source_note",
+          "rights_status",
+          "rights_note",
+          "reviewed_at"
+        ],
+        "title": "BookSource",
+        "type": "object"
+      },
+      "BookSummary": {
+        "additionalProperties": false,
+        "description": "Thông tin tóm tắt của một sách trong danh mục/kết quả.",
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "cover_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cover Url"
+          },
+          "genres": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Genres",
+            "type": "array"
+          },
+          "has_fulltext": {
+            "title": "Has Fulltext",
+            "type": "boolean"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "work_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Work Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "book_id",
+          "work_id",
+          "title",
+          "authors",
+          "genres",
+          "summary",
+          "has_fulltext",
+          "cover_url"
+        ],
+        "title": "BookSummary",
+        "type": "object"
+      },
+      "BooksResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BookSummary"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "minimum": 0.0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "total": {
+            "minimum": 0.0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "snapshot_id",
+          "request_id",
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "BooksResponse",
+        "type": "object"
+      },
+      "ChapterDetail": {
+        "additionalProperties": false,
+        "properties": {
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "chapter_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Chapter Id",
+            "type": "string"
+          },
+          "order_no": {
+            "minimum": 1.0,
+            "title": "Order No",
+            "type": "integer"
+          },
+          "paragraphs": {
+            "items": {
+              "$ref": "#/components/schemas/Paragraph"
+            },
+            "title": "Paragraphs",
+            "type": "array"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chapter_id",
+          "book_id",
+          "order_no",
+          "title",
+          "text",
+          "paragraphs"
+        ],
+        "title": "ChapterDetail",
+        "type": "object"
+      },
+      "ChapterDetailResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "chapter": {
+            "$ref": "#/components/schemas/ChapterDetail"
+          },
+          "highlight": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Highlight"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chapter",
+          "highlight",
+          "snapshot_id",
+          "request_id"
+        ],
+        "title": "ChapterDetailResponse",
+        "type": "object"
+      },
+      "ChapterSummary": {
+        "additionalProperties": false,
+        "description": "Mục lục một chương.",
+        "properties": {
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "chapter_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Chapter Id",
+            "type": "string"
+          },
+          "order_no": {
+            "minimum": 1.0,
+            "title": "Order No",
+            "type": "integer"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chapter_id",
+          "book_id",
+          "order_no",
+          "title"
+        ],
+        "title": "ChapterSummary",
+        "type": "object"
+      },
+      "ChaptersResponse": {
+        "additionalProperties": false,
+        "description": "Danh sách các chương của sách.",
+        "properties": {
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ChapterSummary"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "book_id",
+          "items",
+          "snapshot_id",
+          "request_id"
+        ],
+        "title": "ChaptersResponse",
+        "type": "object"
+      },
+      "Citation": {
+        "additionalProperties": false,
+        "description": "Trích dẫn dẫn chứng của câu trả lời RAG.",
+        "properties": {
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "chapter_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Chapter Id",
+            "type": "string"
+          },
+          "char_end": {
+            "title": "Char End",
+            "type": "integer"
+          },
+          "char_start": {
+            "title": "Char Start",
+            "type": "integer"
+          },
+          "chunk_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "label": {
+            "pattern": "^C[1-4]$",
+            "title": "Label",
+            "type": "string"
+          },
+          "paragraph_end": {
+            "title": "Paragraph End",
+            "type": "integer"
+          },
+          "paragraph_start": {
+            "title": "Paragraph Start",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "snapshot_id",
+          "book_id",
+          "chapter_id",
+          "chunk_id",
+          "paragraph_start",
+          "paragraph_end",
+          "char_start",
+          "char_end",
+          "quote"
+        ],
+        "title": "Citation",
+        "type": "object"
+      },
+      "ErrorResponse": {
+        "additionalProperties": false,
+        "description": "Cấu trúc lỗi chuẩn theo đặc tả Mục 12.3 & 14.1.",
+        "properties": {
+          "code": {
+            "description": "Mã lỗi hệ thống (snake_case)",
+            "title": "Code",
+            "type": "string"
+          },
+          "field": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Trường dữ liệu gây lỗi nếu có",
+            "title": "Field"
+          },
+          "message": {
+            "description": "Thông báo lỗi bằng tiếng Việt",
+            "title": "Message",
+            "type": "string"
+          },
+          "module": {
+            "anyOf": [
+              {
+                "enum": [
+                  "catalog",
+                  "search",
+                  "recommend",
+                  "reader",
+                  "rag",
+                  "pipeline"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Phân hệ gây lỗi: catalog, search, recommend, reader, rag, pipeline",
+            "title": "Module"
+          },
+          "request_id": {
+            "description": "UUID v4 truy vết yêu cầu",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "field",
+          "module",
+          "request_id"
+        ],
+        "title": "ErrorResponse",
+        "type": "object"
+      },
+      "EvidenceField": {
+        "additionalProperties": false,
+        "description": "Trường dữ liệu làm căn cứ gợi ý.",
+        "properties": {
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "field": {
+            "enum": [
+              "topics",
+              "genres",
+              "summary"
+            ],
+            "title": "Field",
+            "type": "string"
+          },
+          "seed_book_id": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9_-]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Seed Book Id"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "book_id",
+          "field",
+          "value",
+          "seed_book_id"
+        ],
+        "title": "EvidenceField",
+        "type": "object"
+      },
+      "Facet": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "label"
+        ],
+        "title": "Facet",
+        "type": "object"
+      },
+      "FacetsResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "genres": {
+            "items": {
+              "$ref": "#/components/schemas/Facet"
+            },
+            "title": "Genres",
+            "type": "array"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "topics": {
+            "items": {
+              "$ref": "#/components/schemas/Facet"
+            },
+            "title": "Topics",
+            "type": "array"
+          }
+        },
+        "required": [
+          "snapshot_id",
+          "request_id",
+          "authors",
+          "genres",
+          "topics"
+        ],
+        "title": "FacetsResponse",
+        "type": "object"
+      },
+      "Filters": {
+        "additionalProperties": false,
+        "description": "Bộ lọc danh mục sách.",
+        "properties": {
+          "authors": {
+            "description": "Danh sách tên tác giả chuẩn hóa",
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "genres": {
+            "description": "Danh sách mã thể loại (code)",
+            "items": {
+              "type": "string"
+            },
+            "title": "Genres",
+            "type": "array"
+          },
+          "has_fulltext": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Lọc sách có toàn văn hay không",
+            "title": "Has Fulltext"
+          }
+        },
+        "title": "Filters",
+        "type": "object"
+      },
+      "HealthResponse": {
+        "additionalProperties": false,
+        "description": "Trạng thái sẵn sàng của hệ thống (GET /api/v1/health).",
+        "properties": {
+          "catalog_ready": {
+            "description": "Danh mục sách đã sẵn sàng phục vụ",
+            "title": "Catalog Ready",
+            "type": "boolean"
+          },
+          "rag_ready": {
+            "description": "Hỏi đáp RAG đã sẵn sàng",
+            "title": "Rag Ready",
+            "type": "boolean"
+          },
+          "recommend_ready": {
+            "description": "Gợi ý nội dung đã sẵn sàng",
+            "title": "Recommend Ready",
+            "type": "boolean"
+          },
+          "request_id": {
+            "description": "UUID v4 của yêu cầu",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "search_ready": {
+            "description": "Tìm kiếm vector đã sẵn sàng",
+            "title": "Search Ready",
+            "type": "boolean"
+          },
+          "snapshot_id": {
+            "anyOf": [
+              {
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9_-]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Snapshot đang kích hoạt (active)",
+            "title": "Snapshot Id"
+          }
+        },
+        "required": [
+          "catalog_ready",
+          "search_ready",
+          "recommend_ready",
+          "rag_ready",
+          "snapshot_id",
+          "request_id"
+        ],
+        "title": "HealthResponse",
+        "type": "object"
+      },
+      "Highlight": {
+        "additionalProperties": false,
+        "description": "Vùng đánh dấu đoạn trích dẫn.",
+        "properties": {
+          "char_end": {
+            "title": "Char End",
+            "type": "integer"
+          },
+          "char_start": {
+            "title": "Char Start",
+            "type": "integer"
+          },
+          "chunk_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "paragraph_end": {
+            "title": "Paragraph End",
+            "type": "integer"
+          },
+          "paragraph_start": {
+            "title": "Paragraph Start",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chunk_id",
+          "char_start",
+          "char_end",
+          "paragraph_start",
+          "paragraph_end"
+        ],
+        "title": "Highlight",
+        "type": "object"
+      },
+      "Paragraph": {
+        "additionalProperties": false,
+        "description": "Một đoạn văn trong chương kèm offset Unicode code point.",
+        "properties": {
+          "char_end": {
+            "minimum": 0.0,
+            "title": "Char End",
+            "type": "integer"
+          },
+          "char_start": {
+            "minimum": 0.0,
+            "title": "Char Start",
+            "type": "integer"
+          },
+          "order_no": {
+            "minimum": 1.0,
+            "title": "Order No",
+            "type": "integer"
+          },
+          "paragraph_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Paragraph Id",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "paragraph_id",
+          "order_no",
+          "text",
+          "char_start",
+          "char_end"
+        ],
+        "title": "Paragraph",
+        "type": "object"
+      },
+      "QARequest": {
+        "additionalProperties": false,
+        "description": "Yêu cầu hỏi đáp có dẫn chứng.",
+        "properties": {
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "question": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Question",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "book_id",
+          "question"
+        ],
+        "title": "QARequest",
+        "type": "object"
+      },
+      "QAResponse": {
+        "additionalProperties": false,
+        "description": "Kết quả hỏi đáp RAG.",
+        "properties": {
+          "answer": {
+            "title": "Answer",
+            "type": "string"
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            },
+            "title": "Citations",
+            "type": "array"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "answered",
+              "insufficient_evidence",
+              "out_of_scope"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "answer",
+          "message",
+          "citations",
+          "snapshot_id",
+          "request_id"
+        ],
+        "title": "QAResponse",
+        "type": "object"
+      },
+      "RecommendationItem": {
+        "additionalProperties": false,
+        "description": "Một sách được gợi ý kèm lý do có căn cứ.",
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "cover_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cover Url"
+          },
+          "evidence_fields": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceField"
+            },
+            "minItems": 1,
+            "title": "Evidence Fields",
+            "type": "array"
+          },
+          "genres": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Genres",
+            "type": "array"
+          },
+          "has_fulltext": {
+            "title": "Has Fulltext",
+            "type": "boolean"
+          },
+          "rank": {
+            "minimum": 1.0,
+            "title": "Rank",
+            "type": "integer"
+          },
+          "reason_codes": {
+            "items": {
+              "enum": [
+                "shared_topic",
+                "shared_genre",
+                "content_similarity"
+              ],
+              "type": "string"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "title": "Reason Codes",
+            "type": "array"
+          },
+          "reason_text": {
+            "title": "Reason Text",
+            "type": "string"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "work_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Work Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "book_id",
+          "work_id",
+          "title",
+          "authors",
+          "genres",
+          "summary",
+          "has_fulltext",
+          "cover_url",
+          "rank",
+          "reason_codes",
+          "reason_text",
+          "evidence_fields"
+        ],
+        "title": "RecommendationItem",
+        "type": "object"
+      },
+      "RecommendationRequest": {
+        "additionalProperties": false,
+        "description": "Yêu cầu gợi ý từ 1-3 tác phẩm seed.",
+        "properties": {
+          "exclude_book_ids": {
+            "description": "Tối đa 300 ID duy nhất",
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "title": "Exclude Book Ids",
+            "type": "array"
+          },
+          "filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Filters"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "k": {
+            "default": 5,
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "K",
+            "type": "integer"
+          },
+          "seed_book_ids": {
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Seed Book Ids",
+            "type": "array"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "seed_book_ids"
+        ],
+        "title": "RecommendationRequest",
+        "type": "object"
+      },
+      "RecommendationResponse": {
+        "additionalProperties": false,
+        "description": "Phản hồi gợi ý sách.",
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/RecommendationItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "no_candidates"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "message",
+          "items",
+          "snapshot_id",
+          "request_id"
+        ],
+        "title": "RecommendationResponse",
+        "type": "object"
+      },
+      "SearchItem": {
+        "additionalProperties": false,
+        "description": "Một kết quả tìm kiếm có thứ hạng.",
+        "properties": {
+          "authors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Authors",
+            "type": "array"
+          },
+          "book_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Book Id",
+            "type": "string"
+          },
+          "cover_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cover Url"
+          },
+          "genres": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Genres",
+            "type": "array"
+          },
+          "has_fulltext": {
+            "title": "Has Fulltext",
+            "type": "boolean"
+          },
+          "rank": {
+            "description": "Thứ hạng từ 1",
+            "minimum": 1.0,
+            "title": "Rank",
+            "type": "integer"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "work_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Work Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "book_id",
+          "work_id",
+          "title",
+          "authors",
+          "genres",
+          "summary",
+          "has_fulltext",
+          "cover_url",
+          "rank"
+        ],
+        "title": "SearchItem",
+        "type": "object"
+      },
+      "SearchRequest": {
+        "additionalProperties": false,
+        "description": "Yêu cầu tìm kiếm ngữ nghĩa.",
+        "properties": {
+          "filters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Filters"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Bộ lọc kết hợp"
+          },
+          "k": {
+            "default": 10,
+            "description": "Số lượng kết quả cần lấy",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "K",
+            "type": "integer"
+          },
+          "q": {
+            "description": "Nhu cầu tìm kiếm",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Q",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "q"
+        ],
+        "title": "SearchRequest",
+        "type": "object"
+      },
+      "SearchResponse": {
+        "additionalProperties": false,
+        "description": "Kết quả tìm kiếm ngữ nghĩa.",
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SearchItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "request_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "weak_match",
+              "no_candidates"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "message",
+          "items",
+          "snapshot_id",
+          "request_id"
+        ],
+        "title": "SearchResponse",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Hệ thống API backend cho đồ án môn Trí tuệ nhân tạo (CS2046)",
+    "title": "AI Thư Viện (SmartLib AI) API",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Root"
+      }
+    },
+    "/api/v1/books": {
+      "get": {
+        "description": "Lấy danh sách sách từ danh mục theo phân trang và bộ lọc (Mục 12.4).",
+        "operationId": "list_books_api_v1_books_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 20,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "authors",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Authors",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "genres",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Genres",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "has_fulltext",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Has Fulltext"
+            }
+          },
+          {
+            "in": "query",
+            "name": "snapshot_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Snapshot Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "books": {
+                    "summary": "Mô phỏng nội bộ: books",
+                    "value": {
+                      "items": [
+                        {
+                          "authors": [
+                            "Hồ Biểu Chánh"
+                          ],
+                          "book_id": "SLB_B0001",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+                          "title": "Cha con nghĩa nặng",
+                          "work_id": "SLB_W0001"
+                        },
+                        {
+                          "authors": [
+                            "Vũ Trọng Phụng"
+                          ],
+                          "book_id": "SLB_B0002",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Giông tố là tiểu thuyết hiện thực phê phán của Vũ Trọng Phụng, xoay quanh những biến cố liên quan đến Thị Mịch và tên địa chủ giàu có Nghị Hách. Qua số phận các nhân vật thuộc nhiều tầng lớp, tác phẩm phơi bày sự bất công, sức mạnh của đồng tiền và những thủ đoạn của giới có quyền thế trong xã hội Việt Nam trước Cách mạng tháng Tám.",
+                          "title": "Giông tố",
+                          "work_id": "SLB_W0002"
+                        },
+                        {
+                          "authors": [
+                            "Vũ Trọng Phụng"
+                          ],
+                          "book_id": "SLB_B0003",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Số đỏ là tiểu thuyết trào phúng của Vũ Trọng Phụng, kể về Xuân Tóc Đỏ, một kẻ lang thang bất ngờ bước vào giới thượng lưu Hà Nội những năm 1930. Nhờ những tình huống trớ trêu và sự giả tạo của xã hội đương thời, Xuân dần trở thành nhân vật được tung hô. Qua hành trình ấy, tác phẩm châm biếm thói chạy theo Âu hóa, sự khoe mẽ và những nghịch lý đạo đức của tầng lớp thị dân.",
+                          "title": "Số đỏ",
+                          "work_id": "SLB_W0003"
+                        },
+                        {
+                          "authors": [
+                            "Ngô Tất Tố"
+                          ],
+                          "book_id": "SLB_B0004",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Tắt đèn là tiểu thuyết hiện thực của Ngô Tất Tố, kể về chị Dậu, một người phụ nữ nông dân phải xoay xở để cứu chồng và bảo vệ gia đình giữa cảnh sưu thuế hà khắc ở nông thôn Việt Nam trước Cách mạng tháng Tám. Những cuộc đối đầu với cai lệ và cường hào làm nổi bật tình thương gia đình, sức phản kháng của người nông dân và sự bất công trong xã hội đương thời.",
+                          "title": "Tắt đèn",
+                          "work_id": "SLB_W0004"
+                        },
+                        {
+                          "authors": [
+                            "Nam Cao"
+                          ],
+                          "book_id": "SLB_B0005",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Sống mòn là tiểu thuyết của Nam Cao, kể về giáo Thứ, một trí thức nghèo làm nghề dạy học tại một trường tư trước Cách mạng tháng Tám. Giữa những lo toan cơm áo, cuộc sống tù túng và các mâu thuẫn nội tâm, những hoài bão của Thứ dần bị bào mòn. Tác phẩm khắc họa bi kịch tinh thần của tầng lớp trí thức nghèo và những trăn trở về nhân phẩm, lý tưởng, ý nghĩa cuộc sống.",
+                          "title": "Sống mòn",
+                          "work_id": "SLB_W0005"
+                        },
+                        {
+                          "authors": [
+                            "Nam Cao"
+                          ],
+                          "book_id": "SLB_B0006",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "truyen_ngan"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Đôi lứa xứng đôi là tập truyện ngắn của Nam Cao xuất bản năm 1941, gồm bảy truyện phản ánh đời sống người nông dân và những con người nghèo khổ trong xã hội Việt Nam trước Cách mạng tháng Tám. Nổi bật là truyện Đôi lứa xứng đôi, sau được đổi tên thành Chí Phèo, khắc họa bi kịch bị tha hóa và khát vọng được làm người. Tập sách thể hiện giá trị hiện thực và tinh thần nhân đạo trong sáng tác của Nam Cao.",
+                          "title": "Đôi lứa xứng đôi (tập truyện ngắn)",
+                          "work_id": "SLB_W0006"
+                        },
+                        {
+                          "authors": [
+                            "Antoine de Saint-Exupéry"
+                          ],
+                          "book_id": "SLB_B0007",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_nuoc_ngoai"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Hoàng tử bé là câu chuyện của Antoine de Saint-Exupéry về một cậu bé sống trên tiểu hành tinh nhỏ, rời xa bông hồng mình chăm sóc để khám phá những thế giới khác. Trong hành trình ấy, cậu gặp nhiều người lớn kỳ lạ, kết bạn với một con cáo và gặp người phi công giữa sa mạc. Qua những cuộc gặp gỡ, tác phẩm gợi suy ngẫm về tình bạn, tình yêu, trách nhiệm và cách con người nhìn nhận những điều quan trọng trong cuộc sống.",
+                          "title": "Hoàng tử bé",
+                          "work_id": "SLB_W0007"
+                        },
+                        {
+                          "authors": [
+                            "Victor Hugo"
+                          ],
+                          "book_id": "SLB_B0008",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_nuoc_ngoai",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Những người khốn khổ là tiểu thuyết của Victor Hugo, kể về Jean Valjean, một người tù khổ sai tìm cách làm lại cuộc đời sau khi được trả tự do. Trong hành trình bảo vệ và nuôi dưỡng cô bé Cosette, ông liên tục bị thanh tra Javert truy đuổi. Qua số phận của Jean Valjean, Fantine, Cosette và nhiều nhân vật khác, tác phẩm phản ánh bất công trong xã hội Pháp thế kỷ XIX, đồng thời đề cao lòng nhân ái, sự tha thứ và khát vọng hướng thiện.",
+                          "title": "Những người khốn khổ",
+                          "work_id": "SLB_W0008"
+                        },
+                        {
+                          "authors": [
+                            "Jane Austen"
+                          ],
+                          "book_id": "SLB_B0009",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_nuoc_ngoai",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Kiêu hãnh và định kiến là tiểu thuyết của Jane Austen, kể về Elizabeth Bennet, một cô gái thông minh và độc lập sống trong xã hội Anh đầu thế kỷ XIX. Giữa áp lực hôn nhân và những khác biệt về địa vị, Elizabeth có nhiều hiểu lầm với quý ông giàu có Fitzwilliam Darcy. Qua sự thay đổi trong cách nhìn nhận của hai nhân vật, tác phẩm khám phá tình yêu, định kiến giai cấp, lòng tự trọng và quyền lựa chọn hạnh phúc của phụ nữ.",
+                          "title": "Kiêu hãnh và định kiến",
+                          "work_id": "SLB_W0009"
+                        },
+                        {
+                          "authors": [
+                            "Jostein Gaarder"
+                          ],
+                          "book_id": "SLB_B0010",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_nuoc_ngoai",
+                            "triet_hoc",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Thế giới của Sophie là tiểu thuyết triết học của Jostein Gaarder, kể về Sophie Amundsen, một thiếu nữ Na Uy bất ngờ nhận được những lá thư đặt câu hỏi về bản thân và nguồn gốc thế giới. Dưới sự hướng dẫn bí ẩn của Alberto Knox, Sophie khám phá lịch sử triết học phương Tây, từ các triết gia Hy Lạp cổ đại đến những tư tưởng hiện đại. Xen giữa các bài học là bí ẩn về cô gái Hilde, khiến Sophie phải suy ngẫm về thực tại, sự tồn tại và ý nghĩa cuộc sống.",
+                          "title": "Thế giới của Sophie",
+                          "work_id": "SLB_W0010"
+                        },
+                        {
+                          "authors": [
+                            "Max Tegmark"
+                          ],
+                          "book_id": "SLB_B0011",
+                          "cover_url": null,
+                          "genres": [
+                            "khoa_hoc_ky_thuat"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Life 3.0: Loài người trong kỷ nguyên trí tuệ nhân tạo là cuốn sách của Max Tegmark khám phá tương lai của con người khi AI ngày càng phát triển. Tác giả phân biệt các giai đoạn tiến hóa của sự sống và hình dung viễn cảnh máy móc có thể vượt qua trí tuệ con người. Cuốn sách phân tích tác động của AI đến việc làm, xã hội, an ninh và đạo đức, đồng thời đặt ra những câu hỏi về an toàn AI, khả năng kiểm soát trí tuệ siêu việt và cách định hướng công nghệ phục vụ lợi ích nhân loại.",
+                          "title": "Life 3.0: Loài người trong kỷ nguyên trí tuệ nhân tạo",
+                          "work_id": "SLB_W0011"
+                        },
+                        {
+                          "authors": [
+                            "Stephen Hawking"
+                          ],
+                          "book_id": "SLB_B0012",
+                          "cover_url": null,
+                          "genres": [
+                            "khoa_hoc_ky_thuat"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Lược sử thời gian là cuốn sách khoa học phổ thông của Stephen Hawking, khám phá những câu hỏi lớn về nguồn gốc, cấu trúc và số phận của vũ trụ. Bằng cách giải thích các khái niệm vật lý hiện đại theo hướng dễ tiếp cận, tác giả dẫn dắt người đọc qua thuyết Big Bang, sự giãn nở của vũ trụ, không gian và thời gian, lỗ đen, mũi tên thời gian và hành trình tìm kiếm một lý thuyết thống nhất các quy luật vật lý.",
+                          "title": "Lược sử thời gian",
+                          "work_id": "SLB_W0012"
+                        },
+                        {
+                          "authors": [
+                            "Bill Bryson"
+                          ],
+                          "book_id": "SLB_B0013",
+                          "cover_url": null,
+                          "genres": [
+                            "khoa_hoc_ky_thuat"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Lược sử vạn vật là cuốn sách khoa học phổ thông của Bill Bryson, đưa người đọc khám phá lịch sử tự nhiên từ sự hình thành vũ trụ, Trái Đất đến nguồn gốc và tiến hóa của sự sống. Thông qua những câu chuyện về các nhà khoa học và các phát hiện quan trọng, tác giả giải thích nhiều vấn đề thuộc thiên văn học, địa chất, vật lý, hóa học và sinh học bằng lối kể gần gũi, hài hước, đồng thời cho thấy con người đã khám phá thế giới tự nhiên như thế nào.",
+                          "title": "Lược sử vạn vật",
+                          "work_id": "SLB_W0013"
+                        },
+                        {
+                          "authors": [
+                            "Trần Trọng Kim"
+                          ],
+                          "book_id": "SLB_B0014",
+                          "cover_url": null,
+                          "genres": [
+                            "lich_su"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Việt Nam sử lược là công trình lịch sử của Trần Trọng Kim, xuất bản lần đầu năm 1920 và được biên soạn bằng chữ quốc ngữ. Tác phẩm hệ thống các giai đoạn lịch sử Việt Nam từ thời dựng nước, Bắc thuộc, thời kỳ tự chủ, các triều đại phong kiến đến đầu thế kỷ XX. Với cách trình bày theo tiến trình lịch sử, sách giới thiệu những biến cố chính trị, chiến tranh và sự thay đổi của xã hội, đồng thời phản ánh phương pháp và quan điểm sử học của tác giả trong bối cảnh đương thời.",
+                          "title": "Việt Nam sử lược",
+                          "work_id": "SLB_W0014"
+                        },
+                        {
+                          "authors": [
+                            "Ngô Sĩ Liên",
+                            "Các sử thần đời Lê"
+                          ],
+                          "book_id": "SLB_B0015",
+                          "cover_url": null,
+                          "genres": [
+                            "lich_su"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Đại Việt sử ký toàn thư là bộ chính sử quan trọng của Việt Nam, được Ngô Sĩ Liên biên soạn vào thế kỷ XV và tiếp tục được các sử thần đời Lê chỉnh lý, bổ sung. Viết theo thể biên niên, tác phẩm ghi chép lịch sử từ thời Hồng Bàng đến thời Lê trung hưng, bao gồm sự hình thành các triều đại, những cuộc chiến tranh, biến cố chính trị và tổ chức xã hội. Bộ sử là nguồn tư liệu có giá trị cho việc nghiên cứu lịch sử Việt Nam, đồng thời phản ánh quan điểm sử học của các thời kỳ biên soạn.",
+                          "title": "Đại Việt sử ký toàn thư",
+                          "work_id": "SLB_W0015"
+                        },
+                        {
+                          "authors": [
+                            "Ngô gia văn phái"
+                          ],
+                          "book_id": "SLB_B0016",
+                          "cover_url": null,
+                          "genres": [
+                            "lich_su",
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Hoàng Lê nhất thống chí là tác phẩm tiểu thuyết lịch sử chương hồi của Ngô gia văn phái, tái hiện những biến động chính trị và xã hội Việt Nam cuối thế kỷ XVIII, đầu thế kỷ XIX. Tác phẩm khắc họa sự suy tàn của chính quyền Lê–Trịnh, sự trỗi dậy của phong trào Tây Sơn, chiến thắng quân Thanh của vua Quang Trung và số phận vua Lê Chiêu Thống. Qua các sự kiện và nhân vật lịch sử, tác phẩm phản ánh một giai đoạn chuyển giao quyền lực đầy biến động.",
+                          "title": "Hoàng Lê nhất thống chí",
+                          "work_id": "SLB_W0016"
+                        },
+                        {
+                          "authors": [
+                            "Dale Carnegie"
+                          ],
+                          "book_id": "SLB_B0017",
+                          "cover_url": null,
+                          "genres": [
+                            "tam_ly_ky_nang"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Đắc nhân tâm là cuốn sách về nghệ thuật giao tiếp và ứng xử của Dale Carnegie, giới thiệu những nguyên tắc giúp xây dựng quan hệ tích cực trong công việc và cuộc sống. Thông qua các câu chuyện và tình huống thực tế, tác giả nhấn mạnh việc chân thành quan tâm đến người khác, biết lắng nghe, thể hiện sự trân trọng và thấu hiểu quan điểm đối phương. Cuốn sách cũng đề cập cách tạo thiện cảm, thuyết phục và gây ảnh hưởng tích cực mà không áp đặt người khác.",
+                          "title": "Đắc nhân tâm",
+                          "work_id": "SLB_W0017"
+                        },
+                        {
+                          "authors": [
+                            "Daniel Kahneman"
+                          ],
+                          "book_id": "SLB_B0018",
+                          "cover_url": null,
+                          "genres": [
+                            "tam_ly_ky_nang"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Tư duy nhanh và chậm là cuốn sách tâm lý học của Daniel Kahneman, khám phá cách con người suy nghĩ, phán đoán và đưa ra quyết định. Tác giả giới thiệu hai hệ thống tư duy: Hệ thống 1 hoạt động nhanh, tự động và trực giác, trong khi Hệ thống 2 chậm hơn, đòi hỏi sự tập trung và suy xét. Thông qua các nghiên cứu và thí nghiệm, sách phân tích những thiên kiến nhận thức như hiệu ứng mỏ neo, sự tự tin thái quá và tâm lý sợ mất mát, giúp người đọc hiểu rõ hơn những sai lệch có thể xảy ra trong quá trình ra quyết định.",
+                          "title": "Tư duy nhanh và chậm",
+                          "work_id": "SLB_W0018"
+                        },
+                        {
+                          "authors": [
+                            "Lão Tử"
+                          ],
+                          "book_id": "SLB_B0019",
+                          "cover_url": null,
+                          "genres": [
+                            "triet_hoc"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Đạo Đức kinh là tác phẩm triết học cổ điển Trung Hoa, theo truyền thống được gắn với Lão Tử và là nền tảng quan trọng của tư tưởng Đạo gia. Qua những chương ngắn, tác phẩm bàn về Đạo, Đức, nguyên lý vô vi và lối sống thuận theo tự nhiên. Các tư tưởng trong sách đề cao sự giản dị, khiêm nhường, tiết chế ham muốn và tránh cưỡng ép trong hành động, đồng thời gợi suy ngẫm về cách con người ứng xử, tổ chức xã hội và thực hành quyền lực.",
+                          "title": "Đạo Đức kinh",
+                          "work_id": "SLB_W0019"
+                        },
+                        {
+                          "authors": [
+                            "John Stuart Mill"
+                          ],
+                          "book_id": "SLB_B0020",
+                          "cover_url": null,
+                          "genres": [
+                            "triet_hoc"
+                          ],
+                          "has_fulltext": false,
+                          "summary": "Bàn về tự do là tác phẩm triết học chính trị của John Stuart Mill, xuất bản năm 1859, bàn về quyền tự do cá nhân và giới hạn quyền lực của nhà nước, xã hội đối với mỗi người. Tác giả trình bày nguyên tắc gây hại, cho rằng việc can thiệp cưỡng chế vào tự do cá nhân chỉ có thể được biện minh nhằm ngăn ngừa tổn hại cho người khác. Tác phẩm bảo vệ tự do tư tưởng, tự do ngôn luận, quyền phát triển cá tính và cảnh báo nguy cơ áp đặt quan điểm của số đông lên cá nhân.",
+                          "title": "Bàn về tự do",
+                          "work_id": "SLB_W0020"
+                        }
+                      ],
+                      "limit": 20,
+                      "offset": 0,
+                      "request_id": "00000000-0000-4000-8000-000000000001",
+                      "snapshot_id": "p3-contract-fixture",
+                      "total": 20
+                    }
+                  },
+                  "books-empty": {
+                    "summary": "Mô phỏng nội bộ: books-empty",
+                    "value": {
+                      "items": [],
+                      "limit": 20,
+                      "offset": 0,
+                      "request_id": "00000000-0000-4000-8000-000000000002",
+                      "snapshot_id": "p3-contract-fixture",
+                      "total": 0
+                    }
+                  },
+                  "books-past-end": {
+                    "summary": "Mô phỏng nội bộ: books-past-end",
+                    "value": {
+                      "items": [],
+                      "limit": 20,
+                      "offset": 20,
+                      "request_id": "00000000-0000-4000-8000-000000000003",
+                      "snapshot_id": "p3-contract-fixture",
+                      "total": 20
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/BooksResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "resource_not_found": {
+                    "summary": "Mô phỏng nội bộ: resource_not_found",
+                    "value": {
+                      "code": "resource_not_found",
+                      "field": null,
+                      "message": "Không tìm thấy phiên bản dữ liệu",
+                      "module": "catalog",
+                      "request_id": "00000000-0000-4000-8000-00000000001c"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "List Books",
+        "tags": [
+          "Books & Catalog"
+        ]
+      }
+    },
+    "/api/v1/books/{id}": {
+      "get": {
+        "description": "Lấy chi tiết một sách theo book_id (Mục 12.4).",
+        "operationId": "get_book_detail_api_v1_books__id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "title": "Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "snapshot_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Snapshot Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "detail": {
+                    "summary": "Mô phỏng nội bộ: detail",
+                    "value": {
+                      "book": {
+                        "authors": [
+                          "Hồ Biểu Chánh"
+                        ],
+                        "book_id": "SLB_B0001",
+                        "cover_url": null,
+                        "genres": [
+                          "van_hoc_viet_nam",
+                          "tieu_thuyet"
+                        ],
+                        "has_fulltext": false,
+                        "language": "vi",
+                        "rag_available": false,
+                        "sources": [],
+                        "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+                        "title": "Cha con nghĩa nặng",
+                        "topics": [
+                          "gia_dinh",
+                          "xa_hoi"
+                        ],
+                        "work_id": "SLB_W0001"
+                      },
+                      "request_id": "00000000-0000-4000-8000-000000000004",
+                      "snapshot_id": "p3-contract-fixture"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/BookDetailResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Get Book Detail",
+        "tags": [
+          "Books & Catalog"
+        ]
+      }
+    },
+    "/api/v1/books/{id}/chapters": {
+      "get": {
+        "description": "Lấy danh sách chương của sách (Mục 12.4).",
+        "operationId": "get_book_chapters_api_v1_books__id__chapters_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "title": "Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "snapshot_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Snapshot Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "chapters": {
+                    "summary": "Mô phỏng nội bộ: chapters",
+                    "value": {
+                      "book_id": "B_reader_fixture",
+                      "items": [
+                        {
+                          "book_id": "B_reader_fixture",
+                          "chapter_id": "H_reader_1",
+                          "order_no": 1,
+                          "title": "Chương mẫu 1 — Bắt đầu"
+                        },
+                        {
+                          "book_id": "B_reader_fixture",
+                          "chapter_id": "H_reader_2",
+                          "order_no": 2,
+                          "title": "Chương mẫu 2 — Khám phá"
+                        },
+                        {
+                          "book_id": "B_reader_fixture",
+                          "chapter_id": "H_reader_3",
+                          "order_no": 3,
+                          "title": "Chương mẫu 3 — Ghi chép"
+                        }
+                      ],
+                      "request_id": "00000000-0000-4000-8000-00000000000d",
+                      "snapshot_id": "reader-fixture-v1"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ChaptersResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "fulltext_unavailable": {
+                    "summary": "Mô phỏng nội bộ: fulltext_unavailable",
+                    "value": {
+                      "code": "fulltext_unavailable",
+                      "field": null,
+                      "message": "Sách chưa có toàn văn",
+                      "module": "reader",
+                      "request_id": "00000000-0000-4000-8000-00000000001e"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Get Book Chapters",
+        "tags": [
+          "Reader"
+        ]
+      }
+    },
+    "/api/v1/books/{id}/similar": {
+      "get": {
+        "description": "Gợi ý sách tương tự từ 1 sách cụ thể (Mục 12.4).",
+        "operationId": "get_similar_books_api_v1_books__id__similar_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "title": "Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "k",
+            "required": false,
+            "schema": {
+              "default": 5,
+              "maximum": 10,
+              "minimum": 1,
+              "title": "K",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "authors",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Authors",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "genres",
+            "required": false,
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Genres",
+              "type": "array"
+            }
+          },
+          {
+            "in": "query",
+            "name": "has_fulltext",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Has Fulltext"
+            }
+          },
+          {
+            "in": "query",
+            "name": "snapshot_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Snapshot Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "similar-no_candidates": {
+                    "summary": "Mô phỏng nội bộ: similar-no_candidates",
+                    "value": {
+                      "items": [],
+                      "message": "Không còn sách phù hợp",
+                      "request_id": "00000000-0000-4000-8000-00000000000c",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "no_candidates"
+                    }
+                  },
+                  "similar-ok": {
+                    "summary": "Mô phỏng nội bộ: similar-ok",
+                    "value": {
+                      "items": [
+                        {
+                          "authors": [
+                            "Hồ Biểu Chánh"
+                          ],
+                          "book_id": "SLB_B0001",
+                          "cover_url": null,
+                          "evidence_fields": [
+                            {
+                              "book_id": "SLB_B0001",
+                              "field": "summary",
+                              "seed_book_id": null,
+                              "value": null
+                            },
+                            {
+                              "book_id": "SLB_B0002",
+                              "field": "summary",
+                              "seed_book_id": "SLB_B0002",
+                              "value": null
+                            }
+                          ],
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "rank": 1,
+                          "reason_codes": [
+                            "content_similarity"
+                          ],
+                          "reason_text": "Nội dung mô tả gần với sách đã chọn",
+                          "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+                          "title": "Cha con nghĩa nặng",
+                          "work_id": "SLB_W0001"
+                        }
+                      ],
+                      "message": null,
+                      "request_id": "00000000-0000-4000-8000-00000000000a",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "ok"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Get Similar Books",
+        "tags": [
+          "Books & Catalog"
+        ]
+      }
+    },
+    "/api/v1/chapters/{id}": {
+      "get": {
+        "description": "Lấy nội dung toàn văn một chương và vị trí highlight nếu có (Mục 12.4).",
+        "operationId": "get_chapter_detail_api_v1_chapters__id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "title": "Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "snapshot_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Snapshot Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "chunk_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Chunk Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "H_reader_1": {
+                    "summary": "Mô phỏng nội bộ: H_reader_1",
+                    "value": {
+                      "chapter": {
+                        "book_id": "B_reader_fixture",
+                        "chapter_id": "H_reader_1",
+                        "order_no": 1,
+                        "paragraphs": [
+                          {
+                            "char_end": 81,
+                            "char_start": 0,
+                            "order_no": 1,
+                            "paragraph_id": "P_reader_1_1",
+                            "text": "Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện."
+                          },
+                          {
+                            "char_end": 185,
+                            "char_start": 83,
+                            "order_no": 2,
+                            "paragraph_id": "P_reader_1_2",
+                            "text": "Dấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử."
+                          }
+                        ],
+                        "text": "Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện.\n\nDấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử.",
+                        "title": "Chương mẫu 1 — Bắt đầu"
+                      },
+                      "highlight": null,
+                      "request_id": "00000000-0000-4000-8000-00000000000e",
+                      "snapshot_id": "reader-fixture-v1"
+                    }
+                  },
+                  "H_reader_2": {
+                    "summary": "Mô phỏng nội bộ: H_reader_2",
+                    "value": {
+                      "chapter": {
+                        "book_id": "B_reader_fixture",
+                        "chapter_id": "H_reader_2",
+                        "order_no": 2,
+                        "paragraphs": [
+                          {
+                            "char_end": 56,
+                            "char_start": 0,
+                            "order_no": 1,
+                            "paragraph_id": "P_reader_2_1",
+                            "text": "An đi qua những kệ sách và chọn một chỗ ngồi gần cửa sổ."
+                          },
+                          {
+                            "char_end": 153,
+                            "char_start": 58,
+                            "order_no": 2,
+                            "paragraph_id": "P_reader_2_2",
+                            "text": "Mỗi chương mẫu có nội dung riêng để kiểm tra việc chuyển chương và tránh hiển thị nhầm văn bản."
+                          }
+                        ],
+                        "text": "An đi qua những kệ sách và chọn một chỗ ngồi gần cửa sổ.\n\nMỗi chương mẫu có nội dung riêng để kiểm tra việc chuyển chương và tránh hiển thị nhầm văn bản.",
+                        "title": "Chương mẫu 2 — Khám phá"
+                      },
+                      "highlight": null,
+                      "request_id": "00000000-0000-4000-8000-00000000000f",
+                      "snapshot_id": "reader-fixture-v1"
+                    }
+                  },
+                  "H_reader_3": {
+                    "summary": "Mô phỏng nội bộ: H_reader_3",
+                    "value": {
+                      "chapter": {
+                        "book_id": "B_reader_fixture",
+                        "chapter_id": "H_reader_3",
+                        "order_no": 3,
+                        "paragraphs": [
+                          {
+                            "char_end": 66,
+                            "char_start": 0,
+                            "order_no": 1,
+                            "paragraph_id": "P_reader_3_1",
+                            "text": "Trước khi rời thư viện, An ghi lại câu hỏi cho buổi đọc tiếp theo."
+                          },
+                          {
+                            "char_end": 172,
+                            "char_start": 68,
+                            "order_no": 2,
+                            "paragraph_id": "P_reader_3_2",
+                            "text": "Bộ chương này chỉ dùng để kiểm thử giao diện phát triển, không đại diện cho toàn văn sách đã được duyệt."
+                          }
+                        ],
+                        "text": "Trước khi rời thư viện, An ghi lại câu hỏi cho buổi đọc tiếp theo.\n\nBộ chương này chỉ dùng để kiểm thử giao diện phát triển, không đại diện cho toàn văn sách đã được duyệt.",
+                        "title": "Chương mẫu 3 — Ghi chép"
+                      },
+                      "highlight": null,
+                      "request_id": "00000000-0000-4000-8000-000000000010",
+                      "snapshot_id": "reader-fixture-v1"
+                    }
+                  },
+                  "chapter-highlight": {
+                    "summary": "Mô phỏng nội bộ: chapter-highlight",
+                    "value": {
+                      "chapter": {
+                        "book_id": "B_reader_fixture",
+                        "chapter_id": "H_reader_1",
+                        "order_no": 1,
+                        "paragraphs": [
+                          {
+                            "char_end": 81,
+                            "char_start": 0,
+                            "order_no": 1,
+                            "paragraph_id": "P_reader_1_1",
+                            "text": "Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện."
+                          },
+                          {
+                            "char_end": 185,
+                            "char_start": 83,
+                            "order_no": 2,
+                            "paragraph_id": "P_reader_1_2",
+                            "text": "Dấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử."
+                          }
+                        ],
+                        "text": "Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện.\n\nDấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử.",
+                        "title": "Chương mẫu 1 — Bắt đầu"
+                      },
+                      "highlight": {
+                        "char_end": 185,
+                        "char_start": 83,
+                        "chunk_id": "K_de677f9b3e2473178a156cb5df21b5b8929563915f110fc80dcf788fa2269303",
+                        "paragraph_end": 2,
+                        "paragraph_start": 2
+                      },
+                      "request_id": "00000000-0000-4000-8000-000000000011",
+                      "snapshot_id": "reader-fixture-v1"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterDetailResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Get Chapter Detail",
+        "tags": [
+          "Reader"
+        ]
+      }
+    },
+    "/api/v1/facets": {
+      "get": {
+        "description": "Lấy danh sách tác giả, thể loại, chủ đề cho bộ lọc (Mục 12.4).",
+        "operationId": "get_facets_api_v1_facets_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "snapshot_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 128,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]+$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Snapshot Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "facets": {
+                    "summary": "Mô phỏng nội bộ: facets",
+                    "value": {
+                      "authors": [
+                        "Antoine de Saint-Exupéry",
+                        "Bill Bryson",
+                        "Các sử thần đời Lê",
+                        "Dale Carnegie",
+                        "Daniel Kahneman",
+                        "Hồ Biểu Chánh",
+                        "Jane Austen",
+                        "John Stuart Mill",
+                        "Jostein Gaarder",
+                        "Lão Tử",
+                        "Max Tegmark",
+                        "Nam Cao",
+                        "Ngô gia văn phái",
+                        "Ngô Sĩ Liên",
+                        "Ngô Tất Tố",
+                        "Stephen Hawking",
+                        "Trần Trọng Kim",
+                        "Victor Hugo",
+                        "Vũ Trọng Phụng"
+                      ],
+                      "genres": [
+                        {
+                          "code": "khoa_hoc_ky_thuat",
+                          "label": "Khoa học kỹ thuật"
+                        },
+                        {
+                          "code": "lich_su",
+                          "label": "Lịch sử"
+                        },
+                        {
+                          "code": "tam_ly_ky_nang",
+                          "label": "Tâm lý - Kỹ năng"
+                        },
+                        {
+                          "code": "tieu_thuyet",
+                          "label": "Tiểu thuyết"
+                        },
+                        {
+                          "code": "triet_hoc",
+                          "label": "Triết học"
+                        },
+                        {
+                          "code": "truyen_ngan",
+                          "label": "Truyện ngắn"
+                        },
+                        {
+                          "code": "van_hoc_nuoc_ngoai",
+                          "label": "Văn học nước ngoài"
+                        },
+                        {
+                          "code": "van_hoc_viet_nam",
+                          "label": "Văn học Việt Nam"
+                        }
+                      ],
+                      "request_id": "00000000-0000-4000-8000-000000000005",
+                      "snapshot_id": "p3-contract-fixture",
+                      "topics": [
+                        {
+                          "code": "chien_tranh",
+                          "label": "Chiến tranh"
+                        },
+                        {
+                          "code": "gia_dinh",
+                          "label": "Gia đình"
+                        },
+                        {
+                          "code": "tinh_yeu",
+                          "label": "Tình yêu"
+                        },
+                        {
+                          "code": "tri_tue_nhan_tao",
+                          "label": "Trí tuệ nhân tạo"
+                        },
+                        {
+                          "code": "triet_ly_song",
+                          "label": "Triết lý sống"
+                        },
+                        {
+                          "code": "tuoi_tre",
+                          "label": "Tuổi trẻ"
+                        },
+                        {
+                          "code": "xa_hoi",
+                          "label": "Xã hội"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/FacetsResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "internal_error": {
+                    "summary": "Mô phỏng nội bộ: internal_error",
+                    "value": {
+                      "code": "internal_error",
+                      "field": null,
+                      "message": "Lỗi máy chủ nội bộ, vui lòng thử lại sau",
+                      "module": null,
+                      "request_id": "00000000-0000-4000-8000-000000000021"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Get Facets",
+        "tags": [
+          "Books & Catalog"
+        ]
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "description": "Kiểm tra trạng thái sẵn sàng của các phân hệ theo Mục 12.4.",
+        "operationId": "get_health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "health-degraded": {
+                    "summary": "Mô phỏng nội bộ: health-degraded",
+                    "value": {
+                      "catalog_ready": true,
+                      "rag_ready": false,
+                      "recommend_ready": false,
+                      "request_id": "00000000-0000-4000-8000-000000000016",
+                      "search_ready": false,
+                      "snapshot_id": "p3-contract-fixture"
+                    }
+                  },
+                  "health-no-active": {
+                    "summary": "Mô phỏng nội bộ: health-no-active",
+                    "value": {
+                      "catalog_ready": false,
+                      "rag_ready": false,
+                      "recommend_ready": false,
+                      "request_id": "00000000-0000-4000-8000-000000000017",
+                      "search_ready": false,
+                      "snapshot_id": null
+                    }
+                  },
+                  "health-ready": {
+                    "summary": "Mô phỏng nội bộ: health-ready",
+                    "value": {
+                      "catalog_ready": true,
+                      "rag_ready": true,
+                      "recommend_ready": true,
+                      "request_id": "00000000-0000-4000-8000-000000000015",
+                      "search_ready": true,
+                      "snapshot_id": "reader-fixture-v1"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Get Health",
+        "tags": [
+          "Health"
+        ]
+      }
+    },
+    "/api/v1/qa": {
+      "post": {
+        "description": "Hỏi đáp có dẫn chứng trong đúng 1 ấn bản (Mục 11 & Mục 12.4).",
+        "operationId": "ask_question_api_v1_qa_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QARequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "qa-answered": {
+                    "summary": "Mô phỏng nội bộ: qa-answered",
+                    "value": {
+                      "answer": "Dấu lá 🌿 nằm giữa dòng chữ. [C1]",
+                      "citations": [
+                        {
+                          "book_id": "B_reader_fixture",
+                          "chapter_id": "H_reader_1",
+                          "char_end": 185,
+                          "char_start": 83,
+                          "chunk_id": "K_de677f9b3e2473178a156cb5df21b5b8929563915f110fc80dcf788fa2269303",
+                          "label": "C1",
+                          "paragraph_end": 2,
+                          "paragraph_start": 2,
+                          "quote": "Dấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử.",
+                          "snapshot_id": "reader-fixture-v1"
+                        }
+                      ],
+                      "message": null,
+                      "request_id": "00000000-0000-4000-8000-000000000012",
+                      "snapshot_id": "reader-fixture-v1",
+                      "status": "answered"
+                    }
+                  },
+                  "qa-insufficient_evidence": {
+                    "summary": "Mô phỏng nội bộ: qa-insufficient_evidence",
+                    "value": {
+                      "answer": "",
+                      "citations": [],
+                      "message": "Chưa tìm được đoạn đủ căn cứ để trả lời",
+                      "request_id": "00000000-0000-4000-8000-000000000013",
+                      "snapshot_id": "reader-fixture-v1",
+                      "status": "insufficient_evidence"
+                    }
+                  },
+                  "qa-out_of_scope": {
+                    "summary": "Mô phỏng nội bộ: qa-out_of_scope",
+                    "value": {
+                      "answer": "",
+                      "citations": [],
+                      "message": "Câu hỏi nằm ngoài phạm vi sách đang đọc",
+                      "request_id": "00000000-0000-4000-8000-000000000014",
+                      "snapshot_id": "reader-fixture-v1",
+                      "status": "out_of_scope"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/QAResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "qa-fulltext-unavailable": {
+                    "summary": "Mô phỏng nội bộ: qa-fulltext-unavailable",
+                    "value": {
+                      "code": "fulltext_unavailable",
+                      "field": null,
+                      "message": "Sách chưa có toàn văn",
+                      "module": "rag",
+                      "request_id": "00000000-0000-4000-8000-00000000001f"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "rate_limited": {
+                    "summary": "Mô phỏng nội bộ: rate_limited",
+                    "value": {
+                      "code": "rate_limited",
+                      "field": null,
+                      "message": "Đã vượt quá giới hạn tần suất yêu cầu",
+                      "module": "rag",
+                      "request_id": "00000000-0000-4000-8000-000000000020"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "invalid_generation": {
+                    "summary": "Mô phỏng nội bộ: invalid_generation",
+                    "value": {
+                      "code": "invalid_generation",
+                      "field": null,
+                      "message": "Kết quả hỏi đáp sai cấu trúc",
+                      "module": "rag",
+                      "request_id": "00000000-0000-4000-8000-000000000024"
+                    }
+                  },
+                  "qa-quota": {
+                    "summary": "Mô phỏng nội bộ: qa-quota",
+                    "value": {
+                      "code": "service_unavailable",
+                      "field": null,
+                      "message": "Hỏi đáp tạm không khả dụng do hết hạn mức dịch vụ AI",
+                      "module": "rag",
+                      "request_id": "00000000-0000-4000-8000-000000000023"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "request_timeout": {
+                    "summary": "Mô phỏng nội bộ: request_timeout",
+                    "value": {
+                      "code": "request_timeout",
+                      "field": null,
+                      "message": "Yêu cầu xử lý quá thời hạn",
+                      "module": "rag",
+                      "request_id": "00000000-0000-4000-8000-000000000025"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Ask Question",
+        "tags": [
+          "Evidence-grounded RAG QA"
+        ]
+      }
+    },
+    "/api/v1/recommend": {
+      "post": {
+        "description": "Gợi ý sách theo nội dung từ 1-3 seed (Mục 10.3 & Mục 12.4).",
+        "operationId": "recommend_books_api_v1_recommend_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecommendationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "recommend-no_candidates": {
+                    "summary": "Mô phỏng nội bộ: recommend-no_candidates",
+                    "value": {
+                      "items": [],
+                      "message": "Không còn sách phù hợp",
+                      "request_id": "00000000-0000-4000-8000-00000000000b",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "no_candidates"
+                    }
+                  },
+                  "recommend-ok": {
+                    "summary": "Mô phỏng nội bộ: recommend-ok",
+                    "value": {
+                      "items": [
+                        {
+                          "authors": [
+                            "Hồ Biểu Chánh"
+                          ],
+                          "book_id": "SLB_B0001",
+                          "cover_url": null,
+                          "evidence_fields": [
+                            {
+                              "book_id": "SLB_B0001",
+                              "field": "summary",
+                              "seed_book_id": null,
+                              "value": null
+                            },
+                            {
+                              "book_id": "SLB_B0002",
+                              "field": "summary",
+                              "seed_book_id": "SLB_B0002",
+                              "value": null
+                            }
+                          ],
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "rank": 1,
+                          "reason_codes": [
+                            "content_similarity"
+                          ],
+                          "reason_text": "Nội dung mô tả gần với sách đã chọn",
+                          "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+                          "title": "Cha con nghĩa nặng",
+                          "work_id": "SLB_W0001"
+                        }
+                      ],
+                      "message": null,
+                      "request_id": "00000000-0000-4000-8000-000000000009",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "ok"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/RecommendationResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Recommend Books",
+        "tags": [
+          "Content-based Recommendation"
+        ]
+      }
+    },
+    "/api/v1/search": {
+      "post": {
+        "description": "Tìm kiếm ngữ nghĩa sách (Mục 10 & Mục 12.4).",
+        "operationId": "semantic_search_api_v1_search_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "search-no_candidates": {
+                    "summary": "Mô phỏng nội bộ: search-no_candidates",
+                    "value": {
+                      "items": [],
+                      "message": "Không có sách thỏa bộ lọc",
+                      "request_id": "00000000-0000-4000-8000-000000000008",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "no_candidates"
+                    }
+                  },
+                  "search-ok": {
+                    "summary": "Mô phỏng nội bộ: search-ok",
+                    "value": {
+                      "items": [
+                        {
+                          "authors": [
+                            "Hồ Biểu Chánh"
+                          ],
+                          "book_id": "SLB_B0001",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "rank": 1,
+                          "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+                          "title": "Cha con nghĩa nặng",
+                          "work_id": "SLB_W0001"
+                        }
+                      ],
+                      "message": null,
+                      "request_id": "00000000-0000-4000-8000-000000000006",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "ok"
+                    }
+                  },
+                  "search-weak_match": {
+                    "summary": "Mô phỏng nội bộ: search-weak_match",
+                    "value": {
+                      "items": [
+                        {
+                          "authors": [
+                            "Hồ Biểu Chánh"
+                          ],
+                          "book_id": "SLB_B0001",
+                          "cover_url": null,
+                          "genres": [
+                            "van_hoc_viet_nam",
+                            "tieu_thuyet"
+                          ],
+                          "has_fulltext": false,
+                          "rank": 1,
+                          "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+                          "title": "Cha con nghĩa nặng",
+                          "work_id": "SLB_W0001"
+                        }
+                      ],
+                      "message": "Kết quả có thể chưa sát nhu cầu",
+                      "request_id": "00000000-0000-4000-8000-000000000007",
+                      "snapshot_id": "p3-contract-fixture",
+                      "status": "weak_match"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "invalid_json": {
+                    "summary": "Mô phỏng nội bộ: invalid_json",
+                    "value": {
+                      "code": "invalid_json",
+                      "field": null,
+                      "message": "Nội dung JSON không hợp lệ",
+                      "module": null,
+                      "request_id": "00000000-0000-4000-8000-000000000018"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "payload_too_large": {
+                    "summary": "Mô phỏng nội bộ: payload_too_large",
+                    "value": {
+                      "code": "payload_too_large",
+                      "field": null,
+                      "message": "Nội dung yêu cầu vượt quá 64 KiB",
+                      "module": null,
+                      "request_id": "00000000-0000-4000-8000-000000000019"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Content Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "unsupported_media_type": {
+                    "summary": "Mô phỏng nội bộ: unsupported_media_type",
+                    "value": {
+                      "code": "unsupported_media_type",
+                      "field": null,
+                      "message": "Yêu cầu phải sử dụng định dạng application/json",
+                      "module": null,
+                      "request_id": "00000000-0000-4000-8000-00000000001a"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "invalid_input": {
+                    "summary": "Mô phỏng nội bộ: invalid_input",
+                    "value": {
+                      "code": "invalid_input",
+                      "field": "k",
+                      "message": "Dữ liệu đầu vào không hợp lệ",
+                      "module": null,
+                      "request_id": "00000000-0000-4000-8000-00000000001b"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Content"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "service_unavailable": {
+                    "summary": "Mô phỏng nội bộ: service_unavailable",
+                    "value": {
+                      "code": "service_unavailable",
+                      "field": null,
+                      "message": "Chỉ mục tìm kiếm chưa sẵn sàng",
+                      "module": "search",
+                      "request_id": "00000000-0000-4000-8000-000000000022"
+                    }
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          }
+        },
+        "summary": "Semantic Search",
+        "tags": [
+          "Semantic Search"
+        ]
+      }
+    }
+  }
+}

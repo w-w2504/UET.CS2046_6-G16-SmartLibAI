@@ -1,70 +1,56 @@
-"""
-Query encoder service for semantic search.
-Encodes user queries into L2-normalized embeddings compatible with FAISS IndexFlatIP (cosine similarity).
-"""
-from __future__ import annotations
+"""Giao diện nội bộ cho E5 query encoder dùng chung với pipeline."""
 
-import logging
-from functools import lru_cache
-from typing import Optional
+from collections.abc import Callable, Mapping, Sequence
+from pathlib import Path
+from threading import Lock
+from typing import Protocol
 
 import numpy as np
-
-from src.config import settings
-
-logger = logging.getLogger("smartlib.query_encoder")
-
-
-class QueryEncoder:
-    """Lazy-loading query encoder (SentenceTransformer-like) for query embeddings."""
-
-    def __init__(self) -> None:
-        self._model = None
-
-    def _load_model(self):
-        if self._model is not None:
-            return self._model
-        try:
-            from sentence_transformers import SentenceTransformer  # type: ignore
-
-            model_name = getattr(settings, "EMBEDDING_MODEL", "intfloat/multilingual-e5-small")
-            cache_folder = str(settings.model_path) if hasattr(settings, "model_path") else None
-            self._model = SentenceTransformer(model_name, cache_folder=cache_folder)
-            logger.info("Query encoder loaded: %s", model_name)
-        except Exception as exc:  # pragma: no cover
-            logger.error("Failed to load query encoder: %s", exc)
-            raise RuntimeError("Query encoder unavailable") from exc
-        return self._model
-
-    def encode(self, text: str) -> np.ndarray:
-        """
-        Encode a single query string to a L2-normalized float32 vector.
-        Returns shape (1, dim) for FAISS search.
-        """
-        if not text or not text.strip():
-            raise ValueError("Query text must not be empty")
-
-        model = self._load_model()
-        # For E5-style models, prefixing "query: " can help; keep generic if not required.
-        try:
-            vec = model.encode([text], normalize_embeddings=True)
-        except TypeError:
-            vec = model.encode([text])
-            # Fallback manual normalize
-            norms = np.linalg.norm(vec, axis=1, keepdims=True) + 1e-12
-            vec = vec / norms
-
-        vec = np.asarray(vec, dtype="np.float32")
-        if vec.ndim == 1:
-            vec = vec.reshape(1, -1)
-        return vec
+from ai_library.e5_encoder import (
+    E5Encoder,
+    ModelUnavailableError,
+    embedding_config,
+    validate_vectors,
+)
 
 
-@lru_cache(maxsize=1)
-def get_query_encoder() -> QueryEncoder:
-    return QueryEncoder()
+class QueryEncoder(Protocol):
+    def encode_queries(self, texts: Sequence[str]) -> np.ndarray: ...
 
 
-def encode_query(text: str) -> np.ndarray:
-    """Convenience wrapper used by routes/services."""
-    return get_query_encoder().encode(text)
+def encode_query(encoder: QueryEncoder, raw_query: str) -> np.ndarray:
+    """Chuyển một query thô đã hợp lệ thành vector 384 chiều."""
+    vectors = encoder.encode_queries([raw_query])
+    validate_vectors(vectors, 1)
+    return vectors[0]
+
+
+class QueryEncoderProvider:
+    """Khởi tạo tối đa một lần cho mỗi provider trong vòng đời worker."""
+
+    def __init__(
+        self,
+        model_root: Path,
+        *,
+        factory: Callable[..., QueryEncoder] = E5Encoder,
+    ) -> None:
+        self._cache_dir = model_root / "hub"
+        self._factory = factory
+        self._lock = Lock()
+        self._encoder: QueryEncoder | None = None
+        self._load_error: ModelUnavailableError | None = None
+
+    def get(self, expected_config: Mapping[str, object]) -> QueryEncoder:
+        if expected_config != embedding_config():
+            raise ModelUnavailableError("Cấu hình embedding của snapshot không tương thích với E5")
+
+        with self._lock:
+            if self._load_error is not None:
+                raise ModelUnavailableError(str(self._load_error)) from self._load_error
+            if self._encoder is None:
+                try:
+                    self._encoder = self._factory(cache_dir=self._cache_dir)
+                except ModelUnavailableError as exc:
+                    self._load_error = exc
+                    raise
+            return self._encoder

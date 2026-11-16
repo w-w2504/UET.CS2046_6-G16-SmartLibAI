@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Sparkles, Check, ArrowLeft, ShieldCheck } from 'lucide-react';
-import { BookDetail } from '../types/api';
+import { BookOpen, Sparkles, Check, ArrowLeft } from 'lucide-react';
+import type { BookDetail } from '../types/api';
+import type { DemoBookDetail } from '../services/demoTypes';
 import { apiRequest } from '../services/apiClient';
+import { isDemo } from '../services/demo';
 import { loadTabState, saveTabState } from '../services/tabStorage';
+import { LoadingState, ErrorState } from '../components/ui';
+import { genreLabel, topicLabel } from '../services/taxonomy';
 
 interface DetailPageProps {
   bookId: string;
@@ -10,13 +14,18 @@ interface DetailPageProps {
   onSeedChange: () => void;
 }
 
+type DetailState = { mode: 'api'; book: BookDetail } | { mode: 'demo'; book: DemoBookDetail };
+
 export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSeedChange }) => {
-  const [book, setBook] = useState<BookDetail | null>(null);
+  const [detail, setDetail] = useState<DetailState | null>(null);
+  const book = detail?.book;
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isSeed, setIsSeed] = useState(false);
+  const [retry, setRetry] = useState(0);
 
   useEffect(() => {
+    let active = true;
     const state = loadTabState();
     setIsSeed(state.seed_book_ids.includes(bookId));
 
@@ -24,17 +33,24 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
       setLoading(true);
       setError(null);
       try {
-        const res = await apiRequest<{ book: BookDetail }>(`/books/${bookId}`);
-        setBook(res.data.book);
+        if (isDemo) {
+          const res = await apiRequest<{ book: DemoBookDetail }>(`/books/${bookId}`);
+          if (active) setDetail({ mode: 'demo', book: res.data.book });
+        } else {
+          const res = await apiRequest<{ book: BookDetail }>(`/books/${bookId}`);
+          if (active) setDetail({ mode: 'api', book: res.data.book });
+        }
       } catch (err: any) {
+        if (!active) return;
         setError(err.message || 'Không tìm thấy thông tin sách');
       } finally {
-        setLoading(false);
+        if (active) setLoading(false);
       }
     };
 
     fetchDetail();
-  }, [bookId]);
+    return () => { active = false; };
+  }, [bookId, retry]);
 
   const toggleSeed = () => {
     const state = loadTabState();
@@ -57,7 +73,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
   if (loading) {
     return (
       <div className="app-container" style={{ padding: '48px 0', textAlign: 'center' }}>
-        <p>Đang tải thông tin sách...</p>
+        <LoadingState message="Đang tải thông tin sách…" />
       </div>
     );
   }
@@ -65,9 +81,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
   if (error || !book) {
     return (
       <div className="app-container" style={{ padding: '48px 0' }}>
-        <div className="alert alert-error">
-          <span>{error || 'Không tìm thấy sách'}</span>
-        </div>
+        <ErrorState message={error || 'Không tìm thấy sách'} onRetry={() => setRetry(n => n + 1)} />
         <button type="button" className="btn btn-outline" onClick={() => onNavigate('/')}>
           <ArrowLeft size={16} style={{ marginRight: 6 }} /> Về danh mục
         </button>
@@ -86,7 +100,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
         <ArrowLeft size={16} style={{ marginRight: 6 }} /> Về danh mục
       </button>
 
-      <div className="card" style={{ display: 'grid', gridTemplateColumns: 'minmax(200px, 260px) 1fr', gap: 32 }}>
+      <div className="card detail-layout">
         {/* Bìa sách hoặc Placeholder */}
         <div style={{ textAlign: 'center' }}>
           {book.cover_url ? (
@@ -121,7 +135,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
 
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
             {book.genres.map((g) => (
-              <span key={g} className="badge badge-blue">{g}</span>
+              <span key={g} className="badge badge-blue">{genreLabel(g)}</span>
             ))}
             {book.has_fulltext ? (
               <span className="badge badge-blue">Có toàn văn</span>
@@ -130,20 +144,22 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
             )}
           </div>
 
+          {book.topics.length > 0 && <p style={{ marginBottom: 20 }}>Chủ đề: {book.topics.map(topicLabel).join(', ')}</p>}
           <div style={{ marginBottom: 24 }}>
             <h3 style={{ fontSize: '1.05rem', fontWeight: 600, marginBottom: 8 }}>Tóm tắt nội dung</h3>
             <p style={{ lineHeight: 1.7, color: '#334155' }}>{book.summary}</p>
           </div>
 
-          {/* Căn cứ nguồn đã duyệt */}
+          {/* Giữ đúng trạng thái nguồn từ dữ liệu, kể cả pending trong C02. */}
           {book.sources.length > 0 && (
             <div style={{ marginBottom: 24, fontSize: '0.875rem', color: 'var(--text-muted)', background: '#F8FAFC', padding: 12, borderRadius: 'var(--radius)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontWeight: 600, marginBottom: 4 }}>
-                <ShieldCheck size={16} color="var(--color-success)" /> Nguồn bản quyền đã duyệt:
+                Nguồn và quyền sử dụng:
               </div>
               {book.sources.map((s) => (
-                <div key={s.source_id}>
-                  {s.source_note} ({s.rights_note}) - <a href={s.source_url} target="_blank" rel="noopener noreferrer">Xem nguồn</a>
+                <div key={s.source_id} style={{ marginTop: 12 }}>
+                  <strong>{s.content_type === 'metadata' ? 'Thông tin sách' : s.content_type === 'summary' ? 'Mô tả' : s.content_type === 'cover' ? 'Ảnh bìa' : 'Toàn văn'} · {s.rights_status === 'approved' ? 'Đã duyệt' : s.rights_status === 'pending' ? 'Chờ duyệt' : 'Không được duyệt'}</strong>
+                  <p>{s.source_note}</p><p>{s.rights_note}</p><a href={s.source_url} target="_blank" rel="noopener noreferrer">Xem nguồn</a>
                 </div>
               ))}
             </div>
@@ -173,11 +189,11 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
                 className="btn btn-primary"
                 onClick={() => onNavigate(`/read/${book.book_id}`)}
               >
-                <BookOpen size={16} style={{ marginRight: 6 }} /> Đọc sách &amp; Hỏi đáp RAG
+                <BookOpen size={16} style={{ marginRight: 6 }} /> Đọc sách
               </button>
             ) : (
               <button type="button" className="btn btn-outline" disabled title="Sách chưa có bản toàn văn đã duyệt">
-                Chỉ có thông tin sách
+                <BookOpen size={16} style={{ marginRight: 6 }} /> Đọc sách
               </button>
             )}
           </div>

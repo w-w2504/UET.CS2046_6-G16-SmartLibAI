@@ -1,0 +1,72 @@
+{
+  "task_id": "C18",
+  "data_kind": "synthetic_fixture",
+  "provider_called": false,
+  "real_api_acceptance": false,
+  "browser": "157.0.4341.46",
+  "python": "3.14.8",
+  "tests": [
+    {
+      "test": "fixture_navigation_desktop",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "mobile_keyboard_390",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "api_contract_snapshot",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "chapter_error_retry",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "late_response_ignored",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "legacy_layout_rejected",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "wrong_book_rejected",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "timeout_12_seconds",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "book_change_resets_content",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "old_snapshot_not_replaced",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "non_json_error_safe",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    },
+    {
+      "test": "production_fixture_disabled",
+      "status": "passed",
+      "data_kind": "synthetic_fixture"
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}

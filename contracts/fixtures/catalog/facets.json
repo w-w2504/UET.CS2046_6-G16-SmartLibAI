@@ -1,0 +1,89 @@
+{
+  "authors": [
+    "Antoine de Saint-Exupéry",
+    "Bill Bryson",
+    "Các sử thần đời Lê",
+    "Dale Carnegie",
+    "Daniel Kahneman",
+    "Hồ Biểu Chánh",
+    "Jane Austen",
+    "John Stuart Mill",
+    "Jostein Gaarder",
+    "Lão Tử",
+    "Max Tegmark",
+    "Nam Cao",
+    "Ngô gia văn phái",
+    "Ngô Sĩ Liên",
+    "Ngô Tất Tố",
+    "Stephen Hawking",
+    "Trần Trọng Kim",
+    "Victor Hugo",
+    "Vũ Trọng Phụng"
+  ],
+  "genres": [
+    {
+      "code": "khoa_hoc_ky_thuat",
+      "label": "Khoa học kỹ thuật"
+    },
+    {
+      "code": "lich_su",
+      "label": "Lịch sử"
+    },
+    {
+      "code": "tam_ly_ky_nang",
+      "label": "Tâm lý - Kỹ năng"
+    },
+    {
+      "code": "tieu_thuyet",
+      "label": "Tiểu thuyết"
+    },
+    {
+      "code": "triet_hoc",
+      "label": "Triết học"
+    },
+    {
+      "code": "truyen_ngan",
+      "label": "Truyện ngắn"
+    },
+    {
+      "code": "van_hoc_nuoc_ngoai",
+      "label": "Văn học nước ngoài"
+    },
+    {
+      "code": "van_hoc_viet_nam",
+      "label": "Văn học Việt Nam"
+    }
+  ],
+  "topics": [
+    {
+      "code": "chien_tranh",
+      "label": "Chiến tranh"
+    },
+    {
+      "code": "gia_dinh",
+      "label": "Gia đình"
+    },
+    {
+      "code": "tinh_yeu",
+      "label": "Tình yêu"
+    },
+    {
+      "code": "tri_tue_nhan_tao",
+      "label": "Trí tuệ nhân tạo"
+    },
+    {
+      "code": "triet_ly_song",
+      "label": "Triết lý sống"
+    },
+    {
+      "code": "tuoi_tre",
+      "label": "Tuổi trẻ"
+    },
+    {
+      "code": "xa_hoi",
+      "label": "Xã hội"
+    }
+  ],
+  "request_id": "00000000-0000-4000-8000-000000000005",
+  "snapshot_id": "p3-contract-fixture"
+}

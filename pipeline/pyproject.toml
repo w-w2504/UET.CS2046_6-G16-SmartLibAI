@@ -16,3 +16,6 @@ dependencies = [
 [project.scripts]
 ai-library = "ai_library.cli:main"
 
+[tool.setuptools.packages.find]
+include = ["ai_library", "ai_library.*"]
+

@@ -1,0 +1,28 @@
+{
+  "chapter": {
+    "chapter_id": "H_reader_1",
+    "book_id": "B_reader_fixture",
+    "title": "Chương mẫu 1 — Bắt đầu",
+    "order_no": 1,
+    "paragraphs": [
+      {
+        "paragraph_id": "P_reader_1_1",
+        "order_no": 1,
+        "text": "Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện.",
+        "char_start": 0,
+        "char_end": 81
+      },
+      {
+        "paragraph_id": "P_reader_1_2",
+        "order_no": 2,
+        "text": "Dấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử.",
+        "char_start": 83,
+        "char_end": 185
+      }
+    ],
+    "text": "Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện.\n\nDấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử."
+  },
+  "highlight": null,
+  "request_id": "00000000-0000-4000-8000-00000000000e",
+  "snapshot_id": "reader-fixture-v1"
+}

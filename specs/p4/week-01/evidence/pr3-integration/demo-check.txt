@@ -1,0 +1,15 @@
+node : Không thể lưu trạng thái vào sessionStorage: Error: storage unavailable (test)
+At line:2 char:1
++ node scripts/check-demo.mjs 2>&1 | Tee-Object -FilePath ../specs/p4/w ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Không thể lưu t...vailable (test):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+    at globalThis.sessionStorage.setItem
+(file:///D:/AI/UET.CS2046_6-G16-SmartLibAI/openspec/tmp/pr3-integration-worktree/web/scripts/check-demo.mjs:151:53)
+    at Module.saveTabState
+(D:/AI/UET.CS2046_6-G16-SmartLibAI/openspec/tmp/pr3-integration-worktree/web/src/services/tabStorage.ts:61:20)
+    at
+file:///D:/AI/UET.CS2046_6-G16-SmartLibAI/openspec/tmp/pr3-integration-worktree/web/scripts/check-demo.mjs:152:11
+PASS: snapshot links/URL priority, ErrorState onRetry callback, invalid storage recovery and in-memory fallback.
+PASS: 20 C02 records, C18 Reader routes/shared layout, nested chapter contract, disabled Read buttons, source rights, new book/page 2/search/detail, work deduplication, JSONL validation, fulltext gating, empty/error/slow states, storage isolation.

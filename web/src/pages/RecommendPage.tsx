@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Sparkles, Trash2, EyeOff, BookOpen, X } from 'lucide-react';
 import { RecommendationItem } from '../types/api';
 import { apiRequest } from '../services/apiClient';
 import { loadTabState, saveTabState, clearPreferences } from '../services/tabStorage';
+import { LoadingState, EmptyState, ErrorState } from '../components/ui';
+
+import { withSnapshot } from '../services/navigation';
 
 interface RecommendPageProps {
   onNavigate: (path: string) => void;
@@ -15,12 +18,27 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
   const [recommendations, setRecommendations] = useState<RecommendationItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
+  const [seedTitles, setSeedTitles] = useState<Record<string, string>>({});
+  const operation = useRef(0);
+  useEffect(() => () => { operation.current++; }, []);
 
   useEffect(() => {
     const state = loadTabState();
     setSeeds(state.seed_book_ids);
     setExcludes(state.exclude_book_ids);
   }, []);
+
+  useEffect(() => {
+    let active = true;
+    Promise.allSettled(seeds.map(async bookId => {
+      const result = await apiRequest<{ book: { title: string } }>(`/books/${encodeURIComponent(bookId)}`);
+      return [bookId, result.data.book.title] as const;
+    })).then(results => {
+      if (active) setSeedTitles(Object.fromEntries(results.flatMap(result => result.status === 'fulfilled' ? [result.value] : [])));
+    });
+    return () => { active = false; };
+  }, [seeds]);
 
   const handleRemoveSeed = (bookId: string) => {
     const updated = seeds.filter((id) => id !== bookId);
@@ -30,6 +48,9 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
   };
 
   const handleClearAll = () => {
+    operation.current++;
+    setLoading(false);
+    setFailed(false);
     clearPreferences();
     setSeeds([]);
     setExcludes([]);
@@ -52,7 +73,10 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
       return;
     }
 
+    const id = ++operation.current;
     setLoading(true);
+    setFailed(false);
+    setRecommendations([]);
     setMessage(null);
 
     try {
@@ -67,14 +91,18 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
           }),
         }
       );
+      if (id !== operation.current) return;
       setRecommendations(res.data.items);
+      if (res.data.message) setMessage(res.data.message);
       if (res.data.status === 'no_candidates') {
         setMessage(res.data.message || 'Không tìm thấy tác phẩm phù hợp.');
       }
     } catch (err: any) {
+      if (id !== operation.current) return;
+      setFailed(true);
       setMessage(err.message || 'Lỗi khi lấy danh sách gợi ý.');
     } finally {
-      setLoading(false);
+      if (id === operation.current) setLoading(false);
     }
   };
 
@@ -94,7 +122,7 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
             Sở thích đã chọn ({seeds.length}/3 tác phẩm)
           </h2>
           {seeds.length > 0 && (
-            <button type="button" className="btn btn-outline" style={{ minHeight: 36, padding: '0 12px' }} onClick={handleClearAll}>
+            <button type="button" className="btn btn-outline" onClick={handleClearAll}>
               <Trash2 size={14} style={{ marginRight: 6 }} /> Xóa lựa chọn
             </button>
           )}
@@ -109,15 +137,16 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
             {seeds.map((sId) => (
               <span
                 key={sId}
-                className="badge badge-blue"
+                className="badge badge-blue seed-chip"
                 style={{ padding: '6px 12px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: 6 }}
               >
-                Mã sách: {sId}
+                <span className="seed-chip-title">{seedTitles[sId] || sId}</span>
                 <button
                   type="button"
+                  className="btn btn-icon"
                   onClick={() => handleRemoveSeed(sId)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
                   title="Bỏ chọn"
+                  aria-label={`Bỏ chọn ${seedTitles[sId] || sId}`}
                 >
                   <X size={14} />
                 </button>
@@ -139,7 +168,10 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
         )}
       </div>
 
-      {message && (
+      {loading && <LoadingState message="Đang tải gợi ý…" />}
+      {failed && <ErrorState message={message || undefined} onRetry={handleGetRecommendations} />}
+      {!loading && !failed && message && recommendations.length === 0 && <EmptyState title="Chưa có gợi ý phù hợp">Hãy đổi lựa chọn hoặc bỏ các sách đã ẩn.</EmptyState>}
+      {message && !failed && recommendations.length > 0 && (
         <div className="alert alert-warning" role="status">
           <span>{message}</span>
         </div>
@@ -153,11 +185,11 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
           </h2>
           <div style={{ display: 'grid', gap: 16 }}>
             {recommendations.map((item) => (
-              <div key={item.book_id} className="card" style={{ display: 'flex', justifyContent: 'space-between', gap: 20 }}>
+              <div key={item.book_id} className="card recommendation-card">
                 <div style={{ flex: 1 }}>
                   <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: 4 }}>
                     <a
-                      href={`/books/${item.book_id}`}
+                      href={withSnapshot(`/books/${item.book_id}`)}
                       onClick={(e) => {
                         e.preventDefault();
                         onNavigate(`/books/${item.book_id}`);
@@ -171,6 +203,7 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
                   </p>
 
                   {/* Lý do gợi ý có căn cứ (Mục 10.3) */}
+                  {!item.has_fulltext && <p className="badge" style={{ marginBottom: 8 }}>Chỉ có thông tin sách</p>}
                   <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', padding: '6px 12px', borderRadius: 'var(--radius)', display: 'inline-block', marginBottom: 10, fontSize: '0.875rem', color: '#1E40AF' }}>
                     <strong>Lý do:</strong> {item.reason_text}
                   </div>
@@ -186,19 +219,18 @@ export const RecommendPage: React.FC<RecommendPageProps> = ({ onNavigate, onSeed
                   >
                     Chi tiết
                   </button>
-                  {item.has_fulltext && (
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={() => onNavigate(`/read/${item.book_id}`)}
-                    >
-                      <BookOpen size={16} style={{ marginRight: 6 }} /> Đọc
-                    </button>
-                  )}
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    disabled={!item.has_fulltext}
+                    title={!item.has_fulltext ? 'Sách chưa có toàn văn đã duyệt' : undefined}
+                    onClick={() => onNavigate(`/read/${item.book_id}`)}
+                  >
+                    <BookOpen size={16} style={{ marginRight: 6 }} /> Đọc
+                  </button>
                   <button
                     type="button"
                     className="btn btn-outline"
-                    style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}
                     onClick={() => handleHideItem(item.book_id)}
                     title="Ẩn tác phẩm này khỏi các gợi ý tiếp theo"
                   >

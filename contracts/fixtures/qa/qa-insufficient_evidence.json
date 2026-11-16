@@ -1,0 +1,8 @@
+{
+  "status": "insufficient_evidence",
+  "answer": "",
+  "message": "Chưa tìm được đoạn đủ căn cứ để trả lời",
+  "citations": [],
+  "request_id": "00000000-0000-4000-8000-000000000013",
+  "snapshot_id": "reader-fixture-v1"
+}

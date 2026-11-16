@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "message": null,
+  "items": [
+    {
+      "book_id": "SLB_B0001",
+      "work_id": "SLB_W0001",
+      "title": "Cha con nghĩa nặng",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "genres": [
+        "van_hoc_viet_nam",
+        "tieu_thuyet"
+      ],
+      "summary": "Tiểu thuyết của Hồ Biểu Chánh kể về Trần Văn Sửu, một người nông dân Nam Bộ phải rời xa các con sau biến cố gia đình. Nhiều năm sau, khi trở về thăm con, ông đối diện với những day dứt và tình cảm cha con sâu nặng. Tác phẩm khắc họa tình thân, sự hy sinh và lòng vị tha trong đời sống gia đình Việt Nam.",
+      "has_fulltext": false,
+      "cover_url": null,
+      "rank": 1,
+      "reason_codes": [
+        "content_similarity"
+      ],
+      "reason_text": "Nội dung mô tả gần với sách đã chọn",
+      "evidence_fields": [
+        {
+          "book_id": "SLB_B0001",
+          "field": "summary",
+          "value": null,
+          "seed_book_id": null
+        },
+        {
+          "book_id": "SLB_B0002",
+          "field": "summary",
+          "value": null,
+          "seed_book_id": "SLB_B0002"
+        }
+      ]
+    }
+  ],
+  "request_id": "00000000-0000-4000-8000-000000000009",
+  "snapshot_id": "p3-contract-fixture"
+}
