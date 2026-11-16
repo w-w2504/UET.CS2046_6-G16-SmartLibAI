@@ -1,0 +1,13 @@
+**
+!api/
+!api/requirements.txt
+!api/src/
+!api/src/**
+!pipeline/
+!pipeline/requirements-embedding.txt
+!pipeline/pyproject.toml
+!pipeline/README.md
+!pipeline/ai_library/
+!pipeline/ai_library/**
+**/__pycache__/
+**/*.pyc
