@@ -51,3 +51,31 @@ class BookDetail(BookSummary):
     sources: list[BookSource]
     rag_available: bool
 
+
+class BooksResponse(BaseModel):
+    items: list[BookSummary]
+    total: int
+    offset: int
+    limit: int
+    snapshot_id: str
+    request_id: str
+
+
+class BookDetailResponse(BaseModel):
+    book: BookDetail
+    snapshot_id: str
+    request_id: str
+
+
+class Label(BaseModel):
+    code: str
+    label: str
+
+
+class FacetsResponse(BaseModel):
+    authors: list[str]
+    genres: list[Label]
+    topics: list[Label]
+    snapshot_id: str
+    request_id: str
+

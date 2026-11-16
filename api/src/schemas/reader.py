@@ -35,11 +35,14 @@ class ChaptersResponse(BaseModel):
     request_id: str
 
 
-class ChapterDetailResponse(BaseModel):
-    """Nội dung toàn văn của một chương."""
-    chapter: ChapterSummary
+class ChapterDetail(ChapterSummary):
     text: str
     paragraphs: list[Paragraph]
+
+
+class ChapterDetailResponse(BaseModel):
+    """Nội dung nằm trong chapter theo SPEC 12.4."""
+    chapter: ChapterDetail
     highlight: Highlight | None = None
     snapshot_id: str
     request_id: str
