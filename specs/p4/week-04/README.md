@@ -20,7 +20,7 @@
 - Bàn giao: Phần tìm đoạn sách liên quan đã kiểm thử.
 - Bên sử dụng: P1 context builder.
 - Khi chưa có đầu vào: Build index ngay trên batch chunk/vector sách mẫu của P3.
-- Đặc tả chi tiết sẽ lưu tại `C54.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C54.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ### C58 — P4 nối các phần lại thành API hỏi đáp
 
@@ -28,7 +28,7 @@
 - Bàn giao: API hỏi đáp hoạt động thử được.
 - Bên sử dụng: P2 QA UI.
 - Khi chưa có đầu vào: Dùng mock LLM khi quota chưa có.
-- Đặc tả chi tiết sẽ lưu tại `C58.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C58.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ### C62 — Kiểm tra các tình huống lỗi và độ an toàn RAG
 
@@ -36,7 +36,7 @@
 - Bàn giao: Danh sách bài thử RAG và minh chứng.
 - Bên sử dụng: Final release.
 - Khi chưa có đầu vào: Use mock provider if rate limited.
-- Đặc tả chi tiết sẽ lưu tại `C62.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C62.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ### C65 — Đưa bản cuối lên môi trường chạy demo
 
@@ -44,7 +44,7 @@
 - Bàn giao: Bản chạy demo cuối cùng và nhật ký triển khai.
 - Bên sử dụng: Cả nhóm demo.
 - Khi chưa có đầu vào: Không public API key.
-- Đặc tả chi tiết sẽ lưu tại `C65.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C65.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ## Việc P4 hỗ trợ
 
@@ -67,6 +67,6 @@
 
 - Change local đặt dạng `p4-w04-<task-or-scope>` trong `openspec/changes/`; nội dung liên kết mã task ở trên.
 - Chi tiết mỗi task lưu trong thư mục tuần này. Chưa có tệp task không đồng nghĩa task đã hoặc chưa được triển khai; cần đối chiếu code và đầu vào khi bắt đầu.
-- Báo cáo tuần: `acceptance.md`, tạo theo [mẫu nghiệm thu](../templates/weekly-acceptance.md) và chỉ điền kết quả đã kiểm chứng.
+- Báo cáo tuần sẽ lưu tại `acceptance.md`: căn cứ SPEC, đầu vào, lệnh, kết quả thực, giới hạn và PR.
 - C54/C58/C62 thuộc nhánh RAG sau quyết định GO tại C51/C52. Chưa có quyết định thì ghi đang chờ; không tự nhận là đã được duyệt.
 - C65 là triển khai bản cuối. Nếu NO-GO RAG, cần xác nhận lại phụ thuộc C58 trong Sheet; vẫn báo các yêu cầu RAG chưa đạt SPEC.

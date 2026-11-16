@@ -19,7 +19,7 @@
 - Bàn giao: Bộ FAISS dự kiến dùng khi nghiệm thu.
 - Bên sử dụng: P1/P2.
 - Khi chưa có đầu vào: P4 test build trên snapshot v2, P3 cập nhật vector theo từng batch.
-- Đặc tả chi tiết sẽ lưu tại `C38.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C38.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ### C42 — Kiểm tra trình đọc mở đúng sách và chương
 
@@ -27,7 +27,7 @@
 - Bàn giao: Trình đọc đủ ổn định để phục vụ demo.
 - Bên sử dụng: P2 W4 citations.
 - Khi chưa có đầu vào: Có thể test 2 sách trước.
-- Đặc tả chi tiết sẽ lưu tại `C42.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C42.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ### C46 — Chạy thử toàn bộ hệ thống trên máy sạch
 
@@ -35,7 +35,7 @@
 - Bàn giao: Hướng dẫn chạy thử, nhật ký lỗi và cách khắc phục.
 - Bên sử dụng: Cả nhóm demo.
 - Khi chưa có đầu vào: Chạy staging, không chờ QA.
-- Đặc tả chi tiết sẽ lưu tại `C46.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết sẽ lưu tại `C46.md`, nêu căn cứ SPEC, đầu vào, output và tiêu chí kiểm chứng.
 
 ## Việc P4 hỗ trợ
 
@@ -55,4 +55,4 @@
 
 - Change local đặt dạng `p4-w03-<task-or-scope>` trong `openspec/changes/`; nội dung liên kết mã task ở trên.
 - Chi tiết mỗi task lưu trong thư mục tuần này. Chưa có tệp task không đồng nghĩa task đã hoặc chưa được triển khai; cần đối chiếu code và đầu vào khi bắt đầu.
-- Báo cáo tuần: `acceptance.md`, tạo theo [mẫu nghiệm thu](../templates/weekly-acceptance.md) và chỉ điền kết quả đã kiểm chứng.
+- Báo cáo tuần sẽ lưu tại `acceptance.md`: căn cứ SPEC, đầu vào, lệnh, kết quả thực, giới hạn và PR.
