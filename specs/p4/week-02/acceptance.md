@@ -27,4 +27,4 @@ Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.
 - C29 cần sách mẫu có toàn văn/nguồn được duyệt và dữ liệu chương/đoạn đúng3.1/9.4. Lô metadata nội bộ3.2 không đủ phạm vi để phát hành Reader.
 - CLI build/validate/activate serving snapshot còn thiếu triển khai; adapter này không thay thế pipeline phát hành và không tự mở rộng C21 sang toàn bộ SPEC14.6. Chưa nghiệm thu dữ liệu thật, PyICU thật, chất lượng AI, VM/P95, phát hành snapshot hoặc toàn bộ tuần2.
 
-- Coreach: chưa cập nhật được ở lượt18/11 vì công cụ truy cập tab Edge báo browser access host is unavailable. Không thay bằng điều khiển cả màn hình; chưa ghi nhận đã đăng báo cáo hoặc gắn PR trên Coreach.
+- Coreach ngày18/11: đã mở lại phiên Edge riêng; người dùng tự đăng nhập. Đã đăng và reload xác minh báo cáo C05/C14/C18/C21/C25/C29/C35, gắn trực tiếp PR#12 qua phần liên kết. Mô tả giữ Nội dung/Output/Phụ thuộc; deadline/người phụ trách/contributors/trạng thái không đổi. C05/C18 giữ done; các task còn chờ đầu vào thật giữ đang làm. Bước Coreach đã hoàn tất; không tạo Markdown Coreach hoặc evidence ở local.
