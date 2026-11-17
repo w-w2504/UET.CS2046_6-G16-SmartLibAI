@@ -197,7 +197,10 @@ docker run --rm --network none smartlib-api:c08 pip check
 docker run --rm --network none --read-only smartlib-api:c08 python -c "from ai_library.e5_encoder import E5Encoder; from src.services.query_encoder import QueryEncoderProvider; from src.main import app; assert '/api/v1/search' in app.openapi()['paths']"
 ```
 
+Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 được mô tả tại [`api/C09.md`](api/C09.md), gồm hàm thuần, loader kiểm tra tính đồng bộ bundle/catalog, unit test và lệnh kiểm tra tích hợp. C09 không triển khai xếp hạng C13 hoặc endpoint C17.
+
 #### Frontend (React + Vite):
+
 ```bash
 cd web
 npm install
