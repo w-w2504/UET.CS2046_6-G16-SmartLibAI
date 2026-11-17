@@ -67,3 +67,5 @@ Coreach ngày18/11: báo cáo C05/C14/C18 đã cập nhật và kiểm sau reloa
 - Load lại bằng load_book_index:20/20 vector khớp chính xác;20 self-query đều top1 đúng. Sai số L2 tối đa8,48e-8; sai số điểm với phép tính float64 tối đa1,09e-7.
 - Query thật “Cuộc sống và số phận người nông dân Việt Nam” qua E5 local đúng revision: top1SLB_B0001; thứ tự20 kết quả khớp phép tính độc lập, sai số điểm tối đa8,36e-8. Đây là smoke tích hợp, không phải điểm chất lượng AI hoặc số đo SLA/P95.
 - Kết luận: **C14 đạt phạm vi thành phần với vector E5 thật**; có bộ FAISS/mapping và helper để P1/P2 dùng. Không thay active, không phát hành serving snapshot; corpus≥80 và toàn văn vẫn chưa nghiệm thu. Các ghi nhận chưa nhận bundle ở phía trên là lịch sử trước lượt kiểm này.
+
+Coreach sau kiểm nhận E5 thật18/11: đã đăng báo cáo bổ sung và gắn PR#12, chuyển C14 sang Done rồi reload xác minh. Giữ deadline/lead. C21 được cập nhật đã có20 vector thật nhưng vẫn đang làm vì chưa có lô≥80.
