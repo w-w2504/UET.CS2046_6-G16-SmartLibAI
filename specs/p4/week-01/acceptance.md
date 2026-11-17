@@ -1,6 +1,6 @@
 # P4 — Nghiệm thu tuần 1
 
-Cập nhật hồ sơ ngày 18/11/2026. Phạm vi: C05, thành phần C14 và Reader C18; chưa xác nhận nghiệm thu dữ liệu P3 thật hoặc toàn hệ thống.
+Cập nhật hồ sơ ngày 18/11/2026. Phạm vi: C05, thành phần C14 và Reader C18; C14 đã bổ sung kiểm chứng E5 thật tái tạo cục bộ ngày18/11; chưa nghiệm thu toàn hệ thống.
 
 ## Căn cứ và bàn giao
 
@@ -44,7 +44,7 @@ Hai script giữ lần lượt 12 và 6 tình huống; output chi tiết ở th�
 
 ## Phụ thuộc và giới hạn còn giữ
 
-- Người dùng xác nhận ngày 15/11 chưa có bundle vector, corpus mở rộng hoặc toàn văn thật ngoài repo. C14 chỉ đạt mã/thành phần/fixture; adapter tiếp nhận C11 được triển khai ở C21/C35, không sinh E5 thay P3.
+- Lịch sử15/11: chưa có bundle/corpus mở rộng/toàn văn. Sau đó ngày18/11 người dùng đã tái tạo bundle20 bằng mã C11; kết quả bổ sung dưới đây thay trạng thái chờ bundle20 của C14. Corpus mở rộng và toàn văn vẫn chưa có.
 - SPEC 3.2 mới chấp thuận metadata/tóm tắt C02 cho demo/C11 nội bộ; không bao gồm Reader, RAG hoặc phát hành công khai. Không dùng chấp thuận nội bộ để báo đã có nguồn public/toàn văn.
 - C18 giữ retry riêng và transport Reader theo SPEC. Tuần 2 tiếp tục C25/C29; backend thật chạy trên fixture vẫn không phải sách thật đã nghiệm thu.
 - Chưa kết luận task chung C01/C06/C19 hoặc công việc P1/P2/P3; chưa nghiệm thu search/rec theo baseline, RAG/citation, corpus200–300, 20 toàn văn, Docker/VM, SLA hoặc activation/rollback toàn hệ thống.
@@ -58,3 +58,12 @@ Hai script giữ lần lượt 12 và 6 tình huống; output chi tiết ở th�
 Hồ sơ và regression tuần1 được cập nhật cùng [PR #12](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/12); không thay trạng thái nghiệm thu dữ liệu thật của C14.
 
 Coreach ngày18/11: báo cáo C05/C14/C18 đã cập nhật và kiểm sau reload, đính kèm PR#12. Giữ deadline/người phụ trách/trạng thái; C14 vẫn chưa nghiệm thu bundle E5 thật.
+
+## Nghiệm thu bổ sung C14 với E5 thật — 18/11/2026
+
+- Căn cứ SPEC3.2/9.3/10.4/16.2, SHA-25620cad4f96ad02f7eb253c054d4b9efd341ccabd743b7c7c0dc43d7d463c72aea. Mã kiểm:2d80080; producer C11:77e39d3. Người dùng tự chạy C11; không đổi encoder/catalog/taxonomy. Python3.14.8, Torch2.10.0+cpu, Transformers4.57.6; E5 revision đúng SPEC.
+- Input là bundle20 được tái tạo cục bộ từ20 metadata nội bộ đã duyệt. Manifest input SHA-256 b27b208dd56df4712dded4d2da463bbe6a35e635b76416e5de37688e034369b1; hash vectors c1cccaa34bbfa285bc26de156b1543c40bee667d8b503ce085c2808cb5da3118 và mapping3d282926dde07591ff92ffcc87ec844ff3502538ee1b8e0ed2ee5a9a4df7f65f khớp. Không báo là nhận file từ máy P3.
+- Lệnh `python -B -m ai_library.c11_bundle --bundle data/reports/c11-local-20261118 --batch data/raw/sample_batch --taxonomy data/taxonomy.json --output-dir data/reports/c14-local-20261118 --snapshot c14-local-20261118 --data-kind p3_embeddings`: exit0,20 sách. Hash nguồn/artefact, cấu hình, ID/row/content_hash và float32/384/L2 đều đạt.
+- Load lại bằng load_book_index:20/20 vector khớp chính xác;20 self-query đều top1 đúng. Sai số L2 tối đa8,48e-8; sai số điểm với phép tính float64 tối đa1,09e-7.
+- Query thật “Cuộc sống và số phận người nông dân Việt Nam” qua E5 local đúng revision: top1SLB_B0001; thứ tự20 kết quả khớp phép tính độc lập, sai số điểm tối đa8,36e-8. Đây là smoke tích hợp, không phải điểm chất lượng AI hoặc số đo SLA/P95.
+- Kết luận: **C14 đạt phạm vi thành phần với vector E5 thật**; có bộ FAISS/mapping và helper để P1/P2 dùng. Không thay active, không phát hành serving snapshot; corpus≥80 và toàn văn vẫn chưa nghiệm thu. Các ghi nhận chưa nhận bundle ở phía trên là lịch sử trước lượt kiểm này.

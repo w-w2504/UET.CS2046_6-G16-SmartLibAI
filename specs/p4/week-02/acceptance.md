@@ -4,7 +4,7 @@ Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.
 
 | Task | Kết quả kỹ thuật đã kiểm chứng | Phần chưa nghiệm thu |
 | --- | --- | --- |
-| C21 | Adapter bundle C11 kiểm hash nguồn/artefact, cấu hình E5, row/ID/content_hash và float32/384/L2; CLI chạy qua tiến trình riêng, round-trip FAISS và truy vết source_bundle | Chưa nhận bundle E5 thật hoặc catalog≥80; output là thành phần nội bộ, chưa là serving snapshot |
+| C21 | Adapter bundle C11 kiểm hash nguồn/artefact, cấu hình E5, row/ID/content_hash và float32/384/L2; CLI chạy qua tiến trình riêng, round-trip FAISS và truy vết source_bundle | Đã kiểm bundle20 E5 thật tái tạo cục bộ; chưa có catalog/vector≥80, output vẫn là thành phần nội bộ |
 | C25 | API list/detail/facets/mục lục/chương đọc SQLite, giữ schema C03, snapshot và ErrorResponse; health kiểm readiness ngoài event loop trong ngân sách2s | Chưa có snapshot công khai/toàn văn thật; collation ICU thật chưa kiểm chứng |
 | C29 | 6/6 tình huống browser qua Vite→FastAPI→SQLite fixture đạt; không route mock hoặc reader_fixture | Chưa có sách thật và nguồn được duyệt; chưa nghiệm thu QA/citation |
 | C35 | Rebuild đích mới, kiểm fixture20/80/150, từ chối serving/ghi đè, mô phỏng lỗi sau ghi FAISS vẫn giữ index cũ/active | Chưa có catalog/vector150–200; không thay nghiệm thu activation/rollback toàn hệ thống |
@@ -23,8 +23,10 @@ Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.
 ## Bàn giao và giới hạn
 
 - C21 commit `4d04f66`; C35 commit `e9cd2d5`; C25/C29 có các commit `9e9c2f7`/`c473777`, tích hợp develop tại `2989158`. Đã push và mở [PR #12](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/12) vào develop; PR mở, không có xung đột tại thời điểm xác minh và chưa merge.
-- P3/C11 cần bàn giao bundle20 và catalog/taxonomy nguồn khớp hash. PR báo đã chạy E5 thật không đồng nghĩa P4 đã nhận artifact. P3/C20/C24 giao catalog≥80 và vector tương ứng; C34/C24 giao lô150–200. Không chạy E5 thay P3 hoặc lấy fixture để đạt số lượng.
+- Ngày18/11 người dùng đã tái tạo bundle20 bằng mã C11 và adapter đã kiểm nhận/build/load đạt; C14 không còn chờ artifact20. P3/C20/C24 vẫn cần giao catalog≥80 và vector tương ứng; C34/C24 giao lô150–200. Không lấy fixture để đạt số lượng corpus thật.
 - C29 cần sách mẫu có toàn văn/nguồn được duyệt và dữ liệu chương/đoạn đúng3.1/9.4. Lô metadata nội bộ3.2 không đủ phạm vi để phát hành Reader.
 - CLI build/validate/activate serving snapshot còn thiếu triển khai; adapter này không thay thế pipeline phát hành và không tự mở rộng C21 sang toàn bộ SPEC14.6. Chưa nghiệm thu dữ liệu thật, PyICU thật, chất lượng AI, VM/P95, phát hành snapshot hoặc toàn bộ tuần2.
 
 - Coreach ngày18/11: đã mở lại phiên Edge riêng; người dùng tự đăng nhập. Đã đăng và reload xác minh báo cáo C05/C14/C18/C21/C25/C29/C35, gắn trực tiếp PR#12 qua phần liên kết. Mô tả giữ Nội dung/Output/Phụ thuộc; deadline/người phụ trách/contributors/trạng thái không đổi. C05/C18 giữ done; các task còn chờ đầu vào thật giữ đang làm. Bước Coreach đã hoàn tất; không tạo Markdown Coreach hoặc evidence ở local.
+
+- Bổ sung sau lượt fixture18/11: C14 đạt thành phần bằng20 E5 thật tái tạo cục bộ. Round-trip20/20, self-query20/20 và query tiếng Việt thật khớp phép tính độc lập. Kết quả không thay nghiệm thu quy mô80/150, dữ liệu toàn văn, chất lượng AI hoặc snapshot phục vụ.
