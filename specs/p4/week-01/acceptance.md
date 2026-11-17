@@ -69,3 +69,5 @@ Coreach ngày18/11: báo cáo C05/C14/C18 đã cập nhật và kiểm sau reloa
 - Kết luận: **C14 đạt phạm vi thành phần với vector E5 thật**; có bộ FAISS/mapping và helper để P1/P2 dùng. Không thay active, không phát hành serving snapshot; corpus≥80 và toàn văn vẫn chưa nghiệm thu. Các ghi nhận chưa nhận bundle ở phía trên là lịch sử trước lượt kiểm này.
 
 Coreach sau kiểm nhận E5 thật18/11: đã đăng báo cáo bổ sung và gắn PR#12, chuyển C14 sang Done rồi reload xác minh. Giữ deadline/lead. C21 được cập nhật đã có20 vector thật nhưng vẫn đang làm vì chưa có lô≥80.
+
+Cập nhật bàn giao/gộp Coreach18/11: ZIP C14 đã đăng trong report PR#12, tải lại khớp SHA-256 gói gốc. C05/C14/C18 mỗi task giữ một report PR#3 và một report PR#12; bản PR#12 ghi kết quả mới nhất, C14 giữ file ZIP. Deadline/lead/status không đổi; chưa có xác nhận P1/P2 tiếp nhận.
