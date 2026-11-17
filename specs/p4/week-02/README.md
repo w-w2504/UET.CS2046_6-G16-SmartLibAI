@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 14–20/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái ngày 15/11/2026: bắt đầu phần mã/fixture theo [nghiệm thu tuần](acceptance.md); chưa có đầu vào vector/corpus mở rộng/toàn văn thật.
+- Trạng thái ngày 18/11/2026: C21/C35 đã có adapter/rebuild và kiểm thử fixture; C25/C29 đã tích hợp và kiểm browser qua backend thật. Chưa nhận bundle vector/corpus mở rộng/toàn văn thật; xem [nghiệm thu tuần](acceptance.md).
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính

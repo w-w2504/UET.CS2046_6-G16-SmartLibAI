@@ -1,6 +1,6 @@
 # P4 — Nghiệm thu tuần 1
 
-Cập nhật hồ sơ ngày 15/11/2026. Phạm vi: C05, thành phần C14 và Reader C18; chưa xác nhận nghiệm thu dữ liệu P3 thật hoặc toàn hệ thống.
+Cập nhật hồ sơ ngày 18/11/2026. Phạm vi: C05, thành phần C14 và Reader C18; chưa xác nhận nghiệm thu dữ liệu P3 thật hoặc toàn hệ thống.
 
 ## Căn cứ và bàn giao
 
@@ -40,7 +40,7 @@ python -B web/tests/check_pr3_integration.py
 
 Hai script giữ lần lượt 12 và 6 tình huống; output chi tiết ở thư mục tạm ngoài P4, có thể chọn bằng `--output-dir` hoặc `SMARTLIB_EVIDENCE_DIR`. Smoke cần thư mục đích mới để tránh ghi đè. Không dùng kết quả lịch sử thay cho lượt kiểm tra trên nền mới.
 
-**Trạng thái lượt 15/11:** đang chuẩn bị kiểm chứng lại sau cập nhật develop và thu gọn tài liệu; chưa ghi PASS hoặc số kiểm thử mới trước khi thực chạy. Nghiệm thu sẽ ghi lệnh, đầu vào, kết quả và giới hạn tại đây.
+**Lịch sử lượt 15/11:** khi đó đang chuẩn bị kiểm chứng lại sau cập nhật develop và thu gọn tài liệu; chưa ghi PASS hoặc số kiểm thử mới trước khi thực chạy. Nghiệm thu sẽ ghi lệnh, đầu vào, kết quả và giới hạn tại đây.
 
 ## Phụ thuộc và giới hạn còn giữ
 
@@ -50,3 +50,7 @@ Hai script giữ lần lượt 12 và 6 tình huống; output chi tiết ở th�
 - Chưa kết luận task chung C01/C06/C19 hoặc công việc P1/P2/P3; chưa nghiệm thu search/rec theo baseline, RAG/citation, corpus200–300, 20 toàn văn, Docker/VM, SLA hoặc activation/rollback toàn hệ thống.
 - Hai cảnh báo dependency npm đã biết chưa được xử lý trong PR #3; không tự nâng dependency khi thu gọn hồ sơ.
 - Quyết định 15/11: báo cáo chỉ giữ căn cứ SPEC, phiên bản, input, lệnh, kết quả, giới hạn và PR; Coreach đính kèm trực tiếp PR. Việc bỏ log/ảnh khỏi thư mục P4 không miễn kiểm thử hoặc yêu cầu truy vết của SPEC 16.2.
+
+## Kiểm chứng lại ngày18/11/2026
+
+Đã tích hợp develop6b1e7c9 tại2989158. Toàn pipeline85 test đạt, gồm33 C05/C14; C18 browser12/12, tích hợp C02/C18 6/6, demo checker và build đạt. C29 qua backend thật với SQLite fixture6/6 đạt, tách khỏi nghiệm thu C18. Chưa nhận bundle E5 thật hoặc nguồn public mới để nghiệm thu dữ liệu.

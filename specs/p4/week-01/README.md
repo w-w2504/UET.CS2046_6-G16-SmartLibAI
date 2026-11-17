@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 07–13/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái ngày 15/11/2026: [PR #3](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/3) đã merge; C05/C14/C18 có kiểm chứng kỹ thuật ngày 10–11/11, xem [nghiệm thu](acceptance.md). Đang kiểm tra lại trên develop mới; C14 chưa nhận vector P3 thật, API/toàn văn ở C25/C29 tuần 2.
+- Trạng thái ngày 15/11/2026: [PR #3](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/3) đã merge; C05/C14/C18 có kiểm chứng kỹ thuật ngày 10–11/11, xem [nghiệm thu](acceptance.md). Ngày18/11 đã kiểm chứng lại C05/C14/C18 trên nền develop mới; C14 vẫn chưa nhận bundle P3 thật, C25/C29 đạt tích hợp kỹ thuật bằng fixture ở tuần2.
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính
