@@ -21,12 +21,44 @@ from src.services.preference import PreferenceDataError, build_preference_vector
 
 
 @dataclass(frozen=True)
+class BookMetadata:
+    """Immutable fields needed by C13, captured from the validated catalog."""
+
+    book_id: str
+    work_id: str
+    authors: tuple[str, ...]
+    genres: tuple[str, ...]
+    has_fulltext: bool
+    topics: tuple[str, ...] = ()
+
+    def __post_init__(self):
+        # frozen=True alone does not protect lists supplied to the constructor.
+        for name in ("authors", "genres", "topics"):
+            values = getattr(self, name)
+            if not isinstance(values, (list, tuple)) or any(not isinstance(value, str) for value in values):
+                raise ValueError(f"{name} phải là danh sách chuỗi.")
+            object.__setattr__(self, name, tuple(values))
+
+
+@dataclass(frozen=True)
 class PreferenceSource:
     bundle_dir: Path
     bundle_fingerprint: str
     book_to_work: Mapping[str, str]
     _row_by_id: Mapping[str, int]
     _vectors: NDArray[np.float32]
+    books: Mapping[str, BookMetadata]
+    genre_codes: frozenset[str]
+
+    def __post_init__(self):
+        # Snapshot constructor inputs too; MappingProxyType(input_dict) alone
+        # would still reflect changes made through the caller's original dict.
+        for name in ("book_to_work", "_row_by_id", "books"):
+            object.__setattr__(self, name, MappingProxyType(dict(getattr(self, name))))
+        object.__setattr__(self, "genre_codes", frozenset(self.genre_codes))
+        vectors = self._vectors.copy()
+        vectors.flags.writeable = False
+        object.__setattr__(self, "_vectors", vectors)
 
     def get_vector(self, book_id: str) -> NDArray[np.float32]:
         return self._vectors[self._row_by_id[book_id]].copy()
@@ -95,6 +127,10 @@ def load_preference_source(
             directory.resolve(), hashlib.sha256(manifest_bytes).hexdigest(),
             MappingProxyType({bid: book.work_id for bid, book in books.items()}),
             MappingProxyType(row_by_id), vectors,
+            MappingProxyType({bid: BookMetadata(
+                bid, book.work_id, tuple(book.authors), tuple(book.genres), book.fulltext_approved, tuple(book.topics),
+            ) for bid, book in books.items()}),
+            frozenset(genres),
         )
     except (OSError, ValueError, TypeError, KeyError, IndexError, AttributeError, OverflowError, EOFError) as exc:
         raise PreferenceDataError("Không nạp được bộ C11 khớp catalog/taxonomy. Kiểm tra manifest, mapping và hash nguồn.") from exc
