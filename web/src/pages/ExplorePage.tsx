@@ -38,13 +38,17 @@ export function ExplorePage({ onNavigate }: ExplorePageProps) {
   }
   useEffect(() => { void fetchBooks(); return () => { operation.current++; }; }, []);
   function submit(e: FormEvent) { e.preventDefault(); saveTabState({ query }); void fetchBooks(query.trim(), fulltext); }
+  function changeFulltext(checked: boolean) {
+    setFulltext(checked);
+    void fetchBooks(query.trim(), checked, 0);
+  }
 
   return <div className="app-container page">
     <section className="page-heading"><p className="eyebrow">THƯ VIỆN CỦA BẠN</p><h1>Khám phá những cuốn sách</h1><p className="muted">Tìm theo nhu cầu, chọn sách bạn yêu thích và bắt đầu hành trình đọc.</p></section>
     <form className="search-form card" onSubmit={submit}>
       <Input id="book-query" label="Bạn muốn đọc về điều gì?" placeholder="Ví dụ: tình bạn và những chuyến đi" value={query} onChange={e => setQuery(e.target.value)} />
       <Button type="submit">Tìm sách</Button>
-      <label className="filter-check"><input type="checkbox" checked={fulltext} onChange={e => setFulltext(e.target.checked)} />Chỉ sách có toàn văn</label>
+      <label className="filter-check"><input type="checkbox" checked={fulltext} onChange={e => changeFulltext(e.target.checked)} />Chỉ sách có toàn văn</label>
     </form>
     <div className="section-heading"><h2>{searching ? 'Kết quả tìm kiếm' : 'Danh mục sách'}</h2>{searching && <Button variant="outline" onClick={() => { setQuery(''); saveTabState({ query: '' }); void fetchBooks('', fulltext); }}>Về danh mục</Button>}</div>
     {notice && <p className="alert alert-warning" role="status">{notice}</p>}

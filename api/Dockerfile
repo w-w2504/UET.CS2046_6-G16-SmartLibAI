@@ -22,13 +22,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Cài đặt Python dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install torch --index-url https://download.pytorch.org/whl/cpu && \
-    pip install -r requirements.txt
+COPY api/requirements.txt ./requirements.txt
+COPY pipeline/requirements-embedding.txt ./requirements-embedding.txt
+RUN pip install -r requirements.txt -r requirements-embedding.txt && pip check
+
+COPY pipeline/pyproject.toml pipeline/README.md /tmp/smartlib-pipeline/
+COPY pipeline/ai_library/ /tmp/smartlib-pipeline/ai_library/
+RUN pip install --no-deps /tmp/smartlib-pipeline && pip check && rm -rf /tmp/smartlib-pipeline
 
 # Sao chép mã nguồn API
-COPY src/ ./src/
+COPY api/src/ ./src/
 
 # Mở cổng API nội bộ
 EXPOSE 8000

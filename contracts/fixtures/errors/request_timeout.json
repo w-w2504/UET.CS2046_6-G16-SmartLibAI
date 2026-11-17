@@ -1,0 +1,7 @@
+{
+  "code": "request_timeout",
+  "message": "Yêu cầu xử lý quá thời hạn",
+  "module": "rag",
+  "field": null,
+  "request_id": "00000000-0000-4000-8000-000000000025"
+}

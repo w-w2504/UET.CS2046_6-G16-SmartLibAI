@@ -54,13 +54,27 @@ class SnapshotService:
             return False
 
     def is_search_ready(self) -> bool:
-        return False
+        """Search giữ service C12/C16 và encoder C08 từ develop."""
+        from src.services.search import search_service
+        return search_service.is_ready()
 
     def is_recommend_ready(self) -> bool:
-        return False
+        """recommend_ready có cùng phụ thuộc như search."""
+        return self.is_search_ready()
 
     def is_rag_ready(self) -> bool:
-        return False
+        """rag_ready cần catalog, encoder, ít nhất một chỉ mục đoạn, khóa Gemini."""
+        if not self.is_catalog_ready():
+            return False
+        if not settings.GEMINI_API_KEY:
+            return False
+        sdir = self.get_snapshot_dir()
+        if not sdir:
+            return False
+        chunks_dir = sdir / "chunks"
+        if not chunks_dir.exists() or not any(chunks_dir.glob("*.faiss")):
+            return False
+        return True
 
 
 snapshot_service = SnapshotService()

@@ -1,0 +1,8 @@
+{
+  "catalog_ready": true,
+  "search_ready": false,
+  "recommend_ready": false,
+  "rag_ready": false,
+  "request_id": "00000000-0000-4000-8000-000000000016",
+  "snapshot_id": "p3-contract-fixture"
+}

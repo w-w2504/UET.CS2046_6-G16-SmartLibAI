@@ -41,8 +41,8 @@ services:
   # --- FastAPI Backend Service (1 Worker, Internal Network) ---
   api:
     build:
-      context: ./api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: api/Dockerfile
     container_name: smartlib-api
     restart: unless-stopped
     env_file:

@@ -54,4 +54,3 @@ def test_block_serving_destination_before_input_read(tmp_path, monkeypatch):
         with pytest.raises(ValueError, match="snapshot phục vụ"):
             build(tmp_path / "missing", tmp_path / "missing", tmp_path / "missing.json", output)
         assert not output.exists()
-

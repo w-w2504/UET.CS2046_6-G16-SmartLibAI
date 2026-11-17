@@ -1,23 +1,11 @@
+import readerSource from "./reader-source.json";
 import type { ChapterDetail, ChapterDetailResponse, ChaptersResponse } from '../types/api';
 
-export const FIXTURE_BOOK_ID = 'B_reader_fixture';
-export const FIXTURE_SNAPSHOT_ID = 'reader-fixture-v1';
+export const FIXTURE_BOOK_ID = readerSource.book_id;
+export const FIXTURE_SNAPSHOT_ID = readerSource.snapshot_id;
 
 // Authored test text, not an approved catalog book or real API integration.
-const entries: [string, string, string[]][] = [
-  ['H_reader_1', 'Chương mẫu 1 — Bắt đầu', [
-    'Buổi sáng, An mở cuốn sổ và ghi lại những điều mình muốn tìm hiểu trong thư viện.',
-    'Dấu lá 🌿 nằm giữa dòng chữ để kiểm tra vị trí ký tự Unicode. Đây là văn bản tự viết dành cho kiểm thử.',
-  ]],
-  ['H_reader_2', 'Chương mẫu 2 — Khám phá', [
-    'An đi qua những kệ sách và chọn một chỗ ngồi gần cửa sổ.',
-    'Mỗi chương mẫu có nội dung riêng để kiểm tra việc chuyển chương và tránh hiển thị nhầm văn bản.',
-  ]],
-  ['H_reader_3', 'Chương mẫu 3 — Ghi chép', [
-    'Trước khi rời thư viện, An ghi lại câu hỏi cho buổi đọc tiếp theo.',
-    'Bộ chương này chỉ dùng để kiểm thử giao diện phát triển, không đại diện cho toàn văn sách đã được duyệt.',
-  ]],
-];
+const entries = readerSource.entries as [string, string, string[]][];
 const chapters: ChapterDetail[] = entries.map(([chapterId, title, texts], index) => {
   let offset = 0;
   const paragraphs = texts.map((text, paragraphIndex) => {

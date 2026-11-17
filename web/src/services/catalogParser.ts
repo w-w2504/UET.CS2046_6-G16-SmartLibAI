@@ -51,10 +51,12 @@ export function parseCatalog(catalogText: string, chaptersText = ''): DemoCatalo
     if (row.fulltext_approved === true && sources.some(s => s.content_type === 'fulltext' && s.rights_status === 'approved')) approvedFulltext.add(id);
     const cover = row.cover_url == null ? null : text(row.cover_url, 'cover_url');
     if (cover && !/^https?:\/\//i.test(cover)) throw new Error('cover_url cần dùng http hoặc https.');
+    const language = text(row.language ?? 'vi', 'language');
+    if (language !== 'vi') throw new Error('language phải là vi.');
     return {
       book_id: id, work_id: text(row.work_id, 'work_id'), title: text(row.title, 'title'), authors,
       genres: strings(row.genres, 'genres'), topics: strings(row.topics, 'topics'), summary: text(row.summary, 'summary'),
-      language: text(row.language ?? 'vi', 'language'), cover_url: cover, sources,
+      language, cover_url: cover, sources,
       has_fulltext: false, rag_available: false,
     } satisfies DemoBookDetail;
   });

@@ -164,11 +164,42 @@ python -m venv .venv
 # Trên Linux/macOS:
 # source .venv/bin/activate
 
-pip install -r requirements.txt
+pip install -r requirements.txt -r ../pipeline/requirements-embedding.txt
+pip install -e ../pipeline
 uvicorn src.main:app --reload --port 8000
 ```
 
+#### Query encoder E5 (C08)
+
+C11 cung cấp `ai_library.e5_encoder.E5Encoder.encode_queries()`. C08 dùng chung package đó trong API. API image được build từ thư mục gốc bằng `docker build -f api/Dockerfile -t smartlib-api:c08 .` hoặc `docker compose build api`.
+
+Trong Compose, API mount `./models` vào `/models` ở chế độ chỉ đọc. Chuẩn bị cache Hugging Face Hub bên ngoài tiến trình API với thư mục `models/hub/models--intfloat--multilingual-e5-small/`. Thư mục này chứa `blobs/` và `snapshots/fd1525a9fd15316a2d503bf26ab031a61d056e98/` với đầy đủ trọng số, tokenizer và cấu hình. Nếu chạy local, đặt `MODEL_ROOT` tới thư mục `models` đó. Encoder đọc cache local, giữ đúng revision và dùng lại instance trong worker. Sau khi bổ sung cache còn thiếu, khởi động lại worker hoặc tạo provider mới.
+
+```python
+from ai_library.e5_encoder import embedding_config
+from src.config import settings
+from src.services.query_encoder import QueryEncoderProvider, encode_query
+
+# Tạo provider một lần trong vòng đời worker.
+provider = QueryEncoderProvider(settings.model_path)
+encoder = provider.get(embedding_config())  # C16 sẽ truyền cấu hình của snapshot.
+vector = encode_query(encoder, "sách về lịch sử Việt Nam")
+```
+
+Truyền truy vấn thô. C11 thêm prefix `query: `, kiểm tra 480 token và tạo vector L2 `float32` 384 chiều. C12 dùng vector để xếp hạng. C16 sẽ ánh xạ `TokenLimitError` thành HTTP 422 `invalid_input` với `field=q`, và `ModelUnavailableError` thành HTTP 503 `service_unavailable` với `module=search`.
+
+Từ thư mục gốc, kiểm thử offline bằng `PYTHONPATH=api python -m pytest api/tests pipeline/tests/test_book_embeddings.py` (PowerShell: đặt `$env:PYTHONPATH = 'api'` trước khi chạy). Cần cài package pipeline, các phụ thuộc API test và FAISS cho bài test tích hợp index C11/C14. Fake backend kiểm tra số token, prefix và batch theo mô phỏng.
+
+```bash
+docker compose config --quiet
+docker run --rm --network none smartlib-api:c08 pip check
+docker run --rm --network none --read-only smartlib-api:c08 python -c "from ai_library.e5_encoder import E5Encoder; from src.services.query_encoder import QueryEncoderProvider; from src.main import app; assert '/api/v1/search' in app.openapi()['paths']"
+```
+
+Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 được mô tả tại [`api/C09.md`](api/C09.md), gồm hàm thuần, loader kiểm tra tính đồng bộ bundle/catalog, unit test và lệnh kiểm tra tích hợp. C09 không triển khai xếp hạng C13 hoặc endpoint C17.
+
 #### Frontend (React + Vite):
+
 ```bash
 cd web
 npm install

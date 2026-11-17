@@ -109,11 +109,34 @@ def test_token_limit_includes_prefix_and_special_tokens(fake_backend):
     _, model, _, _ = fake_backend
     encoder = e5.E5Encoder()
     assert encoder.encode_passages(["x " * 477]).shape == (1, 384)
+    assert encoder.encode_queries(["x " * 477]).shape == (1, 384)
     model.reset_mock()
     with pytest.raises(e5.TokenLimitError) as caught:
         encoder.encode_queries(["ok", "x " * 478])
     assert (caught.value.position, caught.value.token_count) == (1, 481)
     model.assert_not_called()
+
+
+def test_query_batch_preserves_order_across_inference_batches(fake_backend):
+    tokenizer, model, _, _ = fake_backend
+    encoder = e5.E5Encoder()
+    empty = encoder.encode_queries([])
+    assert empty.shape == (0, 384) and empty.dtype == np.float32
+    tokenizer.assert_not_called()
+    model.assert_not_called()
+
+    def infer(attention_mask):
+        mask = attention_mask.numpy()
+        hidden = np.zeros((*mask.shape, 384), dtype=np.float32)
+        hidden[np.arange(len(mask)), 0, mask.sum(axis=1)] = 1
+        return SimpleNamespace(last_hidden_state=ArrayTensor(hidden))
+
+    model.side_effect = infer
+    vectors = encoder.encode_queries(["x " * i for i in range(1, 11)])
+    assert model.call_count == 2
+    assert vectors.shape == (10, 384) and vectors.dtype == np.float32
+    np.testing.assert_array_equal(vectors.argmax(axis=1), np.arange(4, 14))
+    np.testing.assert_allclose(np.linalg.norm(vectors, axis=1), 1)
 
 
 def test_model_unavailable_preserves_error_cause(fake_backend):

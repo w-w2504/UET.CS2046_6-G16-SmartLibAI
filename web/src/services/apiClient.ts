@@ -44,7 +44,10 @@ export async function apiRequest<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<{ data: T; requestId: string }> {
-  if (isDemo) return { data: await demoRequest(endpoint, options) as T, requestId: 'demo-request' };
+  if (isDemo) {
+    const data = await demoRequest(endpoint, options) as T & { request_id: string };
+    return { data, requestId: data.request_id };
+  }
   const headers = new Headers(options.headers || {});
   
   if (!headers.has('Content-Type') && options.body) {
@@ -52,15 +55,23 @@ export async function apiRequest<T>(
   }
 
   // Gắn snapshot_id nếu endpoint hỗ trợ và chưa có trong URL/Body
-  let url = `${API_BASE}${endpoint}`;
-  if (getSnapshotId() && !url.includes('snapshot_id=')) {
-    const separator = url.includes('?') ? '&' : '?';
-    url = `${url}${separator}snapshot_id=${encodeURIComponent(getSnapshotId()!)}`;
+  const url = new URL(`${API_BASE}${endpoint}`, window.location.origin);
+  const snapshot = getSnapshotId();
+  let body = options.body;
+  const method = (options.method ?? 'GET').toUpperCase();
+  if (snapshot && url.pathname !== `${API_BASE}/health`) {
+    if (method === 'POST' && typeof body === 'string') {
+      const payload = JSON.parse(body);
+      body = JSON.stringify({ snapshot_id: snapshot, ...payload });
+    } else if (method === 'GET' && !url.searchParams.has('snapshot_id')) {
+      url.searchParams.set('snapshot_id', snapshot);
+    }
   }
 
-  const response = await fetch(url, {
+  const response = await fetch(url.pathname + url.search, {
     ...options,
     headers,
+    body,
   });
 
   const requestId = response.headers.get('X-Request-ID') || '';

@@ -246,3 +246,28 @@ def test_catalog_hash_failure(catalog):
     with path.open("ab") as output:
         output.write(b"changed-without-manifest")
     assert client.get("/api/v1/books").status_code == 503
+
+
+def test_slow_catalog_readiness_does_not_block_health(monkeypatch):
+    import asyncio
+    import time
+    import httpx
+    from src.routes import health
+
+    def slow_catalog():
+        time.sleep(0.2)
+        return True
+
+    monkeypatch.setattr(snapshot_service, "is_catalog_ready", slow_catalog)
+    monkeypatch.setattr(snapshot_service, "is_search_ready", lambda: False)
+    monkeypatch.setattr(snapshot_service, "is_rag_ready", lambda: False)
+    monkeypatch.setattr(health, "HEALTH_DEADLINE_SECONDS", 0.02)
+
+    async def scenario():
+        async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://test") as client:
+            started = time.monotonic()
+            response = await client.get("/api/v1/health")
+            assert time.monotonic() - started < 0.15
+            assert response.status_code == 200
+            assert response.json()["catalog_ready"] is False
+    asyncio.run(scenario())

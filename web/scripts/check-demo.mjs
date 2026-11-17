@@ -29,6 +29,22 @@ try {
   assert.equal(isDemo, true);
   assert.equal(data.books.length, rows.length);
   assert.equal((await demoRequest('/books')).total, rows.length);
+  const { apiRequest } = await server.ssrLoadModule('/src/services/apiClient.ts');
+  const traced = await apiRequest('/books');
+  assert.equal(traced.requestId, traced.data.request_id);
+  const qaFixturePath = new URL('../src/fixtures/generated/qa.json', import.meta.url);
+  const cases = JSON.parse(await readFile(qaFixturePath, 'utf8'));
+  const binding = cases.answered.citations[0];
+  for (const [status, fixture] of Object.entries(cases)) {
+    const qa = demoResponse(data, '/qa', {
+      body: JSON.stringify({ book_id: binding.book_id, snapshot_id: binding.snapshot_id }),
+    }, status);
+    assert.notEqual(qa.request_id, fixture.request_id);
+    assert.deepEqual({ ...qa, request_id: fixture.request_id }, fixture);
+  }
+  const seedId = encodeURIComponent(rows[0].book_id);
+  const noSimilar = demoResponse(data, `/books/${seedId}/similar?has_fulltext=true`);
+  assert.equal(noSimilar.status, 'no_candidates');
   for (const row of rows) {
     const book = (await demoRequest('/books/' + row.book_id)).book;
     assert.equal(book.title, row.title);
@@ -86,6 +102,12 @@ try {
   assert.ok(second.items.some(book => book.book_id === added.book_id));
   assert.equal(demoResponse(expanded, '/books/' + added.book_id).book.title, added.title);
   const newSearch = demoResponse(expanded, '/search', { body: JSON.stringify({ q: added.title }) });
+  assert.deepEqual(Object.keys(newSearch).sort(), ['items', 'message', 'request_id', 'snapshot_id', 'status']);
+  assert.equal(newSearch.items[0].rank, 1);
+  assert.match(newSearch.request_id, /^[0-9a-f-]{14}4[0-9a-f-]{21}$/);
+  const weakSearch = demoResponse(expanded, '/search', { body: JSON.stringify({ q: added.title }) }, 'weak_match');
+  assert.equal(weakSearch.status, 'weak_match');
+  assert.equal(weakSearch.message, 'Kết quả có thể chưa sát nhu cầu');
   assert.equal(newSearch.items[0].book_id, added.book_id);
 
   const seed = data.books[0], hidden = data.books[1];

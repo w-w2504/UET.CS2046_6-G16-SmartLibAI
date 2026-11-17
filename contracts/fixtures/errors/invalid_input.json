@@ -1,0 +1,7 @@
+{
+  "code": "invalid_input",
+  "message": "Dữ liệu đầu vào không hợp lệ",
+  "module": null,
+  "field": "k",
+  "request_id": "00000000-0000-4000-8000-00000000001b"
+}
