@@ -35,3 +35,5 @@ Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.
 - Bổ sung sau lượt fixture18/11: C14 đạt thành phần bằng20 E5 thật tái tạo cục bộ. Round-trip20/20, self-query20/20 và query tiếng Việt thật khớp phép tính độc lập. Kết quả không thay nghiệm thu quy mô80/150, dữ liệu toàn văn, chất lượng AI hoặc snapshot phục vụ.
 
 Gộp report Coreach18/11 theo xác nhận người dùng: toàn7 task W1–W2 từ17 còn10 report, mỗi task/mỗi PR chỉ một report. C21/C25/C29/C35 mỗi task còn một report PR#12; nội dung theo kết quả mới nhất. Đã xóa7 report cũ/trùng (không có file) sau xác nhận riêng; giữ ZIP sản phẩm C14 và tải lại kiểm hash. Các lần tiếp theo chỉnh report của cùng PR, không tạo report mới theo mốc nghiệm thu.
+
+Chốt C25 cuối lượt18/11: đã mở lại task trong Edge riêng, sửa đúng report PR#12 hiện có bằng kết quả66 test/ICU thật và bàn giao API, không thêm report. Đã đánh dấu C25 Done rồi reload xác minh; giữ nguyên deadline15/11/2026 23:59, lead/contributors, mô tả và liên kết PR. Các task khác không đổi trạng thái. PR#12 đã sửa mô tả theo kết quả hiện hành, vẫn mở vào develop và chưa merge.
