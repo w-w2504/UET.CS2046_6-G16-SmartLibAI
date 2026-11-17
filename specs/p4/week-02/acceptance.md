@@ -22,7 +22,9 @@ Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.
 
 ## Bàn giao và giới hạn
 
-- C21 commit `4d04f66`; C35 commit `e9cd2d5`; C25/C29 có các commit `9e9c2f7`/`c473777`, tích hợp develop tại `2989158`. Bước đăng PR sẽ được cập nhật sau khi xác minh.
+- C21 commit `4d04f66`; C35 commit `e9cd2d5`; C25/C29 có các commit `9e9c2f7`/`c473777`, tích hợp develop tại `2989158`. Đã push và mở [PR #12](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/12) vào develop; PR mở, không có xung đột tại thời điểm xác minh và chưa merge.
 - P3/C11 cần bàn giao bundle20 và catalog/taxonomy nguồn khớp hash. PR báo đã chạy E5 thật không đồng nghĩa P4 đã nhận artifact. P3/C20/C24 giao catalog≥80 và vector tương ứng; C34/C24 giao lô150–200. Không chạy E5 thay P3 hoặc lấy fixture để đạt số lượng.
 - C29 cần sách mẫu có toàn văn/nguồn được duyệt và dữ liệu chương/đoạn đúng3.1/9.4. Lô metadata nội bộ3.2 không đủ phạm vi để phát hành Reader.
 - CLI build/validate/activate serving snapshot còn thiếu triển khai; adapter này không thay thế pipeline phát hành và không tự mở rộng C21 sang toàn bộ SPEC14.6. Chưa nghiệm thu dữ liệu thật, PyICU thật, chất lượng AI, VM/P95, phát hành snapshot hoặc toàn bộ tuần2.
+
+- Coreach: chưa cập nhật được ở lượt18/11 vì công cụ truy cập tab Edge báo browser access host is unavailable. Không thay bằng điều khiển cả màn hình; chưa ghi nhận đã đăng báo cáo hoặc gắn PR trên Coreach.

@@ -54,3 +54,5 @@ Hai script giữ lần lượt 12 và 6 tình huống; output chi tiết ở th�
 ## Kiểm chứng lại ngày18/11/2026
 
 Đã tích hợp develop6b1e7c9 tại2989158. Toàn pipeline85 test đạt, gồm33 C05/C14; C18 browser12/12, tích hợp C02/C18 6/6, demo checker và build đạt. C29 qua backend thật với SQLite fixture6/6 đạt, tách khỏi nghiệm thu C18. Chưa nhận bundle E5 thật hoặc nguồn public mới để nghiệm thu dữ liệu.
+
+Hồ sơ và regression tuần1 được cập nhật cùng [PR #12](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/12); không thay trạng thái nghiệm thu dữ liệu thật của C14.
