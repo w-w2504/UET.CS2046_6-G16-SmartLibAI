@@ -51,12 +51,8 @@ class SnapshotService:
 
     def is_search_ready(self) -> bool:
         """search_ready cần catalog + encoder đúng revision + book index."""
-        if not self.is_catalog_ready():
-            return False
-        sdir = self.get_snapshot_dir()
-        if not sdir:
-            return False
-        return (sdir / "books.faiss").exists()
+        from src.services.search import search_service
+        return search_service.is_ready()
 
     def is_recommend_ready(self) -> bool:
         """recommend_ready có cùng phụ thuộc như search."""

@@ -14,6 +14,43 @@ Từ thư mục `web`, chạy `npm ci` để cài đúng lockfile.
 
 Dừng server cũ bằng Ctrl+C trước khi đổi lệnh. Vite có thể chọn cổng khác khi 3000 đang bận.
 
+Nếu từng chạy API thật bằng `$env:VITE_DEMO_MODE="false"`, biến đó trong terminal sẽ ghi đè `.env.demo`. Muốn chuyển chắc chắn sang mock, dừng Vite cũ rồi chạy:
+
+```powershell
+cd web # Chỉ chạy dòng này khi đang ở thư mục gốc repo
+$env:VITE_DEMO_MODE = "true"
+npm run dev:demo -- --host localhost --port 3001 --strictPort
+```
+
+Mở `http://localhost:3001/`. Danh mục/Search demo không gửi request tới backend, nên không cần Uvicorn. Health trả 200 ở API thật chỉ cho biết API nhận được request; phải xem các cờ readiness, không suy ra Books/Search đã có dữ liệu. Demo C02 có 20 sách metadata-only nên bật bộ lọc toàn văn sẽ trả rỗng.
+
+### Frontend nối API bình thường, không dùng mock
+
+Mở hai terminal PowerShell tại thư mục gốc repo. Terminal API:
+
+```powershell
+$projectRoot = (Get-Location).Path
+$env:PYTHONPATH = "$projectRoot\pipeline"
+$env:SNAPSHOT_ROOT = "$projectRoot\data\snapshots"
+$env:CONTROL_ROOT = "$projectRoot\data\control"
+$env:MODEL_ROOT = "$projectRoot\models"
+& "$projectRoot\.venv\Scripts\python.exe" -m uvicorn src.main:app --app-dir "$projectRoot\api" --host localhost --port 8000
+```
+
+Terminal frontend:
+
+```powershell
+cd web
+$env:VITE_DEMO_MODE = "false"
+npm run dev -- --host localhost --port 3000 --strictPort
+```
+
+Mở `http://localhost:3000/` trong tab mới. API docs ở `http://localhost:8000/docs`. `npm ci` là bước cài dependency theo lockfile khi môi trường chưa được chuẩn bị. Các lệnh trên dùng Python/dependency trong `.venv` hiện có; không dùng runner fixture trong openspec/tmp hoặc `dev:demo`.
+
+Để Search chạy E5 thật, cần snapshot được kiểm nhận gồm `catalog.sqlite`, `books.faiss`, `mapping.jsonl`, `manifest.json` dưới `data/snapshots/<snapshot_id>/`, con trỏ `data/control/active.json` và model/tokenizer đúng revision trong cache `models/hub` của C08. Dependency encoder theo `pipeline/requirements-embedding.txt`. Thiếu kho hoặc model thì API trả 503; frontend khởi động được không đồng nghĩa Search/E5 đã sẵn sàng. Không đổi tên bundle C11/C14 nội bộ thành snapshot phục vụ.
+
+Checkbox toàn văn gửi lại request ngay khi bật/tắt, đặt lại trang đầu và giữ cơ chế bỏ response cũ. Hồi quy UI riêng: chạy `python -B web/tests/check_search_filters.py --base-url http://localhost:3000` từ repo bằng Python có Playwright; script này dùng HTTP mock được ghi nhãn, không đánh giá E5.
+
 ## Phần dùng chung
 
 - `App.tsx`: khung trang, route, 404 và Back/Forward bằng History API.
