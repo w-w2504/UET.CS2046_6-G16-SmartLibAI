@@ -29,7 +29,9 @@ UET.CS2046_6-G16-SmartLibAI/
 ├── compose.yaml               # Web build, API một worker và pipeline theo lệnh
 ├── README.md
 ├── documents/
-│   └── SPEC.md                # Đặc tả gốc, căn cứ thiết kế và nghiệm thu
+│   ├── SPEC.md                # Đặc tả gốc, căn cứ thiết kế và nghiệm thu
+│   ├── C09.md                 # Hướng dẫn tạo vector sở thích
+│   └── C13.md                 # Hướng dẫn chọn và xếp hạng gợi ý
 ├── specs/
 │   └── p4/                    # Phân công, đặc tả task và nghiệm thu theo tuần
 │       ├── README.md
@@ -197,7 +199,9 @@ docker run --rm --network none smartlib-api:c08 pip check
 docker run --rm --network none --read-only smartlib-api:c08 python -c "from ai_library.e5_encoder import E5Encoder; from src.services.query_encoder import QueryEncoderProvider; from src.main import app; assert '/api/v1/search' in app.openapi()['paths']"
 ```
 
-Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 được mô tả tại [`api/C09.md`](api/C09.md), gồm hàm thuần, loader kiểm tra tính đồng bộ bundle/catalog, unit test và lệnh kiểm tra tích hợp. C09 không triển khai xếp hạng C13 hoặc endpoint C17.
+Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 được mô tả tại [`documents/C09.md`](documents/C09.md), gồm hàm thuần, loader kiểm tra tính đồng bộ bundle/catalog, unit test và lệnh kiểm tra tích hợp. C09 không triển khai xếp hạng C13 hoặc endpoint C17.
+
+Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](documents/C13.md): tái sử dụng C09, tính điểm toàn bộ vector bằng NumPy trên bundle C11, lọc và khử trùng theo tác phẩm rồi lấy top-k. Tích hợp FAISS/C14 thật còn chờ bàn giao; API và lý do gợi ý thuộc C17.
 
 #### Frontend (React + Vite):
 
