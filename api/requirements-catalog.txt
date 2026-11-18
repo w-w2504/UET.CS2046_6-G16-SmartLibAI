@@ -1,0 +1,9 @@
+# Direct dependencies for C25/C29 catalog-reader verification (no AI runtime).
+fastapi==0.163.0
+uvicorn==0.54.0
+pydantic==2.14.3
+pydantic-settings==2.16.3
+httpx==0.28.1
+pytest==9.2.0
+# Full C25 facets require PyICU; tests/Dockerfile.c25 provides the ICU toolchain
+# and the import dependencies of the integrated API for offline verification.

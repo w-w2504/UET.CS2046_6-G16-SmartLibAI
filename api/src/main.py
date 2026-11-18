@@ -10,6 +10,7 @@ from src.middleware.contract import ContractMiddleware, error_response
 from src.middleware.request_id import RequestIDMiddleware
 from src.middleware.search_deadline import SearchDeadlineMiddleware
 from src.routes import health, books, search, recommend, reader, qa
+from src.services.catalog import CatalogError
 from src.schemas.common import Filters
 
 # Thiết lập logging chuẩn
@@ -48,6 +49,20 @@ app.add_middleware(
 app.add_middleware(ContractMiddleware)
 app.add_middleware(SearchDeadlineMiddleware)
 app.add_middleware(RequestIDMiddleware)
+
+
+@app.middleware("http")
+async def api_no_store(request: Request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith("/api/v1/"):
+        response.headers["Cache-Control"] = "no-store"
+    return response
+
+
+@app.exception_handler(CatalogError)
+async def catalog_exception_handler(request: Request, exc: CatalogError):
+    req_id = getattr(request.state, "request_id", "unknown")
+    return JSONResponse(status_code=exc.status, content={"code": exc.code, "message": exc.message, "field": exc.field, "module": exc.module, "request_id": req_id}, headers={"X-Request-ID": req_id, "Cache-Control": "no-store"})
 
 
 # 3. Chuẩn hóa Exception Handlers theo đặc tả Mục 12.3 & 14.1

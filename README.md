@@ -36,7 +36,6 @@ UET.CS2046_6-G16-SmartLibAI/
 │   └── p4/                    # Phân công, đặc tả task và nghiệm thu theo tuần
 │       ├── README.md
 │       ├── AGENTS.md
-│       ├── templates/
 │       └── week-01/ ... week-04/
 ├── api/                       # Backend FastAPI, chỉ đọc catalog/index/model
 │   ├── Dockerfile

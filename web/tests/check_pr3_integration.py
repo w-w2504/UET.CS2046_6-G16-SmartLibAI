@@ -1,7 +1,7 @@
 """PR3 browser integration checks using C02 metadata and authored reader mocks.
 
 Start ordinary dev, demo dev and production preview separately. No real API/AI
-acceptance is claimed. Output is kept apart from the original C18 evidence.
+acceptance is claimed. Runtime output goes to the system temporary directory.
 """
 
 import argparse
@@ -9,6 +9,7 @@ import json
 import os
 import platform
 import sys
+import tempfile
 import traceback
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -18,7 +19,7 @@ from playwright.sync_api import expect, sync_playwright
 from check_reader_browser import BOOK, REQUEST_ID, api_error, body, chapter, check_no_overflow, install_api
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT = ROOT / 'specs/p4/week-01/evidence/pr3-integration'
+DEFAULT_OUTPUT = Path(tempfile.gettempdir()) / 'smartlib-p4-tests' / 'pr3-integration'
 
 
 def state(snapshot='stored-snapshot', seeds=None):
@@ -138,7 +139,9 @@ def run(base_url, demo_url, production_url, output_dir):
             assert parse_qs(urlparse(first.get_attribute('href')).query)['snapshot_id'] == ['linked-demo']
             first.click()
             expect(page.get_by_role('heading', name=rows[0]['title'], exact=True)).to_be_visible()
-            expect(page.locator('.detail-layout')).to_contain_text('Chờ duyệt')
+            rights_labels = {'approved': 'Đã duyệt', 'pending': 'Chờ duyệt', 'rejected': 'Không được duyệt'}
+            for source in rows[0]['sources']:
+                expect(page.locator('.detail-layout')).to_contain_text(rights_labels[source['rights_status']])
             expect(page.get_by_role('button', name='Đọc sách', exact=True)).to_be_disabled()
             page.get_by_role('button', name='Chọn làm sở thích', exact=True).click()
             expect(page.get_by_label('1 sách đã chọn', exact=True)).to_be_visible()

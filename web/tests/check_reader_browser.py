@@ -8,6 +8,7 @@ import json
 import os
 import platform
 import sys
+import tempfile
 import traceback
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -15,7 +16,7 @@ from urllib.parse import parse_qs, urlparse
 from playwright.sync_api import expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT = ROOT / "specs/p4/week-01/evidence/pr3-integration"
+DEFAULT_OUTPUT = Path(tempfile.gettempdir()) / "smartlib-p4-tests" / "reader-browser"
 SNAPSHOT = "browser-fixture-v1"
 BOOK = "B_browser"
 REQUEST_ID = "00000000-0000-4000-8000-000000000001"

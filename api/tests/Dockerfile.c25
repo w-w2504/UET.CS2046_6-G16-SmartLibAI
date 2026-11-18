@@ -1,0 +1,21 @@
+# C25 verification image. No encoder weights, provider keys or serving data.
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/workspace/api:/workspace/pipeline \
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential pkg-config libicu-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-catalog.txt /tmp/requirements-catalog.txt
+# NumPy/FAISS/Click are import dependencies of the integrated Search routes;
+# the C25 checks never load an encoder or call Search/provider inference.
+RUN pip install --no-cache-dir -r /tmp/requirements-catalog.txt \
+    'PyICU>=2.13' 'numpy>=1.26' 'faiss-cpu>=1.8' 'click>=8.1' \
+    && pip check
+
+WORKDIR /workspace/api

@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 14–20/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái tài liệu: danh mục kế hoạch ban đầu; chưa đánh giá việc triển khai hay nghiệm thu.
+- Trạng thái ngày 18/11/2026: C21/C35 đã có adapter/rebuild và kiểm thử fixture; C25/C29 đã tích hợp và kiểm browser qua backend thật. Chưa nhận bundle vector/corpus mở rộng/toàn văn thật; xem [nghiệm thu tuần](acceptance.md).
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính
@@ -20,7 +20,7 @@
 - Bàn giao: Bộ dữ liệu tìm kiếm/gợi ý bản 1 dùng được.
 - Bên sử dụng: P1/P2 chạy Search/Rec; P3 kiểm dữ liệu.
 - Khi chưa có đầu vào: P4 thử với vector 20 sách trước; nhận batch >=80 từ P3 khi có.
-- Đặc tả chi tiết sẽ lưu tại `C21.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết: [C21.md](C21.md).
 
 ### C25 — Làm API lấy danh sách, chi tiết và chương sách
 
@@ -28,7 +28,7 @@
 - Bàn giao: Các API đọc thông tin sách và chương chạy được.
 - Bên sử dụng: P3 UI + P2 Detail.
 - Khi chưa có đầu vào: Fixture chapter có thể độc lập.
-- Đặc tả chi tiết sẽ lưu tại `C25.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết: [C25.md](C25.md).
 
 ### C29 — Cho người dùng đọc sách thật
 
@@ -36,7 +36,7 @@
 - Bàn giao: Trang đọc sách sử dụng được với sách mẫu có toàn văn.
 - Bên sử dụng: W4 QA UI.
 - Khi chưa có đầu vào: UI dùng chương mẫu.
-- Đặc tả chi tiết sẽ lưu tại `C29.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết: [C29.md](C29.md).
 
 ### C35 — P4 cập nhật FAISS cho danh mục mở rộng
 
@@ -44,7 +44,7 @@
 - Bàn giao: Bộ FAISS bản 2 và bảng kiểm tra tính đúng.
 - Bên sử dụng: P1/P2.
 - Khi chưa có đầu vào: P4 chuẩn bị validator/loader khi P3 còn encode; tiếp tục phục vụ snapshot v1.
-- Đặc tả chi tiết sẽ lưu tại `C35.md`, dùng [mẫu task](../templates/task-spec.md).
+- Đặc tả chi tiết: [C35.md](C35.md).
 
 ## Việc P4 hỗ trợ
 
@@ -61,4 +61,4 @@
 
 - Change local đặt dạng `p4-w02-<task-or-scope>` trong `openspec/changes/`; nội dung liên kết mã task ở trên.
 - Chi tiết mỗi task lưu trong thư mục tuần này. Chưa có tệp task không đồng nghĩa task đã hoặc chưa được triển khai; cần đối chiếu code và đầu vào khi bắt đầu.
-- Báo cáo tuần: `acceptance.md`, tạo theo [mẫu nghiệm thu](../templates/weekly-acceptance.md) và chỉ điền kết quả đã kiểm chứng.
+- Báo cáo tuần: [acceptance.md](acceptance.md); ghi căn cứ SPEC, đầu vào, lệnh, kết quả thực, giới hạn và PR.

@@ -28,6 +28,37 @@ jobs:
       - run: npm run build --prefix web
       - run: node web/scripts/check-demo.mjs
 
+  c25-icu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      IMAGE: smartlib-c25:verify
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the isolated catalog-reader ICU image
+        run: docker build --file api/tests/Dockerfile.c25 --tag "$IMAGE" api
+      - name: Verify real ICU and record runtime versions
+        run: |
+          docker image inspect "$IMAGE" --format '{{.Id}}'
+          docker run --rm --network none --read-only "$IMAGE" python -c '
+          import icu, platform
+          from importlib.metadata import version
+          print("Python:", platform.python_version())
+          print("PyICU:", icu.VERSION, "ICU:", icu.ICU_VERSION, "Unicode:", icu.UNICODE_VERSION)
+          for package in ("fastapi", "pydantic", "httpx", "numpy", "faiss-cpu", "pytest"):
+              print(package + "==" + version(package))
+          '
+      - name: Verify C25 API and Vietnamese ordering offline
+        run: |
+          docker run --rm --network none --read-only \
+            --tmpfs /tmp:rw,nosuid,nodev \
+            --mount "type=bind,source=$GITHUB_WORKSPACE,target=/workspace,readonly" \
+            "$IMAGE" python -B -m pytest \
+            tests/test_catalog_reader.py tests/test_catalog_icu.py tests/test_health.py \
+            -q -p no:cacheprovider --basetemp /tmp/c25-pytest --tb=short -x
+
   c08-docker:
     if: github.ref_name == 'feature/p1-c03-c08-support' || github.head_ref == 'feature/p1-c03-c08-support'
     runs-on: ubuntu-latest
