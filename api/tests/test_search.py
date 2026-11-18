@@ -86,6 +86,58 @@ def test_unicode_and_internal_spaces_are_preserved(fixture):
     assert fixture[2].calls == [["Lão  Hạc"]]
 
 
+@pytest.mark.parametrize(("q", "valid"), [
+    ("a" * 500, True),
+    ("a" * 501, False),
+    ("  a  ", True),
+    ("   ", False),
+    ("e\u0301" * 500, True),  # NFC reduces 1000 code points to 500.
+])
+def test_query_character_limit_applies_after_nfc_and_trim(fixture, q, valid):
+    response = post(q=q)
+    assert response.status_code == (200 if valid else 422)
+    if valid:
+        assert fixture[2].calls == [[q.strip() if q != "e\u0301" * 500 else "é" * 500]]
+    else:
+        assert fixture[2].calls == []
+
+
+@pytest.mark.parametrize("k", [0, 21, True, 1.0, "2"])
+def test_invalid_k_types_and_bounds_are_rejected(fixture, k):
+    response = post(k=k)
+    assert response.status_code == 422
+    assert fixture[2].calls == []
+
+
+def test_empty_filter_arrays_are_no_filter_and_filters_are_strict(fixture):
+    response = post(k=4, filters={"authors": [], "genres": [], "has_fulltext": None})
+    assert response.status_code == 200
+    assert [book["book_id"] for book in response.json()["items"]] == ["B_a", "B_z", "B_x", "B_m"]
+    assert post(filters={"unknown": "value"}).status_code == 422
+    assert post(filters={"genres": "fiction"}).status_code == 422
+
+
+def test_search_response_status_message_items_and_public_schema(fixture):
+    path = fixture[1] / "manifest.json"
+    manifest = json.loads(path.read_text())
+    manifest["thresholds"]["search"] = 0.81
+    path.write_text(json.dumps(manifest))
+    cases = [
+        ({}, "ok", None, ["B_a", "B_z", "B_x", "B_m"]),
+        ({"filters": {"authors": ["Nobody"]}}, "no_candidates", "Không có sách thỏa bộ lọc", []),
+        ({"filters": {"has_fulltext": True}}, "weak_match", "Kết quả có thể chưa sát nhu cầu", ["B_x"]),
+    ]
+    for body, status, message, book_ids in cases:
+        response = post(**body)
+        assert response.status_code == 200
+        payload = response.json()
+        assert (payload["status"], payload["message"]) == (status, message)
+        assert [item["book_id"] for item in payload["items"]] == book_ids
+        assert [item["rank"] for item in payload["items"]] == list(range(1, len(book_ids) + 1))
+        assert set(payload) == {"status", "message", "items", "snapshot_id", "request_id"}
+        assert all("score" not in item for item in payload["items"])
+
+
 def test_unknown_genre_rejected_without_encoding(fixture):
     response = post(filters={"genres": ["fiction", "unknown"]})
     assert response.status_code == 422
