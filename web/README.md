@@ -49,7 +49,7 @@ Mở `http://localhost:3000/` trong tab mới. API docs ở `http://localhost:80
 
 Để Search chạy E5 thật, cần snapshot được kiểm nhận gồm `catalog.sqlite`, `books.faiss`, `mapping.jsonl`, `manifest.json` dưới `data/snapshots/<snapshot_id>/`, con trỏ `data/control/active.json` và model/tokenizer đúng revision trong cache `models/hub` của C08. Dependency encoder theo `pipeline/requirements-embedding.txt`. Thiếu kho hoặc model thì API trả 503; frontend khởi động được không đồng nghĩa Search/E5 đã sẵn sàng. Không đổi tên bundle C11/C14 nội bộ thành snapshot phục vụ.
 
-Checkbox toàn văn gửi lại request ngay khi bật/tắt, đặt lại trang đầu và giữ cơ chế bỏ response cũ. Hồi quy UI riêng: chạy `python -B web/tests/check_search_filters.py --base-url http://localhost:3000` từ repo bằng Python có Playwright; script này dùng HTTP mock được ghi nhãn, không đánh giá E5.
+Trong Search, checkbox toàn văn gửi lại yêu cầu ngay khi bật hoặc tắt. Trong Catalog, lựa chọn chỉ áp dụng khi bấm Áp dụng bộ lọc. `check_search_filters.py` kiểm cả hai hành vi này. Kiểm thử C15 bằng `python -B web/tests/check_catalog_browser.py` từ gốc repo với Playwright và Edge. Chạy frontend HTTP trên cổng 3000 và demo trên cổng 3001. Bộ kiểm thử dùng HTTP mock cho Catalog và Search.
 
 ## Phần dùng chung
 
@@ -126,3 +126,9 @@ Khi chuyển sang API thật bằng `npm run dev`, frontend tiếp tục nhận 
 Kiểm tra tự động `node scripts/check-demo.mjs` gồm render route/layout Reader (SSR), contract chương demo, callback onRetry, liên kết snapshot, dữ liệu C02 và fallback storage. Browser checks tại `tests/check_reader_browser.py` và `tests/check_pr3_integration.py` kiểm tra Reader và giao diện gộp bằng Edge/Playwright đã cài, không thêm dependency npm. Dùng nơi xuất bằng chứng riêng để giữ nguyên kết quả cũ; SSR không thay cho kiểm tra trình duyệt.
 
 C04 cung cấp nền tảng và dữ liệu C02 để làm song song, có phân trang danh mục. Thuật toán Search/Recommendation, bộ lọc đầy đủ, xử lý snapshot và nghiệp vụ QA thuộc các đầu việc tích hợp tiếp theo. Kiểm tra trực quan bằng trình duyệt vẫn cần thực hiện trước khi đánh dấu nghiệm thu UI.
+
+## Kiểm thử Catalog C15
+
+Chạy `npm run dev:demo` trong web để duyệt 20 sách metadata. Chọn tác giả, thể loại hoặc toàn văn, rồi bấm Áp dụng bộ lọc. Trên điện thoại, mở vùng Bộ lọc trước khi chọn. Xóa bộ lọc đưa danh mục về trang đầu.
+
+Từ gốc repo chạy `node web/tests/check_catalog_data.mjs` để kiểm fixture nhiều trang mà không sửa dữ liệu nguồn. Demo dùng Intl.Collator tiếng Việt. HTTP giữ thứ tự API, vì khóa ICU của máy chủ không nhất thiết giống trình duyệt. Demo chỉ dùng snapshot nội bộ, Catalog HTTP giữ snapshot của phiên duyệt.

@@ -352,3 +352,27 @@ select:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 
   .detail-layout { gap: 20px; }
 }
 
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.catalog-filters { padding: 16px; }
+.catalog-filter-form { display: grid; gap: 12px; }
+.catalog-filter-form fieldset { min-width: 0; padding: 8px; }
+.catalog-filter-form label { overflow-wrap: anywhere; }
+.catalog-choices { max-height: 12rem; overflow: auto; }
+.catalog-choices label { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.catalog-choices input { flex: none; }
+.catalog-filter-toggle { display: none; }
+.catalog-pagination { margin-top: 24px; }
+
+@media (max-width: 640px) {
+  .catalog-layout { grid-template-columns: minmax(0, 1fr); }
+  .catalog-filter-toggle { display: inline-flex; }
+  .catalog-filter-form { display: none; }
+  .catalog-filter-form.expanded { display: grid; margin-top: 12px; }
+}

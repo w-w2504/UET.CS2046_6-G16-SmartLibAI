@@ -204,10 +204,23 @@ def run(base_url: str, api_python: Path, api_port: int) -> dict:
                     assert_snapshot(page, sid)
 
                 def metadata_and_missing_chapter(page, requests, responses):
+                    captured = []
+
+                    def capture_metadata(route):
+                        if urlparse(route.request.url).path != '/api/v1/books/' + first['metadata_book_id'] + '/chapters':
+                            route.continue_()
+                            return
+                        response = route.fetch()
+                        captured.append((response.status, response.json()))
+                        route.fulfill(response=response)
+
+                    page.route('**/api/v1/**', capture_metadata)
                     with page.expect_response(lambda response: '/books/' in response.url and '/chapters' in response.url) as pending:
                         page.goto(base_url + reader_path(snapshot=sid, read_book=first['metadata_book_id']))
                     assert pending.value.status == 409
-                    assert pending.value.json()['code'] == 'fulltext_unavailable'
+                    assert captured
+                    assert all(status == 409 and payload['code'] == 'fulltext_unavailable'
+                               for status, payload in captured)
                     expect(page.get_by_role('alert')).to_be_visible()
                     expect(body(page)).to_have_count(0)
                     missing = page.request.get(base_url + '/api/v1/chapters/H_missing_c29?snapshot_id=' + sid)
