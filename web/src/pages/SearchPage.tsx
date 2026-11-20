@@ -25,9 +25,10 @@ function normalizedFilters(filters: Filters): Filters {
 }
 
 export function SearchPage({ onNavigate }: { onNavigate: (path: string) => void }) {
-  const initial = loadTabState();
+  const [initial] = useState(loadTabState);
+  const initialFilters = initial.search_filters ?? (initial.list_state.mode === 'search' ? initial.filters : {});
   const [query, setQuery] = useState(initial.query);
-  const [filters, setFilters] = useState<Filters>(initial.filters);
+  const [filters, setFilters] = useState<Filters>(initialFilters);
   const [genreSearch, setGenreSearch] = useState('');
   const [authorSearch, setAuthorSearch] = useState('');
   const [facets, setFacets] = useState<FacetsResponse | null>(null);
@@ -39,7 +40,7 @@ export function SearchPage({ onNavigate }: { onNavigate: (path: string) => void 
   const [hasSearched, setHasSearched] = useState(false);
   const operation = useRef(0);
   const controller = useRef<AbortController | null>(null);
-  const lastSearch = useRef({ query: initial.query, filters: initial.filters });
+  const lastSearch = useRef({ query: initial.query, filters: initialFilters });
 
   async function loadFacets() {
     setFacetsError(null);
@@ -69,7 +70,7 @@ export function SearchPage({ onNavigate }: { onNavigate: (path: string) => void 
     const timeout = window.setTimeout(() => nextController.abort(), SEARCH_TIMEOUT_MS);
     const chosen = normalizedFilters(selectedFilters);
     lastSearch.current = { query: q, filters: chosen };
-    saveTabState({ query: q, filters: chosen, list_state: { ...loadTabState().list_state, mode: 'search', offset: 0 } });
+    saveTabState({ query: q, search_filters: chosen });
     setLoading(true);
     setError(null);
     setWeakMatch(false);
@@ -106,7 +107,7 @@ export function SearchPage({ onNavigate }: { onNavigate: (path: string) => void 
     const cleared: Filters = {};
     setFilters(cleared);
     if (query.trim()) void search(query, cleared);
-    else saveTabState({ filters: cleared });
+    else saveTabState({ search_filters: cleared });
   }
 
   const retry = () => void search(lastSearch.current.query, lastSearch.current.filters);

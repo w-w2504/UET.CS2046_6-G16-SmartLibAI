@@ -1,6 +1,8 @@
 import type { components } from './generated/api';
 
 type Schemas = components['schemas'];
+export type BooksResponse = Schemas['BooksResponse'];
+export type FacetsResponse = Schemas['FacetsResponse'];
 
 export type Filters = Schemas['Filters'];
 export type BookSummary = Schemas['BookSummary'];
@@ -8,7 +10,6 @@ export type BookSource = Schemas['BookSource'];
 export type BookDetail = Schemas['BookDetail'];
 export type SearchItem = Schemas['SearchItem'];
 export type SearchResponse = Schemas['SearchResponse'];
-export type FacetsResponse = Schemas['FacetsResponse'];
 export type EvidenceField = Schemas['EvidenceField'];
 export type RecommendationItem = Schemas['RecommendationItem'];
 export type RecommendationResponse = Schemas['RecommendationResponse'];
