@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Header } from './components/Header';
 import { ExplorePage } from './pages/ExplorePage';
+import { SearchPage } from './pages/SearchPage';
 import { DetailPage } from './pages/DetailPage';
 import { RecommendPage } from './pages/RecommendPage';
 import { ReaderPage } from './pages/ReaderPage';
@@ -52,6 +53,9 @@ export const App: React.FC = () => {
   const renderPage = () => {
     if (currentPath === '/' || currentPath === '') {
       return <ExplorePage onNavigate={navigate} onSeedChange={updateSeeds} />;
+    }
+    if (currentPath === '/search') {
+      return <SearchPage onNavigate={navigate} />;
     }
     if (currentPath === '/recommendations') {
       return <RecommendPage onNavigate={navigate} onSeedChange={updateSeeds} />;

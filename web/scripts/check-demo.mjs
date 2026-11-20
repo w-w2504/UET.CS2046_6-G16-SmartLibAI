@@ -92,7 +92,7 @@ try {
     const fixtureHtml = renderToStaticMarkup(createElement(App));
     assert.ok(fixtureHtml.includes('Dữ liệu mẫu phát triển'));
     assert.ok(fixtureHtml.includes('reader-fixture-v1'));
-    for (const [path, label] of [['/', 'Khám phá những cuốn sách'], ['/books/' + rows[0].book_id, 'Đang tải thông tin sách'], ['/recommendations', 'Gợi ý sách theo nội dung sở thích']]) {
+    for (const [path, label] of [['/', 'Khám phá những cuốn sách'], ['/search', 'Tìm cuốn sách phù hợp'], ['/books/' + rows[0].book_id, 'Đang tải thông tin sách'], ['/recommendations', 'Gợi ý sách theo nội dung sở thích']]) {
       globalThis.window = mockWindow(path);
       assert.ok(renderToStaticMarkup(createElement(App)).includes(label));
     }
@@ -172,6 +172,14 @@ try {
   storage.saveTabState({ seed_book_ids: [seed.book_id] });
   assert.equal(values.get('ai_library_v1'), 'real-session-preserved');
   assert.equal(storage.loadTabState().seed_book_ids[0], seed.book_id);
+  const catalogFilters = { authors: seed.authors };
+  const catalogList = { mode: 'catalog', offset: 20, limit: 20, scroll_y: 120 };
+  storage.saveTabState({ filters: catalogFilters, list_state: catalogList });
+  storage.saveTabState({ query: 'sách mẫu', search_filters: { has_fulltext: true } });
+  const mergedState = storage.loadTabState();
+  assert.deepEqual(mergedState.filters, catalogFilters);
+  assert.deepEqual(mergedState.list_state, catalogList);
+  assert.deepEqual(mergedState.search_filters, { has_fulltext: true });
   const navigation = await server.ssrLoadModule('/src/services/navigation.ts');
   storage.saveTabState({ snapshot_id: 'stored-version' });
   assert.equal(navigation.withSnapshot('/books/SLB_B0001'), '/books/SLB_B0001?snapshot_id=stored-version');
