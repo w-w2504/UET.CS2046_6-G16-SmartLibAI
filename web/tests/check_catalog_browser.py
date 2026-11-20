@@ -120,6 +120,18 @@ def run_http(browser):
     page.get_by_role("button", name="Về danh mục").click()
     expect(page.get_by_text("Hiển thị 21–24 trên 24 sách")).to_be_visible()
     expect(page.get_by_role("checkbox", name="An", exact=True)).to_be_checked()
+
+    page.get_by_role("link", name="Tìm sách", exact=True).click()
+    page.wait_for_url("**/search?snapshot_id=" + SID)
+    page.get_by_role("radio", name="Có toàn văn", exact=True).check()
+    page.get_by_role("textbox", name="Bạn muốn đọc về điều gì?").fill("sách mẫu")
+    page.get_by_role("button", name="Tìm sách", exact=True).click()
+    expect(cards).to_have_count(1)
+    page.get_by_role("link", name="Khám phá", exact=True).click()
+    expect(page.get_by_text("Hiển thị 21–24 trên 24 sách")).to_be_visible()
+    expect(page.get_by_role("checkbox", name="An", exact=True)).to_be_checked()
+    expect(page.get_by_role("checkbox", name="Chỉ sách có toàn văn", exact=True)).not_to_be_checked()
+
     page.set_viewport_size({"width": 390, "height": 844})
     expect(page.locator("#catalog-filter-form")).to_be_hidden()
     page.get_by_role("button", name="Bộ lọc", exact=True).press("Enter")

@@ -67,11 +67,12 @@ Trong Search, checkbox toàn văn gửi lại yêu cầu ngay khi bật hoặc t
 - `services/demoTypes.ts`: type dữ liệu nhập/demo riêng, giữ nguyên trạng thái nguồn `pending/rejected` và ngày duyệt có thể null; không thay đổi quyền dữ liệu C02.
 - `services/navigation.ts`: `withSnapshot(path)` cho href và điều hướng; ưu tiên snapshot trên URL, sau đó trạng thái tab. App tự áp dụng helper khi gọi `onNavigate`.
 
-Điểm tích hợp: P1 tiếp tục form và `fetchBooks` nhánh `/search` trong `src/pages/ExplorePage.tsx`; P3 tiếp tục nhánh `/books`, BookCard, phân trang trong cùng file và `src/pages/DetailPage.tsx`; P4 tiếp tục `src/pages/ReaderPage.tsx`. Không cần tạo lại Header/footer trong các trang.
+Điểm tích hợp: `src/pages/SearchPage.tsx` xử lý trang tìm kiếm ngữ nghĩa. `src/pages/ExplorePage.tsx` xử lý danh mục C15, phân trang và tìm kiếm nhanh. Bộ lọc trên trang tìm kiếm ngữ nghĩa được lưu riêng để người đọc quay lại đúng bộ lọc và trang danh mục đang xem.
 
 ## Route và bàn giao
 
-- `/`: Khám phá, danh mục và tìm kiếm — P3/P1 tiếp tục nghiệp vụ.
+- `/`: Khám phá, danh mục C15 và tìm kiếm nhanh.
+- `/search`: Tìm sách theo nhu cầu với bộ lọc tác giả, thể loại và toàn văn.
 - `/books/:book_id`: Chi tiết — phối hợp P3.
 - `/recommendations`: Gợi ý — P2 tiếp tục C27.
 - `/read/:book_id/:chapter_id`: Reader C18 trong layout chung, có mục lục, Trước/Sau và lỗi/thử lại riêng vùng đọc. `/read/:book_id` tải mục lục rồi chuyển sang chương đầu cùng snapshot.
