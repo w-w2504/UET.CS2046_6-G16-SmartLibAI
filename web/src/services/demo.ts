@@ -1,6 +1,7 @@
 import type { BookSummary, ChapterDetailResponse, ChaptersResponse, SearchResponse } from '../types/api';
 import type { DemoCatalog } from './demoTypes';
 import qaCases from '../fixtures/generated/qa.json';
+import { genreLabel } from './taxonomy';
 
 export const isDemo = import.meta.env.DEV && import.meta.env.VITE_DEMO_MODE === 'true';
 export const scenarioKey = 'smartlib_demo_scenario';
@@ -26,6 +27,11 @@ export function demoResponse(catalog: DemoCatalog, endpoint: string, options: Re
   const url = new URL(endpoint, 'http://demo.local');
   const body = typeof options.body === 'string' ? JSON.parse(options.body) : {};
   let items = catalog.books;
+  if (url.pathname === '/facets') {
+    const authors = [...new Set(catalog.books.flatMap(book => book.authors))].sort((a, b) => a.localeCompare(b, 'vi'));
+    const genres = [...new Set(catalog.books.flatMap(book => book.genres))].sort().map(code => ({ code, label: genreLabel(code) }));
+    return { ...common, authors, genres, topics: [] };
+  }
   const filters = body.filters ?? {
     authors: url.searchParams.getAll('authors'),
     genres: url.searchParams.getAll('genres'),
