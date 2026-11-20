@@ -1,6 +1,8 @@
 import type { components } from './generated/api';
 
 type Schemas = components['schemas'];
+export type BooksResponse = Schemas['BooksResponse'];
+export type FacetsResponse = Schemas['FacetsResponse'];
 
 export type Filters = Schemas['Filters'];
 export type BookSummary = Schemas['BookSummary'];

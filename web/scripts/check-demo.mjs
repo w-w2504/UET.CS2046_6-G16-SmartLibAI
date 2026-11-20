@@ -58,7 +58,20 @@ try {
   assert.equal(data.chapters.length, 0);
   assert.ok(data.books.every(book => !book.has_fulltext));
   assert.equal((await demoRequest('/books?has_fulltext=true')).total, 0);
-  assert.equal((await demoRequest('/books/' + rows[0].book_id + '/chapters')).items.length, 0);
+  const chapterEndpoint = '/books/' + rows[0].book_id + '/chapters';
+  const chapterText = await readFile(new URL('../../data/raw/sample_batch/chapters.jsonl', import.meta.url), 'utf8')
+    .catch(error => { if (error.code === 'ENOENT') return ''; throw error; });
+  const ids = new Set(rows.map(row => row.book_id));
+  const chapterLines = chapterText.replace(/^\uFEFF/, '').split(/\r?\n/);
+  const orphanLine = chapterLines.findIndex(line => line.trim() && !ids.has(JSON.parse(line).book_id));
+  if (orphanLine >= 0) {
+    const { book_id } = JSON.parse(chapterLines[orphanLine]);
+    await assert.rejects(() => demoRequest(chapterEndpoint), {
+      message: `chapters.jsonl, dòng ${orphanLine + 1}: Không có sách ${book_id} trong catalog.`,
+    });
+  } else {
+    assert.equal((await demoRequest(chapterEndpoint)).items.length, 0);
+  }
 
   // Kiểm tra render route Reader trong layout App mà không cần dữ liệu chương.
   const { App } = await server.ssrLoadModule('/src/App.tsx');
@@ -99,7 +112,14 @@ try {
   const second = demoResponse(expanded, '/books?offset=20&limit=20');
   assert.equal(first.items.length, 20);
   assert.equal(second.total, rows.length + 1);
-  assert.ok(second.items.some(book => book.book_id === added.book_id));
+  assert.equal(second.items.length, 1);
+  const actualIds = [...first.items, ...second.items].map(book => book.book_id);
+  assert.equal(new Set(actualIds).size, 21);
+  const collator = new Intl.Collator('vi-VN', { sensitivity: 'accent', ignorePunctuation: false, numeric: false });
+  const expectedIds = [...rows, added].sort((a, b) =>
+    collator.compare(a.title, b.title) || (a.book_id < b.book_id ? -1 : a.book_id > b.book_id ? 1 : 0)
+  ).map(book => book.book_id);
+  assert.deepEqual(actualIds, expectedIds);
   assert.equal(demoResponse(expanded, '/books/' + added.book_id).book.title, added.title);
   const newSearch = demoResponse(expanded, '/search', { body: JSON.stringify({ q: added.title }) });
   assert.deepEqual(Object.keys(newSearch).sort(), ['items', 'message', 'request_id', 'snapshot_id', 'status']);
