@@ -13,6 +13,8 @@ from datetime import datetime, timedelta
 from pathlib import Path, PurePosixPath
 from urllib.parse import urlsplit
 
+from ai_library.classroom_demo import DEMO_KIND
+
 ID_PATTERN = re.compile(r"[A-Za-z0-9_-]{1,128}\Z")
 HASH_PATTERN = re.compile(r"[0-9a-f]{64}\Z")
 TABLES = ("works", "books", "book_authors", "taxonomy", "book_labels", "sources", "chapters", "paragraphs", "chunks", "vector_mapping")
@@ -95,13 +97,32 @@ def _metadata(value: object) -> bool:
     return isinstance(value, str) and bool(value) and value == " ".join(unicodedata.normalize("NFC", value).split())
 
 
-def validate_manifest(directory: Path, sid: str, deadline: float) -> dict:
+def validate_manifest(directory: Path, sid: str, deadline: float, *, classroom_demo: bool = False) -> dict:
     path = directory / "manifest.json"
     _require(path.is_file() and not path.is_symlink())
     manifest = json.loads(path.read_text(encoding="utf-8"))
-    required = {"schema_version", "snapshot_id", "created_at", "dataset_hash", "counts", "embedding", "chunking", "collation", "thresholds", "files", "qa_config", "code_commit", "lock_hashes"}
-    _require(isinstance(manifest, dict) and required <= manifest.keys())
-    _require(type(manifest["schema_version"]) is int and manifest["schema_version"] == 1 and manifest["snapshot_id"] == sid and _utc(manifest["created_at"]))
+    _require(isinstance(manifest, dict))
+    _require(type(manifest["schema_version"]) is int and manifest["schema_version"] == 1 and manifest["snapshot_id"] == sid)
+    if classroom_demo:
+        scope = manifest["demo"]
+        _require(manifest.get("data_kind") == DEMO_KIND and scope["scope"] == DEMO_KIND
+                 and scope["content"] == ["metadata", "summary"])
+    else:
+        _require(manifest.get("data_kind") != DEMO_KIND and "demo" not in manifest)
+        _validate_production_manifest(manifest)
+    files = manifest["files"]
+    seen = _validate_catalog_files(directory, files, deadline)
+    _require("catalog.sqlite" in seen)
+    if classroom_demo:
+        _require(seen == {"catalog.sqlite", "books.faiss", "mapping.jsonl"})
+    else:
+        _require(manifest["dataset_hash"] == dataset_hash(files))
+    return manifest
+
+
+def _validate_production_manifest(manifest: dict) -> None:
+    required = {"created_at", "dataset_hash", "counts", "embedding", "chunking", "collation", "thresholds", "files", "qa_config", "code_commit", "lock_hashes"}
+    _require(required <= manifest.keys() and _utc(manifest["created_at"]))
     embedding = manifest["embedding"]
     _require(isinstance(embedding, dict) and {"model_id", "revision", "tokenizer", "dimension", "prefixes", "pooling", "normalization"} <= embedding.keys())
     _require(all(isinstance(embedding[key], str) and embedding[key] for key in ("model_id", "revision", "tokenizer", "pooling", "normalization")))
@@ -120,7 +141,9 @@ def validate_manifest(directory: Path, sid: str, deadline: float) -> dict:
     _require(type(qa["context_budget"]) is int and type(qa["output_reserve"]) is int and 0 < qa["output_reserve"] < qa["context_budget"])
     _require(isinstance(manifest["code_commit"], str) and bool(re.fullmatch(r"[0-9a-f]{40}", manifest["code_commit"])))
     _require(isinstance(manifest["lock_hashes"], dict) and all(isinstance(value, str) and HASH_PATTERN.fullmatch(value) for value in manifest["lock_hashes"].values()))
-    files = manifest["files"]
+
+
+def _validate_catalog_files(directory: Path, files: list[dict], deadline: float) -> set[str]:
     _require(isinstance(files, list) and bool(files))
     seen = set()
     for row in files:
@@ -144,14 +167,14 @@ def validate_manifest(directory: Path, sid: str, deadline: float) -> dict:
                     _deadline(deadline)
                     digest.update(data)
             _require(digest.hexdigest() == row["sha256"])
-    _require("catalog.sqlite" in seen and manifest["dataset_hash"] == dataset_hash(files))
-    return manifest
+    return seen
 
 
 class CatalogHandle:
-    def __init__(self, sid: str, connection: sqlite3.Connection, manifest: dict, deadline: float):
+    def __init__(self, sid: str, connection: sqlite3.Connection, manifest: dict, deadline: float, *, classroom_demo: bool = False):
         self.snapshot_id, self.conn, self.manifest = sid, connection, manifest
         self.deadline = deadline
+        self.classroom_demo = classroom_demo
 
     def rows(self, sql: str, params: tuple = ()) -> list[sqlite3.Row]:
         _deadline(self.deadline)
@@ -180,6 +203,13 @@ class CatalogHandle:
         _require(all(type(counts[key]) is int and counts[key] == value for key, value in expected.items()))
         vector_counts = counts["vector_count"]
         _require(isinstance(vector_counts, dict) and all(type(n) is int and n >= 0 for n in vector_counts.values()))
+        if self.classroom_demo:
+            _require(set(vector_counts) == {"books"} and not expected["fulltext_work_count"])
+            _require(not any(self.rows(f"SELECT 1 FROM {table} LIMIT 1") for table in ("chapters", "paragraphs", "chunks")))
+            rights = {"approved": 0, "pending": 0}
+            rights.update(dict(self.rows("SELECT rights_status,count(*) FROM sources GROUP BY rights_status")))
+            scope = self.manifest["demo"]
+            _require(rights == scope["source_rights_status_counts"] and scope["unverified_rights"] is bool(rights["pending"]))
         mapping = self.rows("SELECT * FROM vector_mapping ORDER BY index_name,row_id")
         actual_counts = {name: 0 for name in vector_counts}
         for row in mapping:
@@ -201,6 +231,11 @@ class CatalogHandle:
             _require(bool(authors) and [row["order_no"] for row in authors] == list(range(1, len(authors) + 1)) and all(_metadata(row["author_name"]) for row in authors))
             sources = self.rows("SELECT * FROM sources WHERE snapshot_id=? AND book_id=?", (sid, book["book_id"]))
             _require(all(bool(ID_PATTERN.fullmatch(row["source_id"])) and row["rights_status"] in {"approved", "pending", "rejected"} and row["content_type"] in {"metadata", "summary", "cover", "fulltext"} for row in sources))
+            if self.classroom_demo:
+                _require(book["cover_url"] is None and sorted(row["content_type"] for row in sources) == ["metadata", "summary"]
+                         and all(row["rights_status"] in {"approved", "pending"} and _url(row["source_url"])
+                                 and row["source_note"].strip() and row["rights_note"].strip() for row in sources))
+                continue
             approved = [row for row in sources if row["rights_status"] == "approved"]
             for source in approved:
                 _require(bool(ID_PATTERN.fullmatch(source["source_id"])) and _url(source["source_url"]) and _utc(source["reviewed_at"]) and bool(source["reviewed_by"] and source["reviewed_by"].strip()) and bool(source["source_note"].strip()) and bool(source["rights_note"].strip()))
@@ -245,21 +280,25 @@ class CatalogHandle:
     def detail(self, book_id: str) -> dict:
         book = self.book(book_id)
         key = (self.snapshot_id, book_id)
-        return {**self.summary(book), "topics": [row[0] for row in self.rows("SELECT code FROM book_labels WHERE snapshot_id=? AND book_id=? AND kind='topic' ORDER BY code", key)], "language": book["language"], "rag_available": False, "sources": [{field: row[field] for field in ("source_id", "content_type", "source_url", "source_note", "rights_status", "rights_note", "reviewed_at")} for row in self.rows("SELECT * FROM sources WHERE snapshot_id=? AND book_id=? AND rights_status='approved' ORDER BY source_id", key)]}
+        sources = self.rows("SELECT * FROM sources WHERE snapshot_id=? AND book_id=? AND rights_status='approved' ORDER BY source_id", key)
+        if self.classroom_demo:
+            sources = [row for row in sources if _utc(row["reviewed_at"])]
+        return {**self.summary(book), "topics": [row[0] for row in self.rows("SELECT code FROM book_labels WHERE snapshot_id=? AND book_id=? AND kind='topic' ORDER BY code", key)], "language": book["language"], "rag_available": False, "sources": [{field: row[field] for field in ("source_id", "content_type", "source_url", "source_note", "rights_status", "rights_note", "reviewed_at")} for row in sources]}
 
 
 @contextmanager
-def open_catalog(directory: Path, sid: str):
+def open_catalog(directory: Path, sid: str, *, classroom_demo: bool = False):
     conn = None
     try:
         deadline = time.monotonic() + 10
-        manifest = validate_manifest(directory, sid, deadline)
+        manifest = (validate_manifest(directory, sid, deadline, classroom_demo=True)
+                    if classroom_demo else validate_manifest(directory, sid, deadline))
         conn = sqlite3.connect((directory / "catalog.sqlite").resolve().as_uri() + "?mode=ro&immutable=1", uri=True)
         conn.row_factory = sqlite3.Row
         conn.execute("PRAGMA foreign_keys=ON")
         conn.execute("PRAGMA query_only=ON")
         conn.set_progress_handler(lambda: int(time.monotonic() > deadline), 1000)
-        handle = CatalogHandle(sid, conn, manifest, deadline)
+        handle = CatalogHandle(sid, conn, manifest, deadline, classroom_demo=classroom_demo)
         handle.validate()
         yield handle
         _deadline(deadline)

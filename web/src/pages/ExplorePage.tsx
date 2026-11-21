@@ -187,7 +187,7 @@ export function ExplorePage({ onNavigate }: ExplorePageProps) {
             {searching ? `${books.length} kết quả` : `Hiển thị ${offset + 1}–${offset + books.length} trên ${total} sách`}
           </p>
           <div className="book-grid" aria-live="polite">
-            {books.map(book => <BookCard key={book.book_id} book={book} onNavigate={path => openBook(path, book.book_id)} />)}
+            {books.map(book => <BookCard key={book.book_id} book={book} showCover onNavigate={path => openBook(path, book.book_id)} />)}
           </div>
         </>}
         {!searching && !loading && !error && offset < total && (offset > 0 || offset + books.length < total) &&

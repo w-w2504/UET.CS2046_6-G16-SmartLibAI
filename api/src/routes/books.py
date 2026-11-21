@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request, Query, HTTPException
+from ai_library.collation import generate_title_sort_key
 from src.schemas.common import Identifier
 from src.schemas.catalog import BookDetailResponse, BooksResponse, FacetsResponse
 from src.schemas.recommend import RecommendationResponse
-from src.config import settings
 from src.services import catalog as catalog_service
 from src.services.catalog import invalid
 from src.services.catalog_http import catalog, filters
@@ -60,22 +60,10 @@ def get_book_detail(id: Identifier, request: Request, snapshot_id: Identifier | 
 def get_facets(request: Request, snapshot_id: Identifier | None = Query(None)):
     """Lấy danh sách tác giả, thể loại, chủ đề cho bộ lọc (Mục 12.4)."""
     require_valid_boundary(request)
-    if settings.demo_snapshot is not None:
-        from ai_library.collation import generate_title_sort_key
-        from src.services.search import load_snapshot
-
-        snapshot = load_snapshot(snapshot_id)
-        authors = {author for book in snapshot.books.values() for author in book.authors}
-        return {
-            "authors": sorted(authors, key=lambda name: (generate_title_sort_key(name), name.encode("utf-8"))),
-            "genres": [{"code": code, "label": label} for code, label in sorted(snapshot.facet_labels["genre"].items())],
-            "topics": [{"code": code, "label": label} for code, label in sorted(snapshot.facet_labels["topic"].items())],
-            "snapshot_id": snapshot.snapshot_id,
-            "request_id": request.state.request_id,
-        }
     with catalog(snapshot_id) as handle:
         authors = [row[0] for row in handle.rows("SELECT DISTINCT author_name FROM book_authors")]
-        authors.sort(key=lambda name: (catalog_service.author_sort_key(name), name.encode("utf-8")))
+        sort_key = generate_title_sort_key if handle.classroom_demo else catalog_service.author_sort_key
+        authors.sort(key=lambda name: (sort_key(name), name.encode("utf-8")))
         labels = handle.rows("SELECT kind,code,label FROM taxonomy ORDER BY code COLLATE BINARY")
         return {"authors": authors, "genres": [{"code": row["code"], "label": row["label"]} for row in labels if row["kind"] == "genre"], "topics": [{"code": row["code"], "label": row["label"]} for row in labels if row["kind"] == "topic"], "snapshot_id": handle.snapshot_id, "request_id": request.state.request_id}
 
