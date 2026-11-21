@@ -60,6 +60,8 @@ class SnapshotService:
 
     def is_recommend_ready(self) -> bool:
         """recommend_ready có cùng phụ thuộc như search."""
+        if settings.demo_snapshot is not None:
+            return False
         return self.is_search_ready()
 
     def is_rag_ready(self) -> bool:

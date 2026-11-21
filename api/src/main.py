@@ -1,4 +1,6 @@
+import asyncio
 import logging
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,13 +22,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger("smartlib.api")
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    if settings.demo_snapshot is not None:
+        from src.services.search import search_service
+
+        if not await asyncio.to_thread(search_service.is_ready):
+            logger.warning("Snapshot hoặc encoder demo lớp học chưa sẵn sàng")
+    yield
+
+
 app = FastAPI(
     title="AI Thư Viện (SmartLib AI) API",
     description="Hệ thống API backend cho đồ án môn Trí tuệ nhân tạo (CS2046)",
     version="0.1.0",
     docs_url="/docs",
     redoc_url="/redoc",
-    openapi_url="/api/v1/openapi.json"
+    openapi_url="/api/v1/openapi.json",
+    lifespan=lifespan,
 )
 
 # 1. Cấu hình CORS

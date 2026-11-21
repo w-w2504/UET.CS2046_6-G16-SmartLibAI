@@ -16,6 +16,7 @@ import numpy as np
 
 from ai_library.book_embeddings import REPO_ROOT, TAXONOMY_PATH, book_text
 from ai_library.book_index import BookIndex, build_book_index, load_book_index
+from ai_library.classroom_demo import DEMO_KIND, check_demo_path, demo_provenance, load_demo_books
 from ai_library.e5_encoder import MAX_TOKENS, embedding_config, validate_vectors
 from ai_library.importer import load_c11_books
 
@@ -47,15 +48,20 @@ class C11Bundle:
 
 
 def load_c11_bundle(bundle_dir: Path, *, batch_dir: Path,
-                    taxonomy_path: Path = TAXONOMY_PATH) -> C11Bundle:
+                    taxonomy_path: Path = TAXONOMY_PATH, classroom_demo: bool = False) -> C11Bundle:
     """Kiểm đúng format producer C11, kể cả nguồn và hash biểu diễn năm dòng."""
     bundle_dir, batch_dir, taxonomy_path = map(Path, (bundle_dir, batch_dir, taxonomy_path))
+    if classroom_demo:
+        check_demo_path(bundle_dir)
     _require(not bundle_dir.is_symlink() and bundle_dir.is_dir(), "Bundle phải là thư mục thật")
     manifest_bytes = _read(bundle_dir / "manifest.json")
     manifest = json.loads(manifest_bytes)
-    _require(isinstance(manifest, dict) and set(manifest) == {
+    fields = {
         "schema_version", "book_count", "dtype", "max_tokens", "embedding", "source", "files",
-    }, "Schema manifest C11 không hợp lệ")
+    }
+    if classroom_demo:
+        fields.add("demo")
+    _require(isinstance(manifest, dict) and set(manifest) == fields, "Schema manifest C11 không hợp lệ")
     _require(type(manifest["schema_version"]) is int and manifest["schema_version"] == 1,
              "schema_version C11 phải bằng 1")
     count = manifest["book_count"]
@@ -80,7 +86,10 @@ def load_c11_bundle(bundle_dir: Path, *, batch_dir: Path,
     catalog_bytes, taxonomy_bytes = _read(catalog_path), _read(taxonomy_path)
     _require(source == {"catalog_sha256": digest(catalog_bytes),
                         "taxonomy_sha256": digest(taxonomy_bytes)}, "Hash nguồn C11 không khớp")
-    books = load_c11_books(batch_dir, taxonomy_path=taxonomy_path)
+    load_books = load_demo_books if classroom_demo else load_c11_books
+    books = load_books(batch_dir, taxonomy_path=taxonomy_path)
+    if classroom_demo:
+        _require(manifest["demo"] == demo_provenance(books), "Phạm vi hoặc nguồn demo không khớp")
     _require(_read(catalog_path) == catalog_bytes and _read(taxonomy_path) == taxonomy_bytes,
              "Nguồn thay đổi trong lúc nạp C11")
     _require(len(books) == count, "Số sách nguồn không khớp bundle")
@@ -115,25 +124,30 @@ def _check_destination(output_dir: Path) -> None:
 
 def build_from_c11_bundle(bundle_dir: Path, output_dir: Path, *, batch_dir: Path,
                           snapshot_id: str, data_kind: str,
-                          taxonomy_path: Path = TAXONOMY_PATH) -> BookIndex:
+                          taxonomy_path: Path = TAXONOMY_PATH, classroom_demo: bool = False) -> BookIndex:
     """Công bố đích mới sau round-trip; không sửa active hoặc thành phần cũ."""
     output_dir = Path(output_dir).absolute()
     _check_destination(output_dir)
-    bundle = load_c11_bundle(bundle_dir, batch_dir=batch_dir, taxonomy_path=taxonomy_path)
+    _require(classroom_demo == (data_kind == DEMO_KIND), "Loại index phải khớp cờ --classroom-demo")
+    bundle = load_c11_bundle(bundle_dir, batch_dir=batch_dir, taxonomy_path=taxonomy_path,
+                             classroom_demo=classroom_demo)
     output_dir.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(prefix=".c21-", dir=output_dir.parent) as temporary:
         stage = Path(temporary) / "component"
         index = build_book_index(stage, snapshot_id=snapshot_id, book_ids=list(bundle.book_ids),
                                  content_hashes=list(bundle.content_hashes), vectors=bundle.vectors,
-                                 embedding=bundle.manifest["embedding"], data_kind=data_kind)
+                                 embedding=bundle.manifest["embedding"], data_kind=data_kind,
+                                 classroom_demo=classroom_demo)
         # Truy vết bundle đã nhận; không đổi format hay giả manifest snapshot phục vụ.
         manifest_path = stage / "index_manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         manifest["source_bundle"] = {"manifest_sha256": bundle.manifest_sha256,
                                      "source": bundle.manifest["source"],
                                      "files": bundle.manifest["files"]}
+        if classroom_demo:
+            manifest["demo"] = bundle.manifest["demo"]
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
-        index = load_book_index(stage)
+        index = load_book_index(stage, classroom_demo=classroom_demo)
         for position, book_id in enumerate(bundle.book_ids):
             _require(np.array_equal(index.get_vector(book_id), bundle.vectors[position]),
                      "Vector thay đổi sau khi lưu/nạp FAISS")
@@ -148,12 +162,14 @@ def build_from_c11_bundle(bundle_dir: Path, output_dir: Path, *, batch_dir: Path
 @click.option("--taxonomy", default=TAXONOMY_PATH, type=click.Path(exists=True, dir_okay=False, path_type=Path))
 @click.option("--output-dir", required=True, type=click.Path(file_okay=False, path_type=Path))
 @click.option("--snapshot", required=True)
-@click.option("--data-kind", required=True, type=click.Choice(["synthetic_fixture", "p3_embeddings"]))
-def main(bundle: Path, batch: Path, taxonomy: Path, output_dir: Path, snapshot: str, data_kind: str) -> None:
+@click.option("--data-kind", required=True, type=click.Choice(["synthetic_fixture", "p3_embeddings", DEMO_KIND]))
+@click.option("--classroom-demo", is_flag=True, help="Cho phép bundle demo lớp học đã gắn nhãn.")
+def main(bundle: Path, batch: Path, taxonomy: Path, output_dir: Path, snapshot: str, data_kind: str,
+         classroom_demo: bool) -> None:
     """Dựng thành phần FAISS nội bộ từ bundle C11; không tạo/activate serving snapshot."""
     try:
         index = build_from_c11_bundle(bundle, output_dir, batch_dir=batch, taxonomy_path=taxonomy,
-                                      snapshot_id=snapshot, data_kind=data_kind)
+                                      snapshot_id=snapshot, data_kind=data_kind, classroom_demo=classroom_demo)
     except (ValueError, OSError, TypeError, KeyError) as exc:
         raise click.ClickException(str(exc)) from exc
     click.echo(json.dumps({"status": "ok", "snapshot_id": index.snapshot_id,

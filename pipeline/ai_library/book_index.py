@@ -15,6 +15,8 @@ from typing import Any
 import faiss
 import numpy as np
 
+from ai_library.classroom_demo import DEMO_KIND, check_demo_path
+
 E5_EMBEDDING = {
     "model_id": "intfloat/multilingual-e5-small",
     "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
@@ -125,11 +127,12 @@ class BookIndex:
 def build_book_index(
     output_dir: Path, *, snapshot_id: str, book_ids: list[str],
     content_hashes: list[str], vectors: np.ndarray, embedding: dict,
-    data_kind: str,
+    data_kind: str, classroom_demo: bool = False,
 ) -> BookIndex:
     """Receive an in-memory P3 batch. Source-file adapters require team agreement."""
     _validate_embedding(embedding)
-    if data_kind not in {"synthetic_fixture", "p3_embeddings"}:
+    allowed_kinds = {DEMO_KIND} if classroom_demo else {"synthetic_fixture", "p3_embeddings"}
+    if data_kind not in allowed_kinds:
         raise ValueError("Phải khai báo loại dữ liệu fixture hoặc vector P3")
     if not isinstance(book_ids, list) or not isinstance(content_hashes, list):
         raise ValueError("book_ids và content_hashes phải là danh sách")
@@ -141,6 +144,8 @@ def build_book_index(
     _validate_mapping(rows, snapshot_id, len(book_ids))
     vectors = _validate_vectors(vectors, len(book_ids))
     output_dir = Path(output_dir).absolute()
+    if classroom_demo:
+        check_demo_path(output_dir)
     if output_dir.exists() or output_dir.is_symlink():
         raise ValueError("Đích đã tồn tại; không ghi đè index")
 
@@ -164,7 +169,7 @@ def build_book_index(
             "embedding": copy.deepcopy(embedding), "files": files,
         }
         (stage / "index_manifest.json").write_text(_json(manifest) + "\n", encoding="utf-8")
-        handle = load_book_index(stage)
+        handle = load_book_index(stage, classroom_demo=classroom_demo)
         if output_dir.exists() or output_dir.is_symlink():
             raise ValueError("Đích xuất hiện trong lúc build; không ghi đè")
         stage.rename(output_dir)
@@ -177,8 +182,10 @@ def build_book_index(
             shutil.rmtree(stage)
 
 
-def load_book_index(directory: Path) -> BookIndex:
+def load_book_index(directory: Path, *, classroom_demo: bool = False) -> BookIndex:
     directory = Path(directory)
+    if classroom_demo:
+        check_demo_path(directory)
     if directory.is_symlink():
         raise ValueError("Không đọc index qua symlink")
     manifest_path = directory / "index_manifest.json"
@@ -187,7 +194,8 @@ def load_book_index(directory: Path) -> BookIndex:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if not isinstance(manifest, dict) or manifest.get("schema_version") != 1 or manifest.get("kind") != "books_index_component":
         raise ValueError("Manifest thành phần không hợp lệ")
-    if manifest.get("index_name") != "books" or manifest.get("data_kind") not in {"synthetic_fixture", "p3_embeddings"}:
+    allowed_kinds = {DEMO_KIND} if classroom_demo else {"synthetic_fixture", "p3_embeddings"}
+    if manifest.get("index_name") != "books" or manifest.get("data_kind") not in allowed_kinds:
         raise ValueError("Sai loại index hoặc nguồn dữ liệu")
     _validate_embedding(manifest.get("embedding"))
     count = manifest.get("vector_count")

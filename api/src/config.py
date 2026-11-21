@@ -30,6 +30,8 @@ class Settings(BaseSettings):
     SNAPSHOT_ROOT: str = "./data/snapshots"
     CONTROL_ROOT: str = "./data/control"
     MODEL_ROOT: str = "./models"
+    SMARTLIBAI_DEMO_SNAPSHOT: Optional[str] = None
+    CLASSROOM_DEMO_SNAPSHOT: Optional[str] = None
     
     # Domain & CORS
     PUBLIC_ORIGIN: str = "http://localhost:3000"
@@ -63,6 +65,12 @@ class Settings(BaseSettings):
             env_file = (".env", "../.env")
             env_file_encoding = "utf-8"
             extra = "ignore"
+
+    @property
+    def demo_snapshot(self) -> Optional[str]:
+        if self.SMARTLIBAI_DEMO_SNAPSHOT is not None:
+            return self.SMARTLIBAI_DEMO_SNAPSHOT
+        return self.CLASSROOM_DEMO_SNAPSHOT
 
     @property
     def snapshot_path(self) -> Path:

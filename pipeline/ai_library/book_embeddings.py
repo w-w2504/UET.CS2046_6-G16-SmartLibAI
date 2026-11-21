@@ -9,6 +9,7 @@ from tempfile import TemporaryDirectory
 import click
 import numpy as np
 
+from ai_library.classroom_demo import check_demo_path, demo_provenance, load_demo_books
 from ai_library.e5_encoder import (
     E5Encoder,
     MAX_TOKENS,
@@ -52,11 +53,15 @@ def _check_destination(output_dir: Path) -> None:
 
 def export_book_embeddings(
     batch_dir: Path, output_dir: Path, *, cache_dir: Path | None = None,
+    classroom_demo: bool = False,
 ) -> dict:
     _check_destination(output_dir)
+    if classroom_demo:
+        check_demo_path(output_dir)
     catalog_path = batch_dir / "catalog.jsonl"
     source = {"catalog_sha256": _file_hash(catalog_path), "taxonomy_sha256": _file_hash(TAXONOMY_PATH)}
-    books = load_c11_books(batch_dir, taxonomy_path=TAXONOMY_PATH)
+    load_books = load_demo_books if classroom_demo else load_c11_books
+    books = load_books(batch_dir, taxonomy_path=TAXONOMY_PATH)
     taxonomy = json.loads(TAXONOMY_PATH.read_text(encoding="utf-8"))
     genres = {item["code"]: item["label"] for item in taxonomy["genres"]}
     topics = {item["code"]: item["label"] for item in taxonomy["topics"]}
@@ -83,6 +88,8 @@ def export_book_embeddings(
         "embedding": embedding_config(),
         "source": source,
     }
+    if classroom_demo:
+        manifest["demo"] = demo_provenance(books)
 
     output_dir.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(prefix=".c11-", dir=output_dir.parent) as tmp:
@@ -113,10 +120,11 @@ def export_book_embeddings(
 @click.option("--batch", required=True, type=click.Path(exists=True, file_okay=False, path_type=Path))
 @click.option("--output-dir", required=True, type=click.Path(file_okay=False, path_type=Path))
 @click.option("--cache-dir", type=click.Path(exists=True, file_okay=False, path_type=Path))
-def main(batch: Path, output_dir: Path, cache_dir: Path | None) -> None:
+@click.option("--classroom-demo", is_flag=True, help="Chỉ metadata/summary dùng trong demo lớp học.")
+def main(batch: Path, output_dir: Path, cache_dir: Path | None, classroom_demo: bool) -> None:
     """Xuất ba tệp embedding sách C11 bằng model E5 trong cache cục bộ."""
     try:
-        manifest = export_book_embeddings(batch, output_dir, cache_dir=cache_dir)
+        manifest = export_book_embeddings(batch, output_dir, cache_dir=cache_dir, classroom_demo=classroom_demo)
     except (ValueError, OSError, ModelUnavailableError) as exc:
         raise click.ClickException(str(exc)) from exc
     click.echo(json.dumps({"book_count": manifest["book_count"], "output_dir": str(output_dir)}))

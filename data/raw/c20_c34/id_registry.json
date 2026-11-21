@@ -1,0 +1,3589 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "SLB_B0001": "SLB_W0001",
+    "SLB_B0002": "SLB_W0002",
+    "SLB_B0003": "SLB_W0003",
+    "SLB_B0004": "SLB_W0004",
+    "SLB_B0005": "SLB_W0005",
+    "SLB_B0006": "SLB_W0006",
+    "SLB_B0007": "SLB_W0007",
+    "SLB_B0008": "SLB_W0008",
+    "SLB_B0009": "SLB_W0009",
+    "SLB_B0010": "SLB_W0010",
+    "SLB_B0011": "SLB_W0011",
+    "SLB_B0012": "SLB_W0012",
+    "SLB_B0013": "SLB_W0013",
+    "SLB_B0014": "SLB_W0014",
+    "SLB_B0015": "SLB_W0015",
+    "SLB_B0016": "SLB_W0016",
+    "SLB_B0017": "SLB_W0017",
+    "SLB_B0018": "SLB_W0018",
+    "SLB_B0019": "SLB_W0019",
+    "SLB_B0020": "SLB_W0020",
+    "B_0b294557-ff2f-4ea4-b93a-f0771704a4d3": "W_75ac2dc8-5397-476f-9050-2651c9dfa894",
+    "B_1ade6312-55c1-4525-b410-9e704863f3ac": "W_38659fd0-96d9-4e56-8414-edfc77d32181",
+    "B_75c7f8e4-92c0-4dbb-950e-f0ec4db2441b": "W_ce9156df-ce29-42c8-85ae-9c7ca1a0fe2a",
+    "B_636f973d-abf9-4557-9030-b6cb0d9e7782": "W_a0277ab7-488e-4162-99c0-12d2864384be",
+    "B_8c116b89-652a-4b76-b45d-3b02ec22d923": "W_197e1974-a2b6-47e2-85d7-7cb7935bf264",
+    "B_d4dab4ea-4cd8-44cb-93a2-dc167eaaeb03": "W_a5caa25a-7d10-49c2-a5b5-423b28994437",
+    "B_3e132910-8b7e-4c3a-b9ea-0cc6ac88d20e": "W_80538282-f563-414f-a0b2-d8b6c92f874d",
+    "B_7124c039-6217-4bb0-aa2f-25f9ecb578d4": "W_f5a57bcb-2e21-4298-b5ae-c644e3f56296",
+    "B_88f2988f-7cde-4954-844e-5d0664609651": "W_cd5f658b-58fb-47fa-9628-e55fd4117db7",
+    "B_548c49c8-b479-49e9-9ad8-72f57a0e27ad": "W_3ef5ef7c-e74b-4a7c-b1a3-4f4fc335286a",
+    "B_cdd4a3dc-ce1b-4840-b9ee-3344862da924": "W_4b924c46-49cb-4c44-a663-d68075f5cf93",
+    "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d": "W_fb26f38f-5f04-4305-a1c1-5205fa76a98d",
+    "B_cf681c23-613e-45ba-8357-c23078c7e539": "W_c29c9ca5-af56-452c-a9d1-2e36e60f3c7a",
+    "B_67af733c-b8eb-462c-8e32-d22924b8f640": "W_3e71420b-ff38-418a-8d42-21a0d1134ac8",
+    "B_9b31bdee-6bd6-4ca2-b4dc-60b1ca5532d3": "W_d97dcbad-2aee-47f3-8325-04fd4aa03cd7",
+    "B_c43b1475-0093-4151-8738-60886042491f": "W_73257cea-bead-408d-abd3-100710d81062",
+    "B_41ae964b-ed42-4500-8b32-ee622d51d19d": "W_ee457219-25aa-4938-9289-9bf9764b110a",
+    "B_41e6dd15-7561-47f9-9145-8552a6e13456": "W_2ce48384-2512-46ca-a534-ea514dcf1e77",
+    "B_0f6e01de-698a-4836-aea8-aa7b52d5ccec": "W_9d1a8a6d-eb1c-4a15-9092-899d023db4f5",
+    "B_88ecc589-bf4f-4521-8fa6-f1157931c797": "W_acb5b66b-a9ed-4733-978a-e323022d9ada",
+    "B_28850112-31ca-4d3a-9c18-1fbecfd64e3e": "W_8dfcbada-7d1b-426b-944a-63274bcf826b",
+    "B_f1d89ecb-c5bb-4477-86dd-5ab740cdaca8": "W_cc2548d9-29f0-4e3d-b122-85644a1a9cf6",
+    "B_af007d41-c8fb-4e03-9941-12af9ec3f90a": "W_1f1c4910-d93d-470a-8f6d-bd1eb6ef6c28",
+    "B_b1e08017-4852-4c85-b64c-6fffc0455d70": "W_62628f79-7178-42cc-a0a0-44c081b614a0",
+    "B_7344b6e0-ef30-4a98-8743-86aee17bac40": "W_96c4d187-45d5-4090-9d1a-3b004fb829e7",
+    "B_3eb86ed2-f14d-4ed1-8318-2dc47333366c": "W_35ab2f1e-bd16-410c-9a4c-27836eab7c22",
+    "B_37ba57a2-524f-47d9-9a4c-59de8a891b01": "W_439f0aed-e984-4254-b822-033cd22efdc0",
+    "B_f78b6c4c-ab28-406e-b6b3-04051c75521d": "W_49ef1263-f259-490c-9e96-fbb1499bc858",
+    "B_064f82b2-38ca-4c0a-9344-2dad0f519888": "W_7aab5762-d7ca-4c65-a4ed-370a1940fb24",
+    "B_96d9cede-2905-422f-b8de-791b709d2715": "W_2702dffa-024c-429b-abee-085c0b6e7efe",
+    "B_af235487-79e3-4095-be42-28556c6dc3b0": "W_b6bf1e0f-00c0-4c86-a168-1e185883a073",
+    "B_fe82477e-ca89-4f71-a50a-0d51de7ae45e": "W_28e470f2-2dad-4280-963d-f7b9647a5c33",
+    "B_ecdf9b2a-199f-431d-81b2-922be53ed596": "W_fda71ac9-2070-491e-88f2-b0e7d41cf6b2",
+    "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec": "W_ae3e8e9a-41a0-4dbe-932f-656db1c3dfa2",
+    "B_20cb3077-0908-4152-b8ab-272003aeaefe": "W_07cb6d69-cc88-4ea2-854c-ffaa8348c7f3",
+    "B_0caebad1-2fdc-4982-b7be-309c3339268c": "W_449f0462-6b6e-4965-a911-f82890e11fff",
+    "B_9e0cb114-3409-4989-a2a2-6ec86e14e65f": "W_42b0929e-e30f-4e49-b6ed-a873ad1039fb",
+    "B_71105ea4-fea8-4f5f-a7b8-48227bd0e7e3": "W_e9c331c0-2cf9-4d4c-9943-f143f7997248",
+    "B_a2b939b9-3010-4522-a3a9-0b4ccb22f6a1": "W_cca11038-53ac-4bcf-9b8b-870cc621ba58",
+    "B_ece10aa1-7984-446c-90c8-b2f1d81704e3": "W_5ba17b05-66a6-4e9e-8daf-cc77e5cf9b3b",
+    "B_42a282f4-cb6c-40d7-936b-b558e37f833b": "W_bcbbf568-89e5-4587-8435-9d7832032368",
+    "B_b8b37d3c-d44d-4d5e-a627-7aa675a0daee": "W_7cf8ef67-3cc8-451c-a826-02edcc1fac93",
+    "B_23e41d73-849b-4188-93e7-9eb84f018a94": "W_bbec8637-1ec9-4045-b640-38814b5ef66b",
+    "B_1f73bcce-a349-4347-9676-7339cade7923": "W_44fa6d68-0a9b-45d8-8768-1c3a05759cf3",
+    "B_4631e319-5136-44bd-91de-b707e681730d": "W_8ff53ac1-c513-4eaa-97bc-95cbf0b1c5fd",
+    "B_c8399366-defe-4aab-8915-2e91dfbfdeb4": "W_081190f9-2ae9-465d-99b0-b421a02f8fdc",
+    "B_e84e5ba3-35dc-4d4b-a295-6a91ae390496": "W_d65b5029-6d1b-4e42-810d-8fa3ff60cdf3",
+    "B_1fb428bc-f051-4698-9450-1261a28bab8f": "W_8316e9fd-4b74-420c-9589-2350bcc85550",
+    "B_ddd93cdd-5e8d-4a9c-97a6-754739fc9ebf": "W_5bdc3799-771a-4a8c-967c-82690fd1be1b",
+    "B_48948b37-fece-4cdc-8fff-f66517ebafbc": "W_3b804bc7-ba6d-489c-90c8-2d8915f6e491",
+    "B_fbdbf3f2-0b27-4612-83ca-1e9acfd9bbf0": "W_d17e10d1-8c83-4716-9c6e-467527e7b47f",
+    "B_2316104b-dcbe-492c-a99e-79fdead63b63": "W_470a15ae-5f22-4439-81dc-25865a0744e1",
+    "B_0e447b13-278f-47bc-9e51-0a6ca62c2293": "W_c827db0d-baa3-4262-a374-37d515af4e07",
+    "B_7cdacc51-d49d-49c1-a8d3-997e2350ea48": "W_7c39dbc0-6062-4e27-b1c0-43713bcee7ae",
+    "B_d15d4d77-c7f2-43e0-bdb3-ffde17a1b940": "W_87d6169d-7135-42b6-adad-43ddb9f23e7a",
+    "B_bcb8e4d6-1805-4975-bc5a-41c25d00d725": "W_847e9248-4c31-4aff-b747-564fec24b5e5",
+    "B_568c55dc-431f-4d40-9946-4836b1fe894d": "W_bcc81047-1aba-419e-99aa-c7bd89fd30d8",
+    "B_ec9d7595-0257-43d5-83cf-15d83d8640b9": "W_21bdb50f-2204-451d-a942-412ef4703bc8",
+    "B_c7f38206-06ec-4f9f-b268-a92bcc309710": "W_6bb1c9ef-1d25-4510-a6f7-cd2ed011b1a2",
+    "B_0dd3e264-f3c1-47a1-baa9-8cafeba7f67b": "W_3fee51a0-b798-4bb1-b852-447bdd06338b",
+    "B_682b4da7-dcd4-4ab9-bb5b-8f93ba5f9ebd": "W_c9a3c85e-069b-4a07-93b1-d52a8ec1263a",
+    "B_5caca43d-14e9-4f95-89d8-02aee12a289f": "W_2b6ecf00-f240-4cd1-b27f-1b1ea2635f44",
+    "B_bec89c3c-b6c8-4c9c-8c72-7b82fb93c970": "W_887c5b59-8308-4612-ac3d-4c9c981691d1",
+    "B_7b0dae33-dc87-42e6-8a16-1b5db223ee76": "W_f501f968-5e9c-4ee3-9528-25018e8a81af",
+    "B_fd813f3f-fd53-4ea7-9b83-4c3c1c6da8a4": "W_c55176e5-2d15-4593-8f19-c55a87274a70",
+    "B_966e9022-6923-4f87-877b-36b8909b9693": "W_b0165cad-76ec-44d6-bd00-92b17d15bfb6",
+    "B_b0806210-6e41-4521-ae5c-dd9c5d8b3a4b": "W_0de2dd80-88c8-4c87-83a2-8f9b8d6ca515",
+    "B_18c14530-cde0-4b13-ab4b-d790c0f522bc": "W_d08f27d6-1d5a-4079-b3f4-dd310893c625",
+    "B_fab8a078-9691-48b6-b005-49649998cd55": "W_7d035691-86f8-4545-b5e1-b4ec4eabec51",
+    "B_57d7a73e-5415-43b0-9d14-ec3cdbddb243": "W_b75b3344-7f3e-4230-82a7-33eff9e66701",
+    "B_9c689ac7-f38f-4aaf-b3ff-bc4b12b4c5be": "W_b1e97f9a-cd58-4e72-889b-294562a6236d",
+    "B_f3b72399-f600-43c8-9805-19c7632abe83": "W_56c9c89a-e44c-4919-bac5-188f5b21df62",
+    "B_406f09c7-d6cd-444c-9762-e5e5de66aabb": "W_b75687cd-2ddf-4fc3-8b36-f3b5f319729f",
+    "B_42155da7-3828-46bf-97c2-ef572eb233d0": "W_dbac4df9-593e-4b17-8872-5389c706aa1f",
+    "B_df9f7669-1b89-42fa-9c3e-4de426566166": "W_268158f3-978b-4855-85be-5aa52b28bc86",
+    "B_fd69b40e-c689-434e-a3e0-18fb751b77f0": "W_938a6779-c97f-4b48-862a-2760b02bbcdb",
+    "B_1b403b41-40d8-40de-a6e9-a538c0a1c971": "W_64f390e7-81ba-4e52-964b-0631b58d1083",
+    "B_09b842ab-d398-48ed-9bbd-10a519f8ffc3": "W_8f604fa5-c0aa-43d5-91f5-ba85a0615c90",
+    "B_d960e70f-7539-43fc-a10c-3f9ca1d315c2": "W_cece0c9f-4f73-41f5-a193-29fa855058ba",
+    "B_ac2ff3c2-f755-42a0-a25b-0374cab019f0": "W_1de7e8fb-0849-4139-975e-438529338a10",
+    "B_a7a0b412-52d2-46e9-8b8b-5f93764f5a16": "W_0e537500-07eb-4cfd-8806-38e1b09d4083",
+    "B_4eea12fb-aa7e-4ff9-8a6f-1d906a36b0b7": "W_98d5bf24-1f92-42fc-a9e7-b5a0550362a7",
+    "B_0a477c89-efad-4ccf-805a-6ff8c8f7a7b7": "W_2bd5eed8-1892-4725-b40b-e80fef67f625",
+    "B_1d3878a4-b385-419b-b2ff-0256340a610d": "W_3caf8ef1-fb43-49d1-830f-85c057cb96a0",
+    "B_95fcebaf-5ecf-423e-9118-93c79920f7ed": "W_40493be1-78d7-4a75-8204-c7cce4df8954",
+    "B_a2c727cd-d08f-4510-835c-bc32354b6bae": "W_33115d7d-2ce0-4ed4-ada4-70cddab904ec",
+    "B_c20df173-400a-48af-a440-00d54d589a17": "W_e387644f-b495-4dff-a002-3cf7fdae024b",
+    "B_b81e5eb4-860c-4541-b636-34c7706717dd": "W_d6226131-e800-4fe7-8276-6141bf43c0dc",
+    "B_ac7c393b-ea29-4026-bdae-afe148374d71": "W_dabf1ea1-be4c-46f3-b537-5f787a89fb90",
+    "B_8dede192-59bd-439b-b07b-d3daad85d135": "W_0bc67101-8986-4890-8699-b8ef3ca5546c",
+    "B_c4eb5f32-6546-4a51-b980-4a1e88dea0f6": "W_986b557f-ef7e-4906-b389-1781b3ebb6e7",
+    "B_b8553ec8-32fe-4b5e-9094-273545371e55": "W_46997041-8aac-48c2-bb4b-36055ebf1d45",
+    "B_ae7e3e57-3ab0-456d-a008-402fbf33359b": "W_76b4e165-18f8-4d41-842a-77cf35fa00f4",
+    "B_51918731-48ae-4e88-b668-84b9f25d639a": "W_90219261-4c50-4464-a75a-51d451103a56",
+    "B_bd6be029-dae8-47ab-b3bb-2dddb84a23de": "W_90f563e7-db5f-4939-b2e2-d0198e5205ae",
+    "B_8c4af470-4b1b-4690-a652-6a3764ba6428": "W_21e7fee6-7ce3-474c-9626-11c0ebbfbc9b",
+    "B_f59f36da-4aa2-444a-8e0d-51cc9d92f24e": "W_9ef8bccb-506d-4921-92f4-1bddc844aea7",
+    "B_a6e04ad2-b00d-405c-abd0-e38086d10e4f": "W_a72df3ce-8b71-473b-8261-2ecea57e5eef",
+    "B_d2bef0f2-4037-47ee-a31f-11877654aa03": "W_e6d97876-0a1e-43a7-983f-1f89101e706b",
+    "B_3c6ed075-dcd8-417e-bd67-c2bc4aaebfbe": "W_755fea62-c73b-4bd0-a4b2-d1ca8dcf5fdd",
+    "B_07ec13f8-396a-4f20-a33e-d1dfcd3cd7a8": "W_f8d43a45-9991-4ee2-9f6b-f845f3215a7b",
+    "B_a3971784-fcd5-4564-92ff-24d9bd92d244": "W_9e490a01-e648-40ad-a5d9-5825242dcc38",
+    "B_f1cf76e5-9368-440a-9a44-9b7d01151db7": "W_314728bd-a8fe-4642-b7c1-65eab628a520",
+    "B_a00f6ca8-6bad-4214-b8fd-20871232352b": "W_8642cdc1-0f75-4caa-be6b-2afa0deaca96",
+    "B_e1624f25-bcba-43db-83bf-cd6fb9cd4e30": "W_719458b2-1f9a-495b-a9e2-f7ff89ee0185",
+    "B_dac02bdd-7b6d-4a1b-b173-0f024a2328e7": "W_eab952cc-9f83-4d51-98a1-6b1145d9beda",
+    "B_09d51271-7c78-47b2-9df4-3eefab5a50af": "W_460700ba-d6af-49f0-a585-92c75535e5fa",
+    "B_8b200109-5ecd-4557-950d-5207a3554e48": "W_2341c566-6772-4034-9407-48b65c881703",
+    "B_f0144600-1833-4a36-83b5-68b19a20099c": "W_1e029c0d-8d65-4515-912a-ce73187786ba",
+    "B_64f27e25-5162-4e1e-980b-3928bc47195c": "W_07f1cc00-b1f1-4062-ae6d-f89386ab23f9",
+    "B_14555110-4174-4d73-a214-a027bad725b0": "W_b0943a1d-9051-4cf2-80f9-0ffac16277b9",
+    "B_b7db132d-5754-49e1-8ea3-fb5733fc1fb1": "W_d34cdd64-72f2-407d-bd09-d2a1ef1682c0",
+    "B_9b331911-f500-4ac1-b4a1-aa340e6b40ec": "W_3bc73a82-2e43-4c16-b38c-40019fadaa6d",
+    "B_3e421c69-491b-4562-9b6a-e9e6cae64c54": "W_0ac19727-f87c-40da-b5f0-48bd418cd66d",
+    "B_c77ddf98-34c9-4919-b2ae-88913c294c72": "W_01ae32e2-526b-4dac-92a1-2244d243f97e",
+    "B_84a27951-a762-4d96-9e58-df49d35bb744": "W_3e516214-280e-4a3f-9dca-1061c16c4670",
+    "B_47dbba8f-5f8d-4333-b2a6-63b3be05c214": "W_3e274024-76c2-4892-8f66-299230964ccd",
+    "B_779312f6-f212-4010-9e22-11d6d8b1a80b": "W_6794ab4c-9715-481f-a488-bc0abedeb6e8",
+    "B_639219b7-eb9c-49be-b21a-08259245516b": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+    "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+    "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+    "B_b099451b-901c-4879-8e39-bbf3c78b5c7e": "W_e28b4371-a815-4f21-be83-c47cc370ac84",
+    "B_004b82b3-a444-44ed-8146-a46247021c5e": "W_6964c964-73b4-47d7-adb4-f12337976b38",
+    "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca": "W_9bb7a3a7-aa1f-4401-b8d1-967538ca18cf",
+    "B_3de943a6-7b14-46de-9f00-2b6faafdfedf": "W_fa0d1669-95a1-44d9-abc1-94d3b7f0edc0",
+    "B_64ac9b00-e35a-47a7-b296-197fbaa67f9d": "W_06881735-166f-442d-b4f6-0d666771dbe6",
+    "B_39fafb79-f843-4956-9819-d1e09a6f0696": "W_39cf1e94-96ca-4b6a-99ed-4a63e9bdee6b",
+    "B_116345c1-faa2-4c62-aa42-1d512315ed0b": "W_9d2e6736-9ce5-4ca4-b5e9-3b41d1b25417",
+    "B_aeee1e7d-65c7-467c-bd25-f00204c43e8d": "W_53ddcdef-f87c-40d2-a48e-9dcebaacf1de",
+    "B_a05863b4-54fc-48a5-883f-826f06cb96e2": "W_dd56a35d-6305-4d50-b161-41d86cead9d6",
+    "B_e8c21323-6b46-45d0-9b5b-90226e61f8bb": "W_7b81ad77-073f-40f1-8087-9ea7b96c5d03",
+    "B_10b9db0f-3d23-48a8-8195-49ac4c7c2aba": "W_ef6f2e68-f453-467d-9c45-fc6bf74c9218",
+    "B_8b67998d-2325-4384-ace6-543986fa5159": "W_5e778cb4-fafb-4b70-b525-75ecedf1fb25",
+    "B_f8c0b6f2-fb30-40c5-ba90-4bfac6083eaf": "W_720e50d8-b8be-491e-aa6f-e52193398533",
+    "B_0c8bff0b-df2b-48b2-bcdf-36a78a441e85": "W_8a700639-7716-4b86-96e5-4aefc4d59726",
+    "B_446b0259-9de5-403b-835d-7a479b3a0e71": "W_014b127a-096e-4937-b216-f0178c37b6c4",
+    "B_644f912f-35ed-4a31-8718-cd3ce1311608": "W_06b6a206-5857-4458-ac2c-bf644180a821",
+    "B_145f2ed9-f02b-4152-9e43-d5fd167d8748": "W_ebffb32d-a017-4f98-8679-9783e207e61d",
+    "B_29702a48-38a9-4bcf-ae0d-5760cd0680f1": "W_bfa2b79e-baf9-4322-9242-5b927ff91528",
+    "B_c6974e69-49b2-493a-93ea-21058983417a": "W_66dd7bb8-641b-46a4-8b59-5e1fc720d15a",
+    "B_560b39ef-b2bb-4cfc-851d-e458e0f1bed2": "W_3c7dd011-92f6-40c4-a997-6d26376e5a32",
+    "B_859f7abf-07e8-4e07-9480-5630bc9d923d": "W_7597c339-7fa4-4201-898f-18e421efe543",
+    "B_b7ce0d07-d867-49f2-8ae1-46fac9d650cc": "W_58142707-caf7-49ac-874d-28d97d1d515b",
+    "B_8f07c9f5-d120-41a9-8336-ed81d4c77528": "W_1addbb8d-210e-40fe-92b0-a90cdf4b424d",
+    "B_3adaf906-6b43-4844-b8d3-f840ff5ae0cc": "W_bebfacd7-1c5a-41fa-a375-a4dbb6c0d6b2",
+    "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf": "W_f622c25a-0ed6-4493-8a61-8e3d9aa2cf6e",
+    "B_9bd96c05-d248-4295-8414-4d19bc8eea6b": "W_9aef1806-d004-40a7-81bc-b278090b22cc",
+    "B_bdf43a62-b008-407d-b5ec-753abb2a5a6a": "W_f7ab3a47-3c64-4120-9fba-330678b5a6b3",
+    "B_a478d293-fd2f-4ee4-8c37-8e22a1cfb7e5": "W_66586fe5-8bea-45bc-8353-46380225b130",
+    "B_67c206ca-dad0-42ad-a9a9-aa625ab36d29": "W_6470c645-ae1d-4d1c-a4ba-73a1564d49c2",
+    "B_41bdc2e1-ad03-4e27-9a43-f30a642bef31": "W_2d8580a7-6eae-4116-9a7f-1a4951825b86",
+    "B_97fca1c6-5a00-4ee3-bd23-3426084171e0": "W_b22dd998-20ae-499c-b2a9-526c8d4a54dc",
+    "B_4ea2e3d8-fc88-4278-97c4-59cd9969adbc": "W_2c7e5c27-5ef7-4da0-8afd-3cdd6024f4c9",
+    "B_6013ee85-3d7c-43d3-bd1d-a9a8d0b10eb9": "W_7578b14b-88c8-4764-8273-ac26eb8ce17d",
+    "B_a1fcae75-0d85-4875-b080-8a6353ec8cbf": "W_7dc0e0a5-50fa-4163-844c-7afad44dc16e",
+    "B_36b89aca-1443-4a81-984a-7f616c224dc7": "W_0cce0f9a-4bc7-43e5-b30c-1a7d56a02886",
+    "B_587aac00-e538-4905-a78b-b6d57617c085": "W_77852cbd-d71f-4983-83ca-26cd1e443d40",
+    "B_a3d2c5c0-569f-4d79-9762-47714b79e964": "W_5df8e5ee-852f-4e1d-9aeb-3eb39220a3de",
+    "B_5d258049-1a0e-4e70-a3e4-1f6b3d30e2f4": "W_b5cdf91f-4bb6-44f9-8f4f-043645b2f576",
+    "B_efae0ad7-e8af-4609-8990-f9a5edfd38ff": "W_bb1f9e44-756f-4331-80fd-b77fe1a310e3",
+    "B_58de12b8-a8b7-4372-a7bd-b5a4d71d7165": "W_b72fa367-7a03-4b61-8bfe-8d82d13df979",
+    "B_091f4ae5-f8c2-4e77-a1c5-454256503179": "W_9465daf4-4bee-4896-b6cc-90e42ae166be",
+    "B_e9d56e15-5396-4cb6-ada6-aa8680b28f5a": "W_f3c388a3-a0b9-4efe-9114-c56dd0f14d71",
+    "B_8972fc5a-48d6-4212-807a-0b980aa5b096": "W_be591fc0-5609-4209-9531-449cd136f911",
+    "B_892bd46c-3864-4e62-9a80-a9ac955c2de8": "W_57394f0e-a5da-407e-accd-97b972f67925",
+    "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb": "W_f5a69040-ed33-4d30-99bf-eba457662e57",
+    "B_4efd32d4-c955-4d9f-a617-f7636c7f08bf": "W_3bd6fdda-7f87-498e-8e49-03fcc2ca23e3",
+    "B_e456ff95-5309-4a92-8fb6-391cf718f71c": "W_8be54167-ca52-4cbb-a63c-10a13392b507",
+    "B_276c5876-6e56-441c-b092-bac558e94638": "W_82c4004f-0153-4dbe-a229-781335ec86c0",
+    "B_e84c2c42-fb20-479a-83f6-19d2c841cc6f": "W_dececd03-db5d-40c1-a6b5-540539c98754",
+    "B_bad93c10-a2e9-4498-b960-fe9c4707693a": "W_adf313b8-c3b6-4625-b5a1-983f53c66ba5",
+    "B_a4e1870a-147e-4ae2-9897-056f76e6fd66": "W_0a703789-19e5-46a7-ad24-083a1d5226c1",
+    "B_20c72d6f-fafe-4081-8bf8-f1ec7c58a38e": "W_e53fae6b-cd42-47cb-b4ee-997e5be0703c",
+    "B_c1d6dafd-a2a5-4a1d-8675-25c0ff14ce4a": "W_3775abc7-2fb0-4a9a-b522-042daebb108e",
+    "B_0254bb4d-a391-42ef-8d41-0045676928c0": "W_9fcdd327-2aaa-4508-a651-0b4968a489fe",
+    "B_59ca9c49-368c-493c-8d3c-a33751306bfe": "W_263555be-5fa3-41ef-af90-78af7e1cae1f",
+    "B_6fa7b11e-a056-4ea0-a20c-bc72c0689ca6": "W_af890cc6-d7eb-4b8b-824c-44327c14a44a",
+    "B_3aa3196f-96d6-4c54-be14-2cf50d6ca69d": "W_4ca6cc86-3597-4265-a969-ef19f25fabb3",
+    "B_0edf4cd3-cd26-40e4-95ff-c941616310a5": "W_88c05a22-615c-41e4-b719-aaf3f40e27de",
+    "B_bd4b0df9-f41f-4466-b61a-c1952b6ec2d6": "W_13c9b8af-9180-4f23-b618-0e27feac5476",
+    "B_8d2791a4-90cb-4c2d-9bc4-0764bae4a6ba": "W_3f4e7443-e100-43ef-9749-fb8f6f407230",
+    "B_47d6f1de-5e1c-4acc-99c9-6b098dc719e2": "W_3738994f-b664-4784-bea4-818a3e0b5343",
+    "B_b226e9c3-30d3-4fcb-9949-a878693b9c73": "W_1837c53f-e51b-4920-a93a-0c47b01b7988",
+    "B_2cec1b46-389f-407b-93e7-3c74fc5aff0b": "W_97140e0f-8785-442f-8a59-842e1599b8ba",
+    "B_ffbdf4b2-16b9-4e88-8dc8-6de8da212bcd": "W_c2de63bc-8bc9-4316-a917-9f2fa8e4f923",
+    "B_7a945e2e-8a3d-493f-9b41-d8991dd15802": "W_b5bccafb-da6e-483c-8827-c38e696fde3e",
+    "B_a4097d2b-f4ca-45a2-925e-49a8a8f4f091": "W_77d6d36a-0fc9-41df-b955-29f98515b005",
+    "B_c4928027-5988-47ce-8af7-e6dba3aca2aa": "W_7197246c-6748-4300-bcaa-cef8952160c6",
+    "B_c675ad22-711d-46f3-b6f5-56b0c6b0824a": "W_65da4862-430c-4c21-b0fc-40478f808673",
+    "B_ca966f77-62fc-4369-885f-c6922d41b360": "W_3a04d3f0-d553-4a17-9d33-1f8d9219b61a",
+    "B_c29b8809-6839-40ee-b518-bb4d6e8f6db7": "W_f20e7f33-20b1-4497-a5e0-a2a675d0cf63",
+    "B_17788bb6-b25c-4733-9a95-cc7927614e94": "W_7cdd6a4a-ca44-4818-b2c7-348b786b5ed3",
+    "B_fca90f42-09cf-4c20-a0f5-914858a6fda9": "W_149cd947-2e26-423f-ad31-b9528bd0e6b2",
+    "B_66623562-c47b-48a2-be5b-5c18c6521982": "W_9c812dd3-e1df-45e2-8cdb-f9d74de57d0e",
+    "B_79d77e14-5a64-4830-ba31-ff058313c002": "W_91ddac01-a384-4f19-b3f0-6de2c9232226",
+    "B_69396a85-c897-4c23-9222-69b27b0c6491": "W_b532848c-bf17-4cac-a189-b2169b31d39d",
+    "B_3eb6e624-74f3-48eb-b2db-51dcb124944a": "W_45dcf041-1477-4961-bdc1-822c37a639b4",
+    "B_8a7aa487-a13f-4b86-a693-cbc0dc364020": "W_b0d58b1e-7761-48a4-aef5-43edfae7530e",
+    "B_c88b4f06-6bc5-4a65-ae9b-d5c30f945c4b": "W_c546efff-f206-4da1-9363-e9128b50916b",
+    "B_3a3e93a1-9261-4d76-a201-6a91ace10131": "W_22fd59f6-8fb5-4ec5-92c7-930108123cc1",
+    "B_ca5c968c-a416-4af6-85a0-241adebbbcab": "W_bdea59f7-1e4b-466a-b8a4-75f93acb0772",
+    "B_f8eaad8a-724f-4583-9872-64adb410a757": "W_674d55e1-dd93-4e24-bd16-5f2e9f920d93",
+    "B_094580a0-da33-40e8-a329-fea28e85ef5b": "W_839955c1-fdf2-4a72-bbc2-e1b469148cb5",
+    "B_7bbad463-6b33-41e7-be08-55adea6ebda2": "W_3cb16ec7-ed86-45e3-9dd1-08dd0eeaab90",
+    "B_6c89d774-46c2-4c68-a98f-e08f50056f33": "W_b8218644-bc02-4b84-8223-f6b78ceba4ec",
+    "B_090e84c3-4e3a-4baa-b559-b172ba0952b2": "W_129c565e-7e24-4657-83b5-bac859bab8b9",
+    "B_0f27dbd0-771e-4729-8c4b-0b1c8204ae16": "W_66334fa8-4635-4556-8178-c3174b0bf67a",
+    "B_ecaf98b7-9c95-4d5f-a461-19db5da75e73": "W_b20fa953-a158-491e-a79b-aa1b8c9906de",
+    "B_961380f5-1ac2-476e-96e6-8c3c231317c8": "W_e074a68e-79fe-4328-80e6-165c35f5e3d6",
+    "B_6a61003e-47dd-4f27-a27a-983716fdbedd": "W_260de8d8-04dc-45f8-b8d4-5b3629c7bf5f",
+    "B_bf1e373d-e132-4380-9c8f-9a20ac64fa8a": "W_02c98311-bb43-4f7d-8962-720122bcc8e6",
+    "B_33676d9f-48db-46a7-9814-ccf35fda8caa": "W_778a5c2c-36e4-4672-a333-7bbb3a626e6e",
+    "B_789a230f-1782-4a4c-9995-ca7b8c79db7d": "W_71ebe508-39a6-4100-9309-0590c47d248c",
+    "B_8122a3fe-c94b-4435-90f4-2f03c336eb2b": "W_cb75c58e-16cb-470e-be72-79cbbff02891",
+    "B_2e1b699e-189a-4087-8417-8f2ca461b59b": "W_c13cf60f-d4ca-487c-bbb2-7cd9c825e586",
+    "B_9f259bba-3657-48b3-8e14-5e29818e7d24": "W_26eb1e81-d179-4ff2-8743-b1aed64949c5",
+    "B_5cc8e6ec-ac3c-4172-ba2a-c318cdf8a905": "W_0773b78f-72c7-4262-9963-7902875aa638",
+    "B_a040879f-9590-4623-8bb7-a3fba7ab04d5": "W_bd545f5f-7027-476d-87ac-a31d891a636d",
+    "B_282e8dd6-97aa-4024-9663-71d74edfed8c": "W_0966f2ab-d85f-44c9-92a9-2285377f1997",
+    "B_2a5f1211-d281-4348-9e8a-0e5d7c45b79a": "W_f5465c01-b43a-4f7c-848f-eb579fbf6b61",
+    "B_c864f774-8dba-4bfb-a5c7-a9e3d8dcd134": "W_1e4cda62-d9c4-4854-8134-fd9ac9798be4",
+    "B_4fadfede-84dd-4e7f-b0d5-10f1b8e37564": "W_9f1e60a8-8c56-414c-b7d2-3b391a6daf07",
+    "B_5a0b9aeb-8788-47ab-9045-509cd04bc44d": "W_81938655-387c-4673-942a-9de25a601a70",
+    "B_359c9ec1-609a-43cd-be78-91daf4a022d7": "W_3e75b148-a7f2-4f26-ad4f-f409a29165eb",
+    "B_92279d64-9d28-448f-9806-b3637a73150e": "W_2cfbcdec-1ce0-44f5-9807-fb0c8b1f3ef8",
+    "B_4b120e08-b328-4712-970e-f611c0247772": "W_fb2d2431-9298-48f8-b417-714a6fc1a488",
+    "B_a5babaa1-3bd1-4832-8c1f-cfb6bbd7086a": "W_01451eb0-20c7-4e63-a519-6ea9a4db3ff0",
+    "B_d2417acb-b655-4fcf-828a-d4eecce2f1e0": "W_e98e8a68-fe02-4343-8c26-a80787eb3524",
+    "B_9c358089-8835-480a-aff4-4993a60c47a6": "W_f929b0b3-37a8-44a7-a3cf-21c96cd5d061",
+    "B_6352c457-c7bd-4995-b6cc-b32504b9b16a": "W_76e1cb5b-9644-4cb7-b0a5-95820cdec51e",
+    "B_8d5a1944-2811-4cf6-9afd-052069d6cfa1": "W_bd7a3bd0-82cb-4e6c-918b-c656f638d197",
+    "B_9662dca8-d351-493c-ae61-d3ddbce63a04": "W_1cf074e4-5caa-42f8-8fe8-803d46e801a1",
+    "B_d3f3ea12-be05-47b9-899f-2f9c1d83bbe7": "W_11c5a041-81db-4f55-b92e-b7ef5d58ab18",
+    "B_d068429d-12ca-44af-9390-5e0256956050": "W_89459704-9d45-43c8-8182-3f38658f0c90",
+    "B_7c109f15-d72f-4220-a85d-a1c45c6196d9": "W_419d6712-8131-4704-a7fc-1fa237acc98c",
+    "B_13c0fe01-1d0f-4547-94ac-2fe5f10a8bc9": "W_65176e99-dc12-4c09-90be-fa24fc68ecee",
+    "B_a7c885a8-647e-404b-818b-3a1d00a0dc3a": "W_c55c9df0-8cb4-4420-80c8-618db1bfecaa",
+    "B_73bddc1b-5c0f-4035-a624-fc3fe558bd95": "W_1fd49106-376d-49de-b364-03ab2a68e445",
+    "B_f8266356-2210-492f-82b0-6f17b2ac0292": "W_8dc1b971-8424-4795-800a-f10a31383cc4",
+    "B_aca0d387-cf7a-43cb-9025-ece0356b4a01": "W_3ae4e1ea-299f-44a2-bd79-5184f8797919",
+    "B_5fd5fbc5-2f06-4362-b6d0-eea38da88f98": "W_84502cd9-8dd9-418c-8e31-d915d96da3a8",
+    "B_d17e5ca6-cdf9-4a75-b182-dcee4a547735": "W_87ad7027-6c42-4ac2-8214-daad01ff7f5d",
+    "B_071590ec-d155-4878-bffc-e0e24c905eca": "W_5e4a6bd4-19e1-4a92-b11a-70bb71810bd1",
+    "B_eee09745-32ce-42e0-b563-70f7cc0e97ff": "W_c970f2d9-85ce-436b-8b69-2b0b3400d57b",
+    "B_da5dc4e6-454a-4771-8316-3daaee9a2b1b": "W_d75270a8-175c-49ed-abff-ab635929aa95",
+    "B_02cb9aa1-03fc-4ddf-bbd6-e6f4d50add2b": "W_cf00cd70-6215-4b34-87af-e7f1b66a7f71",
+    "B_31eb8d83-e50f-4e59-898d-f0477adc8047": "W_668ebc54-530b-4005-a8a3-2d831d80b328",
+    "B_5607b002-87ca-4d54-9ce2-fef192df47fa": "W_a4f62b2b-fcb4-4700-9b0a-a8270055946b",
+    "B_63304964-eada-4cd8-abb7-46b5d9c7d20c": "W_d224fedc-ae84-46fc-b650-9725ddad2516",
+    "B_58d5554a-227c-42e4-9a9f-f765f9236359": "W_4732b9d4-56ec-4f0b-b6f7-367cbe9a22ad",
+    "B_f31d2e7e-5b86-4dff-a213-8f1983eab026": "W_1ee5395d-1e2a-4d4a-b4b4-a456e2f7fc44",
+    "B_360df0ab-cd01-4423-8dc3-a3d0658517bc": "W_6eb42543-3aec-4d6d-b87b-316d66042f23",
+    "B_ff23eed1-7326-43d7-9be8-69239d32adcb": "W_e5c7e40b-7427-408a-abbb-880763b4e8cc",
+    "B_fa6c7fa1-02da-4c8c-ba44-5baa67f34d6c": "W_d3fef089-7c65-42d8-bc61-3117dc07f47f",
+    "B_2bca1a81-33be-43e1-a93a-9dafbf0abb48": "W_42461138-8f07-4f5c-8a67-3bf4313bbefa",
+    "B_dbf4208a-e8e1-4a22-8c76-a44a261ab89e": "W_e79174fe-783e-4f44-9147-009599172527",
+    "B_e0555cbf-b347-4cb0-bcb3-4da25ee7fe2f": "W_9eca08a1-320b-4bf6-93a9-ff1158e3e277",
+    "B_3191cdd4-5113-4c4a-bb52-ba1369e85cb5": "W_04efa74d-ab1e-4df2-937d-d76aa4ba8817",
+    "B_b7fa034a-7114-4730-8369-93b319f538b7": "W_72d4595a-b318-4ea5-9c83-ebb924d401aa",
+    "B_2044ec79-ac9a-423a-955d-95d903638f53": "W_b21709b5-0778-4193-8b5c-e3caf21d9a10",
+    "B_f6f5e63f-0390-4851-b013-04c2854a6fcb": "W_4f3fe252-a383-4949-a8c6-c5c89d11e975",
+    "B_2e384ecf-a5a7-4d5b-9914-e33f8c89818d": "W_e9b2a46a-8823-499c-bfb5-10ac46478991",
+    "B_f0f9faee-6b65-48d7-9428-19aea98544c3": "W_ca73aa4b-cf34-4f9f-969e-64fc661a8342",
+    "B_32382b88-6314-44fb-9fd3-85c3478b2839": "W_3dc759a0-2e12-4844-b5f2-826a0e295668",
+    "B_368e8df4-3aee-4092-81ab-0c8d222447dd": "W_5a16afde-c024-4464-b9c6-e8de339d654a",
+    "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2": "W_435a506b-7d1f-45a9-ae93-91e324e08bf0",
+    "B_c645734e-e000-49e1-9972-f7e87ddd52f1": "W_dc6440b3-5d65-4df3-bd8e-1ac68b32b1b8",
+    "B_ee99a087-bcb8-48e4-9ac1-d6d411dec73b": "W_10e86c45-623d-4e05-aa49-51db103d346d",
+    "B_014c6234-d7d2-4e57-9877-e72f367b85b7": "W_02764953-94f9-40e1-ba9d-10a8ba6bc794",
+    "B_235d5c08-2853-4251-b96a-6624f9cca0bb": "W_d0c923e0-e9df-496a-b7d4-81f2d4fb584c",
+    "B_37165d46-9270-4848-9ff2-0e683d418e0d": "W_05508dc9-104f-4994-b7c4-ef642356c31e",
+    "B_efe108e8-1f14-4ee7-b414-76dc82de281b": "W_fdde6436-57ce-4061-a608-a02dd5454f45",
+    "B_b3795bc8-a1c8-4900-941e-eefdb758bb66": "W_7e432ef1-4778-4872-a0e3-403e31f29c5d",
+    "B_040e8144-75a8-4464-9048-6033ad3ac1b7": "W_50aeb0ad-3336-4904-b85a-8ee70eb0394e"
+  },
+  "bibliographic_records": {
+    "hbc:39": {
+      "book_id": "B_0b294557-ff2f-4ea4-b93a-f0771704a4d3",
+      "work_id": "W_75ac2dc8-5397-476f-9050-2651c9dfa894",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_a7f62731-ae22-4a54-b0e5-d0d0813cc7c8"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_495b8e62-f8de-4244-98ed-37394dda95d7"
+        }
+      }
+    },
+    "hbc:40": {
+      "book_id": "B_1ade6312-55c1-4525-b410-9e704863f3ac",
+      "work_id": "W_38659fd0-96d9-4e56-8414-edfc77d32181",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_9e5fcb93-e146-4400-8dcc-cb7d24ad0e3b"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_e63c2686-381e-43fb-80b5-21db13ed065a"
+        }
+      }
+    },
+    "hbc:41": {
+      "book_id": "B_75c7f8e4-92c0-4dbb-950e-f0ec4db2441b",
+      "work_id": "W_ce9156df-ce29-42c8-85ae-9c7ca1a0fe2a",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_9f4844ae-cb99-4685-8d7b-11856e4db0f2"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_2ae3bc10-d6ee-4de6-a40e-3e9f7e568731"
+        }
+      }
+    },
+    "hbc:43": {
+      "book_id": "B_636f973d-abf9-4557-9030-b6cb0d9e7782",
+      "work_id": "W_a0277ab7-488e-4162-99c0-12d2864384be",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_39f128ef-460b-4d39-bf1f-595394c52bf6"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_5e4c1058-be09-45a2-a206-1e245eb307c5"
+        }
+      }
+    },
+    "hbc:44": {
+      "book_id": "B_8c116b89-652a-4b76-b45d-3b02ec22d923",
+      "work_id": "W_197e1974-a2b6-47e2-85d7-7cb7935bf264",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_bc42ff12-1181-4b87-964e-097c0ef449b5"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_f3f536a6-7ae3-45b8-8513-7ff934f00002"
+        }
+      }
+    },
+    "hbc:45": {
+      "book_id": "B_d4dab4ea-4cd8-44cb-93a2-dc167eaaeb03",
+      "work_id": "W_a5caa25a-7d10-49c2-a5b5-423b28994437",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_5da733ff-f9b6-405d-9bfa-7763b7d61581"
+        },
+        "summary": {
+          "https://www.namkyluctinh.org/tuyen-tap/lam-van-be/old-nklt/lvbe-hobieuchanh.pdf": "R_44165c3c-884a-44c6-875e-620b994dc6f0"
+        }
+      }
+    },
+    "hbc:47": {
+      "book_id": "B_3e132910-8b7e-4c3a-b9ea-0cc6ac88d20e",
+      "work_id": "W_80538282-f563-414f-a0b2-d8b6c92f874d",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_85d2b075-5f28-4e2d-bee0-9899867a5f1c"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_bf5beb6c-8521-4da5-a0db-9a0461db3cde"
+        }
+      }
+    },
+    "hbc:48": {
+      "book_id": "B_7124c039-6217-4bb0-aa2f-25f9ecb578d4",
+      "work_id": "W_f5a57bcb-2e21-4298-b5ae-c644e3f56296",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_bb4a4340-07f8-45f4-b15b-973bb4ca42df"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_a127e743-3653-4516-9fd6-a32db9cb5ea2"
+        }
+      }
+    },
+    "hbc:49": {
+      "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+      "work_id": "W_cd5f658b-58fb-47fa-9628-e55fd4117db7",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_00af4152-cb97-407f-abf0-3257cf6cb4d3"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_2013d965-d783-409f-86b3-0dfc93393f74"
+        }
+      }
+    },
+    "hbc:52": {
+      "book_id": "B_548c49c8-b479-49e9-9ad8-72f57a0e27ad",
+      "work_id": "W_3ef5ef7c-e74b-4a7c-b1a3-4f4fc335286a",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_ec2a61dc-9455-4bee-8c6d-4ddeacf14b35"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_fbce87a7-aa60-424b-aba7-8657d6f26324"
+        }
+      }
+    },
+    "hbc:53": {
+      "book_id": "B_cdd4a3dc-ce1b-4840-b9ee-3344862da924",
+      "work_id": "W_4b924c46-49cb-4c44-a663-d68075f5cf93",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_8dad32a8-e983-405c-83df-67a645c8c225"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_b9b7991a-cd82-4cb3-9086-408d6ac27e57"
+        }
+      }
+    },
+    "hbc:55": {
+      "book_id": "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d",
+      "work_id": "W_fb26f38f-5f04-4305-a1c1-5205fa76a98d",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_08d5fe9e-a8bf-471e-812a-c8f8172d7bbf"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_ce6636b0-934b-41fc-b9f9-891a64cfd074"
+        }
+      }
+    },
+    "hbc:57": {
+      "book_id": "B_cf681c23-613e-45ba-8357-c23078c7e539",
+      "work_id": "W_c29c9ca5-af56-452c-a9d1-2e36e60f3c7a",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_a70f980b-40e9-4a00-89bb-cdbc713048d6"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_a570eb38-5228-4ba1-846b-5f925bfaca7d"
+        }
+      }
+    },
+    "hbc:60": {
+      "book_id": "B_67af733c-b8eb-462c-8e32-d22924b8f640",
+      "work_id": "W_3e71420b-ff38-418a-8d42-21a0d1134ac8",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_67020979-115f-4188-b6b7-16f36ef95c5d"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_188ced52-60e9-4f12-9d00-b42aa87f57d6"
+        }
+      }
+    },
+    "hbc:61": {
+      "book_id": "B_9b31bdee-6bd6-4ca2-b4dc-60b1ca5532d3",
+      "work_id": "W_d97dcbad-2aee-47f3-8325-04fd4aa03cd7",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_b31df01c-1ba3-4d71-9921-8d5f4cad7586"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_83568270-473b-491f-b0fb-afe5c267c706"
+        }
+      }
+    },
+    "hbc:62": {
+      "book_id": "B_c43b1475-0093-4151-8738-60886042491f",
+      "work_id": "W_73257cea-bead-408d-abd3-100710d81062",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_551deeea-8af0-445f-9ee7-01be36f826d5"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_ed89262d-0fdd-44c8-8d6b-720b66ac2f92"
+        }
+      }
+    },
+    "hbc:63": {
+      "book_id": "B_41ae964b-ed42-4500-8b32-ee622d51d19d",
+      "work_id": "W_ee457219-25aa-4938-9289-9bf9764b110a",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_328b902b-1bed-49e9-bdce-bdf583e61d14"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_6a727185-f81e-4469-a632-e099281cace5"
+        }
+      }
+    },
+    "hbc:64": {
+      "book_id": "B_41e6dd15-7561-47f9-9145-8552a6e13456",
+      "work_id": "W_2ce48384-2512-46ca-a534-ea514dcf1e77",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_eb8e3f3c-c4e4-4a40-8505-752ebf293404"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_b63c3909-dce4-423b-8d68-22c3cfafcaa0"
+        }
+      }
+    },
+    "hbc:65": {
+      "book_id": "B_0f6e01de-698a-4836-aea8-aa7b52d5ccec",
+      "work_id": "W_9d1a8a6d-eb1c-4a15-9092-899d023db4f5",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_32b98269-0915-40b3-8b5c-75959e90cc72"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_294d4054-6e52-4c20-82ce-5abe00962b03"
+        }
+      }
+    },
+    "hbc:66": {
+      "book_id": "B_88ecc589-bf4f-4521-8fa6-f1157931c797",
+      "work_id": "W_acb5b66b-a9ed-4733-978a-e323022d9ada",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_ebb5b8fe-a26c-484d-8600-d9c6ebd919f0"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_eeaef488-4c79-4422-9d57-2a3e1b186f9a"
+        }
+      }
+    },
+    "hbc:67": {
+      "book_id": "B_28850112-31ca-4d3a-9c18-1fbecfd64e3e",
+      "work_id": "W_8dfcbada-7d1b-426b-944a-63274bcf826b",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_ba2af838-d50d-445a-bdc1-4306b51efdb6"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_3620c6ba-ba12-463b-af2e-7398f1242a01"
+        }
+      }
+    },
+    "hbc:68": {
+      "book_id": "B_f1d89ecb-c5bb-4477-86dd-5ab740cdaca8",
+      "work_id": "W_cc2548d9-29f0-4e3d-b122-85644a1a9cf6",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_63c8ce9b-18c6-42c0-8c95-9fb1f49ab7f3"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_3ee3a60c-ce85-4e0f-b075-70518079572b"
+        }
+      }
+    },
+    "hbc:69": {
+      "book_id": "B_af007d41-c8fb-4e03-9941-12af9ec3f90a",
+      "work_id": "W_1f1c4910-d93d-470a-8f6d-bd1eb6ef6c28",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_4b5aa217-c9de-48d4-bdfa-a5649d2d78a5"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_815657e6-ee83-4969-b272-29b38377e142"
+        }
+      }
+    },
+    "hbc:74": {
+      "book_id": "B_b1e08017-4852-4c85-b64c-6fffc0455d70",
+      "work_id": "W_62628f79-7178-42cc-a0a0-44c081b614a0",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_d2dbee24-2f5c-48d0-880d-86f6f6db1717"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_f4d9d850-4061-4728-8344-0bb3a725c3f2"
+        }
+      }
+    },
+    "hbc:76": {
+      "book_id": "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+      "work_id": "W_96c4d187-45d5-4090-9d1a-3b004fb829e7",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_577a10c5-8ad1-4672-a00d-64e8aff0e4fb"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_9c99eb59-36fe-4892-96c1-e879d5d6d40a"
+        }
+      }
+    },
+    "hbc:77": {
+      "book_id": "B_3eb86ed2-f14d-4ed1-8318-2dc47333366c",
+      "work_id": "W_35ab2f1e-bd16-410c-9a4c-27836eab7c22",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_143170df-5f3b-4449-bc72-06671997cd9a"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_6b291de1-b6e6-4ee4-ab66-53d531e32c3b"
+        }
+      }
+    },
+    "hbc:78": {
+      "book_id": "B_37ba57a2-524f-47d9-9a4c-59de8a891b01",
+      "work_id": "W_439f0aed-e984-4254-b822-033cd22efdc0",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_28cd3480-1687-4013-9913-060132b541e3"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_c5f0585f-55b7-4aa2-a418-78075faa1156"
+        }
+      }
+    },
+    "hbc:79": {
+      "book_id": "B_f78b6c4c-ab28-406e-b6b3-04051c75521d",
+      "work_id": "W_49ef1263-f259-490c-9e96-fbb1499bc858",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_3786588c-0d4a-4602-a5f6-4e59e7b4b630"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_4b664ccd-e551-4d3b-a2bc-ba5c59bb22a3"
+        }
+      }
+    },
+    "hbc:80": {
+      "book_id": "B_064f82b2-38ca-4c0a-9344-2dad0f519888",
+      "work_id": "W_7aab5762-d7ca-4c65-a4ed-370a1940fb24",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_724de603-62af-491d-8d79-07a3104dd153"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_425c6eee-6ca1-4847-8bd0-8ecb1b7b23bc"
+        }
+      }
+    },
+    "hbc:81": {
+      "book_id": "B_96d9cede-2905-422f-b8de-791b709d2715",
+      "work_id": "W_2702dffa-024c-429b-abee-085c0b6e7efe",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_db2ea4f2-953c-48ae-bbce-3cd457c7ef48"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_142f7957-2c29-4201-aac2-a40f10220123"
+        }
+      }
+    },
+    "hbc:82": {
+      "book_id": "B_af235487-79e3-4095-be42-28556c6dc3b0",
+      "work_id": "W_b6bf1e0f-00c0-4c86-a168-1e185883a073",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_e2b7ce45-8887-4c46-8ec6-6ea4a3139031"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_3abd6b34-3f2c-4a69-9fd9-402d261cbee1"
+        }
+      }
+    },
+    "hbc:83": {
+      "book_id": "B_fe82477e-ca89-4f71-a50a-0d51de7ae45e",
+      "work_id": "W_28e470f2-2dad-4280-963d-f7b9647a5c33",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_c07b071c-3cbd-4ed4-b8bb-a3811b31ff7f"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_8cec50ed-d0a2-4eaa-8d89-f6b17534b9d5"
+        }
+      }
+    },
+    "hbc:84": {
+      "book_id": "B_ecdf9b2a-199f-431d-81b2-922be53ed596",
+      "work_id": "W_fda71ac9-2070-491e-88f2-b0e7d41cf6b2",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_d181c17a-6674-485f-b2f9-65715452dfef"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_54297a47-b9d6-4d2f-9a97-c70b3ed1ae5e"
+        }
+      }
+    },
+    "hbc:85": {
+      "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+      "work_id": "W_ae3e8e9a-41a0-4dbe-932f-656db1c3dfa2",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_d4858e20-8920-4067-b836-02ba07860901"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_9be862e3-f722-4cdb-a5c4-11754e8feff6"
+        }
+      }
+    },
+    "hbc:86": {
+      "book_id": "B_20cb3077-0908-4152-b8ab-272003aeaefe",
+      "work_id": "W_07cb6d69-cc88-4ea2-854c-ffaa8348c7f3",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_c82b996f-d20f-4109-8444-091a6025f7c4"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_3902ec17-604a-4058-b856-436028131248"
+        }
+      }
+    },
+    "hbc:87": {
+      "book_id": "B_0caebad1-2fdc-4982-b7be-309c3339268c",
+      "work_id": "W_449f0462-6b6e-4965-a911-f82890e11fff",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_770f7cdd-51ac-4150-94fb-d768c9bce4b5"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_24e2e83b-64f3-49d0-a84f-6d40ecf0731e"
+        }
+      }
+    },
+    "hbc:88": {
+      "book_id": "B_9e0cb114-3409-4989-a2a2-6ec86e14e65f",
+      "work_id": "W_42b0929e-e30f-4e49-b6ed-a873ad1039fb",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_7880494d-330c-497a-8f60-179bca322754"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_57f02018-ef34-4de9-916f-c3ac2976acdd"
+        }
+      }
+    },
+    "hbc:89": {
+      "book_id": "B_71105ea4-fea8-4f5f-a7b8-48227bd0e7e3",
+      "work_id": "W_e9c331c0-2cf9-4d4c-9943-f143f7997248",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_02778e94-3997-442b-9f27-5774a662b06c"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_1660f188-8276-44f7-a260-16ef09fe2f81"
+        }
+      }
+    },
+    "hbc:91": {
+      "book_id": "B_a2b939b9-3010-4522-a3a9-0b4ccb22f6a1",
+      "work_id": "W_cca11038-53ac-4bcf-9b8b-870cc621ba58",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_854d15c1-4263-42df-be30-3ce99419eb02"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_4f7e051c-fab6-4f2b-9958-644fe8d28333"
+        }
+      }
+    },
+    "hbc:93": {
+      "book_id": "B_ece10aa1-7984-446c-90c8-b2f1d81704e3",
+      "work_id": "W_5ba17b05-66a6-4e9e-8daf-cc77e5cf9b3b",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_2e6e3293-7829-4f63-a4ce-85f2e1c79bdc"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_6c2bae70-72f4-40ce-85d1-8a5b118c8a6e"
+        }
+      }
+    },
+    "hbc:94": {
+      "book_id": "B_42a282f4-cb6c-40d7-936b-b558e37f833b",
+      "work_id": "W_bcbbf568-89e5-4587-8435-9d7832032368",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_90403852-b87d-4d56-a897-3a7d531608d7"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_1ba27650-a4f6-487e-a002-19d2dee6f452"
+        }
+      }
+    },
+    "hbc:96": {
+      "book_id": "B_b8b37d3c-d44d-4d5e-a627-7aa675a0daee",
+      "work_id": "W_7cf8ef67-3cc8-451c-a826-02edcc1fac93",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_e02b46e1-8a75-4fd4-a3b2-cbe31248578f"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_78ac10e7-93a8-46cb-af5c-b9a355aad8b4"
+        }
+      }
+    },
+    "hbc:97": {
+      "book_id": "B_23e41d73-849b-4188-93e7-9eb84f018a94",
+      "work_id": "W_bbec8637-1ec9-4045-b640-38814b5ef66b",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_44b384b6-5878-46e4-bfd7-eb210d1ade15"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_d4e29eb7-33cb-479c-b1f1-915c9722d16c"
+        }
+      }
+    },
+    "hbc:99": {
+      "book_id": "B_1f73bcce-a349-4347-9676-7339cade7923",
+      "work_id": "W_44fa6d68-0a9b-45d8-8768-1c3a05759cf3",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_22522048-5d16-44d2-87b8-14ada8b8ad35"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_82976b12-d171-4f22-a885-b0334f0cd8d8"
+        }
+      }
+    },
+    "hbc:100": {
+      "book_id": "B_4631e319-5136-44bd-91de-b707e681730d",
+      "work_id": "W_8ff53ac1-c513-4eaa-97bc-95cbf0b1c5fd",
+      "sources": {
+        "metadata": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_d2ed1fd7-1984-4686-9418-34cc03f16555"
+        },
+        "summary": {
+          "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh": "R_036335cd-ca32-4b22-a921-89c4844a1798"
+        }
+      }
+    },
+    "nhl:53": {
+      "book_id": "B_c8399366-defe-4aab-8915-2e91dfbfdeb4",
+      "work_id": "W_081190f9-2ae9-465d-99b0-b421a02f8fdc",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_38eda267-ae17-4717-99f8-86ede8c4707f"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_41c8dd45-58e2-42c0-ae64-5b6dc2d32277"
+        }
+      }
+    },
+    "nhl:54": {
+      "book_id": "B_e84e5ba3-35dc-4d4b-a295-6a91ae390496",
+      "work_id": "W_d65b5029-6d1b-4e42-810d-8fa3ff60cdf3",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_59c10e0b-1083-4519-9c70-ba7e8dea4371"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_5c2acdde-ea19-4e3c-8891-e13dc5aa0072"
+        }
+      }
+    },
+    "nhl:57": {
+      "book_id": "B_1fb428bc-f051-4698-9450-1261a28bab8f",
+      "work_id": "W_8316e9fd-4b74-420c-9589-2350bcc85550",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_594df4cd-b2d4-4a85-89be-bdd86e38cd9c"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_839abe6e-a0f4-4f00-9a9e-e1d1743cbb2a"
+        }
+      }
+    },
+    "nhl:58": {
+      "book_id": "B_ddd93cdd-5e8d-4a9c-97a6-754739fc9ebf",
+      "work_id": "W_5bdc3799-771a-4a8c-967c-82690fd1be1b",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_5a325960-8014-49d3-a2d2-37f9b1c3b521"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_77458ec8-14fe-41f0-b8c5-159cd4306540"
+        }
+      }
+    },
+    "nhl:63": {
+      "book_id": "B_48948b37-fece-4cdc-8fff-f66517ebafbc",
+      "work_id": "W_3b804bc7-ba6d-489c-90c8-2d8915f6e491",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_8351098a-da99-4bba-8881-8176aa5b7caa"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_05f001e4-5809-44f4-96a4-08e8a1db36bb"
+        }
+      }
+    },
+    "nhl:66": {
+      "book_id": "B_fbdbf3f2-0b27-4612-83ca-1e9acfd9bbf0",
+      "work_id": "W_d17e10d1-8c83-4716-9c6e-467527e7b47f",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_2d0c8e96-1377-4057-b8d3-557f42180f2b"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_e2647e15-ead8-4762-8ad8-a9342e93c32b"
+        }
+      }
+    },
+    "nhl:67": {
+      "book_id": "B_2316104b-dcbe-492c-a99e-79fdead63b63",
+      "work_id": "W_470a15ae-5f22-4439-81dc-25865a0744e1",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_9535cbdd-b7e1-47ee-a094-507df80e14ad"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_0c27cd05-72e3-47f0-a9bf-1d7a64b77601"
+        }
+      }
+    },
+    "nhl:70": {
+      "book_id": "B_0e447b13-278f-47bc-9e51-0a6ca62c2293",
+      "work_id": "W_c827db0d-baa3-4262-a374-37d515af4e07",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_5cd1808d-3e53-4529-a562-d4d899e6b5fb"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_eefc99f5-9b53-451f-aee2-e0fb4a773ad7"
+        }
+      }
+    },
+    "nhl:71": {
+      "book_id": "B_7cdacc51-d49d-49c1-a8d3-997e2350ea48",
+      "work_id": "W_7c39dbc0-6062-4e27-b1c0-43713bcee7ae",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_7805903c-83ec-4d58-8c26-cdb4bd87278c"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_92c6b78d-d3ec-4b6a-9ca9-4628f6be5d21"
+        }
+      }
+    },
+    "nhl:72": {
+      "book_id": "B_d15d4d77-c7f2-43e0-bdb3-ffde17a1b940",
+      "work_id": "W_87d6169d-7135-42b6-adad-43ddb9f23e7a",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_66ba5aa5-9bb9-42c2-8a84-a43e8514468f"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_488d4992-3c44-491c-b0a9-a78872c188c0"
+        }
+      }
+    },
+    "nhl:73": {
+      "book_id": "B_bcb8e4d6-1805-4975-bc5a-41c25d00d725",
+      "work_id": "W_847e9248-4c31-4aff-b747-564fec24b5e5",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ea72f2f5-c34e-4f94-a6b8-9f5086899d0c"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_084f6f2f-eabd-47b7-919e-297fab718035"
+        }
+      }
+    },
+    "nhl:74": {
+      "book_id": "B_568c55dc-431f-4d40-9946-4836b1fe894d",
+      "work_id": "W_bcc81047-1aba-419e-99aa-c7bd89fd30d8",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_f4438bee-7ca7-4c49-b2b8-145e0d6af75d"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_06e933e1-69dc-4513-ac6b-344f6465dcbc"
+        }
+      }
+    },
+    "nhl:75": {
+      "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "work_id": "W_21bdb50f-2204-451d-a942-412ef4703bc8",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_f5b6fa96-8db6-4934-8bdb-37ae63b6c2a2"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_7202b7a7-4de6-4495-bbb6-4050f998c342"
+        }
+      }
+    },
+    "nhl:76": {
+      "book_id": "B_c7f38206-06ec-4f9f-b268-a92bcc309710",
+      "work_id": "W_6bb1c9ef-1d25-4510-a6f7-cd2ed011b1a2",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_9d9457ad-1528-4fa6-a064-d96c76884ab5"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_7dbfc710-e8d5-470a-8863-d0085ea18880"
+        }
+      }
+    },
+    "nhl:77": {
+      "book_id": "B_0dd3e264-f3c1-47a1-baa9-8cafeba7f67b",
+      "work_id": "W_3fee51a0-b798-4bb1-b852-447bdd06338b",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_b29aaa11-f7fa-4e40-b7b9-00dff657426a"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3e4ff81e-b8ec-4d43-bac5-190714fa4ca6"
+        }
+      }
+    },
+    "nhl:78": {
+      "book_id": "B_682b4da7-dcd4-4ab9-bb5b-8f93ba5f9ebd",
+      "work_id": "W_c9a3c85e-069b-4a07-93b1-d52a8ec1263a",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_6da61417-8214-4857-8906-f0c1270ac0e6"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_81735ed8-17b0-46c7-85a9-89392e0acebe"
+        }
+      }
+    },
+    "nhl:79": {
+      "book_id": "B_5caca43d-14e9-4f95-89d8-02aee12a289f",
+      "work_id": "W_2b6ecf00-f240-4cd1-b27f-1b1ea2635f44",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_e2e1fb2f-4a5e-44a0-82d6-71599a54d1db"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_621b104e-e145-49f6-a628-1d03088a9ea0"
+        }
+      }
+    },
+    "nhl:127": {
+      "book_id": "B_bec89c3c-b6c8-4c9c-8c72-7b82fb93c970",
+      "work_id": "W_887c5b59-8308-4612-ac3d-4c9c981691d1",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_d531f5f5-a158-4b6c-8955-2486f8c8b673"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3e0c13c6-0242-49ea-aa0e-ef59f5c0edaa"
+        }
+      }
+    },
+    "nhl:82": {
+      "book_id": "B_7b0dae33-dc87-42e6-8a16-1b5db223ee76",
+      "work_id": "W_f501f968-5e9c-4ee3-9528-25018e8a81af",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_7f510f64-1a79-4b28-b3f2-ce60b33876e7"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_26693081-9c74-4403-aa1d-1dda6d977b89"
+        }
+      }
+    },
+    "nhl:83": {
+      "book_id": "B_fd813f3f-fd53-4ea7-9b83-4c3c1c6da8a4",
+      "work_id": "W_c55176e5-2d15-4593-8f19-c55a87274a70",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_328b38a3-d800-4cdf-bda0-22b94ce9b5c0"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ed9fb97e-a5cf-434c-af50-d2ff90a1fb34"
+        }
+      }
+    },
+    "nhl:84": {
+      "book_id": "B_966e9022-6923-4f87-877b-36b8909b9693",
+      "work_id": "W_b0165cad-76ec-44d6-bd00-92b17d15bfb6",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_dab11992-7997-4068-92a8-995ece1a37ec"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_28ade952-9ab3-4d03-b77d-ba8c308e162c"
+        }
+      }
+    },
+    "nhl:85": {
+      "book_id": "B_b0806210-6e41-4521-ae5c-dd9c5d8b3a4b",
+      "work_id": "W_0de2dd80-88c8-4c87-83a2-8f9b8d6ca515",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_b493ba62-e519-49b9-a951-5ebed0b23e67"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_1204dd38-e5f7-4e4b-a32d-e88e8b085275"
+        }
+      }
+    },
+    "nhl:86": {
+      "book_id": "B_18c14530-cde0-4b13-ab4b-d790c0f522bc",
+      "work_id": "W_d08f27d6-1d5a-4079-b3f4-dd310893c625",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_fafb2338-6d02-44b7-bc03-cbce1979742d"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_77f9e5d8-5127-40f2-9cac-415847a7cacf"
+        }
+      }
+    },
+    "nhl:87": {
+      "book_id": "B_fab8a078-9691-48b6-b005-49649998cd55",
+      "work_id": "W_7d035691-86f8-4545-b5e1-b4ec4eabec51",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_8626086d-5c5b-4d8b-9b50-19ec0a920a32"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_73f05192-8c5a-4487-a387-025c54cf1f7e"
+        }
+      }
+    },
+    "nhl:89": {
+      "book_id": "B_57d7a73e-5415-43b0-9d14-ec3cdbddb243",
+      "work_id": "W_b75b3344-7f3e-4230-82a7-33eff9e66701",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_61769767-c100-43d1-917d-bf300c2fed79"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_680f3e96-0aae-4dbb-859d-4885c6c14862"
+        }
+      }
+    },
+    "nhl:90": {
+      "book_id": "B_9c689ac7-f38f-4aaf-b3ff-bc4b12b4c5be",
+      "work_id": "W_b1e97f9a-cd58-4e72-889b-294562a6236d",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_36e01c50-f219-4e54-886f-3e6800c0880f"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_98709c21-a5d9-43f7-bce2-723ab8dc60cd"
+        }
+      }
+    },
+    "nhl:91": {
+      "book_id": "B_f3b72399-f600-43c8-9805-19c7632abe83",
+      "work_id": "W_56c9c89a-e44c-4919-bac5-188f5b21df62",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_86f5cdc2-6b2e-40a0-afdd-92b0efe02399"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_cb6a3857-02e2-4cde-bb0c-f9a67df67687"
+        }
+      }
+    },
+    "nhl:135": {
+      "book_id": "B_406f09c7-d6cd-444c-9762-e5e5de66aabb",
+      "work_id": "W_b75687cd-2ddf-4fc3-8b36-f3b5f319729f",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_93c82168-5746-42cf-8b94-e2e46e33cdd8"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_51eb347b-7cc7-463d-a8a5-ff8101b945bd"
+        }
+      }
+    },
+    "nhl:146": {
+      "book_id": "B_42155da7-3828-46bf-97c2-ef572eb233d0",
+      "work_id": "W_dbac4df9-593e-4b17-8872-5389c706aa1f",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_254e5b1e-8bd8-40f7-9113-6f4c4a27bd3f"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_0560ea3c-7999-4cb5-8740-0dda17e4f0aa"
+        }
+      }
+    },
+    "nhl:147": {
+      "book_id": "B_df9f7669-1b89-42fa-9c3e-4de426566166",
+      "work_id": "W_268158f3-978b-4855-85be-5aa52b28bc86",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_beb29163-41e6-41c7-91d3-7aad62d7a1cc"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_2d482be4-9f74-493e-8f89-3dac4dc4c1b2"
+        }
+      }
+    },
+    "nhl:148": {
+      "book_id": "B_fd69b40e-c689-434e-a3e0-18fb751b77f0",
+      "work_id": "W_938a6779-c97f-4b48-862a-2760b02bbcdb",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_cae71d4b-3363-431f-b4a4-26fec4af188f"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_cc75920f-e410-4b8d-951a-4ae44e453bc3"
+        }
+      }
+    },
+    "nhl:149": {
+      "book_id": "B_1b403b41-40d8-40de-a6e9-a538c0a1c971",
+      "work_id": "W_64f390e7-81ba-4e52-964b-0631b58d1083",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_339bf237-77e9-4610-b798-81728496e46c"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ab2c064d-91d4-4515-a266-c08e79cbd75a"
+        }
+      }
+    },
+    "nhl:150": {
+      "book_id": "B_09b842ab-d398-48ed-9bbd-10a519f8ffc3",
+      "work_id": "W_8f604fa5-c0aa-43d5-91f5-ba85a0615c90",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_6b2b46d8-0d27-4b85-bded-46f6b362a2a4"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_e6d6e1d5-688b-4ae7-b9e0-4aa4d79d16c8"
+        }
+      }
+    },
+    "nhl:151": {
+      "book_id": "B_d960e70f-7539-43fc-a10c-3f9ca1d315c2",
+      "work_id": "W_cece0c9f-4f73-41f5-a193-29fa855058ba",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3e6765a7-0b35-4982-84ef-b2a557df7125"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_61f42f72-7252-4afe-adc8-45daeb66bd11"
+        }
+      }
+    },
+    "nhl:152": {
+      "book_id": "B_ac2ff3c2-f755-42a0-a25b-0374cab019f0",
+      "work_id": "W_1de7e8fb-0849-4139-975e-438529338a10",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3543777a-55f6-4682-ac37-cae8a11fa6e7"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_a54c2e11-09f9-4fc7-a6e0-418750d4d7ba"
+        }
+      }
+    },
+    "nhl:153": {
+      "book_id": "B_a7a0b412-52d2-46e9-8b8b-5f93764f5a16",
+      "work_id": "W_0e537500-07eb-4cfd-8806-38e1b09d4083",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_822e15d5-9a3a-444e-962b-5c0d1787e58f"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_d01b06c3-1ea6-41a6-a71c-82e2787952c4"
+        }
+      }
+    },
+    "nhl:155": {
+      "book_id": "B_4eea12fb-aa7e-4ff9-8a6f-1d906a36b0b7",
+      "work_id": "W_98d5bf24-1f92-42fc-a9e7-b5a0550362a7",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_9dc761ba-9309-4d91-b315-fd77abf0ff15"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_35658571-14e4-43b9-a12c-f3cd80ad390e"
+        }
+      }
+    },
+    "nhl:156": {
+      "book_id": "B_0a477c89-efad-4ccf-805a-6ff8c8f7a7b7",
+      "work_id": "W_2bd5eed8-1892-4725-b40b-e80fef67f625",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3901567a-9646-49fc-ae84-e64dc56e9995"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_0c89ef9e-4844-41fe-b604-7075a7d180d0"
+        }
+      }
+    },
+    "nhl:159": {
+      "book_id": "B_1d3878a4-b385-419b-b2ff-0256340a610d",
+      "work_id": "W_3caf8ef1-fb43-49d1-830f-85c057cb96a0",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_1d9232ca-4724-4995-8dc9-74c391e150ae"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_19adfab6-5c1f-448b-a35e-6dfa8ae82c39"
+        }
+      }
+    },
+    "nhl:166": {
+      "book_id": "B_95fcebaf-5ecf-423e-9118-93c79920f7ed",
+      "work_id": "W_40493be1-78d7-4a75-8204-c7cce4df8954",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_f5ebc013-3990-4d7d-9a0e-32c8e0b95545"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_f9b727f9-2843-49ee-a10e-6a9aaad0d8d9"
+        }
+      }
+    },
+    "nhl:96": {
+      "book_id": "B_a2c727cd-d08f-4510-835c-bc32354b6bae",
+      "work_id": "W_33115d7d-2ce0-4ed4-ada4-70cddab904ec",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_bf9bc6f1-d27f-47b3-bdcd-d3945cd0b87d"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_35343bd9-dbae-4f1c-a97b-d0cbe65e5ac1"
+        }
+      }
+    },
+    "nhl:98": {
+      "book_id": "B_c20df173-400a-48af-a440-00d54d589a17",
+      "work_id": "W_e387644f-b495-4dff-a002-3cf7fdae024b",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_0e029074-890e-4e4f-92fd-4b39df654417"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_d04188bc-65f3-4b11-a9fb-d97fe6ecc27a"
+        }
+      }
+    },
+    "nhl:128": {
+      "book_id": "B_b81e5eb4-860c-4541-b636-34c7706717dd",
+      "work_id": "W_d6226131-e800-4fe7-8276-6141bf43c0dc",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_aa30b062-5ded-4d98-b024-a5778186b953"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ecf55ba3-2b22-4169-81ff-95f0f104f643"
+        }
+      }
+    },
+    "nhl:129": {
+      "book_id": "B_ac7c393b-ea29-4026-bdae-afe148374d71",
+      "work_id": "W_dabf1ea1-be4c-46f3-b537-5f787a89fb90",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3b75b0a8-ee2c-4715-9ad2-165e47fc69ae"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_3bcbccbd-c31e-4c79-852f-63d9d40c4c77"
+        }
+      }
+    },
+    "nhl:136": {
+      "book_id": "B_8dede192-59bd-439b-b07b-d3daad85d135",
+      "work_id": "W_0bc67101-8986-4890-8699-b8ef3ca5546c",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ed1ed670-9e64-44c5-9e01-d703f1d51400"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_a08b6554-382e-4f87-b85c-9979b6dd46ba"
+        }
+      }
+    },
+    "nhl:141": {
+      "book_id": "B_c4eb5f32-6546-4a51-b980-4a1e88dea0f6",
+      "work_id": "W_986b557f-ef7e-4906-b389-1781b3ebb6e7",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ec7cc5d8-f41d-458a-9937-670f1f98a70d"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_04058aae-b957-4e61-8da5-7540951de118"
+        }
+      }
+    },
+    "nhl:142": {
+      "book_id": "B_b8553ec8-32fe-4b5e-9094-273545371e55",
+      "work_id": "W_46997041-8aac-48c2-bb4b-36055ebf1d45",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_665161be-986f-4873-a2bd-c11018294e68"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_94ad6a3f-1e1b-4b0a-8e9d-4a29a0458065"
+        }
+      }
+    },
+    "nhl:143": {
+      "book_id": "B_ae7e3e57-3ab0-456d-a008-402fbf33359b",
+      "work_id": "W_76b4e165-18f8-4d41-842a-77cf35fa00f4",
+      "sources": {
+        "metadata": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_4dbf93da-940e-488b-b107-32a8bbe87699"
+        },
+        "summary": {
+          "https://dongtac.hncity.org/Hoc-gia-Nguyen-Hien-Le-1912-1984": "R_ceb735b3-73e9-4b7d-af32-42bdad7d0a8c"
+        }
+      }
+    },
+    "tlvd:669-1": {
+      "book_id": "B_51918731-48ae-4e88-b668-84b9f25d639a",
+      "work_id": "W_90219261-4c50-4464-a75a-51d451103a56",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_454de5f6-c463-489e-bab8-c0da8aa0c153"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_74649b33-fe7c-4248-94ea-f97b0713c7ee"
+        }
+      }
+    },
+    "tlvd:669-2": {
+      "book_id": "B_bd6be029-dae8-47ab-b3bb-2dddb84a23de",
+      "work_id": "W_90f563e7-db5f-4939-b2e2-d0198e5205ae",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9f711b87-236f-495c-8f14-ce65fea492a3"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_799ce3f2-f4b6-4f3f-9eab-e41e255fdd97"
+        }
+      }
+    },
+    "tlvd:669-3": {
+      "book_id": "B_8c4af470-4b1b-4690-a652-6a3764ba6428",
+      "work_id": "W_21e7fee6-7ce3-474c-9626-11c0ebbfbc9b",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_78aa9b9d-97e9-4e6c-b952-70e7ae8630a7"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_e6114486-a99d-48ab-92f4-5cdf3936679d"
+        }
+      }
+    },
+    "tlvd:669-4": {
+      "book_id": "B_f59f36da-4aa2-444a-8e0d-51cc9d92f24e",
+      "work_id": "W_9ef8bccb-506d-4921-92f4-1bddc844aea7",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_8778c3c1-9fe4-423a-9396-358937c0f6d6"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_d604cfa6-2720-48cd-8b0c-cdffa2ca8329"
+        }
+      }
+    },
+    "tlvd:669-5": {
+      "book_id": "B_a6e04ad2-b00d-405c-abd0-e38086d10e4f",
+      "work_id": "W_a72df3ce-8b71-473b-8261-2ecea57e5eef",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_1532dca0-da4f-4fc1-b188-2fc874dd9aee"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_4d9b0266-5df1-49f9-8226-e4d116c7e6f2"
+        }
+      }
+    },
+    "tlvd:669-6": {
+      "book_id": "B_d2bef0f2-4037-47ee-a31f-11877654aa03",
+      "work_id": "W_e6d97876-0a1e-43a7-983f-1f89101e706b",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_61bd0d6f-096c-443f-9e64-603aa174cce1"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9e1c48a9-62c2-4060-8d05-b65379ed3c94"
+        }
+      }
+    },
+    "tlvd:670-2": {
+      "book_id": "B_3c6ed075-dcd8-417e-bd67-c2bc4aaebfbe",
+      "work_id": "W_755fea62-c73b-4bd0-a4b2-d1ca8dcf5fdd",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_3e5b5206-a7dc-423f-84c7-9eaaaa0a0b67"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_97c61f45-0878-449a-8770-3593607f250a"
+        }
+      }
+    },
+    "tlvd:670-3": {
+      "book_id": "B_07ec13f8-396a-4f20-a33e-d1dfcd3cd7a8",
+      "work_id": "W_f8d43a45-9991-4ee2-9f6b-f845f3215a7b",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_4505a2ea-ee27-4a5b-b7e1-da8483eaf95f"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_52bfce8e-ca21-4e62-9935-ec9ba1eddd72"
+        }
+      }
+    },
+    "tlvd:670-4": {
+      "book_id": "B_a3971784-fcd5-4564-92ff-24d9bd92d244",
+      "work_id": "W_9e490a01-e648-40ad-a5d9-5825242dcc38",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_fe0ed3ee-665a-4427-bbb3-3b512d148ec5"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_d7b1bf7c-669f-4bad-bcff-f846fa9dad91"
+        }
+      }
+    },
+    "tlvd:672-1": {
+      "book_id": "B_f1cf76e5-9368-440a-9a44-9b7d01151db7",
+      "work_id": "W_314728bd-a8fe-4642-b7c1-65eab628a520",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_c634d8ae-4d42-4344-bd80-833fbd02ba6a"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_775dad94-5064-475e-b865-6e471a197248"
+        }
+      }
+    },
+    "tlvd:672-2": {
+      "book_id": "B_a00f6ca8-6bad-4214-b8fd-20871232352b",
+      "work_id": "W_8642cdc1-0f75-4caa-be6b-2afa0deaca96",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_13f88d2e-29fe-4aa8-aa33-4b594921b677"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_0c663a19-19ed-48a3-8065-05f05b9fccb5"
+        }
+      }
+    },
+    "tlvd:672-4": {
+      "book_id": "B_e1624f25-bcba-43db-83bf-cd6fb9cd4e30",
+      "work_id": "W_719458b2-1f9a-495b-a9e2-f7ff89ee0185",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_b7bcdb51-21b5-45ef-b978-a96e74a4b95e"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_d38492dd-6b68-4759-9448-8ef4e9af43de"
+        }
+      }
+    },
+    "tlvd:672-5": {
+      "book_id": "B_dac02bdd-7b6d-4a1b-b173-0f024a2328e7",
+      "work_id": "W_eab952cc-9f83-4d51-98a1-6b1145d9beda",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_8a9802ba-921a-4400-a256-9208fae82451"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_42d0c4ef-96ec-4185-903a-983f9fb4f703"
+        }
+      }
+    },
+    "tlvd:672-6": {
+      "book_id": "B_09d51271-7c78-47b2-9df4-3eefab5a50af",
+      "work_id": "W_460700ba-d6af-49f0-a585-92c75535e5fa",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_2de9522d-a047-467d-96a4-a3b9c15964f1"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_88f6d002-a0f7-44ff-967d-f2eb49ca19f0"
+        }
+      }
+    },
+    "tlvd:672-7": {
+      "book_id": "B_8b200109-5ecd-4557-950d-5207a3554e48",
+      "work_id": "W_2341c566-6772-4034-9407-48b65c881703",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_c0e5335a-ce3d-4a49-9a00-54dd3fb0aea3"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_ea449bf1-8b41-46c7-b6f9-a80df14bbd90"
+        }
+      }
+    },
+    "tlvd:672-8": {
+      "book_id": "B_f0144600-1833-4a36-83b5-68b19a20099c",
+      "work_id": "W_1e029c0d-8d65-4515-912a-ce73187786ba",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9ee410ba-600c-40fa-9dce-8afe9da6a8a1"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_28cb067a-94b9-47f5-848c-de621e8fc1e7"
+        }
+      }
+    },
+    "tlvd:672-9": {
+      "book_id": "B_64f27e25-5162-4e1e-980b-3928bc47195c",
+      "work_id": "W_07f1cc00-b1f1-4062-ae6d-f89386ab23f9",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_b5653e06-c7fd-4647-b881-0f8f9bf1e6fc"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9ebc17bb-efd5-4438-9131-394e9d586087"
+        }
+      }
+    },
+    "tlvd:672-10": {
+      "book_id": "B_14555110-4174-4d73-a214-a027bad725b0",
+      "work_id": "W_b0943a1d-9051-4cf2-80f9-0ffac16277b9",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_93079ed9-5d0d-468d-b4bd-322079e8d240"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_bacf5876-3134-4a76-b6c6-f4f3cf9a88ab"
+        }
+      }
+    },
+    "tlvd:672-11": {
+      "book_id": "B_b7db132d-5754-49e1-8ea3-fb5733fc1fb1",
+      "work_id": "W_d34cdd64-72f2-407d-bd09-d2a1ef1682c0",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_e56ad412-b30c-400e-9034-07d90bdc34bd"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_0299b1e9-4c76-4264-a6d1-329986ff0a8f"
+        }
+      }
+    },
+    "tlvd:672-12": {
+      "book_id": "B_9b331911-f500-4ac1-b4a1-aa340e6b40ec",
+      "work_id": "W_3bc73a82-2e43-4c16-b38c-40019fadaa6d",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_b9d8788e-a284-4562-bb12-4579d8d073aa"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_0b9e367c-2b13-409e-9725-dc5dbd263477"
+        }
+      }
+    },
+    "tlvd:672-13": {
+      "book_id": "B_3e421c69-491b-4562-9b6a-e9e6cae64c54",
+      "work_id": "W_0ac19727-f87c-40da-b5f0-48bd418cd66d",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_eb89fc3c-7d0d-4e42-bd41-9ca517353924"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_51ad7153-f4c2-46ae-932e-630e42979e8b"
+        }
+      }
+    },
+    "tlvd:673-4": {
+      "book_id": "B_c77ddf98-34c9-4919-b2ae-88913c294c72",
+      "work_id": "W_01ae32e2-526b-4dac-92a1-2244d243f97e",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_c0cc2263-549d-4c83-85fa-033871aa5f35"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_1bedda22-1295-4635-ba5f-662093f4e5d8"
+        }
+      }
+    },
+    "tlvd:673-5": {
+      "book_id": "B_84a27951-a762-4d96-9e58-df49d35bb744",
+      "work_id": "W_3e516214-280e-4a3f-9dca-1061c16c4670",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_6d3b08b4-13a4-43fa-8d97-6a3adb5a7f1b"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9d96ea59-a650-471b-b4eb-0522d20540da"
+        }
+      }
+    },
+    "tlvd:673-7": {
+      "book_id": "B_47dbba8f-5f8d-4333-b2a6-63b3be05c214",
+      "work_id": "W_3e274024-76c2-4892-8f66-299230964ccd",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9c3f11c2-a3d4-4e1c-a36f-32a6a6e84a1f"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_5e66f8b3-b282-497d-835b-4da2b4cb6b19"
+        }
+      }
+    },
+    "tlvd:677-1": {
+      "book_id": "B_779312f6-f212-4010-9e22-11d6d8b1a80b",
+      "work_id": "W_6794ab4c-9715-481f-a488-bc0abedeb6e8",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_98786177-3800-47d4-84e2-fca8cdf7c1b6"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_ab4c4266-70cb-494d-a510-0bb6d14f6cae"
+        }
+      }
+    },
+    "tlvd:677-2": {
+      "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+      "work_id": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_7149495d-09f8-408f-a478-9f570e3bac29"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_2936304f-200e-4d68-8f22-ee5b072340ff"
+        }
+      }
+    },
+    "tlvd:677-4": {
+      "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+      "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_8577a224-b5f0-48aa-8a8f-e8b62be8b2b6"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_dce81692-1ee3-45fc-b67c-d22807afe234"
+        }
+      }
+    },
+    "tlvd:677-5": {
+      "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+      "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_e7e31205-f102-41c4-a7b2-f3ad550e35d5"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_4f4e9762-1b2f-46d9-8f8e-4d8bf85b1f95"
+        }
+      }
+    },
+    "tlvd:677-6": {
+      "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+      "work_id": "W_e28b4371-a815-4f21-be83-c47cc370ac84",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_ffaac30d-4c3f-49f8-9970-d11c9db4ca75"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9dcb560d-230a-49b1-be98-9baf1e2c3038"
+        }
+      }
+    },
+    "tlvd:677-7": {
+      "book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e",
+      "work_id": "W_6964c964-73b4-47d7-adb4-f12337976b38",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_2c4a1685-9a5f-4e83-881b-f326f8aded5f"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_48d03267-c435-41f1-913f-507c9f6d2fe9"
+        }
+      }
+    },
+    "tlvd:677-8": {
+      "book_id": "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+      "work_id": "W_9bb7a3a7-aa1f-4401-b8d1-967538ca18cf",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_2e7b4f2e-cfc8-4b29-8cc0-b4c614a602fd"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_90d771e5-b7b8-4a7a-a912-c20426cf39c7"
+        }
+      }
+    },
+    "tlvd:677-9": {
+      "book_id": "B_3de943a6-7b14-46de-9f00-2b6faafdfedf",
+      "work_id": "W_fa0d1669-95a1-44d9-abc1-94d3b7f0edc0",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_4937a025-6cac-4f91-a6e0-c2b4e03d3f5f"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_a73de2db-268a-40a6-80de-827f02b27eba"
+        }
+      }
+    },
+    "tlvd:678-1": {
+      "book_id": "B_64ac9b00-e35a-47a7-b296-197fbaa67f9d",
+      "work_id": "W_06881735-166f-442d-b4f6-0d666771dbe6",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_a100371f-a948-4984-b83e-98dc5ea11320"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_5f4ae72d-656e-49fa-9d5b-9c4f304f9088"
+        }
+      }
+    },
+    "tlvd:681-1": {
+      "book_id": "B_39fafb79-f843-4956-9819-d1e09a6f0696",
+      "work_id": "W_39cf1e94-96ca-4b6a-99ed-4a63e9bdee6b",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_c43cad5e-1341-4f94-85f7-6a98e95022f3"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_5fa976ed-4884-4aa8-804f-bccc9fcd0a6b"
+        }
+      }
+    },
+    "tlvd:682-1": {
+      "book_id": "B_116345c1-faa2-4c62-aa42-1d512315ed0b",
+      "work_id": "W_9d2e6736-9ce5-4ca4-b5e9-3b41d1b25417",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_d0a4ccce-90af-40e9-97d8-38a781c14405"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9c1ac0bb-abc6-463f-aa88-1697a6128853"
+        }
+      }
+    },
+    "tlvd:682-2": {
+      "book_id": "B_aeee1e7d-65c7-467c-bd25-f00204c43e8d",
+      "work_id": "W_53ddcdef-f87c-40d2-a48e-9dcebaacf1de",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_41b5a2dd-0d2a-4926-99f9-8ee15122f8cf"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_868a7c04-25be-4bb9-a2d8-b6ab2f9653fb"
+        }
+      }
+    },
+    "tlvd:682-3": {
+      "book_id": "B_a05863b4-54fc-48a5-883f-826f06cb96e2",
+      "work_id": "W_dd56a35d-6305-4d50-b161-41d86cead9d6",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_cee4d829-4219-4095-938a-1b62c6356401"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_ae3b6c45-d174-4f97-a77d-2f294f421dc5"
+        }
+      }
+    },
+    "tlvd:683-1": {
+      "book_id": "B_e8c21323-6b46-45d0-9b5b-90226e61f8bb",
+      "work_id": "W_7b81ad77-073f-40f1-8087-9ea7b96c5d03",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_87ce1249-a1d7-4b70-8f6c-f0b05fbef267"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_9cf806b2-a655-46fc-8b98-d9ef7517d4c5"
+        }
+      }
+    },
+    "tlvd:684-1": {
+      "book_id": "B_10b9db0f-3d23-48a8-8195-49ac4c7c2aba",
+      "work_id": "W_ef6f2e68-f453-467d-9c45-fc6bf74c9218",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_4a207529-2ac7-4498-9602-a17de9453344"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_ada8daad-41ed-4434-9546-f398d026f300"
+        }
+      }
+    },
+    "tlvd:687-1": {
+      "book_id": "B_8b67998d-2325-4384-ace6-543986fa5159",
+      "work_id": "W_5e778cb4-fafb-4b70-b525-75ecedf1fb25",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_2b1a2ffc-b27b-44ae-91dd-4d472c48f1b7"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_6b194d43-5685-440a-bac5-759d8f5f585f"
+        }
+      }
+    },
+    "tlvd:687-2": {
+      "book_id": "B_f8c0b6f2-fb30-40c5-ba90-4bfac6083eaf",
+      "work_id": "W_720e50d8-b8be-491e-aa6f-e52193398533",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_02aca51c-236e-491f-bbce-14e0f598555a"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_68381925-0e47-47c9-a1f6-3cb915bb7e39"
+        }
+      }
+    },
+    "tlvd:688-1": {
+      "book_id": "B_0c8bff0b-df2b-48b2-bcdf-36a78a441e85",
+      "work_id": "W_8a700639-7716-4b86-96e5-4aefc4d59726",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_2655dbef-5c2d-4d17-98aa-73dbf5c26893"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_8c693dfb-4e2d-4547-a974-8954e8e87452"
+        }
+      }
+    },
+    "tlvd:689-1": {
+      "book_id": "B_446b0259-9de5-403b-835d-7a479b3a0e71",
+      "work_id": "W_014b127a-096e-4937-b216-f0178c37b6c4",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_cebf1867-fa30-4db8-b9ec-4f80e6f74353"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_041ec520-9c22-453c-8dac-e4a0263324ff"
+        }
+      }
+    },
+    "tlvd:690-1": {
+      "book_id": "B_644f912f-35ed-4a31-8718-cd3ce1311608",
+      "work_id": "W_06b6a206-5857-4458-ac2c-bf644180a821",
+      "sources": {
+        "metadata": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_69a3ec39-e65c-496a-8a6e-c23f9e1508bd"
+        },
+        "summary": {
+          "https://cothommagazine.com/wp/wp-content/uploads/2023/01/CT70-toanbo.pdf": "R_19a2239b-a9b8-4072-9f15-8516ff30df32"
+        }
+      }
+    },
+    "uit:1": {
+      "book_id": "B_145f2ed9-f02b-4152-9e43-d5fd167d8748",
+      "work_id": "W_ebffb32d-a017-4f98-8679-9783e207e61d",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_9a6beabd-7508-4737-84a0-616ae5a4d76f"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_19df1a78-703c-4eb9-9e24-c04afa43117c"
+        }
+      }
+    },
+    "uit:2": {
+      "book_id": "B_29702a48-38a9-4bcf-ae0d-5760cd0680f1",
+      "work_id": "W_bfa2b79e-baf9-4322-9242-5b927ff91528",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_3db32674-ab3f-411c-b270-804d425a6a54"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_e52b3249-a3d7-486e-97d8-8334dc324c67"
+        }
+      }
+    },
+    "uit:3": {
+      "book_id": "B_c6974e69-49b2-493a-93ea-21058983417a",
+      "work_id": "W_66dd7bb8-641b-46a4-8b59-5e1fc720d15a",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_4ccc0992-5bee-4f79-be67-ff447de8ebb4"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_9ba9b686-e150-48dd-b804-e5ba08914bd3"
+        }
+      }
+    },
+    "uit:4": {
+      "book_id": "B_560b39ef-b2bb-4cfc-851d-e458e0f1bed2",
+      "work_id": "W_3c7dd011-92f6-40c4-a997-6d26376e5a32",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_ce6c0307-4214-4d4f-93d2-d27d1d6e6805"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_725571fd-a304-444b-bf81-cb03cf10976f"
+        }
+      }
+    },
+    "uit:5": {
+      "book_id": "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+      "work_id": "W_7597c339-7fa4-4201-898f-18e421efe543",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_a27bd86d-dfac-44dc-a84c-6960e20a6bfb"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_b92d39a3-9c77-43dc-81bf-ed1a76a784ec"
+        }
+      }
+    },
+    "uit:6": {
+      "book_id": "B_b7ce0d07-d867-49f2-8ae1-46fac9d650cc",
+      "work_id": "W_58142707-caf7-49ac-874d-28d97d1d515b",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_017be223-b8bb-4284-b559-498e797d873f"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_a5d35ca2-5047-49cb-acb7-266de91ae31e"
+        }
+      }
+    },
+    "uit:7": {
+      "book_id": "B_8f07c9f5-d120-41a9-8336-ed81d4c77528",
+      "work_id": "W_1addbb8d-210e-40fe-92b0-a90cdf4b424d",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_f605fc9c-47b0-4085-a88d-a13ff43e5638"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_6cdc2783-3c43-4dc5-ba7f-129ea200a670"
+        }
+      }
+    },
+    "uit:8": {
+      "book_id": "B_3adaf906-6b43-4844-b8d3-f840ff5ae0cc",
+      "work_id": "W_bebfacd7-1c5a-41fa-a375-a4dbb6c0d6b2",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_d7d3949e-e686-4d32-948c-a7f561237281"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_0216094c-9293-4c4d-9889-68ddbf614682"
+        }
+      }
+    },
+    "uit:9": {
+      "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "work_id": "W_f622c25a-0ed6-4493-8a61-8e3d9aa2cf6e",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_b84359fd-fa40-4818-93d5-a8449acf51f6"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_f3a12d18-779f-4f20-be82-50be215a5f44"
+        }
+      }
+    },
+    "uit:10": {
+      "book_id": "B_9bd96c05-d248-4295-8414-4d19bc8eea6b",
+      "work_id": "W_9aef1806-d004-40a7-81bc-b278090b22cc",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_147be08d-6590-48bf-b00b-057d945cccb4"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_56b480a6-8945-472d-9b66-89c7ee9819e1"
+        }
+      }
+    },
+    "uit:11": {
+      "book_id": "B_bdf43a62-b008-407d-b5ec-753abb2a5a6a",
+      "work_id": "W_f7ab3a47-3c64-4120-9fba-330678b5a6b3",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_0e8d164d-9b26-422c-a82e-4fda8014f2f7"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_9526dc59-9a68-414c-ad6c-0e8b552ec5a4"
+        }
+      }
+    },
+    "uit:12": {
+      "book_id": "B_a478d293-fd2f-4ee4-8c37-8e22a1cfb7e5",
+      "work_id": "W_66586fe5-8bea-45bc-8353-46380225b130",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_45c2b595-1741-4d19-afe0-7acedc14aab8"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_f724cf77-ecf0-432f-bfc7-6a01946b10d9"
+        }
+      }
+    },
+    "uit:13": {
+      "book_id": "B_67c206ca-dad0-42ad-a9a9-aa625ab36d29",
+      "work_id": "W_6470c645-ae1d-4d1c-a4ba-73a1564d49c2",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_5df285ca-ac9d-4c9b-b5bb-6ac3e483fa83"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_ca88fcc6-5d8d-4ecb-a119-b4f1539a2135"
+        }
+      }
+    },
+    "uit:14": {
+      "book_id": "B_41bdc2e1-ad03-4e27-9a43-f30a642bef31",
+      "work_id": "W_2d8580a7-6eae-4116-9a7f-1a4951825b86",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_738b111a-4a72-4dee-90df-d59d21af4557"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_3fdff99b-374c-495f-975a-409abc8eea90"
+        }
+      }
+    },
+    "uit:15": {
+      "book_id": "B_97fca1c6-5a00-4ee3-bd23-3426084171e0",
+      "work_id": "W_b22dd998-20ae-499c-b2a9-526c8d4a54dc",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_d7314ae6-be40-4636-9a49-13949db761e0"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_15a0f703-f783-493c-843c-6451986623d8"
+        }
+      }
+    },
+    "uit:16": {
+      "book_id": "B_4ea2e3d8-fc88-4278-97c4-59cd9969adbc",
+      "work_id": "W_2c7e5c27-5ef7-4da0-8afd-3cdd6024f4c9",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_c1f3aa5d-30b8-42ff-9b7e-8a1320846b46"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_a4d63625-17aa-4d51-b3b8-5d33c17eab57"
+        }
+      }
+    },
+    "uit:17": {
+      "book_id": "B_6013ee85-3d7c-43d3-bd1d-a9a8d0b10eb9",
+      "work_id": "W_7578b14b-88c8-4764-8273-ac26eb8ce17d",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_a6d83cea-bb7a-49b6-8b8c-fe0f8b711dae"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_2dd871c2-b86b-4287-9640-12406318e64c"
+        }
+      }
+    },
+    "uit:18": {
+      "book_id": "B_a1fcae75-0d85-4875-b080-8a6353ec8cbf",
+      "work_id": "W_7dc0e0a5-50fa-4163-844c-7afad44dc16e",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_45379207-9b85-4599-86b7-ae20172e8323"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_e3ff2d64-e786-445d-9d32-b207e6a267c2"
+        }
+      }
+    },
+    "uit:19": {
+      "book_id": "B_36b89aca-1443-4a81-984a-7f616c224dc7",
+      "work_id": "W_0cce0f9a-4bc7-43e5-b30c-1a7d56a02886",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_74608459-9b18-4884-a9fb-5070902eae96"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_05720b0a-b6a6-4094-a99a-f66264adebf8"
+        }
+      }
+    },
+    "uit:20": {
+      "book_id": "B_587aac00-e538-4905-a78b-b6d57617c085",
+      "work_id": "W_77852cbd-d71f-4983-83ca-26cd1e443d40",
+      "sources": {
+        "metadata": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_d8036617-e0f3-476e-8c4c-6e35c6a0b497"
+        },
+        "summary": {
+          "https://thuvien.uit.edu.vn/danh-muc-giao-trinh": "R_71a0de39-873e-497a-839d-d1467de7d854"
+        }
+      }
+    },
+    "museum:12": {
+      "book_id": "B_a3d2c5c0-569f-4d79-9762-47714b79e964",
+      "work_id": "W_5df8e5ee-852f-4e1d-9aeb-3eb39220a3de",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_ab20e6d2-cd20-4ae5-8a17-b24d6159754b"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_fec79815-085c-4c9a-b68f-550a07806516"
+        }
+      }
+    },
+    "museum:14": {
+      "book_id": "B_5d258049-1a0e-4e70-a3e4-1f6b3d30e2f4",
+      "work_id": "W_b5cdf91f-4bb6-44f9-8f4f-043645b2f576",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_b2eea1ea-89c1-43ea-991b-793d37bb4f91"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_af1564dc-2097-40e6-a99c-7aa52b8613be"
+        }
+      }
+    },
+    "museum:22": {
+      "book_id": "B_efae0ad7-e8af-4609-8990-f9a5edfd38ff",
+      "work_id": "W_bb1f9e44-756f-4331-80fd-b77fe1a310e3",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_29eaef9d-f8eb-4958-8da3-8b704cd8464f"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_e2444d3f-56ea-42ae-a6dc-2343b7b00ab3"
+        }
+      }
+    },
+    "museum:24": {
+      "book_id": "B_58de12b8-a8b7-4372-a7bd-b5a4d71d7165",
+      "work_id": "W_b72fa367-7a03-4b61-8bfe-8d82d13df979",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_8266330e-95ea-4858-b3aa-a8f6b1417ea2"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_1ef0615f-7cbd-4ef1-b461-40aac694ad88"
+        }
+      }
+    },
+    "museum:26": {
+      "book_id": "B_091f4ae5-f8c2-4e77-a1c5-454256503179",
+      "work_id": "W_9465daf4-4bee-4896-b6cc-90e42ae166be",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_b8af5ff7-ecad-460f-9161-14a28ba292b6"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_eb3a2d1c-09ba-4aeb-a938-54f0076b2de1"
+        }
+      }
+    },
+    "museum:31": {
+      "book_id": "B_e9d56e15-5396-4cb6-ada6-aa8680b28f5a",
+      "work_id": "W_f3c388a3-a0b9-4efe-9114-c56dd0f14d71",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_45cae717-f5f0-4fd5-a3ba-9c8c8ad345d2"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_98a9681d-e6e2-4f74-bbb9-f4891d0ed566"
+        }
+      }
+    },
+    "museum:42": {
+      "book_id": "B_8972fc5a-48d6-4212-807a-0b980aa5b096",
+      "work_id": "W_be591fc0-5609-4209-9531-449cd136f911",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_a14f3d1b-2615-4d35-bc8f-f95798803bb8"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_2c651395-97f7-4936-b241-dafe1e485e19"
+        }
+      }
+    },
+    "museum:46": {
+      "book_id": "B_892bd46c-3864-4e62-9a80-a9ac955c2de8",
+      "work_id": "W_57394f0e-a5da-407e-accd-97b972f67925",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_330a74b1-2033-4148-b056-66991035d2a4"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_60b18d7d-245a-4848-8518-2cb9c6b60d71"
+        }
+      }
+    },
+    "museum:49": {
+      "book_id": "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb",
+      "work_id": "W_f5a69040-ed33-4d30-99bf-eba457662e57",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_7e617c04-ed88-4795-b5d7-2880187e592f"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_772da330-cfc6-4285-9528-67c1392ca717"
+        }
+      }
+    },
+    "museum:50": {
+      "book_id": "B_4efd32d4-c955-4d9f-a617-f7636c7f08bf",
+      "work_id": "W_3bd6fdda-7f87-498e-8e49-03fcc2ca23e3",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_d27d21a3-9467-4af5-b48b-385675f35f03"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_f52aba56-cd15-4abc-9944-b6e52b7a74a7"
+        }
+      }
+    },
+    "museum:52": {
+      "book_id": "B_e456ff95-5309-4a92-8fb6-391cf718f71c",
+      "work_id": "W_8be54167-ca52-4cbb-a63c-10a13392b507",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_dc10e6cd-c84d-42aa-b59e-74fa36439d87"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_7b8cc5cd-b0bc-4c63-9733-85544c6286b9"
+        }
+      }
+    },
+    "museum:55": {
+      "book_id": "B_276c5876-6e56-441c-b092-bac558e94638",
+      "work_id": "W_82c4004f-0153-4dbe-a229-781335ec86c0",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_fc244ca7-009c-4700-9d05-b212052414c3"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_d0c69ce5-20e6-4e21-bb2c-ecf89001a0d3"
+        }
+      }
+    },
+    "museum:57": {
+      "book_id": "B_e84c2c42-fb20-479a-83f6-19d2c841cc6f",
+      "work_id": "W_dececd03-db5d-40c1-a6b5-540539c98754",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_87b16f5c-896b-4d3b-a288-f6adf8e295ba"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_98e04d0c-1ca4-494b-96b9-b6f9ec202dc5"
+        }
+      }
+    },
+    "museum:62": {
+      "book_id": "B_bad93c10-a2e9-4498-b960-fe9c4707693a",
+      "work_id": "W_adf313b8-c3b6-4625-b5a1-983f53c66ba5",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_775ff01b-9460-4f3a-a5f2-8546df18bc10"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_21de8e9f-97fd-48c4-98d5-5bad811ff89f"
+        }
+      }
+    },
+    "museum:64": {
+      "book_id": "B_a4e1870a-147e-4ae2-9897-056f76e6fd66",
+      "work_id": "W_0a703789-19e5-46a7-ad24-083a1d5226c1",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_7ca3dced-bf99-47a8-91c9-67d9b9eb973e"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_38b5afcb-2968-44bb-b9a3-2250c8b46818"
+        }
+      }
+    },
+    "museum:68": {
+      "book_id": "B_20c72d6f-fafe-4081-8bf8-f1ec7c58a38e",
+      "work_id": "W_e53fae6b-cd42-47cb-b4ee-997e5be0703c",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_178ba404-1b19-4e6f-8960-a7048ca4929b"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_416d49e5-35a2-4924-85e7-e867a9942e32"
+        }
+      }
+    },
+    "museum:69": {
+      "book_id": "B_c1d6dafd-a2a5-4a1d-8675-25c0ff14ce4a",
+      "work_id": "W_3775abc7-2fb0-4a9a-b522-042daebb108e",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_e986a739-400c-4d48-afc3-accdc6e607d2"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_e0210cf1-e77b-41d8-8fdb-b6705cef6763"
+        }
+      }
+    },
+    "museum:70": {
+      "book_id": "B_0254bb4d-a391-42ef-8d41-0045676928c0",
+      "work_id": "W_9fcdd327-2aaa-4508-a651-0b4968a489fe",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_12fefee2-4b68-4569-86a8-bbe667084e0b"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_7f740923-50aa-492e-a445-d9d090eb7ad7"
+        }
+      }
+    },
+    "museum:72": {
+      "book_id": "B_59ca9c49-368c-493c-8d3c-a33751306bfe",
+      "work_id": "W_263555be-5fa3-41ef-af90-78af7e1cae1f",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_9e70c8de-110d-4faf-aa22-0b2b900f0693"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_c01a1376-7d09-4eba-b6c7-e2fa3861b5cb"
+        }
+      }
+    },
+    "museum:87": {
+      "book_id": "B_6fa7b11e-a056-4ea0-a20c-bc72c0689ca6",
+      "work_id": "W_af890cc6-d7eb-4b8b-824c-44327c14a44a",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_241c6c72-4787-40d1-a1d8-570b897b2c2d"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_86d2c067-5423-4b78-a1c7-6bc0262c7310"
+        }
+      }
+    },
+    "museum:109": {
+      "book_id": "B_3aa3196f-96d6-4c54-be14-2cf50d6ca69d",
+      "work_id": "W_4ca6cc86-3597-4265-a969-ef19f25fabb3",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_7377bf0d-59ad-444f-bf31-1b41bc272e5e"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_acb88c48-c43a-4845-a371-97f3516aec68"
+        }
+      }
+    },
+    "museum:110": {
+      "book_id": "B_0edf4cd3-cd26-40e4-95ff-c941616310a5",
+      "work_id": "W_88c05a22-615c-41e4-b719-aaf3f40e27de",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_da91ad25-0d04-46b9-8989-a95252eb250d"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_91adfb46-bbc4-49ca-b12b-4f82e61d7165"
+        }
+      }
+    },
+    "museum:116": {
+      "book_id": "B_bd4b0df9-f41f-4466-b61a-c1952b6ec2d6",
+      "work_id": "W_13c9b8af-9180-4f23-b618-0e27feac5476",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_41d3d927-4590-4e69-a92f-4a33b86f5957"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_75a4ea9b-bbc4-40ed-a20e-ef26c6f1370c"
+        }
+      }
+    },
+    "museum:120": {
+      "book_id": "B_8d2791a4-90cb-4c2d-9bc4-0764bae4a6ba",
+      "work_id": "W_3f4e7443-e100-43ef-9749-fb8f6f407230",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_bd330bfd-f482-4256-ac95-a43846f8a377"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_efe61ef0-82d1-4283-a91a-27f167b459c1"
+        }
+      }
+    },
+    "museum:124": {
+      "book_id": "B_47d6f1de-5e1c-4acc-99c9-6b098dc719e2",
+      "work_id": "W_3738994f-b664-4784-bea4-818a3e0b5343",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_e3155d96-99f0-4239-818d-94e7df8a0b7f"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_c6fc842e-4875-45e1-97e4-cda137a0dc48"
+        }
+      }
+    },
+    "museum:127": {
+      "book_id": "B_b226e9c3-30d3-4fcb-9949-a878693b9c73",
+      "work_id": "W_1837c53f-e51b-4920-a93a-0c47b01b7988",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_35eea3cb-b8e9-4d59-bf36-9c8aaaad4078"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_63f48469-93ba-484e-9ed2-f09144db5968"
+        }
+      }
+    },
+    "museum:128": {
+      "book_id": "B_2cec1b46-389f-407b-93e7-3c74fc5aff0b",
+      "work_id": "W_97140e0f-8785-442f-8a59-842e1599b8ba",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_b3eddedb-6690-423e-8aa1-d7f6397e2494"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_47565490-0c9b-44c7-b6de-6e24125d7ad4"
+        }
+      }
+    },
+    "museum:142": {
+      "book_id": "B_ffbdf4b2-16b9-4e88-8dc8-6de8da212bcd",
+      "work_id": "W_c2de63bc-8bc9-4316-a917-9f2fa8e4f923",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_32419201-f541-42fa-a91e-fc4e614bfc1b"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_68b07707-5e4f-4108-9273-69fec979aef5"
+        }
+      }
+    },
+    "museum:153": {
+      "book_id": "B_7a945e2e-8a3d-493f-9b41-d8991dd15802",
+      "work_id": "W_b5bccafb-da6e-483c-8827-c38e696fde3e",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_bba02592-60a5-46d8-a7ce-e8b17ae56380"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_192646dc-a026-4b81-bd84-2df11cbbc5bb"
+        }
+      }
+    },
+    "museum:155": {
+      "book_id": "B_a4097d2b-f4ca-45a2-925e-49a8a8f4f091",
+      "work_id": "W_77d6d36a-0fc9-41df-b955-29f98515b005",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_00e93e0e-eece-4d47-a9c2-8c172727511b"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_14b31b72-6690-4b34-86ce-8d2c0167cda3"
+        }
+      }
+    },
+    "museum:157": {
+      "book_id": "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+      "work_id": "W_7197246c-6748-4300-bcaa-cef8952160c6",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_fa5b8926-9d30-4477-a6ad-9b3ad60683fa"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_0c639d77-ef68-4dce-a532-9bf2003e97a4"
+        }
+      }
+    },
+    "museum:160": {
+      "book_id": "B_c675ad22-711d-46f3-b6f5-56b0c6b0824a",
+      "work_id": "W_65da4862-430c-4c21-b0fc-40478f808673",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_f28f2cb7-02a8-43f7-bf4c-afefb9c35af8"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_8cfc5fbf-06d5-4bba-92ee-8e7093ae5a08"
+        }
+      }
+    },
+    "museum:175": {
+      "book_id": "B_ca966f77-62fc-4369-885f-c6922d41b360",
+      "work_id": "W_3a04d3f0-d553-4a17-9d33-1f8d9219b61a",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_bdbd01c0-418c-46d6-9064-111470b77300"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_66a8c8a5-4f78-4e00-977f-6d9ab5539c3e"
+        }
+      }
+    },
+    "museum:176": {
+      "book_id": "B_c29b8809-6839-40ee-b518-bb4d6e8f6db7",
+      "work_id": "W_f20e7f33-20b1-4497-a5e0-a2a675d0cf63",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_b7875c01-ac76-483d-8ecb-a5f92b0ad78d"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_ceab4f2e-c388-4b42-985e-1f659b1fad74"
+        }
+      }
+    },
+    "museum:182": {
+      "book_id": "B_17788bb6-b25c-4733-9a95-cc7927614e94",
+      "work_id": "W_7cdd6a4a-ca44-4818-b2c7-348b786b5ed3",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_c8f11a6c-ebca-4826-825e-193621425fe6"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_5e1182b2-5f4a-4a7c-9f17-7c37c3d1831b"
+        }
+      }
+    },
+    "museum:212": {
+      "book_id": "B_fca90f42-09cf-4c20-a0f5-914858a6fda9",
+      "work_id": "W_149cd947-2e26-423f-ad31-b9528bd0e6b2",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_89d9cb1f-c8d8-4068-8a75-b48b7ba9c2cb"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_8eb4ffe1-68c9-4129-a0f9-349fdd2476e5"
+        }
+      }
+    },
+    "museum:213": {
+      "book_id": "B_66623562-c47b-48a2-be5b-5c18c6521982",
+      "work_id": "W_9c812dd3-e1df-45e2-8cdb-f9d74de57d0e",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_b5d6cfe0-e906-482e-a518-e323c6c4a5e2"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_75dc155b-4691-4102-bf41-982834afd417"
+        }
+      }
+    },
+    "museum:214": {
+      "book_id": "B_79d77e14-5a64-4830-ba31-ff058313c002",
+      "work_id": "W_91ddac01-a384-4f19-b3f0-6de2c9232226",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_f65926a1-121f-4b80-a1d0-34b018672e48"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_63e84817-fffc-434b-93b4-bd03e47b8967"
+        }
+      }
+    },
+    "museum:216": {
+      "book_id": "B_69396a85-c897-4c23-9222-69b27b0c6491",
+      "work_id": "W_b532848c-bf17-4cac-a189-b2169b31d39d",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_ff6dec78-51b8-4792-b7ef-0f8e2232d8d0"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_b67afb29-9c57-4c8a-aa20-6db2ac0960bc"
+        }
+      }
+    },
+    "museum:221": {
+      "book_id": "B_3eb6e624-74f3-48eb-b2db-51dcb124944a",
+      "work_id": "W_45dcf041-1477-4961-bdc1-822c37a639b4",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_95a53c27-e4af-449d-9605-5122a4766fb6"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_159b4c37-c22c-42ae-ba14-3e387676e79b"
+        }
+      }
+    },
+    "museum:230": {
+      "book_id": "B_8a7aa487-a13f-4b86-a693-cbc0dc364020",
+      "work_id": "W_b0d58b1e-7761-48a4-aef5-43edfae7530e",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_13387d21-d114-4cb6-b330-8043f295c785"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_03af7acb-aafd-4fb4-a26c-1b6c257137a5"
+        }
+      }
+    },
+    "museum:231": {
+      "book_id": "B_c88b4f06-6bc5-4a65-ae9b-d5c30f945c4b",
+      "work_id": "W_c546efff-f206-4da1-9363-e9128b50916b",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_6bb2dd41-f23b-46b5-8438-14f19d07523c"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_26acfaf2-ea9b-4c87-86d7-5135f91ee120"
+        }
+      }
+    },
+    "museum:233": {
+      "book_id": "B_3a3e93a1-9261-4d76-a201-6a91ace10131",
+      "work_id": "W_22fd59f6-8fb5-4ec5-92c7-930108123cc1",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_eeca94da-1555-4706-85f6-9bd98bbd94cf"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_1506e374-d6af-4a27-bea4-a3def2ca6d74"
+        }
+      }
+    },
+    "museum:246": {
+      "book_id": "B_ca5c968c-a416-4af6-85a0-241adebbbcab",
+      "work_id": "W_bdea59f7-1e4b-466a-b8a4-75f93acb0772",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_98e1c1e4-1c02-4c9e-94ae-e6012401c996"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_1decea43-f71b-499d-b959-85a21cd21b2e"
+        }
+      }
+    },
+    "museum:259": {
+      "book_id": "B_f8eaad8a-724f-4583-9872-64adb410a757",
+      "work_id": "W_674d55e1-dd93-4e24-bd16-5f2e9f920d93",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_1cf82a07-7d3c-4557-83ad-5a745f7af7be"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_4a260a15-9c6f-4dc0-b3c7-666aa3cd9b67"
+        }
+      }
+    },
+    "museum:264": {
+      "book_id": "B_094580a0-da33-40e8-a329-fea28e85ef5b",
+      "work_id": "W_839955c1-fdf2-4a72-bbc2-e1b469148cb5",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_38162ee0-1553-45b5-891d-a183f6ebd15f"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_89ec2320-54ff-4b36-a05f-d5c8e6f35f7e"
+        }
+      }
+    },
+    "museum:292": {
+      "book_id": "B_7bbad463-6b33-41e7-be08-55adea6ebda2",
+      "work_id": "W_3cb16ec7-ed86-45e3-9dd1-08dd0eeaab90",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_434b54cd-5679-45a4-b3b9-6b0b8494a659"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_307287eb-b498-47a4-99f3-3b4a2c140d1f"
+        }
+      }
+    },
+    "museum:304": {
+      "book_id": "B_6c89d774-46c2-4c68-a98f-e08f50056f33",
+      "work_id": "W_b8218644-bc02-4b84-8223-f6b78ceba4ec",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_d3c11b15-42aa-4912-90a9-bc7384d3134a"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_021bfe42-bb87-4688-bb00-2d9787393660"
+        }
+      }
+    },
+    "museum:306": {
+      "book_id": "B_090e84c3-4e3a-4baa-b559-b172ba0952b2",
+      "work_id": "W_129c565e-7e24-4657-83b5-bac859bab8b9",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_836e6799-5b22-4fd2-a95c-56d8574e752c"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_90777897-4ed6-472d-9eaf-88d927701a55"
+        }
+      }
+    },
+    "museum:317": {
+      "book_id": "B_0f27dbd0-771e-4729-8c4b-0b1c8204ae16",
+      "work_id": "W_66334fa8-4635-4556-8178-c3174b0bf67a",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_ae04ee26-bd72-4396-92ec-b434dfe54e1d"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_ac8186f0-4e4c-47fc-a6ad-4ba4d27a263c"
+        }
+      }
+    },
+    "museum:327": {
+      "book_id": "B_ecaf98b7-9c95-4d5f-a461-19db5da75e73",
+      "work_id": "W_b20fa953-a158-491e-a79b-aa1b8c9906de",
+      "sources": {
+        "metadata": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_53b3ad37-21ff-4382-a029-d9ad794d56f8"
+        },
+        "summary": {
+          "https://www.baotangbrvt.org.vn/danh-muc-sach-lich-su-van-hoa-viet-nam/": "R_e103a744-f3f0-4f34-bc55-a7d3328f9292"
+        }
+      }
+    },
+    "ussh:12": {
+      "book_id": "B_961380f5-1ac2-476e-96e6-8c3c231317c8",
+      "work_id": "W_e074a68e-79fe-4328-80e6-165c35f5e3d6",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_ebcbe023-f04f-4806-be24-c91cc08674c3"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_5015f1e6-42f2-4069-afb9-23f9ec9bb693"
+        }
+      }
+    },
+    "ussh:18": {
+      "book_id": "B_6a61003e-47dd-4f27-a27a-983716fdbedd",
+      "work_id": "W_260de8d8-04dc-45f8-b8d4-5b3629c7bf5f",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_471a1dd0-6871-4968-9db2-a3b8d00c9f0f"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_cc6be45e-be47-4bcf-903f-fb59c06e4d5f"
+        }
+      }
+    },
+    "ussh:19": {
+      "book_id": "B_bf1e373d-e132-4380-9c8f-9a20ac64fa8a",
+      "work_id": "W_02c98311-bb43-4f7d-8962-720122bcc8e6",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_7c9a3987-16b6-421e-bd6e-4430998beba8"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_46b34c38-2c55-4c1f-b238-00b0d129356f"
+        }
+      }
+    },
+    "ussh:33": {
+      "book_id": "B_33676d9f-48db-46a7-9814-ccf35fda8caa",
+      "work_id": "W_778a5c2c-36e4-4672-a333-7bbb3a626e6e",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_824c8c37-e0e5-4ca0-b8f1-1c9e6afcfed4"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_06819c5c-d287-4caf-b7f4-13ebfb14ee48"
+        }
+      }
+    },
+    "ussh:34": {
+      "book_id": "B_789a230f-1782-4a4c-9995-ca7b8c79db7d",
+      "work_id": "W_71ebe508-39a6-4100-9309-0590c47d248c",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_4258b8d2-3bae-4415-b0a5-1656167cac97"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_3cf69ab8-e6c3-40dc-92d6-4365d23934e3"
+        }
+      }
+    },
+    "ussh:35": {
+      "book_id": "B_8122a3fe-c94b-4435-90f4-2f03c336eb2b",
+      "work_id": "W_cb75c58e-16cb-470e-be72-79cbbff02891",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_584f4feb-4601-4180-acfc-904509076665"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_f9e6f149-a93b-47f7-9baa-f630e999a39b"
+        }
+      }
+    },
+    "ussh:36": {
+      "book_id": "B_2e1b699e-189a-4087-8417-8f2ca461b59b",
+      "work_id": "W_c13cf60f-d4ca-487c-bbb2-7cd9c825e586",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_251afd3f-a4c4-47ca-9d33-6cab55ffb2c5"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_dc10e658-762c-4dd0-ae48-b3436600fd05"
+        }
+      }
+    },
+    "ussh:37": {
+      "book_id": "B_9f259bba-3657-48b3-8e14-5e29818e7d24",
+      "work_id": "W_26eb1e81-d179-4ff2-8743-b1aed64949c5",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_47fb6ce5-98ab-4cd5-95b3-0053c396efa8"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_5bcdde3a-7093-4991-b37d-9ccf9d46027e"
+        }
+      }
+    },
+    "ussh:38": {
+      "book_id": "B_5cc8e6ec-ac3c-4172-ba2a-c318cdf8a905",
+      "work_id": "W_0773b78f-72c7-4262-9963-7902875aa638",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_b4e51cc8-7b46-46b6-84ff-a52abc8ee04f"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_00852496-1597-4960-a0e9-746908d18be3"
+        }
+      }
+    },
+    "ussh:40": {
+      "book_id": "B_a040879f-9590-4623-8bb7-a3fba7ab04d5",
+      "work_id": "W_bd545f5f-7027-476d-87ac-a31d891a636d",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_7f6fc280-f123-4917-b86a-fbce32cfb9d9"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_169def5d-4398-48f1-8807-1ac75d9e558f"
+        }
+      }
+    },
+    "ussh:41": {
+      "book_id": "B_282e8dd6-97aa-4024-9663-71d74edfed8c",
+      "work_id": "W_0966f2ab-d85f-44c9-92a9-2285377f1997",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_0ab8e075-1b12-43fb-a770-93ce68b7be2d"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_1bc03576-3144-4a5a-868c-1cb63f97b289"
+        }
+      }
+    },
+    "ussh:50": {
+      "book_id": "B_2a5f1211-d281-4348-9e8a-0e5d7c45b79a",
+      "work_id": "W_f5465c01-b43a-4f7c-848f-eb579fbf6b61",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_0952ef84-3b8f-4be4-9a70-c81bab97e05d"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_c886b87a-db66-4726-8721-b9001982c3cf"
+        }
+      }
+    },
+    "ussh:51": {
+      "book_id": "B_c864f774-8dba-4bfb-a5c7-a9e3d8dcd134",
+      "work_id": "W_1e4cda62-d9c4-4854-8134-fd9ac9798be4",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_1b7b2798-978f-44c1-b0bf-658511b7f904"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_c3718ec0-595c-4364-a365-c94bc457d4b9"
+        }
+      }
+    },
+    "ussh:66": {
+      "book_id": "B_4fadfede-84dd-4e7f-b0d5-10f1b8e37564",
+      "work_id": "W_9f1e60a8-8c56-414c-b7d2-3b391a6daf07",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_8c7938af-1d8d-4026-8324-f09537c13765"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_0dbf4a7a-aad6-4065-9912-4a441330c2b2"
+        }
+      }
+    },
+    "ussh:68": {
+      "book_id": "B_5a0b9aeb-8788-47ab-9045-509cd04bc44d",
+      "work_id": "W_81938655-387c-4673-942a-9de25a601a70",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_108e3505-62e0-42d9-9544-9d09cc6a4a52"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_d9829ce0-ee88-43c7-80ee-40381efd41d9"
+        }
+      }
+    },
+    "ussh:70": {
+      "book_id": "B_359c9ec1-609a-43cd-be78-91daf4a022d7",
+      "work_id": "W_3e75b148-a7f2-4f26-ad4f-f409a29165eb",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_8cd6cc9f-d39a-47fd-91e4-724c46090d7f"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_51928cd8-9ac1-49bb-946e-2b903d7f11a6"
+        }
+      }
+    },
+    "ussh:71": {
+      "book_id": "B_92279d64-9d28-448f-9806-b3637a73150e",
+      "work_id": "W_2cfbcdec-1ce0-44f5-9807-fb0c8b1f3ef8",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_6915d9b3-e853-4f7a-a66a-5ce7044ad501"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_31948658-d404-43a5-8800-fbb31736ba04"
+        }
+      }
+    },
+    "ussh:76": {
+      "book_id": "B_4b120e08-b328-4712-970e-f611c0247772",
+      "work_id": "W_fb2d2431-9298-48f8-b417-714a6fc1a488",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_021f6d43-89c3-489d-9b51-6c6454db293c"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_796eaec0-a547-45d4-b40a-40d4f691abb4"
+        }
+      }
+    },
+    "ussh:79": {
+      "book_id": "B_a5babaa1-3bd1-4832-8c1f-cfb6bbd7086a",
+      "work_id": "W_01451eb0-20c7-4e63-a519-6ea9a4db3ff0",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_2d9a6174-09a5-43ce-8708-7484378c8ac0"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_60b32ee4-4ee4-44ed-82b0-f2b83075a4d7"
+        }
+      }
+    },
+    "ussh:83": {
+      "book_id": "B_d2417acb-b655-4fcf-828a-d4eecce2f1e0",
+      "work_id": "W_e98e8a68-fe02-4343-8c26-a80787eb3524",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_9c998a05-6422-4118-b7b0-68c282f4c51e"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_59289f92-f35f-4803-a622-70eeedc08916"
+        }
+      }
+    },
+    "ussh:84": {
+      "book_id": "B_9c358089-8835-480a-aff4-4993a60c47a6",
+      "work_id": "W_f929b0b3-37a8-44a7-a3cf-21c96cd5d061",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_75c5f289-ebc3-40a1-a27e-362482f42b0f"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_083cb989-677a-4ac5-8443-0168c71123d6"
+        }
+      }
+    },
+    "ussh:85": {
+      "book_id": "B_6352c457-c7bd-4995-b6cc-b32504b9b16a",
+      "work_id": "W_76e1cb5b-9644-4cb7-b0a5-95820cdec51e",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_c0c30fb7-8b59-4445-a99b-e3593f4e4193"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_50bb715e-469f-4aa6-9205-8b8f66f85e7c"
+        }
+      }
+    },
+    "ussh:87": {
+      "book_id": "B_8d5a1944-2811-4cf6-9afd-052069d6cfa1",
+      "work_id": "W_bd7a3bd0-82cb-4e6c-918b-c656f638d197",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_3f1e18b9-e792-4b03-9137-570e18a66ad4"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_17910e51-6807-4f29-bd8b-90d9154863fb"
+        }
+      }
+    },
+    "ussh:88": {
+      "book_id": "B_9662dca8-d351-493c-ae61-d3ddbce63a04",
+      "work_id": "W_1cf074e4-5caa-42f8-8fe8-803d46e801a1",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_ad4c1262-aed1-4cfe-a8b5-3955a01185ae"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_ae6715b9-84bc-4297-9878-e68586ccb9ad"
+        }
+      }
+    },
+    "ussh:91": {
+      "book_id": "B_d3f3ea12-be05-47b9-899f-2f9c1d83bbe7",
+      "work_id": "W_11c5a041-81db-4f55-b92e-b7ef5d58ab18",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_8a4a3144-1cfe-4574-ac87-697a9c3ca392"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_29c2961f-3283-44a5-bb6d-58488dbd4783"
+        }
+      }
+    },
+    "ussh:92": {
+      "book_id": "B_d068429d-12ca-44af-9390-5e0256956050",
+      "work_id": "W_89459704-9d45-43c8-8182-3f38658f0c90",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_b4dc6846-bf74-411b-9e10-50370e92a63b"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_99c231db-5341-45b2-88de-a9eef68a8c95"
+        }
+      }
+    },
+    "ussh:93": {
+      "book_id": "B_7c109f15-d72f-4220-a85d-a1c45c6196d9",
+      "work_id": "W_419d6712-8131-4704-a7fc-1fa237acc98c",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_dab59524-eddd-4353-901e-48edb1a412bc"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_080e1293-cbf1-4bfc-a55e-e28363af1a62"
+        }
+      }
+    },
+    "ussh:94": {
+      "book_id": "B_13c0fe01-1d0f-4547-94ac-2fe5f10a8bc9",
+      "work_id": "W_65176e99-dc12-4c09-90be-fa24fc68ecee",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_dc2537e6-43b2-4f48-b4c7-cf7431ea0ff7"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_3953fd81-263d-4fcf-9e00-cfcc71ef0826"
+        }
+      }
+    },
+    "ussh:95": {
+      "book_id": "B_a7c885a8-647e-404b-818b-3a1d00a0dc3a",
+      "work_id": "W_c55c9df0-8cb4-4420-80c8-618db1bfecaa",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_08668ff0-2f96-4ff3-8c64-c441045d64df"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_51c2d975-3ef1-4076-82e8-85353400cc78"
+        }
+      }
+    },
+    "ussh:98": {
+      "book_id": "B_73bddc1b-5c0f-4035-a624-fc3fe558bd95",
+      "work_id": "W_1fd49106-376d-49de-b364-03ab2a68e445",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_5c6596db-0d8c-48f7-a7cb-818c38711b6b"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_2bb208b7-f7a9-4e7f-98d3-145e7d5de6f0"
+        }
+      }
+    },
+    "ussh:102": {
+      "book_id": "B_f8266356-2210-492f-82b0-6f17b2ac0292",
+      "work_id": "W_8dc1b971-8424-4795-800a-f10a31383cc4",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_f1de7cde-eff4-4208-ae2c-866a65b2f2d7"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_dca794e7-2e07-4d84-ac3c-04449c94876d"
+        }
+      }
+    },
+    "ussh:111": {
+      "book_id": "B_aca0d387-cf7a-43cb-9025-ece0356b4a01",
+      "work_id": "W_3ae4e1ea-299f-44a2-bd79-5184f8797919",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_6b1319ea-8481-4552-8a7a-8b535207a450"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_684ef43e-c37d-4c54-8193-0fbee6a02176"
+        }
+      }
+    },
+    "ussh:120": {
+      "book_id": "B_5fd5fbc5-2f06-4362-b6d0-eea38da88f98",
+      "work_id": "W_84502cd9-8dd9-418c-8e31-d915d96da3a8",
+      "sources": {
+        "metadata": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_a4d3143e-cf75-4a31-b3f1-6194272ef1bb"
+        },
+        "summary": {
+          "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc": "R_6cf9c448-9ed9-4b7e-b8d5-036bb64c9dfb"
+        }
+      }
+    },
+    "hanoi:1": {
+      "book_id": "B_d17e5ca6-cdf9-4a75-b182-dcee4a547735",
+      "work_id": "W_87ad7027-6c42-4ac2-8214-daad01ff7f5d",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_fe899d18-a34e-417f-afaf-67dee8baf0f7"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_0509db23-dc2e-4d2f-8730-c9cfb59f3625"
+        }
+      }
+    },
+    "hanoi:2": {
+      "book_id": "B_071590ec-d155-4878-bffc-e0e24c905eca",
+      "work_id": "W_5e4a6bd4-19e1-4a92-b11a-70bb71810bd1",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_2f44d1b8-e1f4-4b1a-9916-afd7acebd021"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_a8655676-dc53-446d-b8d0-aacf5a924557"
+        }
+      }
+    },
+    "hanoi:3": {
+      "book_id": "B_eee09745-32ce-42e0-b563-70f7cc0e97ff",
+      "work_id": "W_c970f2d9-85ce-436b-8b69-2b0b3400d57b",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_93cd5253-1ac1-4970-918f-47bb766e5f25"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_ee7f9059-da87-4053-a64c-ef0257570e01"
+        }
+      }
+    },
+    "hanoi:4": {
+      "book_id": "B_da5dc4e6-454a-4771-8316-3daaee9a2b1b",
+      "work_id": "W_d75270a8-175c-49ed-abff-ab635929aa95",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_caded81c-8cc5-4035-840f-e016d2458b72"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_c23f2e00-ad19-4e8c-8dfd-114a16a84f77"
+        }
+      }
+    },
+    "hanoi:5": {
+      "book_id": "B_02cb9aa1-03fc-4ddf-bbd6-e6f4d50add2b",
+      "work_id": "W_cf00cd70-6215-4b34-87af-e7f1b66a7f71",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_edd4f0ea-8d9a-4d3a-a0a5-e85b1101f50c"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_4083e6e6-9d51-45d1-a8e7-9c7440a25088"
+        }
+      }
+    },
+    "hanoi:22": {
+      "book_id": "B_31eb8d83-e50f-4e59-898d-f0477adc8047",
+      "work_id": "W_668ebc54-530b-4005-a8a3-2d831d80b328",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_d6e4e8c5-aab1-4dcc-bfe9-33c88858b0ef"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_870a2d01-f3b8-4312-98a1-39d9ba04c3a4"
+        }
+      }
+    },
+    "hanoi:26": {
+      "book_id": "B_5607b002-87ca-4d54-9ce2-fef192df47fa",
+      "work_id": "W_a4f62b2b-fcb4-4700-9b0a-a8270055946b",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_30bf7f82-e3ca-4e60-9b4a-92634ed0f9e6"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_833855a4-18f5-4628-b388-adc24c61a579"
+        }
+      }
+    },
+    "hanoi:40": {
+      "book_id": "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+      "work_id": "W_d224fedc-ae84-46fc-b650-9725ddad2516",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_ddff11c0-54bd-4021-bf05-e5710b7dd4d0"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_00d70029-0876-4bb5-947f-5b6f0e582be7"
+        }
+      }
+    },
+    "hanoi:43": {
+      "book_id": "B_58d5554a-227c-42e4-9a9f-f765f9236359",
+      "work_id": "W_4732b9d4-56ec-4f0b-b6f7-367cbe9a22ad",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_ac5d353d-a35b-4b48-b67f-28c9f10acb51"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_be293a0e-08cd-409e-93ba-bac5e66de6e5"
+        }
+      }
+    },
+    "hanoi:44": {
+      "book_id": "B_f31d2e7e-5b86-4dff-a213-8f1983eab026",
+      "work_id": "W_1ee5395d-1e2a-4d4a-b4b4-a456e2f7fc44",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_1c9abcd2-8310-4a71-a045-26bd0b455ee4"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_2224801d-5af2-4855-9f2b-7f80f05a3351"
+        }
+      }
+    },
+    "hanoi:45": {
+      "book_id": "B_360df0ab-cd01-4423-8dc3-a3d0658517bc",
+      "work_id": "W_6eb42543-3aec-4d6d-b87b-316d66042f23",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_ccfbad49-3675-47bf-b92f-8fef20321b17"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_5a16769a-359b-4224-8a16-3ba6b28296bc"
+        }
+      }
+    },
+    "hanoi:71": {
+      "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+      "work_id": "W_e5c7e40b-7427-408a-abbb-880763b4e8cc",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_8b998f0a-8d5b-4b18-89e1-5d7a5f6af71e"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_19f147af-177a-4b76-a0d4-43ac1d2b6c81"
+        }
+      }
+    },
+    "hanoi:73": {
+      "book_id": "B_fa6c7fa1-02da-4c8c-ba44-5baa67f34d6c",
+      "work_id": "W_d3fef089-7c65-42d8-bc61-3117dc07f47f",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_aaa559ba-22c0-4350-9798-1fcae5d1ab44"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_aeb2006b-567f-470c-8e90-8c14c99b11a7"
+        }
+      }
+    },
+    "hanoi:75": {
+      "book_id": "B_2bca1a81-33be-43e1-a93a-9dafbf0abb48",
+      "work_id": "W_42461138-8f07-4f5c-8a67-3bf4313bbefa",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_f50563a1-9355-46eb-b603-4208858f947c"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_ec2ecebe-1d6f-4c1a-8fae-8cdda8fa2f42"
+        }
+      }
+    },
+    "hanoi:79": {
+      "book_id": "B_dbf4208a-e8e1-4a22-8c76-a44a261ab89e",
+      "work_id": "W_e79174fe-783e-4f44-9147-009599172527",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_a80a1676-8770-46b2-b6be-4c6d1117d84e"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_3c2fb515-fc8c-418f-a208-18f059d1a623"
+        }
+      }
+    },
+    "hanoi:80": {
+      "book_id": "B_e0555cbf-b347-4cb0-bcb3-4da25ee7fe2f",
+      "work_id": "W_9eca08a1-320b-4bf6-93a9-ff1158e3e277",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_0289b61f-3742-4b83-b41d-46c4d560f98d"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_753ce613-3d74-477c-b039-de018941eb8b"
+        }
+      }
+    },
+    "hanoi:81": {
+      "book_id": "B_3191cdd4-5113-4c4a-bb52-ba1369e85cb5",
+      "work_id": "W_04efa74d-ab1e-4df2-937d-d76aa4ba8817",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_5f20f160-c4bc-4b9e-95b8-2542ac7a1929"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_943c60d8-82c7-46e6-bd91-38d4b0ec7582"
+        }
+      }
+    },
+    "hanoi:82": {
+      "book_id": "B_b7fa034a-7114-4730-8369-93b319f538b7",
+      "work_id": "W_72d4595a-b318-4ea5-9c83-ebb924d401aa",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_ed958369-9f21-4575-b3ff-4dd3562c9a6b"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_af93c68c-8b2c-48bf-9833-d4f71adbabb5"
+        }
+      }
+    },
+    "hanoi:83": {
+      "book_id": "B_2044ec79-ac9a-423a-955d-95d903638f53",
+      "work_id": "W_b21709b5-0778-4193-8b5c-e3caf21d9a10",
+      "sources": {
+        "metadata": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_d5f420ac-ca8d-46c5-add8-df43a9f39f31"
+        },
+        "summary": {
+          "https://thuvien.hanoi.gov.vn/Upload/2024/06/13/TMT5_2024Jun13_025848317.pdf": "R_9495745e-41b6-4169-abcd-d62ae2bfa326"
+        }
+      }
+    },
+    "ol:30": {
+      "book_id": "B_f6f5e63f-0390-4851-b013-04c2854a6fcb",
+      "work_id": "W_4f3fe252-a383-4949-a8c6-c5c89d11e975",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_f610b394-a631-40c5-915f-8487e2cd66f2"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_73350af9-98e5-48ec-8621-bda23a5f85c9"
+        }
+      }
+    },
+    "ol:33": {
+      "book_id": "B_2e384ecf-a5a7-4d5b-9914-e33f8c89818d",
+      "work_id": "W_e9b2a46a-8823-499c-bfb5-10ac46478991",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_181764c3-61c4-4336-be5b-0c0beb8ee0e0"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_cb246e77-d8a9-4437-b2e9-96bbb8a57c34"
+        }
+      }
+    },
+    "ol:36": {
+      "book_id": "B_f0f9faee-6b65-48d7-9428-19aea98544c3",
+      "work_id": "W_ca73aa4b-cf34-4f9f-969e-64fc661a8342",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_608789cb-6e1f-4565-9dc4-6268cc607642"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_b8105aa8-336c-4b87-8218-4c755a57274d"
+        }
+      }
+    },
+    "ol:51": {
+      "book_id": "B_32382b88-6314-44fb-9fd3-85c3478b2839",
+      "work_id": "W_3dc759a0-2e12-4844-b5f2-826a0e295668",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_9664d9b6-eea5-4d74-955f-210d0afd8b57"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_422a1d53-79ce-4ffa-8034-75229459c996"
+        }
+      }
+    },
+    "ol:53": {
+      "book_id": "B_368e8df4-3aee-4092-81ab-0c8d222447dd",
+      "work_id": "W_5a16afde-c024-4464-b9c6-e8de339d654a",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_6db10305-0bb3-4359-aa19-9fac4e93796d"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_71c05b07-6758-4aab-9a64-cde7e1a71676"
+        }
+      }
+    },
+    "ol:56": {
+      "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "work_id": "W_435a506b-7d1f-45a9-ae93-91e324e08bf0",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_d96fb63a-4380-4eed-b251-a3f776731bec"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_a2d32d1c-1e04-403b-9c6d-e7c2c399ae9a"
+        }
+      }
+    },
+    "ol:59": {
+      "book_id": "B_c645734e-e000-49e1-9972-f7e87ddd52f1",
+      "work_id": "W_dc6440b3-5d65-4df3-bd8e-1ac68b32b1b8",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_5e5b3f51-ea1b-4dc3-a172-b884ff018069"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_f671bec9-bfe4-46c1-8256-72f62a3c0205"
+        }
+      }
+    },
+    "ol:61": {
+      "book_id": "B_ee99a087-bcb8-48e4-9ac1-d6d411dec73b",
+      "work_id": "W_10e86c45-623d-4e05-aa49-51db103d346d",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_1a175e63-da42-497d-84a3-3a84d770ce11"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_6d675f0b-6d74-45cd-b9d7-d0ba45ce5c13"
+        }
+      }
+    },
+    "ol:64": {
+      "book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7",
+      "work_id": "W_02764953-94f9-40e1-ba9d-10a8ba6bc794",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_cd9f85f1-a259-492c-bb01-06b9afd167ec"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_a81d40db-552b-4013-8b97-53e3af0780ac"
+        }
+      }
+    },
+    "ol:70": {
+      "book_id": "B_235d5c08-2853-4251-b96a-6624f9cca0bb",
+      "work_id": "W_d0c923e0-e9df-496a-b7d4-81f2d4fb584c",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_6fa8e19b-9eba-4228-b035-fe4c100de547"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_1ed21a73-6539-46fa-9bc5-1871b5b25b03"
+        }
+      }
+    },
+    "ol:78": {
+      "book_id": "B_37165d46-9270-4848-9ff2-0e683d418e0d",
+      "work_id": "W_05508dc9-104f-4994-b7c4-ef642356c31e",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_6c18778d-7642-417d-90d9-2f7464a657a8"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_78d66185-5ab1-4c35-abf9-6c81686b270c"
+        }
+      }
+    },
+    "ol:81": {
+      "book_id": "B_efe108e8-1f14-4ee7-b414-76dc82de281b",
+      "work_id": "W_fdde6436-57ce-4061-a608-a02dd5454f45",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_4fd4e31a-b367-4d67-99a0-b6e8ab23d030"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_5e19c83e-bb80-4e06-b443-d44e2efa375c"
+        }
+      }
+    },
+    "ol:83": {
+      "book_id": "B_b3795bc8-a1c8-4900-941e-eefdb758bb66",
+      "work_id": "W_7e432ef1-4778-4872-a0e3-403e31f29c5d",
+      "sources": {
+        "metadata": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_f06e75c5-f221-4c74-ac73-5fcd707e3d82"
+        },
+        "summary": {
+          "https://openlibrary.org/search?q=language%3Avie": "R_0dc4148c-13e6-4056-bb27-e2c44253606b"
+        }
+      }
+    },
+    "tre:9041": {
+      "book_id": "B_040e8144-75a8-4464-9048-6033ad3ac1b7",
+      "work_id": "W_50aeb0ad-3336-4904-b85a-8ee70eb0394e",
+      "sources": {
+        "metadata": {
+          "https://www.nxbtre.com.vn/sach/cho-toi-xin-mot-ve-di-tuoi-tho-9041.html": "R_9659aae3-9d1b-4420-96dd-1a7b31f770ca"
+        },
+        "summary": {
+          "https://www.nxbtre.com.vn/sach/cho-toi-xin-mot-ve-di-tuoi-tho-9041.html": "R_f1b0cd45-7f29-47e3-9feb-95a9b35439fa"
+        }
+      }
+    }
+  }
+}
