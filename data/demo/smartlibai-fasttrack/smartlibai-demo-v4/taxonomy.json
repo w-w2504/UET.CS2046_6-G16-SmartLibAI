@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "genres": [
+    { "code": "van_hoc_viet_nam", "label": "Văn học Việt Nam" },
+    { "code": "van_hoc_nuoc_ngoai", "label": "Văn học nước ngoài" },
+    { "code": "tieu_thuyet", "label": "Tiểu thuyết" },
+    { "code": "truyen_ngan", "label": "Truyện ngắn" },
+    { "code": "triet_hoc", "label": "Triết học" },
+    { "code": "khoa_hoc_ky_thuat", "label": "Khoa học kỹ thuật" },
+    { "code": "lich_su", "label": "Lịch sử" },
+    { "code": "tam_ly_ky_nang", "label": "Tâm lý - Kỹ năng" }
+  ],
+  "topics": [
+    { "code": "tinh_yeu", "label": "Tình yêu" },
+    { "code": "gia_dinh", "label": "Gia đình" },
+    { "code": "chien_tranh", "label": "Chiến tranh" },
+    { "code": "xa_hoi", "label": "Xã hội" },
+    { "code": "tuoi_tre", "label": "Tuổi trẻ" },
+    { "code": "tri_tue_nhan_tao", "label": "Trí tuệ nhân tạo" },
+    { "code": "triet_ly_song", "label": "Triết lý sống" }
+  ]
+}
+

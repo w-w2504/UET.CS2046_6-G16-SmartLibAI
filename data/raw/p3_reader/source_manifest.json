@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "acquired_on": "2026-11-21",
+  "books": [
+    {
+      "book_id": "SLB_B0001",
+      "work_id": "SLB_W0001",
+      "title": "Cha con nghĩa nặng",
+      "author": "Hồ Biểu Chánh",
+      "source_id": "R_00812ff1-909c-427f-9829-5c1c87616935",
+      "source_url": "https://van-hoc.pages.dev/epub/ho-bieu-chanh-cha-con-nghia-nang.epub",
+      "source_version": "2026-11-06T12:42:08Z",
+      "source_sha256": "ad37e7fc13e19a5286bab4d003d610fd3c2a401c020143c62d47ed36c398cf49",
+      "source_page": "https://van-hoc.pages.dev/ho-bieu-chanh/cha-con-nghia-nang/",
+      "wikisource_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng",
+      "wikisource_toc_revision": 156330,
+      "chapter_count": 10,
+      "chapters": [
+        {
+          "order_no": 1,
+          "chapter_id": "H_0252acfd-151c-4af6-a646-2553e6d077fd",
+          "title": "Chương I: Gia đạo thôn phu",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_I",
+          "epub_member": "EPUB/text/ch002.xhtml",
+          "paragraph_count": 54,
+          "text_sha256": "3155f24c832cb4d3c67b9955b9678b03b363b1b30c101f111b9f77c33067503d"
+        },
+        {
+          "order_no": 2,
+          "chapter_id": "H_e60bd4bb-a7df-401b-a004-5167957acca5",
+          "title": "Chương II: Tức mà hỏi vợ",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_II",
+          "epub_member": "EPUB/text/ch003.xhtml",
+          "paragraph_count": 111,
+          "text_sha256": "a61d4da7ee71689714fae37c997bb3b10a766fb5d9593f3197703c38955c131c"
+        },
+        {
+          "order_no": 3,
+          "chapter_id": "H_f927e8a3-407c-4d03-8810-5b3b18be39b5",
+          "title": "Chương III: Rủi tay rồi ăn năn",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_III",
+          "epub_member": "EPUB/text/ch004.xhtml",
+          "paragraph_count": 46,
+          "text_sha256": "4c52482d08924c74ca54a18004e81acdd5caf5bf6c0ffcb183d41a43efe6bf78"
+        },
+        {
+          "order_no": 4,
+          "chapter_id": "H_a4bb5d30-5225-4e0b-94e5-59afab17d0a7",
+          "title": "Chương IV: Quan làng tra xét",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_IV",
+          "epub_member": "EPUB/text/ch005.xhtml",
+          "paragraph_count": 84,
+          "text_sha256": "1706592c2cc3e28cbcab4f98255ea37b00f30241ab13e3816b88c925047914ab"
+        },
+        {
+          "order_no": 5,
+          "chapter_id": "H_bf071921-4459-4d05-bd1b-1ee1e6ee101a",
+          "title": "Chương V: Anh em thương nhau",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_V",
+          "epub_member": "EPUB/text/ch006.xhtml",
+          "paragraph_count": 111,
+          "text_sha256": "289c4e257381fbf6d649b962f11dddd3f715946fa2b818d8eb3bcb8185153785"
+        },
+        {
+          "order_no": 6,
+          "chapter_id": "H_9669f347-3f5f-44ca-aefb-22a07acb84ed",
+          "title": "Chương VI: Anh em một nhà",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_VI",
+          "epub_member": "EPUB/text/ch007.xhtml",
+          "paragraph_count": 98,
+          "text_sha256": "0826392adf3ba34d87d1b0b872dd0921b2865858e5a1eeb48967f204312aeefd"
+        },
+        {
+          "order_no": 7,
+          "chapter_id": "H_36cb1e28-eb85-4a8c-b098-38b3692617ae",
+          "title": "Chương VII: Anh vô tình, em có nghĩa",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_VII",
+          "epub_member": "EPUB/text/ch008.xhtml",
+          "paragraph_count": 90,
+          "text_sha256": "4c4b9da573d394838fe8c7a9c8d591b6a9461d31716ab03c02f746199e98f36a"
+        },
+        {
+          "order_no": 8,
+          "chapter_id": "H_2562ae17-e58d-45ee-949b-a52ae3b6a84e",
+          "title": "Chương VIII: Mẹ tha lỗi, con đền ơn",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_VIII",
+          "epub_member": "EPUB/text/ch009.xhtml",
+          "paragraph_count": 91,
+          "text_sha256": "04696451cc6e78b690c56b83629bab9d14a1f76e5691d8d8d3dfb07b1f55fc0a"
+        },
+        {
+          "order_no": 9,
+          "chapter_id": "H_b6db621e-bd1e-40b8-a127-2c71036dd0ed",
+          "title": "Chương IX: Con thảo tríu cha lành",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_IX",
+          "epub_member": "EPUB/text/ch010.xhtml",
+          "paragraph_count": 97,
+          "text_sha256": "d27e00ef15dafe92bea74202b83b098e3129f67e080b3369660dc03a509b80c5"
+        },
+        {
+          "order_no": 10,
+          "chapter_id": "H_70e20062-f488-4405-a784-2e791e367a65",
+          "title": "Chương X: Rể hiền cứu cha vợ",
+          "source_url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng/Ch%C6%B0%C6%A1ng_X",
+          "epub_member": "EPUB/text/ch011.xhtml",
+          "paragraph_count": 98,
+          "text_sha256": "e159587f915a2df8c214ec69c91211848e6ab68bc6413dc219a8dc2f79157d94"
+        }
+      ],
+      "completeness_scope": "Đầy đủ thân văn theo mục lục bản Wikisource đối chiếu. Với Nửa chừng xuân, mục đầu chứa phần mở đầu trước Ân nhân. EPUB không chứa chú giải biên tập, bìa tái bản hoặc ảnh minh họa.",
+      "rights_status": "pending",
+      "evidence": {
+        "law": "https://congluatviet.vn/van-ban/van-ban-hop-nhat-hop-nhat-luat-so-huu-tri-tue-160-2026-vbhn-lq-vpqh?at=2026-09-29",
+        "provisions": [
+          "27.2.b",
+          "27.2.c",
+          "43"
+        ],
+        "author_death_year": 1958,
+        "vn_public_domain_from": "2009-01-01",
+        "attribution": "Hồ Biểu Chánh; Wikisource tiếng Việt; Tủ sách Văn Học Việt Nam. Giữ URL và lịch sử trang Wikisource, áp dụng CC BY-SA 4.0 cho phần biên tập thuộc giấy phép."
+      }
+    },
+    {
+      "book_id": "B_a00f6ca8-6bad-4214-b8fd-20871232352b",
+      "work_id": "W_8642cdc1-0f75-4caa-be6b-2afa0deaca96",
+      "title": "Nửa chừng xuân",
+      "author": "Khái Hưng",
+      "source_id": "R_2169b8cd-8f87-4cb7-8d70-983104e752a7",
+      "source_url": "https://van-hoc.pages.dev/epub/khai-hung-nua-chung-xuan.epub",
+      "source_version": "2026-11-06T12:42:13Z",
+      "source_sha256": "16b9bb3230a25fa9b802c29c7be8a6376e4e41cbf2e61bb4610d9e2102cbfec4",
+      "source_page": "https://van-hoc.pages.dev/khai-hung/nua-chung-xuan/",
+      "wikisource_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n",
+      "wikisource_toc_revision": 106616,
+      "chapter_count": 18,
+      "chapters": [
+        {
+          "order_no": 1,
+          "chapter_id": "H_dee4bcce-bb6e-4eb7-aa63-88cdf99eff82",
+          "title": "Phần thứ nhất",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Ph%E1%BA%A7n_th%E1%BB%A9_nh%E1%BA%A5t",
+          "epub_member": "EPUB/text/ch002.xhtml",
+          "paragraph_count": 233,
+          "text_sha256": "04800480c76da7762eb2b58dfd6986b5bcf3792ec5ae32204e89c49ab39bc450"
+        },
+        {
+          "order_no": 2,
+          "chapter_id": "H_81b4a37c-070f-4e1d-a05f-763a4f1fac96",
+          "title": "Ân nhân",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/%C3%82n_nh%C3%A2n",
+          "epub_member": "EPUB/text/ch003.xhtml",
+          "paragraph_count": 224,
+          "text_sha256": "0c5c47f933694cf71e1d2630ebcad576813624d28968f56545a41eaf891d6986"
+        },
+        {
+          "order_no": 3,
+          "chapter_id": "H_d3d978b1-9eb0-4b06-b21a-8c5cbc67d6cd",
+          "title": "Bàn việc nhà",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/B%C3%A0n_vi%E1%BB%87c_nh%C3%A0",
+          "epub_member": "EPUB/text/ch004.xhtml",
+          "paragraph_count": 95,
+          "text_sha256": "6690376fd20f546c7ec4952e104633f9cf928ef07878e633199ae52bdcfdb1f1"
+        },
+        {
+          "order_no": 4,
+          "chapter_id": "H_81262144-b590-40df-bd6b-43d0bb65858c",
+          "title": "Bước đầu",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/B%C6%B0%E1%BB%9Bc_%C4%91%E1%BA%A7u",
+          "epub_member": "EPUB/text/ch005.xhtml",
+          "paragraph_count": 322,
+          "text_sha256": "6154eab806e6ca2540de780807c6b289ef8ae086ead0f03209be0a8548c75b89"
+        },
+        {
+          "order_no": 5,
+          "chapter_id": "H_936cbc60-65b9-4178-9b99-dfb9d8ddd06d",
+          "title": "Tiểu gia đình",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Ti%E1%BB%83u_gia_%C4%91%C3%ACnh",
+          "epub_member": "EPUB/text/ch006.xhtml",
+          "paragraph_count": 78,
+          "text_sha256": "e737a81f5454a65192cf51cd2d4db4a53b7720d145bdbc0e5ffcb235e9ff2a04"
+        },
+        {
+          "order_no": 6,
+          "chapter_id": "H_db4a2951-c734-4d39-a7d9-1a84c2f721b1",
+          "title": "Thú thực",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Th%C3%BA_th%E1%BB%B1c",
+          "epub_member": "EPUB/text/ch007.xhtml",
+          "paragraph_count": 223,
+          "text_sha256": "324c80beb754e8f860bb5513e290c48d685c00e62b57eab775a942615bbc6cf4"
+        },
+        {
+          "order_no": 7,
+          "chapter_id": "H_87db180b-5ca3-4326-922a-0cc2d6e43abe",
+          "title": "Mẹ con",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/M%E1%BA%B9_con",
+          "epub_member": "EPUB/text/ch008.xhtml",
+          "paragraph_count": 280,
+          "text_sha256": "47f60e364cfbdbd16c574a641d8a2e58506d01fa6e629aac979ebcf7f3143682"
+        },
+        {
+          "order_no": 8,
+          "chapter_id": "H_00eb6a7a-6ad4-4c9b-bd76-b93368035290",
+          "title": "Hội kiến",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/H%E1%BB%99i_ki%E1%BA%BFn",
+          "epub_member": "EPUB/text/ch009.xhtml",
+          "paragraph_count": 220,
+          "text_sha256": "f1de80c7d1c4759d012c09f089e0850ad9e2e3bc95f9aea24a1e90f25abf5607"
+        },
+        {
+          "order_no": 9,
+          "chapter_id": "H_08b1ca77-d321-4b83-ba6b-5832745e9b3e",
+          "title": "Cô hàng quà",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/C%C3%B4_h%C3%A0ng_qu%C3%A0",
+          "epub_member": "EPUB/text/ch010.xhtml",
+          "paragraph_count": 216,
+          "text_sha256": "a4b801644e4dfdcfa464cc3e3fe21a2b226f070b7dd9211b21b1308a1ef81ad4"
+        },
+        {
+          "order_no": 10,
+          "chapter_id": "H_c46d957a-8d90-48ab-8948-63a33dc44289",
+          "title": "Ông thầy thuốc",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/%C3%94ng_th%E1%BA%A7y_thu%E1%BB%91c",
+          "epub_member": "EPUB/text/ch011.xhtml",
+          "paragraph_count": 119,
+          "text_sha256": "d782937d760f39d6d75f57960e5d369acc1cd9efa4e1c04efac801934c3a6bc6"
+        },
+        {
+          "order_no": 11,
+          "chapter_id": "H_f932b384-b568-4f57-a464-0e39e439d724",
+          "title": "Thủ tiết",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Th%E1%BB%A7_ti%E1%BA%BFt",
+          "epub_member": "EPUB/text/ch012.xhtml",
+          "paragraph_count": 106,
+          "text_sha256": "9f2f104960e5cb8b0d9d96d2970813ecbc28c6acf50d88d4715290fdfe5eaeb8"
+        },
+        {
+          "order_no": 12,
+          "chapter_id": "H_259c0b07-cc38-4c4b-bc33-481d974990c0",
+          "title": "Họa sĩ",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/H%E1%BB%8Da_s%C4%A9",
+          "epub_member": "EPUB/text/ch013.xhtml",
+          "paragraph_count": 149,
+          "text_sha256": "7bc893c34f71f8c8cd54466cf458fab06da9670e613fe1343a9b61b2c267c5f8"
+        },
+        {
+          "order_no": 13,
+          "chapter_id": "H_46495b38-69f9-43d1-aba3-5128400d1cfe",
+          "title": "Người xưa",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Ng%C6%B0%E1%BB%9Di_x%C6%B0a",
+          "epub_member": "EPUB/text/ch014.xhtml",
+          "paragraph_count": 92,
+          "text_sha256": "0821b257e8c53b8d865bdf3dd7c24c3dd6ee584b0fe6414e77d1615ad775c7b0"
+        },
+        {
+          "order_no": 14,
+          "chapter_id": "H_ea39fb9a-8852-4148-8ae1-b1b57d79e5a9",
+          "title": "Một bức tranh",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/M%E1%BB%99t_b%E1%BB%A9c_tranh",
+          "epub_member": "EPUB/text/ch015.xhtml",
+          "paragraph_count": 211,
+          "text_sha256": "8ab1a06ef4468b4f6a281bbd0589e48d498586ac69d9f46f14938d96ca224ab4"
+        },
+        {
+          "order_no": 15,
+          "chapter_id": "H_359b8484-c023-4a47-bba2-c503ec24d124",
+          "title": "Hai quan niệm",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Hai_quan_ni%E1%BB%87m",
+          "epub_member": "EPUB/text/ch016.xhtml",
+          "paragraph_count": 108,
+          "text_sha256": "7a86f6230b1426bfc3ed5e25c94cd55d455c36a16fe9a2b53aaf9a3a800454da"
+        },
+        {
+          "order_no": 16,
+          "chapter_id": "H_15a08734-60f5-4153-92de-a4bf97f27a6b",
+          "title": "Cháu Ái",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Ch%C3%A1u_%C3%81i",
+          "epub_member": "EPUB/text/ch017.xhtml",
+          "paragraph_count": 268,
+          "text_sha256": "5fe8769768eae32b3f00c063b7b693921b4e734d832126c8e3401b1f11b901b5"
+        },
+        {
+          "order_no": 17,
+          "chapter_id": "H_ba863914-ecc7-410d-8f85-fd3685d9a6f4",
+          "title": "Trên đồi",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/Tr%C3%AAn_%C4%91%E1%BB%93i",
+          "epub_member": "EPUB/text/ch018.xhtml",
+          "paragraph_count": 224,
+          "text_sha256": "7020a833d571f4099a7b65ea1faf800c4fd25ae108057e7f944f84c3fa5d742c"
+        },
+        {
+          "order_no": 18,
+          "chapter_id": "H_7b961897-1c68-4feb-8668-b3f4cc7f3b5a",
+          "title": "Bên lò sưởi",
+          "source_url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n/B%C3%AAn_l%C3%B2_s%C6%B0%E1%BB%9Fi",
+          "epub_member": "EPUB/text/ch019.xhtml",
+          "paragraph_count": 253,
+          "text_sha256": "f539778d628d9a1aef59c0cf2ddf4bd4c1caa838610a9d015f7d2505963e1537"
+        }
+      ],
+      "completeness_scope": "Đầy đủ thân văn theo mục lục bản Wikisource đối chiếu. Với Nửa chừng xuân, mục đầu chứa phần mở đầu trước Ân nhân. EPUB không chứa chú giải biên tập, bìa tái bản hoặc ảnh minh họa.",
+      "rights_status": "pending",
+      "evidence": {
+        "law": "https://congluatviet.vn/van-ban/van-ban-hop-nhat-hop-nhat-luat-so-huu-tri-tue-160-2026-vbhn-lq-vpqh?at=2026-09-29",
+        "provisions": [
+          "27.2.b",
+          "27.2.c",
+          "43"
+        ],
+        "author_death_year": 1947,
+        "vn_public_domain_from": "1998-01-01",
+        "attribution": "Khái Hưng; Wikisource tiếng Việt; Tủ sách Văn Học Việt Nam. Giữ URL và lịch sử trang Wikisource, áp dụng CC BY-SA 4.0 cho phần biên tập thuộc giấy phép."
+      }
+    }
+  ],
+  "batch_sha256": {
+    "catalog.jsonl": "4436facf6ddb28b37d591ae9ab6ce49c35b9a5b15a7d71859e3e4d0e0fee5143",
+    "chapters.jsonl": "53e15051e29728073368dc401bf288a913f3b33d60ca76f6ae65d4a4f8e84970",
+    "id_registry.json": "2f70d750c2c597e6f0bac6403047f4562c63ab15544653715ce7285530d5e476",
+    "taxonomy.json": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789"
+  }
+}
