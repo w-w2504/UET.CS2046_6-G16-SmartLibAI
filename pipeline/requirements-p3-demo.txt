@@ -1,0 +1,7 @@
+# Focused classroom handoff environment; PyICU is optional for these checks.
+-r requirements-embedding.txt
+faiss-cpu>=1.8.0
+fastapi>=0.115.0
+uvicorn>=0.32.0
+pydantic-settings>=2.6.0
+httpx>=0.27.0

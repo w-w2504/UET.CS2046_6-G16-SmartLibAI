@@ -1,0 +1,197 @@
+{
+  "snapshot": {
+    "snapshot_id": "smartlibai-demo-v4",
+    "books": 289,
+    "top5_reference_matches": 289,
+    "sqlite_imported": 289,
+    "sqlite_quarantined": 0
+  },
+  "catalog_import": {
+    "batch_id": "expanded-catalog",
+    "received": {
+      "books": 294,
+      "chapters": 0
+    },
+    "valid": {
+      "books": 294,
+      "chapters": 0
+    },
+    "quarantined": {
+      "books": 0,
+      "chapters": 0
+    },
+    "errors": []
+  },
+  "new_e5_vectors": 12,
+  "v3_vectors_bit_exact": 277,
+  "v3_records_byte_exact": 277,
+  "qc": {
+    "pass": 12,
+    "blocked": 5
+  },
+  "model_id": "intfloat/multilingual-e5-small",
+  "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+  "max_passage_tokens": 104,
+  "token_limit": 480,
+  "api": {
+    "new_details_200": 12,
+    "blocked_details_404": 5,
+    "catalog_200": true,
+    "facets_200": true,
+    "queries": [
+      {
+        "book_id": "B_ddd93cdd-5e8d-4a9c-97a6-754739fc9ebf",
+        "kind": "title",
+        "query": "Thế giới ngày nay và tương lai nhân loại",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+        "kind": "title",
+        "query": "Gió trăng ngàn",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_446b0259-9de5-403b-835d-7a479b3a0e71",
+        "kind": "title",
+        "query": "Con đường sáng",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_c6974e69-49b2-493a-93ea-21058983417a",
+        "kind": "title",
+        "query": "Tài liệu tham khảo các phương pháp lập trình hiện đại",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_c6974e69-49b2-493a-93ea-21058983417a",
+        "kind": "theme",
+        "query": "Tài liệu về lập trình hướng đối tượng, lập trình hàm và ví dụ Prolog",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+        "kind": "title",
+        "query": "Toán cho công nghệ thông tin: sách chuyên khảo",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+        "kind": "theme",
+        "query": "Sách về tập thô, logic trung tính, siêu đồ thị và quyết định đa tiêu chí",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_276c5876-6e56-441c-b092-bac558e94638",
+        "kind": "title",
+        "query": "Đại cương lịch sử văn hóa Việt Nam. Tập 2: Phật giáo và Đạo giáo trong văn hóa Việt Nam",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_e84c2c42-fb20-479a-83f6-19d2c841cc6f",
+        "kind": "title",
+        "query": "Đàn đá tiền sử Lộc Ninh",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_e84c2c42-fb20-479a-83f6-19d2c841cc6f",
+        "kind": "theme",
+        "query": "Khảo cổ đàn đá Lộc Hòa, các thanh đàn và đo âm tần ở Lộc Ninh",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_bad93c10-a2e9-4498-b960-fe9c4707693a",
+        "kind": "title",
+        "query": "Đạo làm người từ Lý Thường Kiệt đến Hồ Chí Minh",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_17788bb6-b25c-4733-9a95-cc7927614e94",
+        "kind": "title",
+        "query": "Nghề luyện kim cổ ở miền Đông Nam Bộ Việt Nam",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_3eb6e624-74f3-48eb-b2db-51dcb124944a",
+        "kind": "title",
+        "query": "Sự phát triển giáo dục và chế độ thi cử ở Việt Nam thời phong kiến",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_6a61003e-47dd-4f27-a27a-983716fdbedd",
+        "kind": "title",
+        "query": "Bản CV hoàn hảo",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_6a61003e-47dd-4f27-a27a-983716fdbedd",
+        "kind": "theme",
+        "query": "Cách đọc tin tuyển dụng và chọn kinh nghiệm để viết CV phù hợp",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_359c9ec1-609a-43cd-be78-91daf4a022d7",
+        "kind": "title",
+        "query": "Gia đình Việt Nam: Những giá trị truyền thống và các vấn đề tâm – bệnh lý xã hội",
+        "rank": 1,
+        "result_status": "ok"
+      },
+      {
+        "book_id": "B_359c9ec1-609a-43cd-be78-91daf4a022d7",
+        "kind": "theme",
+        "query": "Nghiên cứu gia đình Việt Nam qua hương ước, thờ cúng tổ tiên và khủng hoảng gia đình",
+        "rank": 1,
+        "result_status": "ok"
+      }
+    ]
+  },
+  "reader": {
+    "chapter_importer": {
+      "batch_id": "reader-batch",
+      "received": {
+        "books": 2,
+        "chapters": 28
+      },
+      "valid": {
+        "books": 2,
+        "chapters": 28
+      },
+      "quarantined": {
+        "books": 0,
+        "chapters": 0
+      },
+      "errors": []
+    },
+    "metadata_only_import": {
+      "loaded_books": 2,
+      "loaded_chapters": 0,
+      "approved_fulltext": 0,
+      "sqlite_integrity": "ok",
+      "foreign_key_violations": 0
+    },
+    "temporary_C25_contract_test": {
+      "chapter_lists_200": 2,
+      "chapter_details_200": 28,
+      "paragraph_offsets": 4301
+    },
+    "rights_unchanged": true,
+    "temporary_SQLite_integrity": "ok",
+    "temporary_SQLite_foreign_key_violations": 0
+  },
+  "protected_files_sha256_unchanged": 71
+}

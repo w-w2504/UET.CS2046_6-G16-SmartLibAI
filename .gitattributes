@@ -1,0 +1,6 @@
+# Immutable, SHA-256-bound demo inputs/artifacts must survive core.autocrlf=true.
+data/raw/sample_batch/catalog.jsonl -text
+data/raw/p3_v4/** -text
+data/raw/p3_reader/** -text
+data/demo/smartlibai-fasttrack/smartlibai-demo-v4/** -text
+data/demo/smartlibai-demo-v1/snapshot/smartlibai-demo-v1/** -text
