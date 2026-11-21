@@ -1,12 +1,12 @@
 # P4 — Nghiệm thu tuần 2
 
-Cập nhật 21/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.4,10.4,12.3–12.4,13.4–13.6,14.2/14.6 và16.2. SHA-256 SPEC: `20cad4f96ad02f7eb253c054d4b9efd341ccabd743b7c7c0dc43d7d463c72aea`. Phân công Sheet đọc17/11. Nền tích hợp: develop `6b1e7c9`; merge vào feature/faiss-reader tại `2989158`, giữ lịch sử theo phương án người dùng duyệt. OpenSpec giữ local.
+Cập nhật 22/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.4,10.4,12.3–12.4,13.4–13.6,14.2/14.6 và16.2. SHA-256 SPEC: `20cad4f96ad02f7eb253c054d4b9efd341ccabd743b7c7c0dc43d7d463c72aea`. Phân công Sheet đọc17/11. Nền tích hợp: develop `6b1e7c9`; merge vào feature/faiss-reader tại `2989158`, giữ lịch sử theo phương án người dùng duyệt. OpenSpec giữ local.
 
 | Task | Kết quả kỹ thuật đã kiểm chứng | Phần chưa nghiệm thu |
 | --- | --- | --- |
 | C21 | **Đạt task C21 với95 sách demo**: adapter/CLI,95 E5 thật/FAISS/snapshot Search demo,95/95 round-trip/self-query, HTTP localhost/lõi C13 và phân phối ZIP đã kiểm đạt | Phạm vi localhost người dùng duyệt,150 nguồn pending giữ nguyên; phát hành công khai và xác nhận bên nhận tích hợp là bước riêng, không chặn trạng thái C21 |
 | C25 | **Đạt API C25**: list/detail/facets/mục lục/chương đọc SQLite, giữ schema C03, snapshot và ErrorResponse; health kiểm readiness ngoài event loop trong ngân sách2s. Docker/Linux:66 test đạt, gồm5 test ICU thật | Dữ liệu kiểm thử tự viết; chưa thay nghiệm thu snapshot phát hành/toàn văn thật của C29 |
-| C29 | Đã có Sống chết mặc bay,1chương/39đoạn;10kiểm thật Edge→API→SQLite và66test hồi quy đạt; builder chặn5nhánh lỗi, CLI rebuild giữ ID/offset; ZIP đã kiểm giải nén/nạp lại | Chờ xác nhận gửi ZIP Coreach/chốt Done; chưa thay corpus20toànvăn/RAG hoặc nghiệm thu toàn hệ thống |
+| C29 | **Đạt đọc sách thật**: Sống chết mặc bay,1chương/39đoạn;10kiểm thực Edge→API→SQLite,66test hồi quy; builder5nhánh lỗi và build độc lập đạt; ZIP đã gửi/tải lại hash khớp, Coreach Done | Snapshot phát triển1work, chưa thay corpus20toànvăn/RAG; chưa xác nhận bên nhận tích hợp |
 | C35 | **Đạt FAISS bản2 cho150 sách demo**: E5 thật, hai CLI build/round-trip150,3query Việt khớp NumPy, lỗi đầu vào/ghi đè bị chặn;64test đạt; ZIP đã gửi Coreach và tải lại khớp hash; task Done | 75sách C24 giữ pending; chưa xác nhận P1/P2 tích hợp. Public/fulltext, chất lượng AI và activation/rollback toàn hệ thống là phạm vi riêng |
 
 ## Kiểm chứng ngày18/11
@@ -74,4 +74,14 @@ Ngày21/11, người dùng giao2agent và cho phép nguồn đủ điều kiện
 - Dùng taxonomy đúng tệp producer đã hash; bản JSON trong batch tương đương nội dung nhưng khác byte xuống dòng nên bị validator chặn như thiết kế. Không thay hash hoặc bỏ kiểm tra. Snapshot Search demo có150sách,0quarantined,150/150 top5 tham chiếu.
 - SPEC16.2/bàn giao C35: ZIP23tệp,998.756byte, SHA256 `7cbaf8f0ccc48c6956871027f861352ac062fc2f6f32edc8cb0f8f1cbb34cdf7`; giải nén kiểm toànhash/nạp lại150vector đạt. Đã đính kèm report C35/PR17 trên Coreach và tải lại khớp hash. Task Done; giữ deadline18/11/2026 23:59, lead/contributors/mô tả. Chỉ một report C35 cho PR17, liên kết PR ở phần gắn link. P1/P2 dùng sản phẩm sẵn, chưa xác nhận tích hợp.
 
-Trạng thái lúc chốt C35: C29 còn thiếu toàn văn. Lượt bổ sung hiện tại đã nhập Sống chết mặc bay với1chương/39đoạn/5.843ký tự;10kiểm thật API/Reader và66test hồi quy đạt, quyền/nguồn/hash/ID/offset đã kiểm. Batch/builder đã push PR17; ZIP15tệp/68.877byte, SHA256 `f97135baf66443ea1b027e8f189987c84b42d6af7253cdaf02b8a0af1e625aee`, giải nén/nạp lại đạt. C29 còn chờ xác nhận gửi gói lên Coreach/chốt Done; không còn thiếu đầu vào sách thật. Bộ Search150 giữ nguyên giới hạn demo/nội bộ/150nguồn pending, không trộn snapshot Reader1 vào bộ đó.
+Trạng thái tại lúc chốt C35: C29 còn chờ toàn văn. Lượt bổ sung C29 dưới đây thay thế giới hạn đó; gói Search150 vẫn giữ nguyên phạm vi demo/nội bộ và150nguồn pending.
+
+## Chốt C29 và phần P4 tuần2 ngày22/11
+
+- SPEC3.1/9.2–9.4/7.2: nhập nguyên tác Sống chết mặc bay từ Wikisource revision203701 có nhãn public domain, đối chiếu trang tác gia revision203702. Lưu raw/ghi công/hash và quyền metadata/summary/fulltext riêng.1work/1chương/39đoạn,5.843ký tự, toàntext khớp phần truyện nguồn sau loại giao diện/chỉ số chú thích; ID/offset ổn định trong registry. Catalog294 và batch150 không đổi.
+- SPEC10.4/12.4/14.6: producer Reader snapshot riêng dùng ICU79.1/CLDR49.0 thật, SQLite hợp lệ và validator API; không FAISS/QA, không sửa active bộ khác. Kiểm từ chối ghi đè, fulltext pending, thiếu paragraphID/review và trường lạ; lỗi không công bố. CLI rebuild độc lập giữ dữ liệu/ID/offset. Bản đầu gặp kết nối SQLite chưa đóng trên Windows đã sửa và kiểm lại thành công.
+- SPEC7.2/12.4/13.4–13.6: **10/10** kiểm thật qua Edge→Vite proxy→FastAPI→SQLite, không route-mock/reader_fixture. Filterfulltext đúng1sách, nguồn approved, TOC/chapter giữ snapshot, toàn39đoạn/offset đúng, missing snapshot404, desktop/mobile390, reload/Back, không tràn ngang/lỗiJS/requestQA. Chương trước/sau khóa cho truyện1chương; các nhánh chuyển nhiều chương/retry/lỗi đã có fixture trước đó, không gán là dữ liệu tác phẩm thật.
+- `pytest api/tests/test_catalog_reader.py api/tests/test_catalog_icu.py api/tests/test_health.py -q -p no:cacheprovider --basetemp <temp-D-moi> --tb=short -x`: **66passed**,9,53s,1cảnh báo Starlette/httpx. Đây là hồi quy fixture riêng, không thay lượt browser thật.
+- SPEC16.2/bàn giao C29: ZIP15tệp/68.877byte, SHA256 `f97135baf66443ea1b027e8f189987c84b42d6af7253cdaf02b8a0af1e625aee`; giải nén kiểm toànhash và nạp lại39đoạn. Đã gửi qua report C29/PR17 trên Coreach, tải lại hash khớp, task Done; giữ deadline/lead/contributors/mô tả, một report cho PR17. Có hướng dẫn API/web và snapshot/control riêng; không model/khóa. Chưa xác nhận bên nhận tích hợp.
+
+**C21/C25/C29/C35 hoàn thành phần P4 tuần2.** Đây là nghiệm thu task theo phạm vi từng phần, chưa phải nghiệm thu corpus200–300sách/20toànvăn, RAG/chất lượng AI hoặc triển khai toàn hệ thống. Bộ Search150 và Reader1 là hai gói riêng; không trộn snapshot/phạm vi quyền.
