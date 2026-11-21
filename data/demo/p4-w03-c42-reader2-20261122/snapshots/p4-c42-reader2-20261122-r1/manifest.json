@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "p4-c42-reader2-20261122-r1",
+  "created_at": "2026-11-21T18:06:27Z",
+  "dataset_hash": "961481d94ed302762e0c3f3bfd39a9c31f282fb569152413ca8c5093ca5d7602",
+  "counts": {
+    "book_count": 2,
+    "work_count": 2,
+    "fulltext_work_count": 2,
+    "vector_count": {
+      "books": 0
+    }
+  },
+  "embedding": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+    "tokenizer": "intfloat/multilingual-e5-small",
+    "dimension": 384,
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "pooling": "mean_attention_mask",
+    "normalization": "L2"
+  },
+  "chunking": {
+    "version": "not-built-reader-only",
+    "limits": {}
+  },
+  "collation": {
+    "locale": "vi_VN",
+    "strength": "SECONDARY",
+    "icu_version": "79.1",
+    "cldr_version": "49.0"
+  },
+  "thresholds": {
+    "search": null,
+    "rag": null
+  },
+  "files": [
+    {
+      "path": "catalog.sqlite",
+      "sha256": "b7a9d17acf569dc49b9378037b54887c3b2356933fc36bdc2bd3544bf224b197",
+      "size_bytes": 3043328
+    }
+  ],
+  "qa_config": {
+    "provider": "gemini_developer",
+    "model": "gemini-3.5-flash-lite",
+    "prompt_hash": "72dea3808ca7de2b28b8bfacd319dd17fc7768d21015f5dedf993fd5237ace13",
+    "context_budget": 8192,
+    "output_reserve": 2048,
+    "thinking_level": "minimal"
+  },
+  "code_commit": "7b8ff16218f4d9e2b1e0941e789d5e4a03fe02fe",
+  "lock_hashes": {},
+  "data_kind": "real_public_domain_reader_development",
+  "capabilities": {
+    "catalog": true,
+    "reader": true,
+    "search": false,
+    "rag": false
+  },
+  "source_batch": {
+    "catalog.jsonl": "f0fa264dfe2f17f400bb77271cf61dc9b8cbb06d26a6caa6e9a8ad7d588a9f2d",
+    "chapters.jsonl": "53e15051e29728073368dc401bf288a913f3b33d60ca76f6ae65d4a4f8e84970",
+    "taxonomy.json": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+    "id_registry.json": "6f283d009c31323123b6b2a5266d8f40ebd8f215c56e2a0a499d561ea80f84c9",
+    "review.json": "304ca1fbbba9f6916231f14a44b71e2d72e6b4cdd5b69120bd9775277daa88bb"
+  },
+  "acceptance_scope": "C29 Reader integration with one real work; not full-system release"
+}

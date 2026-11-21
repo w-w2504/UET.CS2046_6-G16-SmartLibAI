@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "component": "reader",
+  "scope": "reader_localhost_Vietnam_only",
+  "snapshot_id": "p4-c42-reader2-20261122-r1",
+  "source_code_commit": "7b8ff16218f4d9e2b1e0941e789d5e4a03fe02fe",
+  "source_P3_commit": "a0666cc7fc531a70498aef1943b0cc67f0207455",
+  "files": [
+    {
+      "path": "data/demo/p4-w03-c42-reader2-20261122/README.md",
+      "bytes": 2089,
+      "sha256": "4f4d7b0cd1f069edbd8f454b64e73e1ba86b176ebc9fc5da65544ff40375519b"
+    },
+    {
+      "path": "data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122-r1/catalog.sqlite",
+      "bytes": 3043328,
+      "sha256": "b7a9d17acf569dc49b9378037b54887c3b2356933fc36bdc2bd3544bf224b197"
+    },
+    {
+      "path": "data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122-r1/manifest.json",
+      "bytes": 2271,
+      "sha256": "137530dcfc1227068aeb7f627884709448660723d343ad259e79c6ea40ae28de"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/catalog.jsonl",
+      "bytes": 8615,
+      "sha256": "f0fa264dfe2f17f400bb77271cf61dc9b8cbb06d26a6caa6e9a8ad7d588a9f2d"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/chapters.jsonl",
+      "bytes": 613010,
+      "sha256": "53e15051e29728073368dc401bf288a913f3b33d60ca76f6ae65d4a4f8e84970"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/id_registry.json",
+      "bytes": 515902,
+      "sha256": "6f283d009c31323123b6b2a5266d8f40ebd8f215c56e2a0a499d561ea80f84c9"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/NOTICE.md",
+      "bytes": 4841,
+      "sha256": "366b16410924b2094398435cf155a2cfbe9e1c5c3a851f5a54438d205ebae523"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/raw/ho-bieu-chanh-cha-con-nghia-nang.epub",
+      "bytes": 82113,
+      "sha256": "ad37e7fc13e19a5286bab4d003d610fd3c2a401c020143c62d47ed36c398cf49"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/raw/khai-hung-nua-chung-xuan.epub",
+      "bytes": 163507,
+      "sha256": "16b9bb3230a25fa9b802c29c7be8a6376e4e41cbf2e61bb4610d9e2102cbfec4"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/README.md",
+      "bytes": 1484,
+      "sha256": "3e209f337b0355915338b2e136db15b8822b7212acf3d518323b42072ac3c690"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/review.json",
+      "bytes": 2949,
+      "sha256": "304ca1fbbba9f6916231f14a44b71e2d72e6b4cdd5b69120bd9775277daa88bb"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/source_manifest.json",
+      "bytes": 16223,
+      "sha256": "4b568583c9ca5554d67c57a4ec4013346bd8bec15bf5939510274ed3b279e357"
+    },
+    {
+      "path": "data/raw/p4_w03_reader2/taxonomy.json",
+      "bytes": 969,
+      "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789"
+    }
+  ],
+  "model_files_included": false,
+  "secrets_included": false
+}
