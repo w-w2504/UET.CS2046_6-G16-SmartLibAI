@@ -1,13 +1,13 @@
 # P4 — Nghiệm thu tuần 2
 
-Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.4,10.4,12.3–12.4,13.4–13.6,14.2/14.6 và16.2. SHA-256 SPEC: `20cad4f96ad02f7eb253c054d4b9efd341ccabd743b7c7c0dc43d7d463c72aea`. Phân công Sheet đọc17/11. Nền tích hợp: develop `6b1e7c9`; merge vào feature/faiss-reader tại `2989158`, giữ lịch sử theo phương án người dùng duyệt. OpenSpec giữ local.
+Cập nhật 21/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.4,10.4,12.3–12.4,13.4–13.6,14.2/14.6 và16.2. SHA-256 SPEC: `20cad4f96ad02f7eb253c054d4b9efd341ccabd743b7c7c0dc43d7d463c72aea`. Phân công Sheet đọc17/11. Nền tích hợp: develop `6b1e7c9`; merge vào feature/faiss-reader tại `2989158`, giữ lịch sử theo phương án người dùng duyệt. OpenSpec giữ local.
 
 | Task | Kết quả kỹ thuật đã kiểm chứng | Phần chưa nghiệm thu |
 | --- | --- | --- |
 | C21 | **Đạt task C21 với95 sách demo**: adapter/CLI,95 E5 thật/FAISS/snapshot Search demo,95/95 round-trip/self-query, HTTP localhost/lõi C13 và phân phối ZIP đã kiểm đạt | Phạm vi localhost người dùng duyệt,150 nguồn pending giữ nguyên; phát hành công khai và xác nhận bên nhận tích hợp là bước riêng, không chặn trạng thái C21 |
 | C25 | **Đạt API C25**: list/detail/facets/mục lục/chương đọc SQLite, giữ schema C03, snapshot và ErrorResponse; health kiểm readiness ngoài event loop trong ngân sách2s. Docker/Linux:66 test đạt, gồm5 test ICU thật | Dữ liệu kiểm thử tự viết; chưa thay nghiệm thu snapshot phát hành/toàn văn thật của C29 |
 | C29 | 6/6 tình huống browser qua Vite→FastAPI→SQLite fixture đạt; không route mock hoặc reader_fixture | Chưa có sách thật và nguồn được duyệt; chưa nghiệm thu QA/citation |
-| C35 | Rebuild đã có; thêm55 sách được2agent kiểm chứng, chuẩn bị catalog150/150work, schema/registry/token đạt;55metadata+55summary được approved nội bộ có căn cứ | Chưa sinh bundle/build FAISS150;75sách C24 cũ vẫn pending, không thay nghiệm thu public/fulltext hoặc activation |
+| C35 | **Đạt FAISS bản2 cho150 sách demo**: E5 thật, hai CLI build/round-trip150,3query Việt khớp NumPy, lỗi đầu vào/ghi đè bị chặn;64test đạt; ZIP đã gửi Coreach và tải lại khớp hash; task Done | 75sách C24 giữ pending; chưa xác nhận P1/P2 tích hợp. Public/fulltext, chất lượng AI và activation/rollback toàn hệ thống là phạm vi riêng |
 
 ## Kiểm chứng ngày18/11
 
@@ -65,3 +65,13 @@ Ngày21/11, người dùng giao2agent và cho phép nguồn đủ điều kiện
 - Lô55:55metadata+55summary approved demo/nội bộ; importer55valid/0quarantined,55unique work, registry/sourceID đúng; loaderC11strict đọcđược55. Lô150:20mẫu+75cũ+55mới,150valid/150unique work,150approved/150pendingsource. Dữ liệu294 và75curation cũ không đổi; artifact95 cũ giữ bất biến.
 - Tokenizer E5 đúngrevision/cached offline, khôngencode: max55=126token vàmax150=155token cho5dòng+prefix+specialtokens,0over480. `pytest pipeline/tests/test_content_review.py pipeline/tests/test_classroom_demo.py pipeline/tests/test_catalog_sqlite.py -q -p no:cacheprovider --basetemp <temp-D-moi> --tb=short -x`: **14passed**,1,54s.
 - Kiểmfulltext trên các nhánh fetch,localdata,ZIPC14/C21 và Coreach đãxem: không cóchapters/fulltext_approved; nguồnwebđọcđược chưa là dữliệu toànvăn đãnhập/duyệt. C29 còn đầu vào thật. C35đã cócatalog150chuẩnbị, chưa sinhbundle/buildFAISS150 trong lượtbiêntập này.
+
+## Nghiệm thu C35 với150 vector thật ngày21/11
+
+- SPEC10.4/9.3: chạy producer P3 `book_embeddings --classroom-demo` offline trên catalog150, model/revision cố định,150×384 float32/L2. Hai lần chạy CLI `c11_bundle --classroom-demo --data-kind classroom_demo` ở hai đích mới cho FAISS/mapping giống nhau;150/150 vector nạp lại chính xác và150/150 self-query top1.
+- SPEC10.1–10.4: ba truy vấn Việt thật khớp toàn bộ150 vị trí NumPy float32; sai số lớn nhất so float64 khoảng1,161×10⁻⁷. Đây là kiểm đúng kỹ thuật, chưa phải đánh giá chất lượng AI.
+- SPEC14.2/14.6 trong phạm vi thành phần: từ chối bundle hỏng hash, mapping trùng ID/sai row và ghi đè; loader strict từ chối demo. Bộ95 cũ vẫn nạp được, hash nguồn/bộ cũ/active không đổi. `pytest pipeline/tests/test_c11_bundle.py pipeline/tests/test_book_index.py pipeline/tests/test_index_refresh.py pipeline/tests/test_classroom_demo.py -q -p no:cacheprovider --basetemp <temp-D-moi> --tb=short -x`: **64 passed**,5,89s; gồm lỗi mô phỏng sau khi ghi index.
+- Dùng taxonomy đúng tệp producer đã hash; bản JSON trong batch tương đương nội dung nhưng khác byte xuống dòng nên bị validator chặn như thiết kế. Không thay hash hoặc bỏ kiểm tra. Snapshot Search demo có150sách,0quarantined,150/150 top5 tham chiếu.
+- SPEC16.2/bàn giao C35: ZIP23tệp,998.756byte, SHA256 `7cbaf8f0ccc48c6956871027f861352ac062fc2f6f32edc8cb0f8f1cbb34cdf7`; giải nén kiểm toànhash/nạp lại150vector đạt. Đã đính kèm report C35/PR17 trên Coreach và tải lại khớp hash. Task Done; giữ deadline18/11/2026 23:59, lead/contributors/mô tả. Chỉ một report C35 cho PR17, liên kết PR ở phần gắn link. P1/P2 dùng sản phẩm sẵn, chưa xác nhận tích hợp.
+
+**C21, C25 và C35 hoàn thành; tuần2 còn C29 chờ toàn văn đã nhập và duyệt.** Gói150 chỉ demo/nội bộ, giữ150pending của75sách cũ, không cấp quyền ảnh/toàn văn/public và không nghiệm thu activation/rollback toàn hệ thống.
