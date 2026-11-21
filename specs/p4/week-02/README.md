@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 14–20/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái ngày21/11/2026: **C21, C25 và C35 hoàn thành**. C35 có150vector E5 thật, FAISS bản2 và ZIP đã gửi/tải lại kiểm hash trên Coreach; phạm vi demo/nội bộ. **C29 còn chờ toàn văn đã nhập và duyệt**, nên tuần2 chưa hoàn tất. Xem [nghiệm thu tuần](acceptance.md).
+- Trạng thái ngày21/11/2026: **C21, C25 và C35 hoàn thành**. C29 đã có1toànvăn thật,10kiểm API/Reader và66test hồi quy đạt; batch/builder đã push PR17. Gói C29 đã kiểm giải nén/nạp lại, còn chờ xác nhận gửi lên Coreach để chốt bàn giao/Done. Xem [nghiệm thu tuần](acceptance.md).
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính
