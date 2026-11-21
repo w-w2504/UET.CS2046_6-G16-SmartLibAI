@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, seedCou
           }}
         >
           <BookOpen size={24} />
-          <span>AI Thư Viện</span>
+          <span>SmartLibAI</span>
         </a>
 
         <nav className="nav-links" aria-label="Điều hướng chính">

@@ -314,6 +314,21 @@ h2 { font-size: 20px; }
 .book-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
 .book-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .book-card h2 { font-size: 20px; line-height: 1.4; }
+.book-cover {
+  width: min(100%, 213px);
+  aspect-ratio: 2 / 3;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  place-items: center;
+  align-self: start;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #E2E8F0;
+  color: var(--text-muted);
+}
+.book-cover img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.book-card .book-cover { width: min(100%, 96px); }
+.detail-layout > .book-cover { justify-self: center; }
 .book-summary { flex: 1; color: var(--text-muted); }
 .actions, .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .actions { margin-top: 8px; }
