@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-21T10:00:54Z",
+  "reviewed_by": "AI Codex: source, public-domain notice and extraction review 2026-11-21",
+  "work_title": "Sống chết mặc bay",
+  "author": "Phạm Duy Tốn",
+  "source_revision": 203701,
+  "author_revision": 203702,
+  "fulltext_public_domain_notice_verified": true,
+  "scope": "original_Vietnamese_work_catalog_and_reader",
+  "source_urls": [
+    "https://vi.wikisource.org/wiki/S%E1%BB%91ng_ch%E1%BA%BFt_m%E1%BA%B7c_bay?oldid=203701",
+    "https://vi.wikisource.org/wiki/T%C3%A1c_gia:Ph%E1%BA%A1m_Duy_T%E1%BB%91n?oldid=203702"
+  ],
+  "extraction": {
+    "chapter_count": 1,
+    "paragraph_count": 39,
+    "character_count": 5843,
+    "text_sha256": "f27f88c1a32fee142f26924ab4876f174a3426c96c0416075517dc60a6177b48",
+    "omitted": "navigation, footnote numbers, editorial footnote explanations, publication footer; no story paragraphs omitted"
+  },
+  "raw_files": {
+    "story.html": "d6c1c2194b41f1b096aaf97325580dec52c4a1956ee8d81c4abc9ccf727842e6",
+    "author.html": "1b2057e7e2b353a30a3a469a9804195a310348c24ec6b4c732fd81e2ce8f019a"
+  },
+  "no_cover_no_translation": true,
+  "ai_review_not_human_attestation": true
+}
