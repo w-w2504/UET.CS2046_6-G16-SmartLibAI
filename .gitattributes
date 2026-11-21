@@ -1,0 +1,2 @@
+# Preserve source bytes and hashes of the C29 frozen input on every platform.
+data/raw/c29_fulltext1/** -text
