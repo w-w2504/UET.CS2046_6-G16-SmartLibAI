@@ -4,11 +4,29 @@ import json
 from contextlib import contextmanager
 from pathlib import Path
 
+from ai_library.classroom_demo import check_demo_path
 from src.config import settings
 from src.services.catalog import CatalogError, ID_PATTERN, check_id, open_catalog
 
 
 class SnapshotService:
+    def demo_snapshot_dir(self, snapshot_id: str | None) -> Path:
+        configured = settings.demo_snapshot
+        if configured:
+            path = Path(configured).absolute()
+            try:
+                check_demo_path(path)
+                if (path.resolve().is_relative_to(settings.snapshot_path.resolve())
+                        or path.is_symlink() or not ID_PATTERN.fullmatch(path.name)):
+                    raise ValueError("Đường dẫn snapshot demo không hợp lệ")
+            except (OSError, ValueError, RuntimeError) as exc:
+                raise CatalogError(503, "service_unavailable", "Danh mục demo chưa sẵn sàng") from exc
+            if snapshot_id in (None, path.name) and path.is_dir():
+                return path
+            if snapshot_id is not None:
+                raise CatalogError(404, "resource_not_found", "Phiên bản dữ liệu không còn được phục vụ")
+        raise CatalogError(503, "service_unavailable", "Danh mục demo chưa sẵn sàng")
+
     @property
     def active_snapshot_id(self) -> str | None:
         try:
@@ -32,9 +50,14 @@ class SnapshotService:
         return path
 
     @contextmanager
-    def open_catalog(self, snapshot_id: str | None = None):
+    def open_catalog(self, snapshot_id: str | None = None, *, allow_demo: bool = True):
         if snapshot_id is not None:
             check_id(snapshot_id, "snapshot_id")
+        if allow_demo and settings.demo_snapshot is not None:
+            directory = self.demo_snapshot_dir(snapshot_id)
+            with open_catalog(directory, directory.name, classroom_demo=True) as handle:
+                yield handle
+            return
         sid = snapshot_id if snapshot_id is not None else self.active_snapshot_id
         if sid is None:
             raise CatalogError(503, "service_unavailable", "Danh mục chưa sẵn sàng")
@@ -66,7 +89,7 @@ class SnapshotService:
 
     def is_rag_ready(self) -> bool:
         """rag_ready cần catalog, encoder, ít nhất một chỉ mục đoạn, khóa Gemini."""
-        if not self.is_catalog_ready():
+        if settings.demo_snapshot is not None or not self.is_catalog_ready():
             return False
         if not settings.GEMINI_API_KEY:
             return False

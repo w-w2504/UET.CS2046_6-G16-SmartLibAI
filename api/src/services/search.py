@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 import math
-from pathlib import Path, PurePosixPath
+from pathlib import PurePosixPath
 import re
 import sqlite3
 from threading import Lock
@@ -18,11 +18,12 @@ from fastapi import HTTPException
 
 from ai_library.book_embeddings import book_text
 from ai_library.book_index import BookIndex
-from ai_library.classroom_demo import DEMO_KIND, check_demo_path
+from ai_library.classroom_demo import DEMO_KIND
 from ai_library.e5_encoder import ModelUnavailableError, TokenLimitError, embedding_config, validate_vectors
 from src.config import settings
 from src.schemas.common import BookSummary, Filters
 from src.schemas.search import SearchItem, SearchRequest, SearchResponse
+from src.services.catalog import CatalogError
 from src.services.query_encoder import QueryEncoderProvider, encode_query
 from src.services.snapshot import snapshot_service
 
@@ -116,7 +117,6 @@ class SearchSnapshot:
     genres: set[str]
     embedding: dict
     threshold: float
-    facet_labels: dict[str, dict[str, str]]
 
 
 def load_snapshot(snapshot_id, deadline=float("inf")):
@@ -124,16 +124,13 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
     demo_path = settings.demo_snapshot
     classroom_demo = demo_path is not None
     if classroom_demo:
-        directory = Path(demo_path).absolute()
-        sid = directory.name
         try:
-            check_demo_path(directory)
-            if directory.resolve().is_relative_to(settings.snapshot_path.resolve()):
-                raise ValueError("Snapshot demo nằm trong cây snapshot phục vụ")
-        except ValueError as exc:
+            directory = snapshot_service.demo_snapshot_dir(snapshot_id)
+        except CatalogError as exc:
+            if exc.status == 404:
+                raise SearchError(exc.status, exc.code, exc.message) from exc
             raise SearchError() from exc
-        if snapshot_id is not None and snapshot_id != sid:
-            raise SearchError(404, "resource_not_found", "Phiên bản dữ liệu không còn được phục vụ")
+        sid = directory.name
     else:
         sid = snapshot_id if snapshot_id is not None else snapshot_service.active_snapshot_id
     if sid is None:
@@ -271,7 +268,7 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
             conn.close()
         check_deadline(deadline)
         return SearchSnapshot(sid, BookIndex(index, book_rows, manifest), books,
-                              set(labels["genre"]), manifest["embedding"], float(threshold), labels)
+                              set(labels["genre"]), manifest["embedding"], float(threshold))
     except SearchError:
         raise
     except (OSError, ValueError, TypeError, KeyError, IndexError, AttributeError, sqlite3.Error, RuntimeError) as exc:

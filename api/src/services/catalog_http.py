@@ -58,7 +58,7 @@ def filters(params: dict) -> tuple[list[str], list[str], bool | None]:
 @contextmanager
 def catalog(snapshot_id: str | None, module: str = "catalog"):
     try:
-        with snapshot_service.open_catalog(snapshot_id) as handle:
+        with snapshot_service.open_catalog(snapshot_id, allow_demo=module == "catalog") as handle:
             yield handle
     except CatalogError as error:
         error.module = module
