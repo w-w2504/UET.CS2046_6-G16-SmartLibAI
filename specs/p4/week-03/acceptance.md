@@ -24,6 +24,6 @@ Bộ kiểm sản phẩm đạt cả ở repo và bản xuất Git `df4e5cb`: ha
 
 C38 tại `data/demo/p4-w03-c38-289-20261122/` (`b944395`); C42 tại `data/raw/p4_w03_reader2/` (`7b8ff16`) và `data/demo/p4-w03-c42-reader2-20261122/` (`df4e5cb`). Mỗi sản phẩm có README, manifest/hash và được giữ trong Git để dùng ngay, không phải sinh lại bundle. Không chứa model cache/khóa/control local. Chưa có xác nhận bên nhận tích hợp.
 
-Không tự merge PR. Coreach chỉ được ghi nhận sau khi lưu và tải lại kiểm trên web; không dùng báo cáo local thay kết quả cập nhật từ xa. Không thay SPEC, không tự giảm yêu cầu public/RAG hoặc tự khởi động lại máy.
+Đã push các commit lên nhánh `feature/faiss-reader` và cập nhật PR #17. Ngày 22/11 đã lưu rồi tải lại kiểm Coreach: C38/C42/C46 mỗi task có đúng một report cho PR #17, gắn PR bằng Add link; C42 Done, C38/C46 giữ đang thực hiện. Deadline, lead, contributors và mô tả đều được giữ nguyên. Chưa có xác nhận bên nhận tích hợp. Không tự merge PR, thay SPEC, giảm yêu cầu public/RAG hoặc khởi động lại máy.
 
 SPEC SHA256 `20cad4f96ad02f7eb253c054d4b9efd341ccabd743b7c7c0dc43d7d463c72aea`; Sheet `02_Cong_viec!A40:O52` đọc trực tiếp 22/11/2026. Nền P4 `36ad1d4`, develop `6e873a6`, bàn giao P3 `a0666cc`. [PR #17](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/17).
