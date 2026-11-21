@@ -6,10 +6,13 @@ from uuid import uuid4
 import numpy as np
 import pytest
 from fastapi import Request
+from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
+import search_fixture
 from search_fixture import create_snapshot, refresh_manifest
 from src.config import Settings, settings
+from src.main import app
 from src.routes.books import get_facets
 from src.schemas.catalog import FacetsResponse
 from src.schemas.search import SearchRequest
@@ -18,6 +21,10 @@ from src.services.search import SearchError, load_snapshot, search_service
 
 @pytest.fixture
 def classroom_snapshot(tmp_path, monkeypatch):
+    monkeypatch.setattr(search_fixture, "BOOKS", [
+        (bid, wid, title, [" ".join(author.split()) for author in authors], genres, fulltext)
+        for bid, wid, title, authors, genres, fulltext in search_fixture.BOOKS
+    ])
     directory = create_snapshot(tmp_path / "demo", sid="classroom-test", activate=False)
     manifest_path = directory / "manifest.json"
     manifest = json.loads(manifest_path.read_bytes())
@@ -82,6 +89,40 @@ def test_demo_facets_use_the_same_snapshot(classroom_snapshot):
     assert response.snapshot_id == classroom_snapshot.name
     assert {genre.code for genre in response.genres} == {"science", "fiction", "history"}
     assert "An" in response.authors
+    assert "Tác giả" in response.authors
+
+
+def test_demo_catalog_explicit_and_default_snapshot(classroom_snapshot):
+    client = TestClient(app)
+    sid = classroom_snapshot.name
+    for params in ({}, {"snapshot_id": sid}):
+        response = client.get("/api/v1/books", params={"limit": 20, "offset": 0, **params})
+        assert response.status_code == 200, response.text
+        catalog = response.json()
+        assert catalog["snapshot_id"] == sid and catalog["total"] == 5
+        book = next(row for row in catalog["items"] if row["book_id"] == "B_without_vector")
+        assert book["title"] == "Sách chưa có vector"
+        assert book["authors"] == ["Tác giả"]
+    facets = client.get("/api/v1/facets", params={"snapshot_id": sid})
+    assert facets.status_code == 200 and facets.json()["snapshot_id"] == sid
+    detail = client.get("/api/v1/books/B_without_vector", params={"snapshot_id": sid})
+    assert detail.status_code == 200 and detail.json()["book"]["summary"] == "Bản ghi ngoài danh sách vector"
+    assert detail.json()["book"]["sources"] == []
+    for path in ("/api/v1/books", "/api/v1/facets", "/api/v1/books/B_without_vector"):
+        missing = client.get(path, params={"snapshot_id": "missing"})
+        assert missing.status_code == 404 and missing.json()["module"] == "catalog"
+
+
+def test_catalog_demo_is_opt_in_and_independent_of_faiss(classroom_snapshot, monkeypatch):
+    (classroom_snapshot / "books.faiss").unlink()
+    client = TestClient(app)
+    assert client.get("/api/v1/books").status_code == 200
+    assert client.get("/api/v1/facets").status_code == 200
+    monkeypatch.setattr(settings, "SMARTLIBAI_DEMO_SNAPSHOT", None)
+    monkeypatch.setattr(settings, "CLASSROOM_DEMO_SNAPSHOT", None)
+    monkeypatch.setattr(settings, "SNAPSHOT_ROOT", str(classroom_snapshot.parent))
+    response = client.get("/api/v1/books", params={"snapshot_id": classroom_snapshot.name})
+    assert response.status_code == 503
 
 
 @pytest.mark.parametrize("defect", ["missing_index", "incompatible_model", "fulltext"])

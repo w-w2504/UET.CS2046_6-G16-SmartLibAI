@@ -92,7 +92,7 @@ export const App: React.FC = () => {
       <main id="main-content" data-snapshot-id={snapshotId || undefined} tabIndex={-1} style={{ flex: 1 }}>{renderPage()}</main>
       <footer style={{ borderTop: '1px solid var(--border-color)', background: 'var(--bg-card)', padding: '24px 0', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
         <div className="app-container">
-          AI Thư Viện (SmartLib AI) &bull; Đồ án môn Trí tuệ nhân tạo (CS2046)
+          SmartLibAI · BTL môn Trí tuệ nhân tạo (CS2046)
         </div>
       </footer>
     </div>

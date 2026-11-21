@@ -6,6 +6,7 @@ import { apiRequest } from '../services/apiClient';
 import { isDemo } from '../services/demo';
 import { loadTabState, saveTabState } from '../services/tabStorage';
 import { LoadingState, ErrorState } from '../components/ui';
+import { BookCover } from '../components/BookCover';
 import { genreLabel, topicLabel } from '../services/taxonomy';
 
 interface DetailPageProps {
@@ -101,30 +102,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
       </button>
 
       <div className="card detail-layout">
-        {/* Bìa sách hoặc Placeholder */}
-        <div style={{ textAlign: 'center' }}>
-          {book.cover_url ? (
-            <img
-              src={book.cover_url}
-              alt={book.title}
-              style={{ width: '100%', borderRadius: 'var(--radius)', border: '1px solid var(--border-color)' }}
-            />
-          ) : (
-            <div
-              style={{
-                height: 320,
-                backgroundColor: '#E2E8F0',
-                borderRadius: 'var(--radius)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--text-muted)',
-              }}
-            >
-              <BookOpen size={48} />
-            </div>
-          )}
-        </div>
+        <BookCover url={book.cover_url} title={book.title} />
 
         {/* Nội dung chi tiết */}
         <div>

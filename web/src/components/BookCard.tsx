@@ -1,11 +1,17 @@
 import type { BookSummary } from '../types/api';
 import { Button } from './ui';
+import { BookCover } from './BookCover';
 import { genreLabel } from '../services/taxonomy';
 
 import { withSnapshot } from '../services/navigation';
 
-export function BookCard({ book, onNavigate }: { book: BookSummary; onNavigate: (path: string) => void }) {
+export function BookCard({ book, onNavigate, showCover = false }: {
+  book: BookSummary;
+  onNavigate: (path: string) => void;
+  showCover?: boolean;
+}) {
   return <article className="card book-card">
+    {showCover && book.cover_url?.trim() && <BookCover url={book.cover_url} title={book.title} />}
     <span className="badge">{book.has_fulltext ? 'Có toàn văn' : 'Chỉ có thông tin sách'}</span>
     <h2><a href={withSnapshot(`/books/${book.book_id}`)} onClick={e => { if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) { e.preventDefault(); onNavigate(`/books/${book.book_id}`); } }}>{book.title}</a></h2>
     <p className="muted">{book.authors.join(', ')}</p>
