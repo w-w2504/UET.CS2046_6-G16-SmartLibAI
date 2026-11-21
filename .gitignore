@@ -70,6 +70,10 @@ data/raw/c20_c34/*
 !data/raw/c20_c34/catalog.jsonl
 !data/raw/c20_c34/id_registry.json
 !data/raw/c20_c34/README.md
+!data/raw/c24_classroom/
+data/raw/c24_classroom/*
+!data/raw/c24_classroom/curation.tsv
+/data/demo/
 data/reports/*
 !data/reports/.gitkeep
 data/control/*.json
