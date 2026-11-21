@@ -30,6 +30,28 @@ def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def registered_paragraph_id(registry: dict, chapter_id: str, text_hash: str, occurrence: int) -> str | None:
+    """Read P4/C29 or P3 registry keys; never allocate or choose conflicting IDs."""
+    values = []
+    if "paragraph_registry" in registry:
+        values.append(registry["paragraph_registry"].get(f"{chapter_id}:{text_hash}:{occurrence}"))
+    if "paragraphs" in registry:
+        values.append(registry["paragraphs"].get(chapter_id, {}).get(f"{text_hash}|{occurrence}"))
+    if not values or any(value != values[0] for value in values):
+        raise ValueError("Registry paragraph thiếu hoặc hai định dạng mâu thuẫn")
+    return values[0]
+
+
+def validate_registered_chapter(registry: dict, chapter: ChapterImport) -> None:
+    checks = []
+    if "chapter_registry" in registry:
+        checks.append(registry["chapter_registry"].get(chapter.chapter_id) == chapter.book_id)
+    if "chapters" in registry:
+        checks.append(registry["chapters"].get(chapter.book_id, {}).get(str(chapter.order_no)) == chapter.chapter_id)
+    if not checks or not all(checks):
+        raise ValueError("Registry chương sai, thiếu hoặc hai định dạng mâu thuẫn")
+
+
 def build_reader_snapshot(batch: Path, output: Path, *, snapshot_id: str, cldr_version: str) -> dict:
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", snapshot_id):
         raise ValueError("snapshot_id không hợp lệ")
@@ -60,7 +82,8 @@ def build_reader_snapshot(batch: Path, output: Path, *, snapshot_id: str, cldr_v
         if not chapters or [c.order_no for c in chapters] != list(range(1, len(chapters) + 1)):
             raise ValueError("Thiếu chương hoặc thứ tự không liên tiếp")
         for chapter in chapters:
-            if registry["chapter_registry"].get(chapter.chapter_id) != bid or chapter.chapter_id in all_ids:
+            validate_registered_chapter(registry, chapter)
+            if chapter.chapter_id in all_ids:
                 raise ValueError("Registry chương sai hoặc trùng ID")
             all_ids.add(chapter.chapter_id)
             paragraphs = [normalize_fulltext_content(p) for p in chapter.paragraphs]
@@ -73,7 +96,7 @@ def build_reader_snapshot(batch: Path, output: Path, *, snapshot_id: str, cldr_v
             for order, paragraph in enumerate(paragraphs, 1):
                 phash = digest(paragraph.encode())
                 seen[phash] += 1
-                pid = registry["paragraph_registry"].get(f"{chapter.chapter_id}:{phash}:{seen[phash]}")
+                pid = registered_paragraph_id(registry, chapter.chapter_id, phash, seen[phash])
                 if not pid or not re.fullmatch(r"P_[0-9a-f-]{36}", pid) or pid in all_ids:
                     raise ValueError("Thiếu hoặc trùng paragraph_id ổn định trong registry")
                 all_ids.add(pid)
