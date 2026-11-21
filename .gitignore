@@ -203,6 +203,7 @@ data/raw/p4_w03_reader2/raw/*
 !/data/demo/p4-w03-c38-289-20261122/
 /data/demo/p4-w03-c38-289-20261122/*
 !/data/demo/p4-w03-c38-289-20261122/README.md
+!/data/demo/p4-w03-c38-289-20261122/handoff_manifest.json
 !/data/demo/p4-w03-c38-289-20261122/index/
 /data/demo/p4-w03-c38-289-20261122/index/*
 !/data/demo/p4-w03-c38-289-20261122/index/books.faiss
@@ -219,9 +220,10 @@ data/raw/p4_w03_reader2/raw/*
 !/data/demo/p4-w03-c42-reader2-20261122/
 /data/demo/p4-w03-c42-reader2-20261122/*
 !/data/demo/p4-w03-c42-reader2-20261122/README.md
+!/data/demo/p4-w03-c42-reader2-20261122/handoff_manifest.json
 !/data/demo/p4-w03-c42-reader2-20261122/snapshots/
 /data/demo/p4-w03-c42-reader2-20261122/snapshots/*
-!/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122/
-/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122/*
-!/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122/catalog.sqlite
-!/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122/manifest.json
+!/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122-r1/
+/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122-r1/*
+!/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122-r1/catalog.sqlite
+!/data/demo/p4-w03-c42-reader2-20261122/snapshots/p4-c42-reader2-20261122-r1/manifest.json
