@@ -7,7 +7,7 @@ Cập nhật 18/11/2026. Đối chiếu SPEC gốc, các mục3.1–3.2,9.3–9.
 | C21 | **Đạt task C21 với95 sách demo**: adapter/CLI,95 E5 thật/FAISS/snapshot Search demo,95/95 round-trip/self-query, HTTP localhost/lõi C13 và phân phối ZIP đã kiểm đạt | Phạm vi localhost người dùng duyệt,150 nguồn pending giữ nguyên; phát hành công khai và xác nhận bên nhận tích hợp là bước riêng, không chặn trạng thái C21 |
 | C25 | **Đạt API C25**: list/detail/facets/mục lục/chương đọc SQLite, giữ schema C03, snapshot và ErrorResponse; health kiểm readiness ngoài event loop trong ngân sách2s. Docker/Linux:66 test đạt, gồm5 test ICU thật | Dữ liệu kiểm thử tự viết; chưa thay nghiệm thu snapshot phát hành/toàn văn thật của C29 |
 | C29 | 6/6 tình huống browser qua Vite→FastAPI→SQLite fixture đạt; không route mock hoặc reader_fixture | Chưa có sách thật và nguồn được duyệt; chưa nghiệm thu QA/citation |
-| C35 | Rebuild đích mới, kiểm fixture20/80/150, từ chối serving/ghi đè, mô phỏng lỗi sau ghi FAISS vẫn giữ index cũ/active; đã có catalog294 từ P3 | Chỉ95 sách có curation/bundle demo; chưa có150–200 mô tả/vector đủ điều kiện, không thay nghiệm thu activation/rollback |
+| C35 | Rebuild đã có; thêm55 sách được2agent kiểm chứng, chuẩn bị catalog150/150work, schema/registry/token đạt;55metadata+55summary được approved nội bộ có căn cứ | Chưa sinh bundle/build FAISS150;75sách C24 cũ vẫn pending, không thay nghiệm thu public/fulltext hoặc activation |
 
 ## Kiểm chứng ngày18/11
 
@@ -54,3 +54,14 @@ Bổ sung Windows local18/11 theo yêu cầu người dùng: cài wheel PyICU2.1
 - C29 chưa có toàn văn; C35 có catalog294 nhưng chỉ95vector demo, còn cần mô tả/kiểm nguồn và vector150–200. Các phần thiếu này không được thay bằng fixture hay mã hóa lại mô tả thư mục.
 
 Ngày21/11 đã push hồ sơ tại4ef6d4d và mở [PR #17](https://github.com/w-w2504/UET.CS2046_6-G16-SmartLibAI/pull/17) vào develop, chưa merge. Gói ZIP C21 được người dùng cho phép cụ thể tải lên Coreach sau khi xét duyệt tự động yêu cầu làm rõ payload/đích. Đã mở lại Edge, đăng đúng một report C21/PR17 và đính kèm ZIP, reload/tải lại xác minh SHA-256 khớp. Giữ deadline/lead/contributors/mô tả; chưa có xác nhận P1/P2 tích hợp. Người dùng làm rõ mốc C21 là khoảng80 sách dùng được;95 sách thật đã đạt mốc trong phạm vi demo đã được duyệt, không gộp điều kiện phát hành công khai vào task. C21 hoàn thành; C29/C35 chưa hoàn thành.
+
+## Biên tập và kiểm chứng55 sách tiếp theo
+
+Ngày21/11, người dùng giao2agent và cho phép nguồn đủ điều kiện chuyểnapproved. `curator55` biên tập, `reviewer55` đọc nguồn độc lập, trả lỗi và kiểm lại bản sửa; root chỉ tích hợp đúnghash55pass. Không dùng model khác khi lượt agent bị giới hạn; sau lệnh tiếp tục của user, hai agent nối từ38 bản đãpass, không làm lại.
+
+-55sách mới thuộc199chưa chọn;38Hồ Biểu Chánh và17sách khác. Mô tả văn học dựa nội dung thực đã đọc, ghi rõ khi chỉ mô tả phần mở đầu. CóURL/locator cho metadata vàsummary; mỗi bản>=30từ, không suy nội dung chỉ từnhanđề.
+- Lỗi xử lý: summary hbc:67 sửa diễn giải cuộc thoại rồi reviewhashmới; hanoi:26 sửa phụ đề “kinh doanh toàn cầu”→“giao tiếp toàn cầu”; museum:49 bổ sung4đồngtácgiả cùng chủbiên. Nguồn Nắngthu khác tácphẩm bị loại; Anhphảisống được phân biệt tập/truyện. Không thaybook/workID.
+- Bản review gốc của agent kiểm chứng có55pass/0fail, SHA256 `1dd6733ba3b5af87603977aef36a5cdfb8250c4bc88baf801e259598a5facf2f`; hash này được lưu làm `review_source_sha256` trong hồ sơ lô55. Root đối chiếu55hashsummary đãNFC/whitespace, title/authors/book_id vàURL vớiresearch trước tích hợp. Phê duyệt nội bộ theoủyquyền user, reviewerAI đượcghi đúng; không khẳngđịnh người dùng đãtự đọc từngnguồn, khôngchuyểnảnh/fulltext/public.
+- Lô55:55metadata+55summary approved demo/nội bộ; importer55valid/0quarantined,55unique work, registry/sourceID đúng; loaderC11strict đọcđược55. Lô150:20mẫu+75cũ+55mới,150valid/150unique work,150approved/150pendingsource. Dữ liệu294 và75curation cũ không đổi; artifact95 cũ giữ bất biến.
+- Tokenizer E5 đúngrevision/cached offline, khôngencode: max55=126token vàmax150=155token cho5dòng+prefix+specialtokens,0over480. `pytest pipeline/tests/test_content_review.py pipeline/tests/test_classroom_demo.py pipeline/tests/test_catalog_sqlite.py -q -p no:cacheprovider --basetemp <temp-D-moi> --tb=short -x`: **14passed**,1,54s.
+- Kiểmfulltext trên các nhánh fetch,localdata,ZIPC14/C21 và Coreach đãxem: không cóchapters/fulltext_approved; nguồnwebđọcđược chưa là dữliệu toànvăn đãnhập/duyệt. C29 còn đầu vào thật. C35đã cócatalog150chuẩnbị, chưa sinhbundle/buildFAISS150 trong lượtbiêntập này.

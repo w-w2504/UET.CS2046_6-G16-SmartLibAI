@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 14–20/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái ngày21/11/2026: **C21 hoàn thành với95 sách demo đã kiểm nhận/bàn giao; C25 đã đạt và merge**. P3/PR16 bổ sung catalog294 cùng producer/demo95; giữ nguồn pending và phạm vi localhost. C35 còn chờ đủ mô tả/vector lô150–200; C29 chưa có toàn văn thật. Xem [nghiệm thu tuần](acceptance.md).
+- Trạng thái ngày21/11/2026: **C21 hoàn thành với95 sách demo; C25 đã đạt**. Đã biên tập và kiểm chứng thêm55 sách bằng2agent, chuẩn bị catalog150 cho C35;55metadata/summary được duyệt nội bộ theo ủy quyền người dùng. C35 còn sinh bundle/build FAISS150; C29 chưa có toàn văn được nhập. Xem [nghiệm thu tuần](acceptance.md).
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính
