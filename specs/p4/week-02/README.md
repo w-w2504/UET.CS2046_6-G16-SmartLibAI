@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 14–20/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái ngày 18/11/2026: C21/C35 đã có adapter/rebuild và kiểm thử fixture; C25/C29 đã tích hợp và kiểm browser qua backend thật. Chưa nhận bundle vector/corpus mở rộng/toàn văn thật; xem [nghiệm thu tuần](acceptance.md).
+- Trạng thái ngày21/11/2026: C25 đã đạt và merge. P3/PR16 bổ sung catalog294 cùng producer/demo95; P4 tiếp nhận kiểm thử localhost95 theo quyết định người dùng, giữ nguồn pending. C35 còn chờ đủ mô tả/vector lô150–200; C29 chưa có toàn văn thật. Xem [nghiệm thu tuần](acceptance.md).
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính
