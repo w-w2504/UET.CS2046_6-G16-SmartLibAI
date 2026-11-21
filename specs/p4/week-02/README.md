@@ -2,7 +2,7 @@
 
 - Mốc dự kiến: 14–20/11/2026.
 - Nguồn: [02_Cong_viec](https://docs.google.com/spreadsheets/d/1cHc0yKiawuWja51Nftdvb0M-tIfRGtkdWiHmpcCWgww/edit#gid=96043016), đọc 10/11/2026.
-- Trạng thái ngày 18/11/2026: C21/C35 đã có adapter/rebuild và kiểm thử fixture; C25/C29 đã tích hợp và kiểm browser qua backend thật. Chưa nhận bundle vector/corpus mở rộng/toàn văn thật; xem [nghiệm thu tuần](acceptance.md).
+- Trạng thái ngày21/11/2026: **C21, C25 và C35 hoàn thành**. C35 có150vector E5 thật, FAISS bản2 và ZIP đã gửi/tải lại kiểm hash trên Coreach; phạm vi demo/nội bộ. **C29 còn chờ toàn văn đã nhập và duyệt**, nên tuần2 chưa hoàn tất. Xem [nghiệm thu tuần](acceptance.md).
 - Quy trình và ranh giới: [README P4](../README.md).
 
 ## Task P4 phụ trách chính

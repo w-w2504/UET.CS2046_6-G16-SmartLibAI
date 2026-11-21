@@ -1,0 +1,2277 @@
+{
+  "reviewer": "AI reviewer55 under explicit user delegation; independent from curator55",
+  "scope": "demo_internal_metadata_summary_only",
+  "authorized_by": "user instruction 2026-11-21",
+  "integrated_at": "2026-11-21T09:32:04.100831+00:00",
+  "source_catalog_sha256": "e37d367e9caeddbd4806e02b454542cabd6abf4f74994ef2ef543471b1f30d87",
+  "source_curation75_sha256": "3bff9673c7fa85a5d713b37cf815e3ae9fa4408abf3173264f78f3d16493764e",
+  "rows": [
+    {
+      "reference": "hbc:40",
+      "book_id": "B_1ade6312-55c1-4525-b410-9e704863f3ac",
+      "title": "Ái tình miếu",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "465789b1f41ab42fa37c8d02fa0aaf2a1caf8e981a01731da32d2ae4336720dd",
+      "draft_sha256": "373b48f3166886c691b5fe16567d4f705858b92c147e1880f165fbe371137095",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Ái_tình_miếu/Chương_1"
+      ],
+      "locator": "Chapter1 lines100-110,135-164; author page line112",
+      "check_notes": "Verified Ben Suc, interrupted French studies after father died, broken betrothal, farming and planned Da Lat trip. Source marks a missing passage at128; description uses available passages only.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.602745+00:00",
+      "reviewed_metadata": {
+        "title": "Ái tình miếu",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:41",
+      "book_id": "B_75c7f8e4-92c0-4dbb-950e-f0ec4db2441b",
+      "title": "Bỏ chồng",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "44dbc7710997deca4e4b18c72389f622a37c337b09d58d8dfe2b7f8fb3d0d0f4",
+      "draft_sha256": "adca28056776b99409e8ddeec050356682d6efba65c5220d5145d36b24d701b8",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Bỏ_chồng/Chương_1"
+      ],
+      "locator": "Chapter1 lines95-99,124-163,175-198; author page113",
+      "check_notes": "Verified clerk and newspaper novelist, daughter Yen, Oanh clothing/party/dancing interests and direct disagreement over spending.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.602997+00:00",
+      "reviewed_metadata": {
+        "title": "Bỏ chồng",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:43",
+      "book_id": "B_636f973d-abf9-4557-9030-b6cb0d9e7782",
+      "title": "Bỏ vợ",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "3e7338a426f3b60164b6f5dada527dac97659a7a074fbd14f6926a1c7e49bbdb",
+      "draft_sha256": "fa27064e2053045a45613046d2381d9714c4e5d1ae7d4a5b11b984ed12a0dacf",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Bỏ_vợ/Chương_1"
+      ],
+      "locator": "Chapter1 lines99-108,126-146; author page114",
+      "check_notes": "Verified physician Ba Chanh, Huyen/Binh relationship, son Nghiep, living with in-laws, clerk exam first-place news and hope for stable government employment.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.603178+00:00",
+      "reviewed_metadata": {
+        "title": "Bỏ vợ",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:44",
+      "book_id": "B_8c116b89-652a-4b76-b45d-3b02ec22d923",
+      "title": "Bức thư hối hận",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "96c96976ad2c9bb60cf04aff1bb1ca3897a640a86fd2b5401dd80af9acec7d67",
+      "draft_sha256": "6d20f6d1710968130ddf861d087aac37c0f59fd41cd7cb9d72b854404fa2bc96",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Bức_thư_hối_hận/Chương_1"
+      ],
+      "locator": "Chapter1 lines100,112-129,135-151; author page115",
+      "check_notes": "Verified1936, visit to Ba Chanh, car business owner Cang, newlywed Nghiep/Loan, Hoang as Loan brother and planned Da Lat visit.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.603350+00:00",
+      "reviewed_metadata": {
+        "title": "Bức thư hối hận",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:47",
+      "book_id": "B_3e132910-8b7e-4c3a-b9ea-0cc6ac88d20e",
+      "title": "Chị Đào, Chị Lý",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "6accc0e6221473f9dafb07b4f4d01db827d0be1bd4042018f87740fabe80efe4",
+      "draft_sha256": "e38a32fd719525a8bb898e6df11022664fa0c58806f8d3c4f0d997902e34148b",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Chị_Đào,_Chị_Lý/Chương_1"
+      ],
+      "locator": "Chapter1 lines93-106,110-123; author page118",
+      "check_notes": "Verified Thai/Hoa jobs, Thi Nghe market, daughter Dao, birth savings and subsequent illness/reduced milk/medical expense worries.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.603508+00:00",
+      "reviewed_metadata": {
+        "title": "Chị Đào, Chị Lý",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:49",
+      "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+      "title": "Chút phận linh đinh",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "612102c34b25564fa51151dc3b278d282daf4fd86e599f5a37948521c50182e2",
+      "draft_sha256": "496bc9de35c3d291f030644a9e2fde0c74b91e1169da4c7ce8b3a5e0623e26d1",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Chút_phận_linh_đinh/Chương_I"
+      ],
+      "locator": "ChapterI lines102-145,160-166; author page120",
+      "check_notes": "Verified Hai Phong departure for France, wife Thu Van and daughter; requests to avoid Saigon because of father anger and seek child Thu Ba. No invented reconciliation.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.603669+00:00",
+      "reviewed_metadata": {
+        "title": "Chút phận linh đinh",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:52",
+      "book_id": "B_548c49c8-b479-49e9-9ad8-72f57a0e27ad",
+      "title": "Con nhà giàu",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "d85d043ecb4b8f0742f76e643f3190b97317fbf5eb24deac28aa6dc76217a102",
+      "draft_sha256": "cd7810ab517b994258c933aabc92d931abed6926fa14d69ada02faaa198a9037",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Con_nhà_giàu/Chương_I"
+      ],
+      "locator": "ChapterI lines92-109; author page121",
+      "check_notes": "Verified wealthy Toai in Cho Gao, remarriage, household control, Chi separate household, borrowing for office after father refusal, and stepmother accusations.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.603822+00:00",
+      "reviewed_metadata": {
+        "title": "Con nhà giàu",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:55",
+      "book_id": "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d",
+      "title": "Cư Kỉnh",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "497c8eb719c42734089fc1b55aef55b5748db51a94e7f012a99adcd66dad9fa3",
+      "draft_sha256": "97d2275b1ea8f562a3023a923a345113c0e26c71e97ca31569b904b745f15ac7",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Cư_Kỉnh/Chương_1"
+      ],
+      "locator": "Chapter1 lines92-100,125-177; author page123",
+      "check_notes": "Verified Cai Tac/O Mon, wealthy Huyen Tan, new district chief visit, education/marriage details of Thanh/Tuy and niece Huyen taken in after father death and mother poverty.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.603977+00:00",
+      "reviewed_metadata": {
+        "title": "Cư Kỉnh",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:57",
+      "book_id": "B_cf681c23-613e-45ba-8357-c23078c7e539",
+      "title": "Cười gượng",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "3e77e19d9468c739754edfd3f3855824b11e9aa0a1251195e078bf3620af4a94",
+      "draft_sha256": "7c2d7d5c7ea88b867c0b03c26c9e467b497914826c4b9d1749781d792aa5646a",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Cười_gượng/Chương_I"
+      ],
+      "locator": "ChapterI lines100-113; author page124",
+      "check_notes": "Verified Lang Dai/Bac Lieu1928, widowed tenant farmer mother with three children, Hao household/seasonal work, classical writing/poetry taught by father, sadness and tears. No invented cause.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.604129+00:00",
+      "reviewed_metadata": {
+        "title": "Cười gượng",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:60",
+      "book_id": "B_67af733c-b8eb-462c-8e32-d22924b8f640",
+      "title": "Dây oan",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "ac128dc61d28784ce1f4493d10bb38190b9de0ab385c076de8555d451bbdd8bc",
+      "draft_sha256": "19d50de2cc5f1faca1caacec293fe3b11f47da9f35693584439e2a0704967225",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch01.json",
+      "draft_file_sha256": "6ad5e4aad6baa2838e91afd7571e59b04b7c753a8d0e5190fb3677460730bf8b",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Dây_oan/Chương_I"
+      ],
+      "locator": "ChapterI lines100-149,160-169; author page125",
+      "check_notes": "Verified court interpreter Nhan in Vinh Long, Co Hai complaint about long silence, her marriage, his bitter reference to former vows. No invented resolution.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:05:51.604283+00:00",
+      "reviewed_metadata": {
+        "title": "Dây oan",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:61",
+      "book_id": "B_9b31bdee-6bd6-4ca2-b4dc-60b1ca5532d3",
+      "title": "Đại nghĩa diệt thân",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "645c74152f478524b8871d6786373bd6c0c3feb6aca1e4a89dd73999a27272dc",
+      "draft_sha256": "8ced3be71267d0ec753fa56f42984e5b306bb2d6c80c62b717d02f0c23e9e417",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Đại_nghĩa_diệt_thân/Chương_1"
+      ],
+      "locator": "Chapter1 lines100-152; author page126",
+      "check_notes": "Opening historical framing, Gia Dinh occupation, territorial concessions, collaboration for gain and four named resistance leaders are directly present. No invented story ending or precise historical dates.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.204564+00:00",
+      "reviewed_metadata": {
+        "title": "Đại nghĩa diệt thân",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:62",
+      "book_id": "B_c43b1475-0093-4151-8738-60886042491f",
+      "title": "Đóa hoa tàn",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "1ac757762ad2a3e498c407c20573a2b33996250f35edf3db995e7ce6821b1f55",
+      "draft_sha256": "98c91825a692da49b8932fa233971bc86f8f425f22f39ede58c4cab8507f0052",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Đóa_hoa_tàn/Chương_I"
+      ],
+      "locator": "ChapterI lines103-141; author page127",
+      "check_notes": "Verified Cai tong Binh at Me Phop, rice held for higher price, village repair funding request, wife objection to expense and husband pursuit of rank. Review extends locator through141 for the status debate.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.204923+00:00",
+      "reviewed_metadata": {
+        "title": "Đóa hoa tàn",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:63",
+      "book_id": "B_41ae964b-ed42-4500-8b32-ee622d51d19d",
+      "title": "Đoạn tình",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "b5601f1db9e2ec6aa01e1857e9bf6158eea8322fb87491201df13b750192e747",
+      "draft_sha256": "dfa0f12c597015b3faf427e39c795ebf65e585e5287c37b920a16d4e966591c1",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Đoạn_tình/Chương_I"
+      ],
+      "locator": "ChapterI lines100-124; author page128",
+      "check_notes": "Verified Thuan Hoa business activities in Saigon, young owner Thuan, doctor Huynh broken car near Tay Ninh route and Binh request to repaint old car.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.205193+00:00",
+      "reviewed_metadata": {
+        "title": "Đoạn tình",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:64",
+      "book_id": "B_41e6dd15-7561-47f9-9145-8552a6e13456",
+      "title": "Đỗ nương nương báo oán",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "fca6788122008ec98428551be82bade2a0977fc71c058879a0149d8dbfe32811",
+      "draft_sha256": "bcff12a0d012b9f5e587d672d476063eff3ea702e9ed3d2e1b2965cab1404f1e",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Đỗ_nương_nương_báo_oán/Chương_II"
+      ],
+      "locator": "ChapterII lines110-128; author page129",
+      "check_notes": "Verified wealthy martial father Thanh Nhan at Thuoc Nhieu, helping distressed neighbors, daughter Thanh Xuan weapon training and scholar Minh Giam teaching texts and duties to family/country.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.205480+00:00",
+      "reviewed_metadata": {
+        "title": "Đỗ nương nương báo oán",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "tinh_yeu"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:65",
+      "book_id": "B_0f6e01de-698a-4836-aea8-aa7b52d5ccec",
+      "title": "Hai khối tình",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "c2035787f95791ec3fd31bce7a18620214574c3338b715010d7b2d515adbd13b",
+      "draft_sha256": "4cb5151c90c1f22767de833dccada12225a843ce113847bd1902571b8ce5da1e",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Hai_khối_tình/Chương_I"
+      ],
+      "locator": "ChapterI lines101-133; author page130",
+      "check_notes": "Verified Cho Dui household, Lan and daughter Cuc, Thanh chung examination success, lawyer Xuong worry and unrelated family friendship requiring courtesy. No invented romantic outcome.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.205724+00:00",
+      "reviewed_metadata": {
+        "title": "Hai khối tình",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "tinh_yeu"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:66",
+      "book_id": "B_88ecc589-bf4f-4521-8fa6-f1157931c797",
+      "title": "Hai Thà cưới vợ",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "a4cb42500714b95d54881dc863e350f40b9e974fc0a0c8c1b8009b9dcab23823",
+      "draft_sha256": "0010fa041119841390aee51f9abe4dafc5902c72086e45a417eb0f2a3c814d6e",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Hai_Thà_cưới_vợ/Chương_I"
+      ],
+      "locator": "ChapterI lines109-140; author page131",
+      "check_notes": "Verified diligent farmer, bereavement, two young children, elderly mother care and nighttime feeding burden. Request for a helper follows directly; no invented new wife.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.205968+00:00",
+      "reviewed_metadata": {
+        "title": "Hai Thà cưới vợ",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:67",
+      "book_id": "B_28850112-31ca-4d3a-9c18-1fbecfd64e3e",
+      "title": "Hai vợ",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "60b1cce6ad8f725fc3e1598a9d1c3aba201b4c869981f8b12564886de1896106",
+      "draft_sha256": "9590a708c7da19d6f9778806a7e99e7d7491d7b0a6cd2330d46a138f575cb90b",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Hai_vợ/Chương_2"
+      ],
+      "locator": "Chapter2 lines108-143,154-187; author page132",
+      "check_notes": "Re-read revised draft after issue. Unsupported examination-versus-war binary removed. Verified initial examination ambition, school closure due to invasion, duty to rescue country and Hao asking father about unresolved enlistment. Revised normalized summary SHA25660b1cce6ad8f725fc3e1598a9d1c3aba201b4c869981f8b12564886de1896106.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:38.759557+00:00",
+      "reviewed_metadata": {
+        "title": "Hai vợ",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:68",
+      "book_id": "B_f1d89ecb-c5bb-4477-86dd-5ab740cdaca8",
+      "title": "Hạnh phúc lối nào",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "decba152221991848a6bb5cb2794d030afeb03eb75035775e63f2d111785074e",
+      "draft_sha256": "2a0fd270556a634bc6a480f470a0a87fc98917fa086e42129051fc064f4afd33",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Hạnh_phúc_lối_nào/Chương_1"
+      ],
+      "locator": "Chapter1 lines127-157; author page133",
+      "check_notes": "Verified widow Cam with young Duong, worship/property/education duties, farming and land purchases, Saigon education then illness, home recovery and reading.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.206436+00:00",
+      "reviewed_metadata": {
+        "title": "Hạnh phúc lối nào",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:69",
+      "book_id": "B_af007d41-c8fb-4e03-9941-12af9ec3f90a",
+      "title": "Kẻ làm người chịu",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "610605d8c4c00ee77165bf5cfa460402482ace2e8daffb59c0648299c019f942",
+      "draft_sha256": "604ccc173e38877723436d180ee0d706657ea3b28441fe9c73986dabaa88f3b4",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Kẻ_làm_người_chịu/Chương_I"
+      ],
+      "locator": "ChapterI lines100-118; author page134",
+      "check_notes": "Verified To Nga preference for stage over cinema, newspaper praise, Casino screening, neighboring young woman and aunt, mutual interest in acquaintance and initial reserve.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.206678+00:00",
+      "reviewed_metadata": {
+        "title": "Kẻ làm người chịu",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:74",
+      "book_id": "B_b1e08017-4852-4c85-b64c-6fffc0455d70",
+      "title": "Khóc thầm",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "a2bd0546afb851c3a9b27ef02fad4100da22175c3a8d3bffadb47a1d555dfce9",
+      "draft_sha256": "4c3b948fd58e82f4ee09c45955d5a2ae6a403db80c9379fd7bc8803d22f2face",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Khóc_thầm/Chương_I"
+      ],
+      "locator": "ChapterI lines102-104,137-148; author page135",
+      "check_notes": "Verified My Thanh home, Thu Ha/Cong Can siblings, wealthy charitable parents, two qualifications and deferred France education due to mother illness and concern about separation.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.206913+00:00",
+      "reviewed_metadata": {
+        "title": "Khóc thầm",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:76",
+      "book_id": "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+      "title": "Lạc đường",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "de035d6167b46fd6eeed9febbe11f1199a5e7b26cb1b61d6c8857309e1194816",
+      "draft_sha256": "b3c9dffc224091e5b8c1d16ee948dcebc19080d985b5526a9d3ef476b848c3b9",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Lạc_đường/Chương_I"
+      ],
+      "locator": "ChapterI lines102-130; author page136",
+      "check_notes": "Verified labor quarter by Cho Lon canal, Mau gambling losses and transport job, Hai Tien distress after husband cargo accident, hospitalization and livelihood worries.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.207560+00:00",
+      "reviewed_metadata": {
+        "title": "Lạc đường",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:77",
+      "book_id": "B_3eb86ed2-f14d-4ed1-8318-2dc47333366c",
+      "title": "Lòng dạ đàn bà",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "89422ae0fe5248b3063fadc06899575e8d0c8576896ad7b7c1973d3dfce0bcd3",
+      "draft_sha256": "f074004867d6668a8ce122db9f56287b839f8fda4d2f3bbdb23477c9ee8e5b62",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Lòng_dạ_đàn_bà/Chương_1"
+      ],
+      "locator": "Chapter1 lines112-151; author page137",
+      "check_notes": "Verified former classmates, Thuy widowed/no children/diamond trade, Diep married to Thanh, his affair with Ba Huyen in Phu Nhuan and Thuy promised assistance. No invented resolution.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.208164+00:00",
+      "reviewed_metadata": {
+        "title": "Lòng dạ đàn bà",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "tinh_yeu"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:78",
+      "book_id": "B_37ba57a2-524f-47d9-9a4c-59de8a891b01",
+      "title": "Lời thề trước miễu",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "201be9f5dd3c7de26a67187fdc5bbc80ccf11067f9cc4cef9fec58986ca3ca6e",
+      "draft_sha256": "141d41ec4de40918e558d158e9797435d61e7940969f8afb3acbfe37e8d9186f",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Lời_thề_trước_miễu/Chương_I"
+      ],
+      "locator": "ChapterI lines100-124; author page138",
+      "check_notes": "Verified Dao cake seller, Lan by father grave after examination failure, fear of returning, abusive drunken stepfather and threat of domestic service instead of school.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.208438+00:00",
+      "reviewed_metadata": {
+        "title": "Lời thề trước miễu",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:79",
+      "book_id": "B_f78b6c4c-ab28-406e-b6b3-04051c75521d",
+      "title": "Một chữ tình",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "d4b862ebb091a133fb6c1d38daa9383f46ed68d1933b519729bdeacaaa3e6a95",
+      "draft_sha256": "346eb73afe4deaf9106aa5042ad479f74437bda5b88925860d9e0b19d8b5f0ed",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch02.json",
+      "draft_file_sha256": "8b16b2079a8e16e760aa2c9ae4c1a2bfd6962f698bd7dfc0808c81289bfdf187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Một_chữ_tình/Chương_1"
+      ],
+      "locator": "Chapter1 lines92-144; author page139",
+      "check_notes": "Verified Quang Giao/Bac Ai, Chasseloup students near examination, debate over rank/fate/French learning, Ai imitation position and Giao distinction between skills and Vietnamese conduct.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:09:11.208914+00:00",
+      "reviewed_metadata": {
+        "title": "Một chữ tình",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh",
+          "tinh_yeu"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:80",
+      "book_id": "B_064f82b2-38ca-4c0a-9344-2dad0f519888",
+      "title": "Một đóa hoa rừng",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "26b9587a6d0a9f2f3ddb3af6c112abc4faa2f30303e450e8de97d38aae8f91b8",
+      "draft_sha256": "7ca0809e7aee1ba82d32ec21c0aaaebda2f6131de0e0903688f358f2d98f008b",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Một_đóa_hoa_rừng"
+      ],
+      "locator": "Preface lines103-118; opening123-159; author page140",
+      "check_notes": "Verified narrator trip to Duong Long and Ba Lung account, Que bean work with reciprocal labor, borrowed cattle cart for firewood and robbery news causing concern about lonely forest roads.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.471977+00:00",
+      "reviewed_metadata": {
+        "title": "Một đóa hoa rừng",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:81",
+      "book_id": "B_96d9cede-2905-422f-b8de-791b709d2715",
+      "title": "Một đời tài sắc",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "3d6a4401abb00517f3fee91848ba1f4450ef98990acb724a4ddb97ee061d93a5",
+      "draft_sha256": "9e8f2ab29bf5c1739eefd403f96dd0ca1edfebbf44bb188b94b498fe42e5caad",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Một_đời_tài_sắc/Chương_I"
+      ],
+      "locator": "ChapterI lines100-136; author page141",
+      "check_notes": "Verified1929, Vo Ke Nghiep home near Cai Tac, Xuan Huong successful examination and desire for further education, visitor family and Thien Y examination in France, planned marriage alliance.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.472196+00:00",
+      "reviewed_metadata": {
+        "title": "Một đời tài sắc",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:82",
+      "book_id": "B_af235487-79e3-4095-be42-28556c6dc3b0",
+      "title": "Nam cực tinh huy",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "fe4d0cd8d8afcdc3ab4d4ae7e507c67eafe072bcb8295dff9c1ebcb9aa389509",
+      "draft_sha256": "3e795e1bc7dc6ae2894408d01fba59258da05c8aa9a0e5443b08008abaa39ea6",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Nam_cực_tinh_huy/Hồi_1"
+      ],
+      "locator": "Hoi1 lines103-121; author page142",
+      "check_notes": "Verified full-moon night938, Ai Chau, sleepless Ngo Quyen, garden reflections about household/state/debts, wife dream of weeping father. Unease is supported, without invented later events.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.472369+00:00",
+      "reviewed_metadata": {
+        "title": "Nam cực tinh huy",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:83",
+      "book_id": "B_fe82477e-ca89-4f71-a50a-0d51de7ae45e",
+      "title": "Nặng gánh cang thường",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "c71d4822240ee77aac5df8c1b96c93fd31641e7a6e808c6313a8940513d2146f",
+      "draft_sha256": "44910647e05a795360abff140c61d6f5f10458d6ea35fa690967958c0ba7e794",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Nặng_gánh_cang_thường/Chương_I"
+      ],
+      "locator": "ChapterI lines103-139; author page143",
+      "check_notes": "Verified Le Thanh Ton court, Than Nhon Trung promotion/teaching crown prince, Le Niem objections after court and prior engagement of their children. No invented resolution.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.472531+00:00",
+      "reviewed_metadata": {
+        "title": "Nặng gánh cang thường",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:85",
+      "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+      "title": "Người thất chí",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "31f90d1b4db3a331ffac199f41be92ca9df149757c0e03fb14d78c23520ffbee",
+      "draft_sha256": "e7e1e2cc2d4d290d7c7c7446bf2bdc4febcbda6209cde66b83404716d83908ff",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Người_thất_chí/Chương_I"
+      ],
+      "locator": "ChapterI lines99-130; author page145",
+      "check_notes": "Verified Phung French education and unemployment in Saigon, staying with Trinh, monthly meals with Phan Thanh, plan to farm in Can Tho and encouragement to persist.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.472690+00:00",
+      "reviewed_metadata": {
+        "title": "Người thất chí",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:86",
+      "book_id": "B_20cb3077-0908-4152-b8ab-272003aeaefe",
+      "title": "Nhơn tình ấm lạnh",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "38be438be66bf60da8a9a00d9777bac0112d56990b249ddd7b9e33cfe368cecd",
+      "draft_sha256": "4c50895c42e3986c3104c15cb53f51558d4c191980856deb36ca169cff4e2afd",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Nhơn_tình_ấm_lạnh/Hồi_1"
+      ],
+      "locator": "Hoi1 lines100-115; author page146",
+      "check_notes": "Verified Bac Lieu villa, Huyen ham title, combined housewarming/title party and elaborate flags/lights/gifts. Wealth/status interpretation directly follows narrator105-107.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.472846+00:00",
+      "reviewed_metadata": {
+        "title": "Nhơn tình ấm lạnh",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:87",
+      "book_id": "B_0caebad1-2fdc-4982-b7be-309c3339268c",
+      "title": "Nợ tình",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "fc066daa41e9a051c23d022f4f6bc169a191b6d542e6b6d93d349d8bbc9a39c2",
+      "draft_sha256": "de1d44ea52b7e4297e481a14e6e3698dacf72fa457db8884fc95fe6d74461c6c",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Nợ_tình/Chương_I"
+      ],
+      "locator": "ChapterI lines106-149; author page147",
+      "check_notes": "Verified Thu Tien reportage, speaking/writing and helping couples for durable family love; encounter with headmistress Cam Huong and broken engagement news. Wedding is not her own; summary does not imply otherwise.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.473012+00:00",
+      "reviewed_metadata": {
+        "title": "Nợ tình",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "tinh_yeu"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:88",
+      "book_id": "B_9e0cb114-3409-4989-a2a2-6ec86e14e65f",
+      "title": "Ông Cử",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "40157680502bed581cfd31ab3d772beb399535f9d8dc13b066dd2df59b6016f5",
+      "draft_sha256": "18efe82d49e5465f5cdd679c9af172091cb483e278368cfbe114a663f519a645",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Ông_Cử/Chương_1"
+      ],
+      "locator": "Chapter1 lines100-123; author page148",
+      "check_notes": "Verified Phu Nhuan working population, widow Nam Tien and two children serving at Xa Tai market, Sunday crowded meal and card-game conflict prompting threat to summon police.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.473169+00:00",
+      "reviewed_metadata": {
+        "title": "Ông Cử",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:89",
+      "book_id": "B_71105ea4-fea8-4f5f-a7b8-48227bd0e7e3",
+      "title": "Ở theo thời",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "ce0dcc6fc6c70adcb6d3b86d7a576d97329df5d82b1463b78cc7ebf0803c9592",
+      "draft_sha256": "8e36f4b2c30e348b81a5db63f86bbdd8bdf421f8092af9ff2532963343473aac",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://www.thuvienlamdong.org.vn/Files/Books/52838.pdf"
+      ],
+      "locator": "Library PDF physical pages1-8, extracted lines0-4,68-143; author page149",
+      "check_notes": "Verified PDF title/author, orphaned Ha Tan Phat supported by cousin Tan Tai, first-place teaching-school graduation, Tieu Can appointment, initial small-class request and Thien Tam first-class assignment with examination expectations. Read text extraction; web screenshots failed. No fulltext import or rights approval.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.473365+00:00",
+      "reviewed_metadata": {
+        "title": "Ở theo thời",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:91",
+      "book_id": "B_a2b939b9-3010-4522-a3a9-0b4ccb22f6a1",
+      "title": "Tại tôi",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "df413f8fe992224de9f02f71f06d4d2ad76c806e054f0cdf086465e07a347684",
+      "draft_sha256": "3344d4fc2f45543f3a15588f1fd65165bbb26644e8d44edcfa921cbc542789a0",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Tại_tôi/Chương_1"
+      ],
+      "locator": "Chapter1 lines92-170; author page150",
+      "check_notes": "Verified Ca Kim telegram about son Nhu Thach, food preparations and family invitations, Hanoi teacher education/Bac Viet teaching, resignation under mother request and return to family/property.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.473538+00:00",
+      "reviewed_metadata": {
+        "title": "Tại tôi",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:93",
+      "book_id": "B_ece10aa1-7984-446c-90c8-b2f1d81704e3",
+      "title": "Thầy Chung trúng số",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "513e650f8d26059f053e13ec0ebb74775fd81bfc00a0728790ae15ca40c1ca0c",
+      "draft_sha256": "855916beda45150d430161b049aeb6d090f092b8a11def619bd1fcfd4d94df36",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Thầy_Chung_trúng_số/Chương_I"
+      ],
+      "locator": "ChapterI lines102-128; author page151",
+      "check_notes": "Verified rainy late-month printshop departure, scarce cash, skipped lottery-check sheet despite ticket, old friends ignoring Chung, Phuoc capital proposal and inability to fund it. Does not falsely claim Chung has already won.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.473704+00:00",
+      "reviewed_metadata": {
+        "title": "Thầy Chung trúng số",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:96",
+      "book_id": "B_b8b37d3c-d44d-4d5e-a627-7aa675a0daee",
+      "title": "Tỉnh mộng",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "e8ae8fede14961e506e051bf6e7225e5714fd3665da4b722fca5033a0f5a5fef",
+      "draft_sha256": "8a57f3f9e77f70ed4621500d86aeb5dcee1080da4d2fffd3716c1fc8ef70a11b",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Tỉnh_mộng/Chương_1"
+      ],
+      "locator": "Chapter1 lines99-143; author page153",
+      "check_notes": "Verified Tan An riverside home, deceased Phu Tien, mother/daughter orchard and rent income, Tuyet reading/sewing and handkerchief request leading to marriage/beauty/money discussion.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.473868+00:00",
+      "reviewed_metadata": {
+        "title": "Tỉnh mộng",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:99",
+      "book_id": "B_1f73bcce-a349-4347-9676-7339cade7923",
+      "title": "Vợ già chồng trẻ",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "0c23f7022c3d953cb4a1bcd8817edb9fc19b802c1dfe14ff9e514263a4d68ea0",
+      "draft_sha256": "5a609260791ecb20dbe304ec6d5b6795230cacb2cf4ec81cd268be624805fb75",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Vợ_già_chồng_trẻ/Chương_1"
+      ],
+      "locator": "Chapter1 lines92-118; author page155",
+      "check_notes": "Verified U Tau/Vinh Hoi poverty, seamstress Xuyen caring for daughter while awaiting machinist Tuc, young neighbor Giao, sawmill work and monthly meal arrangement. No invented later marriage.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.474024+00:00",
+      "reviewed_metadata": {
+        "title": "Vợ già chồng trẻ",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "gia_dinh"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hbc:100",
+      "book_id": "B_4631e319-5136-44bd-91de-b707e681730d",
+      "title": "Ý và tình",
+      "authors": [
+        "Hồ Biểu Chánh"
+      ],
+      "summary_sha256": "4de5d16078a8e9be8c44551bdea9d34fe18a0f52af7f77998009975c85356dc4",
+      "draft_sha256": "020ad0154100e0907cc60807e9c2aef0258053bee05217c4dc48365a5edc7cfd",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch03.json",
+      "draft_file_sha256": "7c5e16c87a96ffddfd339434960eae1c89881a2565b78d6af5ef7dbc82425193",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+        "https://vi.wikisource.org/wiki/Ý_và_tình/Chương_1"
+      ],
+      "locator": "Chapter1 lines92-120; author page156",
+      "check_notes": "Verified1929, car trouble on Soc Trang-Bac Lieu route, young orphaned Xuan household responsibilities, observation of farm labor and thoughts about persistence/agriculture/industry/commerce.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:13:04.474184+00:00",
+      "reviewed_metadata": {
+        "title": "Ý và tình",
+        "authors": [
+          "Hồ Biểu Chánh"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "tieu_thuyet"
+        ],
+        "topics": [
+          "tinh_yeu"
+        ],
+        "metadata_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "hanoi:26",
+      "book_id": "B_5607b002-87ca-4d54-9ce2-fef192df47fa",
+      "title": "Sơ đồ khác biệt văn hóa: Vượt qua rào cản vô hình trong giao tiếp toàn cầu",
+      "authors": [
+        "Erin Meyer"
+      ],
+      "summary_sha256": "63240dad885d5d2eca447fa3a9576c8d80e4a9b195f55d9b10ee0ee27b0a0643",
+      "draft_sha256": "92ca831b6d77f0b2cb35f946c10241d83e2781c9c4238a64ec5580a38451637a",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch04.json",
+      "draft_file_sha256": "fabf1478194a49c770f1166d431f40d80f1f30070ebd7ac8c513c97646a10272",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://nxbkimdong.com.vn/products/so-do-khac-biet-van-hoa"
+      ],
+      "locator": "Kim Dong title108, author121, full Vietnamese subtitle148 and description147-152",
+      "check_notes": "Re-read revised metadata title in research.json after correction. Wrong global-business subtitle replaced by global-communication subtitle exactly supported by Vietnamese publisher148, same book ID. Summary unchanged and all claims supported by147-149. Original Hanoi PDF unavailable404, so approved metadata evidence is Kim Dong. Skills/social labels consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:26:25.344133+00:00",
+      "reviewed_metadata": {
+        "title": "Sơ đồ khác biệt văn hóa: Vượt qua rào cản vô hình trong giao tiếp toàn cầu",
+        "authors": [
+          "Erin Meyer"
+        ],
+        "genres": [
+          "tam_ly_ky_nang"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://nxbkimdong.com.vn/products/so-do-khac-biet-van-hoa"
+      },
+      "metadata_corrections": [
+        {
+          "field": "title",
+          "reason": "Nhan đề và phụ đề tại mô tả NXB Kim Đồng L148 ghi giao tiếp toàn cầu; reviewer đối chiếu thêm biểu ghi thư viện.",
+          "new_value": "Sơ đồ khác biệt văn hóa: Vượt qua rào cản vô hình trong giao tiếp toàn cầu",
+          "basis_url": "https://nxbkimdong.com.vn/products/so-do-khac-biet-van-hoa",
+          "old_value": "Sơ đồ khác biệt văn hóa: Vượt qua rào cản vô hình trong kinh doanh toàn cầu"
+        }
+      ]
+    },
+    {
+      "reference": "ussh:120",
+      "book_id": "B_5fd5fbc5-2f06-4362-b6d0-eea38da88f98",
+      "title": "Tôi đúng, anh sai",
+      "authors": [
+        "Edward de Bono"
+      ],
+      "summary_sha256": "42ac339c25261868fc59e341f7aa82a45aeb66418ca811e5a409274cfe5f4242",
+      "draft_sha256": "2ef105068db009b54e0be94a38411df48ab731b0b1829ae01fd6152f0a3360a0",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch04.json",
+      "draft_file_sha256": "e6a196384d710e85119607fbcfad9744f365e81c6c37b17e0c26564cc4b963ca",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://www.penguin.co.uk/books/12751/i-am-right-you-are-wrong-by-bono-edward-de/9780241257517",
+        "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc"
+      ],
+      "locator": "Penguin20-33; USSH PDF item120,physical page15,lines1431-1434",
+      "check_notes": "Verified Vietnamese title and author in library bibliography; Kim Dieu and Khanh Chuong explicitly translators, not authors. Publisher original supports adversarial decision-making, rigid categories, point-scoring, perception, constructive thought and creativity. Skills genre appropriate; not claiming Penguin ISBN is Vietnamese edition.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:25:33.506538+00:00",
+      "reviewed_metadata": {
+        "title": "Tôi đúng, anh sai",
+        "authors": [
+          "Edward de Bono"
+        ],
+        "genres": [
+          "tam_ly_ky_nang"
+        ],
+        "topics": [],
+        "metadata_url": "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "ol:78",
+      "book_id": "B_37165d46-9270-4848-9ff2-0e683d418e0d",
+      "title": "50 sắc thái: Xám",
+      "authors": [
+        "E. L. James"
+      ],
+      "summary_sha256": "6539fe9a34dd56e3d55cd05c83795c0c716f39ff7564a183a06d8507fc63f0aa",
+      "draft_sha256": "f3764e3acab9dea2102fef2e9ec4174f9087e95dce3364de9035fc61e86313e3",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch04.json",
+      "draft_file_sha256": "e6a196384d710e85119607fbcfad9744f365e81c6c37b17e0c26564cc4b963ca",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://www.penguinrandomhouse.com/books/222129/fifty-shades-of-grey-by-e-l-james/paperback/",
+        "https://shop.alphabooks.vn/50-sac-thai-xam-199k-tai-ban-p19390057.html"
+      ],
+      "locator": "Alpha Books242,275-300; PRH185-195,216-219",
+      "check_notes": "Verified Vietnamese volume Xam, E L James author, Tuong Vy translator; distinct from Grey retelling. PRH and Vietnamese publisher support student interview, attraction, Grey terms/control and secrets/desires. Foreign-literature/novel genres match. No translation/fulltext/public rights approval.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:25:33.506840+00:00",
+      "reviewed_metadata": {
+        "title": "50 sắc thái: Xám",
+        "authors": [
+          "E. L. James"
+        ],
+        "genres": [
+          "van_hoc_nuoc_ngoai",
+          "tieu_thuyet"
+        ],
+        "topics": [],
+        "metadata_url": "https://shop.alphabooks.vn/50-sac-thai-xam-199k-tai-ban-p19390057.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:153",
+      "book_id": "B_7a945e2e-8a3d-493f-9b41-d8991dd15802",
+      "title": "Lịch sử khẩn hoang miền Nam",
+      "authors": [
+        "Sơn Nam"
+      ],
+      "summary_sha256": "975d2fdcb7d9d87239b5b60543bbfe28e400e01eff8e0afc8c59e0b05909d315",
+      "draft_sha256": "c7326422fb47be9c7fdd33bf09cbca857ce7237eb2539c1506333272da814a5c",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch04.json",
+      "draft_file_sha256": "e6a196384d710e85119607fbcfad9744f365e81c6c37b17e0c26564cc4b963ca",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://www.nxbtre.com.vn/en/book/lich-su-khan-hoang-mien-nam-bien-khao-44610.html"
+      ],
+      "locator": "NXB Tre57-78",
+      "check_notes": "Verified title/author Son Nam, historical study of Vietnamese migrants, land/settlements and three-century settlement process. Every summary claim supported. History/social labels consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:25:33.507101+00:00",
+      "reviewed_metadata": {
+        "title": "Lịch sử khẩn hoang miền Nam",
+        "authors": [
+          "Sơn Nam"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://www.nxbtre.com.vn/en/book/lich-su-khan-hoang-mien-nam-bien-khao-44610.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:68",
+      "book_id": "B_20c72d6f-fafe-4081-8bf8-f1ec7c58a38e",
+      "title": "Đất và người Nam Bộ",
+      "authors": [
+        "Ca Văn Thỉnh"
+      ],
+      "summary_sha256": "0c391fe871b1df224b16414c1fe24e76513fdb46e6688b31ce766c8ac6d3987a",
+      "draft_sha256": "add75b523c895e7345c47451ddd6cb80dc044e454be22259c3754e0207d1bfce",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch04.json",
+      "draft_file_sha256": "e6a196384d710e85119607fbcfad9744f365e81c6c37b17e0c26564cc4b963ca",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://baocantho.com.vn/dat-va-nguoi-nam-bo-nhung-trang-sach-quy-a75759.html"
+      ],
+      "locator": "Bao Can Tho149-164",
+      "check_notes": "Verified collected Ca Van Thinh research, Dai Viet articles, local figures, Thoai Ngoc Hau/Vinh Te, Minh Bot di ngu, poetry groups and Dong Nai learning/literature. Researcher Ca Van Thinh not confused with reviewer Duy Khoi. History/social labels consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:25:33.507363+00:00",
+      "reviewed_metadata": {
+        "title": "Đất và người Nam Bộ",
+        "authors": [
+          "Ca Văn Thỉnh"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://baocantho.com.vn/dat-va-nguoi-nam-bo-nhung-trang-sach-quy-a75759.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "nhl:151",
+      "book_id": "B_d960e70f-7539-43fc-a10c-3f9ca1d315c2",
+      "title": "Sống 24 giờ một ngày",
+      "authors": [
+        "Arnold Bennett"
+      ],
+      "summary_sha256": "f8026da1f65c573811b759449eae2eeddbae21d08a6d3e31d270bf160287f773",
+      "draft_sha256": "9d2400bbfb36c2bdf5e3bb2665e39e053d5bdafeb37e4cbdba3996dfe2be71b3",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch04.json",
+      "draft_file_sha256": "e6a196384d710e85119607fbcfad9744f365e81c6c37b17e0c26564cc4b963ca",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://store.tramdoc.vn/products/sach-song-24-gio-mot-ngay"
+      ],
+      "locator": "TramDoc93,118-132",
+      "check_notes": "Verified Vietnamese title and Arnold Bennett author. Description supports24-hour time budget, purpose, wasted time/priorities, activities, study/work/spiritual growth. Skills genre consistent. Retailer2025edition is evidence of general original content only; not asserting it is Nguyen Hien Le translation or approving translated text.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:25:33.507612+00:00",
+      "reviewed_metadata": {
+        "title": "Sống 24 giờ một ngày",
+        "authors": [
+          "Arnold Bennett"
+        ],
+        "genres": [
+          "tam_ly_ky_nang"
+        ],
+        "topics": [],
+        "metadata_url": "https://store.tramdoc.vn/products/sach-song-24-gio-mot-ngay"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "ussh:66",
+      "book_id": "B_4fadfede-84dd-4e7f-b0d5-10f1b8e37564",
+      "title": "Nền tảng tâm lý học",
+      "authors": [
+        "Nicky Hayes"
+      ],
+      "summary_sha256": "4a373befff1f25ea5df8c61bf1e7fc0712a0fb57e7b837a15e4d8244fda8a2cc",
+      "draft_sha256": "f5e959a20a523e3b8c400ac5183550881980539c36c5f23eb2a440ceefda8c1a",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch05.json",
+      "draft_file_sha256": "fc681b846be8a7114e010af73032f1e849a79b9b5ad074ba79674d900fa69187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://play.google.com/store/books/details/Nicky_Hayes_Nền_Tảng_Tâm_Lý_Học?id=A3LQEAAAQBAJ"
+      ],
+      "locator": "Google Play title16-20, description41-43 and TOC49-107",
+      "check_notes": "Verified Vietnamese title and Nicky Hayes authorship. TOC directly supports cognition/memory/language, personality/abnormality, neuroscience/emotion, social/developmental/comparative psychology, animal behavior and research methods/ethics. Skills/psychology label consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:26:25.364112+00:00",
+      "reviewed_metadata": {
+        "title": "Nền tảng tâm lý học",
+        "authors": [
+          "Nicky Hayes"
+        ],
+        "genres": [
+          "tam_ly_ky_nang"
+        ],
+        "topics": [],
+        "metadata_url": "https://play.google.com/store/books/details/Nicky_Hayes_Nền_Tảng_Tâm_Lý_Học?id=A3LQEAAAQBAJ"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "ussh:91",
+      "book_id": "B_d3f3ea12-be05-47b9-899f-2f9c1d83bbe7",
+      "title": "Nghiên cứu về sự phát triển con người",
+      "authors": [
+        "Robert V. Kail",
+        "John C. Cavanaugh"
+      ],
+      "summary_sha256": "76794008e8e00ce1ddbf22f9dc4bbd24bc1c8e4868cf80084ba7d3f5d2325506",
+      "draft_sha256": "a83e4879b0b8683a1243cfc58fa1c7f326e5e86fe26fddd576c46d5b85fc9a79",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch05.json",
+      "draft_file_sha256": "fc681b846be8a7114e010af73032f1e849a79b9b5ad074ba79674d900fa69187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://thuvienso.quochoi.vn/handle/11742/95574"
+      ],
+      "locator": "National Assembly Library title/authors13-15, abstract22",
+      "check_notes": "Verified title and Robert V Kail/John C Cavanaugh authors. Abstract supports human psychophysiological development in modern society, personality/social context, welfare conditions and contribution to community. No inference of fulltext access: large file requires copy permission; only abstract read. Psychology label consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:26:25.364331+00:00",
+      "reviewed_metadata": {
+        "title": "Nghiên cứu về sự phát triển con người",
+        "authors": [
+          "Robert V. Kail",
+          "John C. Cavanaugh"
+        ],
+        "genres": [
+          "tam_ly_ky_nang"
+        ],
+        "topics": [],
+        "metadata_url": "https://thuvienso.quochoi.vn/handle/11742/95574"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "tlvd:670-3",
+      "book_id": "B_07ec13f8-396a-4f20-a33e-d1dfcd3cd7a8",
+      "title": "Anh phải sống",
+      "authors": [
+        "Nhất Linh",
+        "Khái Hưng"
+      ],
+      "summary_sha256": "bedad16ff82f0d542597963018f0b3cd84f84aaf7f6b97ff663af3246f395871",
+      "draft_sha256": "ba17464b2ada08b8072fee760f38a0aab12288777371e003a6398b518a442dbb",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch05.json",
+      "draft_file_sha256": "fc681b846be8a7114e010af73032f1e849a79b9b5ad074ba79674d900fa69187",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vi.wikisource.org/wiki/Anh_phải_sống",
+        "https://vi.wikisource.org/wiki/Anh_phải_sống/Anh_phải_sống"
+      ],
+      "locator": "Collection title pages99-124, TOC128-174; title story99-287",
+      "check_notes": "Verified collection title and two authors. TOC134 attributes title story specifically to Khai Hung; description explicitly distinguishes collection/story. Directly read Thuc/Lac, Yen Phu poverty, firewood trip, sinking, three children and Lac releasing husband to survive. Vietnamese-literature/short-story labels appropriate.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:26:25.364512+00:00",
+      "reviewed_metadata": {
+        "title": "Anh phải sống",
+        "authors": [
+          "Nhất Linh",
+          "Khái Hưng"
+        ],
+        "genres": [
+          "van_hoc_viet_nam",
+          "truyen_ngan"
+        ],
+        "topics": [],
+        "metadata_url": "https://vi.wikisource.org/wiki/Anh_phải_sống"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "ussh:12",
+      "book_id": "B_961380f5-1ac2-476e-96e6-8c3c231317c8",
+      "title": "Chiến lược phát triển nhân viên: tối ưu hóa năng lực nhân sự, nâng cao hiệu quả công việc",
+      "authors": [
+        "Glenn Elliott",
+        "Debra Corey"
+      ],
+      "summary_sha256": "db8d0055cf040488cb439659462b273476aaf2d71c0215fbb83156deadbadff9",
+      "draft_sha256": "a7ea0f973a11c38c0f4b25ce15e5b7275c37fb04a383ebbe61841b2ea45c767f",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch06.json",
+      "draft_file_sha256": "31020eed70ff71ab8037295dbdb54a947d4dbcd623c44f560e7452a14fe3fd25",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc",
+        "https://books.apple.com/us/book/build-it/id1397145094"
+      ],
+      "locator": "USSH bibliography item12 physical page3,141-145; Apple Books42,54-62,87-93",
+      "check_notes": "Verified Vietnamese title, Glenn Elliott/Debra Corey authors and Dieu Linh translator in USSH bibliography. Wiley publisher description supports Engagement Bridge, entrepreneurial/HR perspectives, practical tools/cases, people-centered organization and challenges to HR convention. Skills genre no evident conflict; original edition facts not silently assigned to translation.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:29:41.566820+00:00",
+      "reviewed_metadata": {
+        "title": "Chiến lược phát triển nhân viên: tối ưu hóa năng lực nhân sự, nâng cao hiệu quả công việc",
+        "authors": [
+          "Glenn Elliott",
+          "Debra Corey"
+        ],
+        "genres": [
+          "tam_ly_ky_nang"
+        ],
+        "topics": [],
+        "metadata_url": "https://hcmussh.edu.vn/static/document/11706.pdf?displayName=Danh+m%E1%BB%A5c+t%C3%A0i+li%E1%BB%87u+ph%E1%BB%A5c+v%E1%BB%A5+m%C3%B4n+h%E1%BB%8Dc+Khoa+T%C3%A2m+l%C3%BD+h%E1%BB%8Dc"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:31",
+      "book_id": "B_e9d56e15-5396-4cb6-ada6-aa8680b28f5a",
+      "title": "Các hình thái tín ngưỡng tôn giáo ở Việt Nam",
+      "authors": [
+        "Nguyễn Đăng Duy"
+      ],
+      "summary_sha256": "6b99ca133d0f31ad89f3613ac659362a4323d2a75a7532586325b62f1f83b3ba",
+      "draft_sha256": "b5a7602eb37b4b81f2b9e53a91e2ed23753cf6a1c2c74242b81d648570f0d517",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch06.json",
+      "draft_file_sha256": "31020eed70ff71ab8037295dbdb54a947d4dbcd623c44f560e7452a14fe3fd25",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://thuvien.vov.gov.vn/Book.aspx?id=13670"
+      ],
+      "locator": "VOV library44-54",
+      "check_notes": "Verified exact title and Nguyen Dang Duy author. Chapter-content list directly supports introductory concepts, ancestor/deity/Mother worship, southern religions, ethnic-minority beliefs and imported religions. Used substantive chapter description54, not empty summary tab65. History/social broad labels have no clear contradiction with cultural religion study.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:29:41.567091+00:00",
+      "reviewed_metadata": {
+        "title": "Các hình thái tín ngưỡng tôn giáo ở Việt Nam",
+        "authors": [
+          "Nguyễn Đăng Duy"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://thuvien.vov.gov.vn/Book.aspx?id=13670"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:64",
+      "book_id": "B_a4e1870a-147e-4ae2-9897-056f76e6fd66",
+      "title": "Đất Gia Định – Bến Nghé xưa và người Sài Gòn",
+      "authors": [
+        "Sơn Nam"
+      ],
+      "summary_sha256": "59ec4624eaac324f39e1f3b5c9f5f67c5af1f5faa9e930c00318565e32cac908",
+      "draft_sha256": "f114032761f6a075485c97ca648583df86e67dda62c499db7d393bc7b1f8c947",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch06.json",
+      "draft_file_sha256": "31020eed70ff71ab8037295dbdb54a947d4dbcd623c44f560e7452a14fe3fd25",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://www.nxbtre.com.vn/sach/dat-gia-dinh-ben-nghe-xua-nguoi-sai-gon-44512.html"
+      ],
+      "locator": "NXB Tre56-58,79-80",
+      "check_notes": "Verified Son Nam and collected volume identity; source names three works, wider Gia Dinh/Nam Bo scope, formation of Ben Nghe/Saigon/Gia Dinh and local character during settlement/development. All claims supported; history/social labels consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:29:41.567290+00:00",
+      "reviewed_metadata": {
+        "title": "Đất Gia Định – Bến Nghé xưa và người Sài Gòn",
+        "authors": [
+          "Sơn Nam"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://www.nxbtre.com.vn/sach/dat-gia-dinh-ben-nghe-xua-nguoi-sai-gon-44512.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:213",
+      "book_id": "B_66623562-c47b-48a2-be5b-5c18c6521982",
+      "title": "Sài Gòn năm xưa",
+      "authors": [
+        "Vương Hồng Sển"
+      ],
+      "summary_sha256": "c47c9cd5043cce3a4bfd78b9c795bfd8e9f3b7f00e2bfaf4466e073c45da8c61",
+      "draft_sha256": "fa8f3628b8217fe0eb4ce62968b95ca19482d19e339fd16f3e2c56bc9f1b2ce8",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch06.json",
+      "draft_file_sha256": "31020eed70ff71ab8037295dbdb54a947d4dbcd623c44f560e7452a14fe3fd25",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://www.nxbtre.com.vn/sach/sai-gon-nam-xua-158452.html"
+      ],
+      "locator": "NXB Tre56-68",
+      "check_notes": "Verified Sai Gon nam xua and Vuong Hong Sen author. Publisher supports southward migration, multi-community formation, customs/ritual/architecture, mixed character, collected documents and narrated past city. History/social labels consistent.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:29:41.567488+00:00",
+      "reviewed_metadata": {
+        "title": "Sài Gòn năm xưa",
+        "authors": [
+          "Vương Hồng Sển"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://www.nxbtre.com.vn/sach/sai-gon-nam-xua-158452.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:50",
+      "book_id": "B_4efd32d4-c955-4d9f-a617-f7636c7f08bf",
+      "title": "Cổ tích và thắng cảnh Hà Nội",
+      "authors": [
+        "Doãn Kế Thiện"
+      ],
+      "summary_sha256": "169b1096ecf0d8622af6819596edd03c58dd709f18594ea315879549d0404f1a",
+      "draft_sha256": "c273ec8c04aabfdadc229497afe67274bb6bdedd472516bcdc3bedc94c06afd6",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch07.json",
+      "draft_file_sha256": "ebec4a894b2fcaf603660e60ff058ebebf233a2146724b44976dcbe79b4bb572",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://cantholib.org.vn/thu-muc-tai-lieu-moi/thu-muc-sach-moi/thu-muc-sach-moi-thang-02-2020-41.html?download=1&id=0"
+      ],
+      "locator": "Can Tho Library PDF physical page33(index32), item161,1355-1360",
+      "check_notes": "Verified Doan Ke Thien title/authorship and substantive library abstract: historical significance, inner/outer Hanoi, residents/labor relations and named citadel/lakes/temples. Read extracted page text; screenshot cache failed. History label matches; no fulltext claim.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:30:51.235477+00:00",
+      "reviewed_metadata": {
+        "title": "Cổ tích và thắng cảnh Hà Nội",
+        "authors": [
+          "Doãn Kế Thiện"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [],
+        "metadata_url": "https://cantholib.org.vn/thu-muc-tai-lieu-moi/thu-muc-sach-moi/thu-muc-sach-moi-thang-02-2020-41.html?download=1&id=0"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:116",
+      "book_id": "B_bd4b0df9-f41f-4466-b61a-c1952b6ec2d6",
+      "title": "Hơn nửa đời hư",
+      "authors": [
+        "Vương Hồng Sển"
+      ],
+      "summary_sha256": "b46664d6611e35d2de1fd594333ce99caed28d950a008847a025dc2117301d7d",
+      "draft_sha256": "3ab69ffa184cc536e72f5e9e92216306656929fb599076bdb13c62b0c52679d8",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch07.json",
+      "draft_file_sha256": "ebec4a894b2fcaf603660e60ff058ebebf233a2146724b44976dcbe79b4bb572",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://www.nxbtre.com.vn/en/book/hon-nua-doi-hu-14001.html"
+      ],
+      "locator": "NXB Tre56-65,96-108",
+      "check_notes": "Verified title/Vuong Hong Sen and autobiographical nature via CIP/related memoir label. Publisher supports twentieth-century lived context, southern language and Vietnamese/Chinese/Khmer/French influences. Summary stays within language/cultural/self-narrative scope; Vietnamese literature label appropriate.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:30:51.236016+00:00",
+      "reviewed_metadata": {
+        "title": "Hơn nửa đời hư",
+        "authors": [
+          "Vương Hồng Sển"
+        ],
+        "genres": [
+          "van_hoc_viet_nam"
+        ],
+        "topics": [],
+        "metadata_url": "https://www.nxbtre.com.vn/en/book/hon-nua-doi-hu-14001.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:87",
+      "book_id": "B_6fa7b11e-a056-4ea0-a20c-bc72c0689ca6",
+      "title": "Đời sống cung đình triều Nguyễn",
+      "authors": [
+        "Tôn Thất Bình"
+      ],
+      "summary_sha256": "1b820158295bf3bec91c6dbb66955cf3a83c8cfb67da811f2dbde91678b6e740",
+      "draft_sha256": "5eb33386bf3deab4072347f4bbe3b61ed110ca6790f211581ce6ca98b49787d7",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch07.json",
+      "draft_file_sha256": "ebec4a894b2fcaf603660e60ff058ebebf233a2146724b44976dcbe79b4bb572",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://vietnamnet.vn/cuoc-song-go-bo-buon-tui-cua-cung-phi-trieu-nguyen-641222.html"
+      ],
+      "locator": "Vietnamnet196-197,203-207,222,235,241",
+      "check_notes": "Verified Ton That Binh and title explicitly named. Language taboo, costume rules, consort hierarchy and confined royal daily life are specifically attributed to this book; excluded claims229 attributed to a different author/book. History/social labels appropriate. No public reuse approval of news text/images.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:30:51.236453+00:00",
+      "reviewed_metadata": {
+        "title": "Đời sống cung đình triều Nguyễn",
+        "authors": [
+          "Tôn Thất Bình"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [
+          "xa_hoi"
+        ],
+        "metadata_url": "https://vietnamnet.vn/cuoc-song-go-bo-buon-tui-cua-cung-phi-trieu-nguyen-641222.html"
+      },
+      "metadata_corrections": []
+    },
+    {
+      "reference": "museum:49",
+      "book_id": "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb",
+      "title": "Cơ sở văn hóa Việt Nam",
+      "authors": [
+        "Trần Quốc Vượng",
+        "Tô Ngọc Thanh",
+        "Nguyễn Chí Bền",
+        "Lâm Mỹ Dung",
+        "Trần Thúy Anh"
+      ],
+      "summary_sha256": "80a836a61598d9af8f452921e87562b95d59a214fe7b515f9f5e740cabaf7234",
+      "draft_sha256": "e5845b930acd1b7fd0d552ade1b2db323fba357efbc3c10228a62691157ed46b",
+      "draft_path": "openspec/tmp/curate55-20261121/drafts/batch07.json",
+      "draft_file_sha256": "ebec4a894b2fcaf603660e60ff058ebebf233a2146724b44976dcbe79b4bb572",
+      "status": "pass",
+      "metadata_pass": true,
+      "summary_pass": true,
+      "source_urls": [
+        "https://lib.hou.edu.vn/bookInfo/4056",
+        "https://thuvienso.hoasen.edu.vn/items/21068ffd-29ca-442a-ab2c-4df39c34652a",
+        "https://elib.vku.udn.vn/handle/123456789/6035"
+      ],
+      "locator": "HOU title50/authors54/MARC245107/summary111; VKU5-10; Hoa Sen abstract29",
+      "check_notes": "Verified corrected five-person contributor list against HOU MARC245 and VKU. Tran Quoc Vuong is chief editor, four others contributors; not sole-author attribution. Hoa Sen abstract directly supports culture concepts/structure/functions, prehistoric-to-current development and all listed regions; HOU corroborates teaching text and broad approach. Broad history label not contradictory; no new taxonomy label invented.",
+      "internal_approval_eligible": {
+        "metadata": true,
+        "summary": true
+      },
+      "approval_basis": "Independently read cited source pages and checked title/authorship and each stated content claim against locators. Original Vietnamese editorial description, limited to the claims and content scope actually checked at the cited locators. Conditional user authorization applies only to demo/internal metadata and summary, subject to no unresolved issue.",
+      "reviewed_at": "2026-11-21T09:30:51.236778+00:00",
+      "reviewed_metadata": {
+        "title": "Cơ sở văn hóa Việt Nam",
+        "authors": [
+          "Trần Quốc Vượng",
+          "Tô Ngọc Thanh",
+          "Nguyễn Chí Bền",
+          "Lâm Mỹ Dung",
+          "Trần Thúy Anh"
+        ],
+        "genres": [
+          "lich_su"
+        ],
+        "topics": [],
+        "metadata_url": "https://lib.hou.edu.vn/bookInfo/4056",
+        "contributor_roles": {
+          "Trần Quốc Vượng": "chủ biên",
+          "Tô Ngọc Thanh": "đồng tác giả",
+          "Nguyễn Chí Bền": "đồng tác giả",
+          "Lâm Mỹ Dung": "đồng tác giả",
+          "Trần Thúy Anh": "đồng tác giả"
+        }
+      },
+      "metadata_corrections": [
+        {
+          "field": "authors",
+          "old_value": [
+            "Trần Quốc Vượng"
+          ],
+          "new_value": [
+            "Trần Quốc Vượng",
+            "Tô Ngọc Thanh",
+            "Nguyễn Chí Bền",
+            "Lâm Mỹ Dung",
+            "Trần Thúy Anh"
+          ],
+          "basis_url": "https://lib.hou.edu.vn/bookInfo/4056",
+          "reason": "MARC245ghiTrầnQuốcVượngchủbiênvà4đồngtácgiả; VKU6035đốichiếuđủ5tên. Poolchỉcótênchủbiênnênbổsungđồngtácgiả, giữID."
+        }
+      ]
+    }
+  ],
+  "review_source_sha256": "1dd6733ba3b5af87603977aef36a5cdfb8250c4bc88baf801e259598a5facf2f",
+  "research_source_sha256": "2624bbe115c41966aea7f860b0b0e276d9e67ae1c883b21838452a908ec220f7",
+  "curation55_sha256": "8612ef7a577b372072061aeab27857ef98bdb3c8afdb849f8d40dd521c2c5164"
+}
