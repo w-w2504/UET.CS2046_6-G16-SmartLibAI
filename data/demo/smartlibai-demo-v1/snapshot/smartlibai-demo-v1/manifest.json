@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "smartlibai-demo-v1",
+  "data_kind": "classroom_demo",
+  "demo": {
+    "scope": "classroom_demo",
+    "content": [
+      "metadata",
+      "summary"
+    ],
+    "provenance": "sources in the SHA-256-bound catalog.jsonl",
+    "source_rights_status_counts": {
+      "approved": 40,
+      "pending": 150
+    },
+    "unverified_rights": true
+  },
+  "source_bundle": {
+    "files": {
+      "mapping.jsonl": "399a512d4d00e5b71a2f3731a93ac725f0fc72dce1275143f647a69b5dddb41f",
+      "vectors.npy": "fdbbb4b42c9505fe55b79da28ba5470a81ce33e68b79aaa72aa7d7fef1ee858a"
+    },
+    "manifest_sha256": "fd370923e86795039c6a170fc8b665123e41293e2eb063c99327a7f2a36d05b2",
+    "source": {
+      "catalog_sha256": "71c1e709971abb05a584a76477678ea3e8a4c47fa0c7c51a93af1a594b174fcd",
+      "taxonomy_sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789"
+    }
+  },
+  "embedding": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+    "tokenizer": "intfloat/multilingual-e5-small",
+    "dimension": 384,
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "pooling": "mean_attention_mask",
+    "normalization": "L2"
+  },
+  "thresholds": {
+    "search": 0.75
+  },
+  "counts": {
+    "book_count": 95,
+    "work_count": 95,
+    "fulltext_work_count": 0,
+    "vector_count": {
+      "books": 95
+    }
+  },
+  "files": [
+    {
+      "path": "books.faiss",
+      "sha256": "68b495174788166c1b003aaf8e79b1ab303117626fffab23c4e0d4d250dd6fbb",
+      "size_bytes": 145965
+    },
+    {
+      "path": "mapping.jsonl",
+      "sha256": "42cef0e9af4c986f8e929f8e7ea49ec7802e40929257ab7a816946d31dfbbdd8",
+      "size_bytes": 18980
+    },
+    {
+      "path": "catalog.sqlite",
+      "sha256": "04c08a79844c20be58b36456783c8a1b3a8a538b5c777ec7dd4b2635faff35ae",
+      "size_bytes": 434176
+    }
+  ]
+}

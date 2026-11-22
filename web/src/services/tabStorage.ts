@@ -14,6 +14,7 @@ export interface TabSessionState {
   seed_book_ids: string[];
   exclude_book_ids: string[];
   filters: Filters;
+  search_filters?: Filters;
   query: string;
   list_state: {
     mode: 'catalog' | 'search';
@@ -48,12 +49,15 @@ function validState(value: unknown): value is TabSessionState {
   if (!value || typeof value !== 'object') return false;
   const s = value as TabSessionState;
   const strings = (v: unknown) => Array.isArray(v) && v.every(item => typeof item === 'string');
+  const validFilters = (filters: Filters) =>
+    !!filters && typeof filters === 'object' && !Array.isArray(filters)
+    && (filters.authors === undefined || strings(filters.authors))
+    && (filters.genres === undefined || strings(filters.genres))
+    && (filters.has_fulltext == null || typeof filters.has_fulltext === 'boolean');
   return s.schema_version === SCHEMA_VERSION && (s.snapshot_id === null || typeof s.snapshot_id === 'string')
     && strings(s.seed_book_ids) && strings(s.exclude_book_ids) && typeof s.query === 'string'
-    && !!s.filters && typeof s.filters === 'object' && !Array.isArray(s.filters)
-    && (s.filters.authors === undefined || strings(s.filters.authors))
-    && (s.filters.genres === undefined || strings(s.filters.genres))
-    && (s.filters.has_fulltext == null || typeof s.filters.has_fulltext === 'boolean')
+    && validFilters(s.filters)
+    && (s.search_filters === undefined || validFilters(s.search_filters))
     && !!s.list_state && ['catalog', 'search'].includes(s.list_state.mode)
     && Number.isInteger(s.list_state.offset) && s.list_state.offset >= 0
     && Number.isInteger(s.list_state.limit) && s.list_state.limit >= 1 && s.list_state.limit <= 20

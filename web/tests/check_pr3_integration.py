@@ -1,7 +1,7 @@
 """PR3 browser integration checks using C02 metadata and authored reader mocks.
 
 Start ordinary dev, demo dev and production preview separately. No real API/AI
-acceptance is claimed. Output is kept apart from the original C18 evidence.
+acceptance is claimed. Runtime output goes to the system temporary directory.
 """
 
 import argparse
@@ -9,6 +9,7 @@ import json
 import os
 import platform
 import sys
+import tempfile
 import traceback
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -18,7 +19,7 @@ from playwright.sync_api import expect, sync_playwright
 from check_reader_browser import BOOK, REQUEST_ID, api_error, body, chapter, check_no_overflow, install_api
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT = ROOT / 'specs/p4/week-01/evidence/pr3-integration'
+DEFAULT_OUTPUT = Path(tempfile.gettempdir()) / 'smartlib-p4-tests' / 'pr3-integration'
 
 
 def state(snapshot='stored-snapshot', seeds=None):
@@ -117,7 +118,7 @@ def run(base_url, demo_url, production_url, output_dir):
             api_requests = []
             page.route('**/api/v1/**', lambda route: (api_requests.append(route.request.url),
                        route.fulfill(status=503, json=api_error('Demo phải độc lập backend'))))
-            page.goto(demo_url + '/?snapshot_id=linked-demo')
+            page.goto(demo_url + '/?snapshot_id=demo-c02')
             expect(page.get_by_text('Demo với dữ liệu C02', exact=True)).to_be_visible()
             cards = page.locator('.book-card')
             expect(cards).to_have_count(len(rows))
@@ -134,20 +135,22 @@ def run(base_url, demo_url, production_url, output_dir):
             page.locator('.skip-link').focus()
             page.keyboard.press('Enter')
             expect(page.locator('main')).to_be_focused()
-            first = cards.first.get_by_role('heading').get_by_role('link')
-            assert parse_qs(urlparse(first.get_attribute('href')).query)['snapshot_id'] == ['linked-demo']
-            first.click()
+            source_book = cards.get_by_role('link', name=rows[0]['title'], exact=True)
+            assert parse_qs(urlparse(source_book.get_attribute('href')).query)['snapshot_id'] == ['demo-c02']
+            source_book.click()
             expect(page.get_by_role('heading', name=rows[0]['title'], exact=True)).to_be_visible()
-            expect(page.locator('.detail-layout')).to_contain_text('Chờ duyệt')
+            rights_labels = {'approved': 'Đã duyệt', 'pending': 'Chờ duyệt', 'rejected': 'Không được duyệt'}
+            for source in rows[0]['sources']:
+                expect(page.locator('.detail-layout')).to_contain_text(rights_labels[source['rights_status']])
             expect(page.get_by_role('button', name='Đọc sách', exact=True)).to_be_disabled()
             page.get_by_role('button', name='Chọn làm sở thích', exact=True).click()
             expect(page.get_by_label('1 sách đã chọn', exact=True)).to_be_visible()
             assert page.evaluate('sessionStorage.getItem("ai_library_v1")') == real
             demo_state = page.evaluate('JSON.parse(sessionStorage.getItem("ai_library_demo_c02_v1"))')
             assert demo_state['seed_book_ids'] == [rows[0]['book_id']]
-            assert demo_state['snapshot_id'] == 'linked-demo'
+            assert demo_state['snapshot_id'] == 'demo-c02'
             for link in page.locator('header a').all():
-                assert parse_qs(urlparse(link.get_attribute('href')).query)['snapshot_id'] == ['linked-demo']
+                assert parse_qs(urlparse(link.get_attribute('href')).query)['snapshot_id'] == ['demo-c02']
             check_no_overflow(page)
             page.evaluate("window.scrollTo({top: 0, left: 0, behavior: 'instant'})")
             page.wait_for_function('window.scrollY === 0')
@@ -176,6 +179,8 @@ def run(base_url, demo_url, production_url, output_dir):
             assert not any('/chapters/' in url or '/books/' in url or '/qa' in url for url in requests)
             assert page.evaluate('sessionStorage.getItem("ai_library_v1")') == real
             page.get_by_role('navigation', name='Điều hướng chính').get_by_role('link', name='Khám phá', exact=True).click()
+            expect(page.get_by_role('alert')).to_contain_text('Danh mục trả về dữ liệu khác phiên bản')
+            page.goto(demo_url + '/?snapshot_id=demo-c02')
             expect(page.locator('.book-card')).to_have_count(len(rows))
             assert not any('B_reader_fixture' in href for href in page.locator('.book-card a').evaluate_all('(els)=>els.map(e=>e.href)'))
             assert page.evaluate('sessionStorage.getItem("ai_library_v1")') == real

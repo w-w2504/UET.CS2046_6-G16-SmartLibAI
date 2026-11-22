@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Sparkles, Compass } from 'lucide-react';
+import { BookOpen, Sparkles, Compass, Search } from 'lucide-react';
 
 import { withSnapshot } from '../services/navigation';
 
@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, seedCou
           }}
         >
           <BookOpen size={24} />
-          <span>AI Thư Viện</span>
+          <span>SmartLibAI</span>
         </a>
 
         <nav className="nav-links" aria-label="Điều hướng chính">
@@ -37,6 +37,16 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, seedCou
           >
             <Compass size={18} style={{ display: 'inline', marginRight: 6, verticalAlign: -3 }} />
             Khám phá
+          </a>
+
+          <a
+            href={withSnapshot('/search')}
+            className={`nav-link ${currentPath === '/search' ? 'active' : ''}`}
+            aria-current={currentPath === '/search' ? 'page' : undefined}
+            onClick={(e) => { e.preventDefault(); onNavigate('/search'); }}
+          >
+            <Search size={18} style={{ display: 'inline', marginRight: 6, verticalAlign: -3 }} />
+            Tìm sách
           </a>
 
           <a

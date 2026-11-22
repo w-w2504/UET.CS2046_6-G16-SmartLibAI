@@ -1,0 +1,167 @@
+{
+  "schema_version": 2,
+  "snapshot_id": "smartlibai-demo-v4",
+  "counts": {
+    "catalog": 294,
+    "search": 289,
+    "reader_books": 2,
+    "chapters": 28,
+    "paragraphs": 4301
+  },
+  "groups": {
+    "search_v4": {
+      "purpose": "Required for Search v4 validation; independent of Reader, v1 and archives.",
+      "files": {
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/manifest.json": {
+          "sha256": "57b828c01fe59e0c5eb51277937fe8b8625fd220dc4ae554597c0b67695e313f",
+          "bytes": 1118
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/mapping.jsonl": {
+          "sha256": "8df986800c38c4052c0fc8cac13e5edcb37f1d78b2a13fdf96760ce432486dd7",
+          "bytes": 43527
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/vectors.npy": {
+          "sha256": "a97e4eefb1dfefee045c2ba3359a98b0e8d0cb2dad87cf385530d35e869fff17",
+          "bytes": 444032
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/index/books.faiss": {
+          "sha256": "9043b0ee53a3bf320025f6fb7fa1f1edf536a9280f1cd23818e2eab5a7dae9c9",
+          "bytes": 443949
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/index/index_manifest.json": {
+          "sha256": "7d2637328e4358759a927befac0eee1db61d4bb23e7671228c5d92f9d054db0e",
+          "bytes": 1422
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/index/mapping.jsonl": {
+          "sha256": "91e134bc2824fac22dbc1ebae289852be326cadb7d14fa08ab3230756796fed3",
+          "bytes": 59133
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/snapshot/smartlibai-demo-v4/books.faiss": {
+          "sha256": "9043b0ee53a3bf320025f6fb7fa1f1edf536a9280f1cd23818e2eab5a7dae9c9",
+          "bytes": 443949
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/snapshot/smartlibai-demo-v4/catalog.sqlite": {
+          "sha256": "dce7ec9b44d8af7354832a3894341d26e011756c781da465487450bf34571b21",
+          "bytes": 987136
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/snapshot/smartlibai-demo-v4/manifest.json": {
+          "sha256": "4bee7fb5e2ca616d859491a04c9fb6f3e518be0c8ddfc0d081aaf62e487bd870",
+          "bytes": 1991
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/snapshot/smartlibai-demo-v4/mapping.jsonl": {
+          "sha256": "91e134bc2824fac22dbc1ebae289852be326cadb7d14fa08ab3230756796fed3",
+          "bytes": 59133
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/taxonomy.json": {
+          "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+          "bytes": 969
+        },
+        "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json": {
+          "sha256": "08fc34cad81eedec9891124378881bd47c8175220e0ca017b742b5961c192bf2",
+          "bytes": 5800
+        },
+        "data/raw/p3_v4/catalog.jsonl": {
+          "sha256": "9cc9dff9531dba5838d135271916de653fe17bdf87932d3b911f37205a5616f2",
+          "bytes": 461846
+        },
+        "data/raw/p3_v4/followup_qc.jsonl": {
+          "sha256": "8dbdcf85f2cf3ace5f0d7a1f94d4a28e1b4d95f345c0cd0ead2c5a6d6c048415",
+          "bytes": 33360
+        },
+        "data/raw/p3_v4/search/catalog.jsonl": {
+          "sha256": "3b4b52a48e1e95a4047a9c41cf9ea62d7acd3d11d029252e49f718982f379675",
+          "bytes": 470059
+        },
+        "data/raw/p3_v4/taxonomy.json": {
+          "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+          "bytes": 969
+        },
+        "data/raw/sample_batch/catalog.jsonl": {
+          "sha256": "0a8e94c5bd45474de9dc28ae87278d2f20f096fdac548e3a5ac24c9b7c218f5f",
+          "bytes": 43690
+        }
+      }
+    },
+    "reader_staging": {
+      "purpose": "Reader JSONL/IDs and catalog consistency; EPUB is provenance, not a runtime dependency.",
+      "files": {
+        "data/raw/p3_reader/catalog.jsonl": {
+          "sha256": "4436facf6ddb28b37d591ae9ab6ce49c35b9a5b15a7d71859e3e4d0e0fee5143",
+          "bytes": 4945
+        },
+        "data/raw/p3_reader/chapters.jsonl": {
+          "sha256": "53e15051e29728073368dc401bf288a913f3b33d60ca76f6ae65d4a4f8e84970",
+          "bytes": 613010
+        },
+        "data/raw/p3_reader/id_registry.json": {
+          "sha256": "2f70d750c2c597e6f0bac6403047f4562c63ab15544653715ce7285530d5e476",
+          "bytes": 511114
+        },
+        "data/raw/p3_reader/source_manifest.json": {
+          "sha256": "4b568583c9ca5554d67c57a4ec4013346bd8bec15bf5939510274ed3b279e357",
+          "bytes": 16223
+        },
+        "data/raw/p3_reader/taxonomy.json": {
+          "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+          "bytes": 969
+        },
+        "data/raw/p3_v4/catalog.jsonl": {
+          "sha256": "9cc9dff9531dba5838d135271916de653fe17bdf87932d3b911f37205a5616f2",
+          "bytes": 461846
+        },
+        "data/raw/p3_v4/search/catalog.jsonl": {
+          "sha256": "3b4b52a48e1e95a4047a9c41cf9ea62d7acd3d11d029252e49f718982f379675",
+          "bytes": 470059
+        }
+      }
+    },
+    "regression_v1": {
+      "purpose": "Four existing v1 snapshot files, included in Git for a clean checkout to serve 95-book baseline.",
+      "files": {
+        "data/demo/smartlibai-demo-v1/snapshot/smartlibai-demo-v1/books.faiss": {
+          "sha256": "68b495174788166c1b003aaf8e79b1ab303117626fffab23c4e0d4d250dd6fbb",
+          "bytes": 145965
+        },
+        "data/demo/smartlibai-demo-v1/snapshot/smartlibai-demo-v1/catalog.sqlite": {
+          "sha256": "04c08a79844c20be58b36456783c8a1b3a8a538b5c777ec7dd4b2635faff35ae",
+          "bytes": 434176
+        },
+        "data/demo/smartlibai-demo-v1/snapshot/smartlibai-demo-v1/manifest.json": {
+          "sha256": "9ee291c7a7a0e644102388118722c4acca05b992fb7d97587898e039a4a5bda4",
+          "bytes": 1988
+        },
+        "data/demo/smartlibai-demo-v1/snapshot/smartlibai-demo-v1/mapping.jsonl": {
+          "sha256": "42cef0e9af4c986f8e929f8e7ea49ec7802e40929257ab7a816946d31dfbbdd8",
+          "bytes": 18980
+        }
+      }
+    },
+    "reader_provenance": {
+      "purpose": "EPUB originals and attribution; retained in Git, checked separately from Reader JSONL runtime.",
+      "files": {
+        "data/raw/p3_reader/NOTICE.md": {
+          "bytes": 3606,
+          "sha256": "6fbbd5ff18b9bed225f5e23e4b9dd0ec95ccecc5cc0a8dd4eb7f5b7efa47c045"
+        },
+        "data/raw/p3_reader/raw/ho-bieu-chanh-cha-con-nghia-nang.epub": {
+          "sha256": "ad37e7fc13e19a5286bab4d003d610fd3c2a401c020143c62d47ed36c398cf49",
+          "bytes": 82113
+        },
+        "data/raw/p3_reader/raw/khai-hung-nua-chung-xuan.epub": {
+          "sha256": "16b9bb3230a25fa9b802c29c7be8a6376e4e41cbf2e61bb4610d9e2102cbfec4",
+          "bytes": 163507
+        },
+        "data/raw/p3_reader/source_manifest.json": {
+          "sha256": "4b568583c9ca5554d67c57a4ec4013346bd8bec15bf5939510274ed3b279e357",
+          "bytes": 16223
+        }
+      }
+    }
+  },
+  "distribution": {
+    "mode": "single_repository_classroom_demo",
+    "zip_required": false,
+    "model_weights_in_git": false,
+    "reader_serving_approval": "unchanged; pending fulltext and false approval flags"
+  }
+}

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 import math
-from pathlib import Path, PurePosixPath
+from pathlib import PurePosixPath
 import re
 import sqlite3
 from threading import Lock
@@ -18,10 +18,12 @@ from fastapi import HTTPException
 
 from ai_library.book_embeddings import book_text
 from ai_library.book_index import BookIndex
+from ai_library.classroom_demo import DEMO_KIND
 from ai_library.e5_encoder import ModelUnavailableError, TokenLimitError, embedding_config, validate_vectors
 from src.config import settings
 from src.schemas.common import BookSummary, Filters
 from src.schemas.search import SearchItem, SearchRequest, SearchResponse
+from src.services.catalog import CatalogError
 from src.services.query_encoder import QueryEncoderProvider, encode_query
 from src.services.snapshot import snapshot_service
 
@@ -64,9 +66,17 @@ def _url(value):
             and parsed.username is None and parsed.password is None)
 
 
-def _sources_are_approved(conn, sid, book):
+def _sources_are_approved(conn, sid, book, *, classroom_demo=False):
     rows = conn.execute("SELECT * FROM sources WHERE snapshot_id=? AND book_id=?",
                         (sid, book["book_id"])).fetchall()
+    if classroom_demo:
+        if (book["has_fulltext"] or book["cover_url"] is not None
+                or sorted(row["content_type"] for row in rows) != ["metadata", "summary"]
+                or any(row["rights_status"] not in {"approved", "pending"}
+                       or not _url(row["source_url"]) or not row["source_note"].strip()
+                       or not row["rights_note"].strip() for row in rows)):
+            raise ValueError("Nguồn không hợp lệ cho demo lớp học")
+        return
     approved = set()
     for row in rows:
         if (row["rights_status"] == "approved" and row["rights_note"].strip()
@@ -111,13 +121,26 @@ class SearchSnapshot:
 
 def load_snapshot(snapshot_id, deadline=float("inf")):
     """Validate serving artefacts; an internal C11/C14 bundle is not a snapshot."""
-    sid = snapshot_id if snapshot_id is not None else snapshot_service.active_snapshot_id
+    demo_path = settings.demo_snapshot
+    classroom_demo = demo_path is not None
+    if classroom_demo:
+        try:
+            directory = snapshot_service.demo_snapshot_dir(snapshot_id)
+        except CatalogError as exc:
+            if exc.status == 404:
+                raise SearchError(exc.status, exc.code, exc.message) from exc
+            raise SearchError() from exc
+        sid = directory.name
+    else:
+        sid = snapshot_id if snapshot_id is not None else snapshot_service.active_snapshot_id
     if sid is None:
         raise SearchError()
     if not isinstance(sid, str) or ID.fullmatch(sid) is None:
         raise SearchError()
-    directory = settings.snapshot_path.resolve() / sid
-    if directory.is_symlink() or not directory.resolve().is_relative_to(settings.snapshot_path.resolve()):
+    if not classroom_demo:
+        directory = settings.snapshot_path.resolve() / sid
+    if directory.is_symlink() or (not classroom_demo
+            and not directory.resolve().is_relative_to(settings.snapshot_path.resolve())):
         raise SearchError()
     if not directory.is_dir():
         if snapshot_id is not None:
@@ -129,6 +152,13 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
         if manifest_path.is_symlink():
             raise ValueError("Manifest symlink")
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if classroom_demo:
+            if (manifest.get("data_kind") != DEMO_KIND
+                    or manifest["demo"]["scope"] != DEMO_KIND
+                    or manifest["demo"]["content"] != ["metadata", "summary"]):
+                raise ValueError("Manifest không đúng phạm vi demo")
+        elif manifest.get("data_kind") == DEMO_KIND or "demo" in manifest:
+            raise ValueError("Snapshot demo cần cấu hình riêng")
         if type(manifest["schema_version"]) is not int or manifest["schema_version"] != 1 or manifest["snapshot_id"] != sid:
             raise ValueError("Manifest sai snapshot/schema")
         if manifest["embedding"] != embedding_config() or type(manifest["embedding"]["dimension"]) is not int:
@@ -144,6 +174,8 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
             if name in files or not HASH.fullmatch(entry["sha256"]) or type(entry["size_bytes"]) is not int:
                 raise ValueError("Danh sách artefact không hợp lệ")
             files[name] = entry
+        if classroom_demo and set(files) != {"catalog.sqlite", "books.faiss", "mapping.jsonl"}:
+            raise ValueError("Snapshot demo chỉ nhận SQLite và index sách")
         data = {}
         for name in ("catalog.sqlite", "books.faiss", "mapping.jsonl"):
             payload = _artifact(directory, files[name]).read_bytes()
@@ -161,6 +193,8 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
                     or not HASH.fullmatch(row["content_hash"])):
                 raise ValueError("Mapping không hợp lệ")
         book_rows = [row for row in rows if row["index_name"] == "books"]
+        if classroom_demo and len(book_rows) != len(rows):
+            raise ValueError("Snapshot demo không nhận index khác index sách")
         count = len(book_rows)
         if not 1 <= count <= 300 or [row["row_id"] for row in book_rows] != list(range(count)):
             raise ValueError("Sai row_id hoặc số vector")
@@ -178,6 +212,15 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
             conn.set_progress_handler(lambda: int(monotonic() >= deadline), 1000)
             if conn.execute("PRAGMA foreign_key_check").fetchone():
                 raise ValueError("Khóa ngoại không hợp lệ")
+            if classroom_demo and any(conn.execute(f"SELECT 1 FROM {table} LIMIT 1").fetchone()
+                                      for table in ("chapters", "paragraphs", "chunks")):
+                raise ValueError("Snapshot demo không nhận dữ liệu toàn văn")
+            if classroom_demo:
+                rights = {"approved": 0, "pending": 0}
+                rights.update(dict(conn.execute("SELECT rights_status,count(*) FROM sources GROUP BY rights_status")))
+                if (rights != manifest["demo"]["source_rights_status_counts"]
+                        or manifest["demo"]["unverified_rights"] is not bool(rights["pending"])):
+                    raise ValueError("Trạng thái quyền của snapshot demo không khớp")
             sql_rows = conn.execute("SELECT * FROM vector_mapping WHERE index_name='books' ORDER BY row_id").fetchall()
             if [dict(row) for row in sql_rows] != book_rows:
                 raise ValueError("Mapping SQLite không khớp JSONL")
@@ -206,7 +249,7 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
                 kinds = {kind: [x[0] for x in conn.execute("SELECT code FROM book_labels WHERE snapshot_id=? AND book_id=? AND kind=? ORDER BY code COLLATE BINARY", (sid, bid, kind))] for kind in labels}
                 if not row["title"].strip() or not row["summary"].strip() or not authors:
                     raise ValueError("Metadata thiếu nội dung")
-                _sources_are_approved(conn, sid, row)
+                _sources_are_approved(conn, sid, row, classroom_demo=classroom_demo)
                 if bid not in hashes:
                     # A valid catalog entry without an embedding is not a
                     # Search candidate (SPEC 10.2), but can remain in catalog.

@@ -1,0 +1,12 @@
+# Preserve source bytes and hashes of the C29 frozen input on every platform.
+data/raw/c29_fulltext1/** -text
+# Immutable, SHA-256-bound demo inputs/artifacts must survive core.autocrlf=true.
+data/raw/sample_batch/catalog.jsonl -text
+data/raw/p3_v4/** -text
+data/raw/p3_reader/** -text
+data/demo/smartlibai-fasttrack/smartlibai-demo-v4/** -text
+data/demo/smartlibai-demo-v1/snapshot/smartlibai-demo-v1/** -text
+data/raw/p4_w03_reader2/** -text
+data/demo/p4-w03-c38-289-20261122/** -text
+data/demo/p4-w03-c42-reader2-20261122/** -text
+data/demo/p4-w03-c38-reviewed-r8-20261122/** -text

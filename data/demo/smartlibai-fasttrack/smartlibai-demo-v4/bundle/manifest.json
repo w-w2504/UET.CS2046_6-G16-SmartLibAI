@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "book_count": 289,
+  "dtype": "float32",
+  "max_tokens": 480,
+  "embedding": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+    "tokenizer": "intfloat/multilingual-e5-small",
+    "dimension": 384,
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "pooling": "mean_attention_mask",
+    "normalization": "L2"
+  },
+  "source": {
+    "catalog_sha256": "3b4b52a48e1e95a4047a9c41cf9ea62d7acd3d11d029252e49f718982f379675",
+    "taxonomy_sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789"
+  },
+  "demo": {
+    "scope": "classroom_demo",
+    "content": [
+      "metadata",
+      "summary"
+    ],
+    "provenance": "sources in the SHA-256-bound catalog.jsonl",
+    "source_rights_status_counts": {
+      "approved": 40,
+      "pending": 538
+    },
+    "unverified_rights": true
+  },
+  "files": {
+    "vectors.npy": "a97e4eefb1dfefee045c2ba3359a98b0e8d0cb2dad87cf385530d35e869fff17",
+    "mapping.jsonl": "8df986800c38c4052c0fc8cac13e5edcb37f1d78b2a13fdf96760ce432486dd7"
+  }
+}

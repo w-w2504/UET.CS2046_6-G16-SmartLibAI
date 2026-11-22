@@ -74,8 +74,14 @@ def test_boundary_only_error_still_rejects_post():
     assert response.json()["field"] == "unknown"
 
 
-def test_valid_repeated_filters_and_pagination_are_preserved():
-    params = [("authors", "  An "), ("genres", "van_hoc")] * 21
+def test_valid_repeated_filters_and_pagination_are_preserved(tmp_path, monkeypatch):
+    # C25 đã thay route khung: request hợp lệ cần một snapshot thực sự tồn tại.
+    from catalog_fixture import create_snapshot
+    from src.config import settings
+    fixture = create_snapshot(tmp_path, "fixture")
+    monkeypatch.setattr(settings, "SNAPSHOT_ROOT", str(fixture["snapshot_root"]))
+    monkeypatch.setattr(settings, "CONTROL_ROOT", str(fixture["control_root"]))
+    params = [("authors", "  An "), ("genres", "fixture_story")] * 21
     params += [("snapshot_id", "fixture"), ("offset", "2"), ("limit", "3"), ("has_fulltext", "false")]
     response = client.get("/api/v1/books", params=params)
     assert response.status_code == 200
@@ -159,10 +165,16 @@ def test_error_handlers_and_retry_header(monkeypatch):
 
 
 @pytest.mark.parametrize("path", ["/books", "/facets", "/books/B_1/similar"])
-def test_catalog_stub_envelope(path, monkeypatch):
-    from src.services.snapshot import SnapshotService
+def test_catalog_envelope(path, tmp_path, monkeypatch):
+    from catalog_fixture import create_snapshot
+    from src.config import settings
+    from src.services import catalog as catalog_service
 
-    monkeypatch.setattr(SnapshotService, "active_snapshot_id", property(lambda _: "test_snapshot"))
+    fixture = create_snapshot(tmp_path, "test_snapshot")
+    monkeypatch.setattr(settings, "SNAPSHOT_ROOT", str(fixture["snapshot_root"]))
+    monkeypatch.setattr(settings, "CONTROL_ROOT", str(fixture["control_root"]))
+    # Chỉ kiểm envelope; collator tiêm cho fixture không xác nhận ICU thật.
+    monkeypatch.setattr(catalog_service, "author_sort_key", lambda value: value.encode("utf-8"))
     response = client.get("/api/v1" + path)
     assert response.status_code == 200
     assert response.json()["snapshot_id"] == "test_snapshot"

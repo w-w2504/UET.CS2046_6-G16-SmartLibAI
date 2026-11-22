@@ -1,4 +1,6 @@
+import asyncio
 import logging
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,6 +12,7 @@ from src.middleware.contract import ContractMiddleware, error_response
 from src.middleware.request_id import RequestIDMiddleware
 from src.middleware.search_deadline import SearchDeadlineMiddleware
 from src.routes import health, books, search, recommend, reader, qa
+from src.services.catalog import CatalogError
 from src.schemas.common import Filters
 
 # Thiết lập logging chuẩn
@@ -19,13 +22,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger("smartlib.api")
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    if settings.demo_snapshot is not None:
+        from src.services.search import search_service
+
+        if not await asyncio.to_thread(search_service.is_ready):
+            logger.warning("Snapshot hoặc encoder demo lớp học chưa sẵn sàng")
+    yield
+
+
 app = FastAPI(
     title="AI Thư Viện (SmartLib AI) API",
     description="Hệ thống API backend cho đồ án môn Trí tuệ nhân tạo (CS2046)",
     version="0.1.0",
     docs_url="/docs",
     redoc_url="/redoc",
-    openapi_url="/api/v1/openapi.json"
+    openapi_url="/api/v1/openapi.json",
+    lifespan=lifespan,
 )
 
 # 1. Cấu hình CORS
@@ -48,6 +63,20 @@ app.add_middleware(
 app.add_middleware(ContractMiddleware)
 app.add_middleware(SearchDeadlineMiddleware)
 app.add_middleware(RequestIDMiddleware)
+
+
+@app.middleware("http")
+async def api_no_store(request: Request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith("/api/v1/"):
+        response.headers["Cache-Control"] = "no-store"
+    return response
+
+
+@app.exception_handler(CatalogError)
+async def catalog_exception_handler(request: Request, exc: CatalogError):
+    req_id = getattr(request.state, "request_id", "unknown")
+    return JSONResponse(status_code=exc.status, content={"code": exc.code, "message": exc.message, "field": exc.field, "module": exc.module, "request_id": req_id}, headers={"X-Request-ID": req_id, "Cache-Control": "no-store"})
 
 
 # 3. Chuẩn hóa Exception Handlers theo đặc tả Mục 12.3 & 14.1

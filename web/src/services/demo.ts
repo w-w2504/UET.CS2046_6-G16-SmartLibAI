@@ -1,6 +1,9 @@
 import type { BookSummary, ChapterDetailResponse, ChaptersResponse, SearchResponse } from '../types/api';
 import type { DemoCatalog } from './demoTypes';
 import qaCases from '../fixtures/generated/qa.json';
+import taxonomy from '../../../data/taxonomy.json';
+
+const catalogCollator = new Intl.Collator('vi-VN', { sensitivity: 'accent', ignorePunctuation: false, numeric: false });
 
 export const isDemo = import.meta.env.DEV && import.meta.env.VITE_DEMO_MODE === 'true';
 export const scenarioKey = 'smartlib_demo_scenario';
@@ -26,6 +29,13 @@ export function demoResponse(catalog: DemoCatalog, endpoint: string, options: Re
   const url = new URL(endpoint, 'http://demo.local');
   const body = typeof options.body === 'string' ? JSON.parse(options.body) : {};
   let items = catalog.books;
+  if (url.pathname === '/facets') return { ...common,
+    authors: [...new Set(items.flatMap(book => book.authors))].sort(catalogCollator.compare),
+    genres: [...taxonomy.genres].sort((a, b) => a.code < b.code ? -1 : a.code > b.code ? 1 : 0),
+    topics: [...taxonomy.topics].sort((a, b) => a.code < b.code ? -1 : a.code > b.code ? 1 : 0),
+  };
+  if (url.pathname === '/books') items = [...items].sort((a, b) =>
+    catalogCollator.compare(a.title, b.title) || (a.book_id < b.book_id ? -1 : a.book_id > b.book_id ? 1 : 0));
   const filters = body.filters ?? {
     authors: url.searchParams.getAll('authors'),
     genres: url.searchParams.getAll('genres'),
@@ -120,6 +130,8 @@ export function demoResponse(catalog: DemoCatalog, endpoint: string, options: Re
 export async function demoRequest(endpoint: string, options: RequestInit = {}): Promise<unknown> {
   const scenario = getScenario();
   await new Promise(resolve => setTimeout(resolve, scenario === 'slow' ? 2500 : 250));
-  const { loadC02Catalog } = await import('./c02Catalog');
-  return demoResponse(loadC02Catalog(), endpoint, options, scenario);
+  const { loadC02Catalog, loadC02CatalogWithChapters } = await import('./c02Catalog');
+  const needsChapters = /^\/books\/[^/]+\/chapters(?:\?|$)|^\/chapters\//.test(endpoint);
+  const catalog = needsChapters ? await loadC02CatalogWithChapters() : loadC02Catalog();
+  return demoResponse(catalog, endpoint, options, scenario);
 }

@@ -23,6 +23,8 @@ def run(base_url):
         envelope = dict(snapshot_id="filter-ui-fixture", request_id=str(uuid4()))
         if path.startswith("/health"):
             body = dict(envelope, catalog_ready=True, search_ready=True, recommend_ready=False, rag_ready=False)
+        elif path.startswith("/facets"):
+            body = dict(envelope, authors=["Test author"], genres=[], topics=[])
         else:
             payload = request.post_data_json if request.method == "POST" else None
             requests.append((path, payload))
@@ -44,10 +46,18 @@ def run(base_url):
             page.goto(base_url.rstrip("/") + "/?snapshot_id=filter-ui-fixture", wait_until="networkidle")
             expect(page.locator(".book-grid article")).to_have_count(4)
             checkbox = page.get_by_role("checkbox", name="Chỉ sách có toàn văn")
+            before_draft = len(requests)
             checkbox.check()
+            assert len(requests) == before_draft
+            expect(page.locator(".book-grid article")).to_have_count(4)
+            page.get_by_role("button", name="Áp dụng bộ lọc").click()
             expect(page.locator(".book-grid article")).to_have_count(1)
             assert "has_fulltext=true" in requests[-1][0]
+            before_draft = len(requests)
             checkbox.uncheck()
+            assert len(requests) == before_draft
+            expect(page.locator(".book-grid article")).to_have_count(1)
+            page.get_by_role("button", name="Áp dụng bộ lọc").click()
             expect(page.locator(".book-grid article")).to_have_count(4)
             assert "has_fulltext=true" not in requests[-1][0]
             page.get_by_role("textbox", name="Bạn muốn đọc về điều gì?").fill("sách mẫu")
@@ -60,7 +70,7 @@ def run(base_url):
             checkbox.uncheck()
             expect(page.get_by_text("4 kết quả", exact=True)).to_be_visible()
             assert requests[-1][1]["filters"].get("has_fulltext") is None
-            print("PASS: catalog and Search filters update on checkbox alone; no extra submit.")
+            print("PASS: Catalog applies draft filters on submit; Search fulltext updates on checkbox alone.")
         finally:
             browser.close()
 
