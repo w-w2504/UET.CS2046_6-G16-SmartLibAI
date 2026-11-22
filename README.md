@@ -200,7 +200,7 @@ docker run --rm --network none --read-only smartlib-api:c08 python -c "from ai_l
 
 Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 được mô tả tại [`documents/C09.md`](documents/C09.md), gồm hàm thuần, loader kiểm tra tính đồng bộ bundle/catalog, unit test và lệnh kiểm tra tích hợp. C09 không triển khai xếp hạng C13 hoặc endpoint C17.
 
-Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](documents/C13.md): tái sử dụng C09, tính điểm toàn bộ vector bằng NumPy trên bundle C11, lọc và khử trùng theo tác phẩm rồi lấy top-k. Tích hợp FAISS/C14 thật còn chờ bàn giao; API và lý do gợi ý thuộc C17.
+Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](documents/C13.md): tái sử dụng C09, nạp gói P4 reviewed r8 qua C14/C21 và tính điểm đủ ứng viên bằng FAISS, sau đó lọc/khử trùng tác phẩm rồi lấy top-k. NumPy giữ làm baseline đối chiếu; classroom demo phải bật chủ động, API và lý do gợi ý thuộc C17.
 
 #### Frontend (React + Vite):
 

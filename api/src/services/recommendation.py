@@ -35,9 +35,9 @@ class RecommendationHit:
 class BookScorer(Protocol):
     """One immutable dataset. score_all MUST return every book, not an early top-k.
 
-    A future C14 adapter can use get_vector and search(profile, len(book_ids)),
-    converting each returned FAISS score to np.float32. Dataset identity and
-    metadata/content hashes must be checked by its loader before construction.
+    C14 adapter: recommendation_faiss.FaissBookScorer uses get_vector and
+    search(profile, len(book_ids)), returning the original FAISS float32 scores.
+    Its loader binds metadata/content hashes to the same validated C11 bundle.
     """
 
     @property
