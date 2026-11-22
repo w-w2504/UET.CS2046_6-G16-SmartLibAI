@@ -79,6 +79,98 @@ def test_filter_does_not_lose_lower_ranked_candidate(fixture):
     assert post(k=1, filters={"has_fulltext": True}).json()["items"][0]["book_id"] == "B_x"
 
 
+@pytest.mark.parametrize("change", ["pending", "rejected", "missing", "other_snapshot"])
+def test_search_requires_both_sources_approved_in_the_requested_snapshot(fixture, change):
+    directory = fixture[1]
+    target = post(k=4).json()["items"][0]["book_id"]
+    with sqlite3.connect(directory / "catalog.sqlite") as conn:
+        if change == "pending":
+            conn.execute("UPDATE sources SET rights_status='pending' WHERE book_id=? AND content_type='summary'", (target,))
+        elif change == "rejected":
+            conn.execute("UPDATE sources SET rights_status='rejected' WHERE book_id=? AND content_type='metadata'", (target,))
+        elif change == "missing":
+            conn.execute("DELETE FROM sources WHERE book_id=? AND content_type='summary'", (target,))
+        else:
+            # Keep the source table readable while modeling approval that exists
+            # only for another snapshot; eligibility must query the request SID.
+            conn.execute("ALTER TABLE sources RENAME TO sources_with_fk")
+            conn.execute("""CREATE TABLE sources (
+                snapshot_id TEXT NOT NULL, source_id TEXT NOT NULL, book_id TEXT NOT NULL,
+                content_type TEXT NOT NULL, source_url TEXT NOT NULL, source_note TEXT NOT NULL,
+                rights_status TEXT NOT NULL, rights_note TEXT NOT NULL,
+                reviewed_at TEXT, reviewed_by TEXT, PRIMARY KEY (snapshot_id, source_id)
+            )""")
+            conn.execute("""INSERT INTO sources
+                SELECT snapshot_id,source_id,book_id,content_type,source_url,source_note,
+                       rights_status,rights_note,reviewed_at,reviewed_by
+                FROM sources_with_fk WHERE NOT (book_id=? AND content_type='summary')""", (target,))
+            conn.execute("""INSERT INTO sources VALUES
+                ('other-snapshot','summary_other_snapshot',?,'summary','https://fixture.example.test',
+                 'Fixture source','approved','Fictional test approval','2026-11-17T00:00:00Z','fixture-reviewer')""", (target,))
+            conn.execute("DROP TABLE sources_with_fk")
+    refresh_manifest(directory)
+    response = post(k=4)
+    assert response.status_code == 200
+    assert target not in [item["book_id"] for item in response.json()["items"]]
+    assert len(response.json()["items"]) == 3
+
+
+def test_pending_high_ranked_books_do_not_crowd_eligible_top_k(fixture):
+    directory = fixture[1]
+    baseline_ids = [item["book_id"] for item in post(k=4).json()["items"]]
+    with sqlite3.connect(directory / "catalog.sqlite") as conn:
+        conn.executemany(
+            "UPDATE sources SET rights_status='pending' WHERE book_id=? AND content_type='metadata'",
+            [(book_id,) for book_id in baseline_ids[:2]],
+        )
+    refresh_manifest(directory)
+    response = post(k=2)
+    assert response.status_code == 200
+    assert [item["book_id"] for item in response.json()["items"]] == baseline_ids[2:4]
+    assert [item["rank"] for item in response.json()["items"]] == [1, 2]
+
+
+def test_search_filters_apply_to_eligible_books(fixture):
+    directory = fixture[1]
+    target = post(k=4, filters={"has_fulltext": True}).json()["items"][0]["book_id"]
+    with sqlite3.connect(directory / "catalog.sqlite") as conn:
+        conn.execute("UPDATE sources SET rights_status='rejected' WHERE book_id=? AND content_type='summary'", (target,))
+    refresh_manifest(directory)
+    fulltext_response = post(k=4, filters={"has_fulltext": True})
+    assert fulltext_response.status_code == 200
+    assert fulltext_response.json()["status"] == "no_candidates"
+    filtered = post(k=4, filters={"has_fulltext": False})
+    assert filtered.status_code == 200
+    assert filtered.json()["status"] == "ok"
+    assert target not in [item["book_id"] for item in filtered.json()["items"]]
+
+
+def test_no_eligible_sources_returns_contract_no_candidates(fixture):
+    directory = fixture[1]
+    with sqlite3.connect(directory / "catalog.sqlite") as conn:
+        conn.execute("UPDATE sources SET rights_status='pending'")
+    refresh_manifest(directory)
+    response = post(k=4)
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "no_candidates"
+    assert body["message"] == "Không có sách thỏa bộ lọc"
+    assert body["items"] == []
+    assert body["snapshot_id"] == "search-v1"
+    assert set(body) == {"status", "message", "items", "snapshot_id", "request_id"}
+
+
+def test_missing_sources_table_returns_no_candidates(fixture):
+    directory = fixture[1]
+    with sqlite3.connect(directory / "catalog.sqlite") as conn:
+        conn.execute("DROP TABLE sources")
+    refresh_manifest(directory)
+    response = post(k=4)
+    assert response.status_code == 200
+    assert response.json()["status"] == "no_candidates"
+    assert response.json()["items"] == []
+
+
 def test_unicode_and_internal_spaces_are_preserved(fixture):
     result = post(q="  La\u0303o  Hạc  ", filters={"authors": ["  La\u0303o  Hạc "]})
     assert result.status_code == 200

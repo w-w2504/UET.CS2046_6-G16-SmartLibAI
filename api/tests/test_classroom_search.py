@@ -57,9 +57,12 @@ def classroom_snapshot(tmp_path, monkeypatch):
     return directory
 
 
-def test_search_demo_uses_existing_schema_and_excludes_nonvectors(classroom_snapshot, monkeypatch):
+def test_search_demo_excludes_pending_sources_before_encoding(classroom_snapshot, monkeypatch):
+    calls = []
+
     class Encoder:
         def encode_queries(self, queries):
+            calls.append(list(queries))
             assert queries == ["sách thiếu nhi"]
             return np.eye(1, 384, dtype=np.float32)
 
@@ -69,8 +72,9 @@ def test_search_demo_uses_existing_schema_and_excludes_nonvectors(classroom_snap
     request = SearchRequest(q="  sa\u0301ch thiếu nhi  ", k=4)
     response = search_service.search(request, str(uuid4()), float("inf"))
     assert response.snapshot_id == classroom_snapshot.name
-    assert [row.book_id for row in response.items] == ["B_a", "B_z", "B_x", "B_m"]
-    assert all(not book.has_fulltext for book in response.items)
+    assert response.status == "no_candidates"
+    assert response.items == []
+    assert calls == []
     filter_request = SearchRequest(q="sách thiếu nhi", filters={"has_fulltext": True})
     assert search_service.search(filter_request, str(uuid4()), float("inf")).status == "no_candidates"
 
