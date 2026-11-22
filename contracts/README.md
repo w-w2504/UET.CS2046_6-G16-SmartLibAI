@@ -20,7 +20,7 @@ Chỉ authors và genres được lặp ở query. Endpoint dữ liệu nhận s
 
 Ngày 22/11/2026, Vân/P02 xác nhận hành vi cho sách tồn tại nhưng chưa có đủ nguồn `metadata` và `summary` với `rights_status=approved` trong snapshot của request: `POST /recommend` trả **422 invalid_input**, field `seed_book_ids`; `GET /books/{id}/similar` trả **422 invalid_input**, field `id`. Không tự thay seed bằng ấn bản khác. Đây là xác nhận của P02, không phải biên bản phê duyệt toàn nhóm. Chi tiết eligibility và triển khai tại [C17](../documents/C17.md).
 
-Seed không tồn tại giữ quy ước hiện có: POST trả 422 `invalid_input`, Similar trả 404 `resource_not_found`. Exclude được kiểm tồn tại và xung đột work; không áp dụng điều kiện quyền của seed cho exclude.
+Seed không tồn tại trả 422 `invalid_input` trên cả hai endpoint, theo SPEC 10.5 và tính tương đương Similar/Recommend tại SPEC 12.4: field `seed_book_ids` cho POST, `id` cho Similar. Khai báo response 404 của C03 không tạo ngoại lệ cho seed; snapshot không còn được phục vụ vẫn trả 404 `resource_not_found`. Exclude được kiểm tồn tại và xung đột work; không áp dụng điều kiện quyền của seed cho exclude.
 
 ## Sinh và kiểm tra
 

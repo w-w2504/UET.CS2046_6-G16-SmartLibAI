@@ -66,7 +66,8 @@ def test_confirmed_pending_seed_policy_post_and_similar(snapshot, bid):
 
 def test_missing_ids_seed_exclude_conflict_and_work_duplicates(snapshot):
     assert_error(post(seed_book_ids=["missing"]), 422, "invalid_input", "seed_book_ids")
-    assert_error(client.get("/api/v1/books/missing/similar"), 404, "resource_not_found", "id")
+    assert_error(client.get("/api/v1/books/missing/similar"), 422, "invalid_input", "id")
+    assert_error(client.get("/api/v1/books/missing/similar?snapshot_id=retired"), 404, "resource_not_found", None)
     assert_error(post(exclude_book_ids=["missing"]), 422, "invalid_input", "exclude_book_ids.0")
     assert_error(post(seed_book_ids=["A"], exclude_book_ids=["A_alt"]), 422, "invalid_input", "exclude_book_ids")
     assert_error(post(seed_book_ids=["A", "A_alt"]), 422, "invalid_input", "seed_book_ids")
@@ -156,6 +157,45 @@ def test_no_active_corrupt_index_and_source_immutability(snapshot):
     assert_error(post(), 503, "service_unavailable", None)
     with (snapshot / "books.faiss").open("ab") as f: f.write(b"corrupt")
     assert_error(post(snapshot_id=snapshot.name), 503, "service_unavailable", None)
+
+
+@pytest.mark.parametrize("artifact", ["books.faiss", "mapping.jsonl"])
+@pytest.mark.parametrize("operation,overrides,status,code,field", [
+    ("recommend", {"seed_book_ids": ["Pending1"]}, 422, "invalid_input", "seed_book_ids"),
+    ("similar", {"id": "Pending1"}, 422, "invalid_input", "id"),
+    ("recommend", {"seed_book_ids": ["missing"]}, 422, "invalid_input", "seed_book_ids"),
+    ("similar", {"id": "missing"}, 422, "invalid_input", "id"),
+    ("recommend", {"seed_book_ids": ["A", "A_alt"]}, 422, "invalid_input", "seed_book_ids"),
+    ("recommend", {"exclude_book_ids": ["missing"]}, 422, "invalid_input", "exclude_book_ids.0"),
+    ("recommend", {"seed_book_ids": ["A"], "exclude_book_ids": ["A_alt"]}, 422, "invalid_input", "exclude_book_ids"),
+    ("recommend", {"filters": {"genres": ["unknown"]}}, 422, "invalid_input", "filters.genres.0"),
+    ("similar", {"id": "Seed", "genres": "unknown"}, 422, "invalid_input", "genres.0"),
+])
+def test_catalog_input_errors_precede_broken_ai_artifacts(snapshot, artifact, operation, overrides, status, code, field):
+    with (snapshot / artifact).open("ab") as file:
+        file.write(b"corrupt-ai-artifact")
+    if operation == "recommend":
+        result = post(**overrides)
+    else:
+        result = client.get(f"/api/v1/books/{overrides['id']}/similar",
+                            params={k: v for k, v in overrides.items() if k != "id"})
+    assert_error(result, status, code, field)
+
+
+@pytest.mark.parametrize("operation", ["recommend", "similar"])
+def test_valid_seed_with_missing_faiss_still_returns_503(snapshot, operation):
+    (snapshot / "books.faiss").unlink()
+    result = post() if operation == "recommend" else client.get("/api/v1/books/Seed/similar")
+    assert_error(result, 503, "service_unavailable", None)
+
+
+@pytest.mark.parametrize("artifact", ["catalog.sqlite", "manifest.json"])
+def test_untrusted_catalog_precedes_pending_seed_validation(snapshot, artifact):
+    # Do not update hashes: preflight must not trust damaged catalog/manifest.
+    with (snapshot / artifact).open("ab") as file:
+        file.write(b"corrupt-catalog")
+    assert_error(post(seed_book_ids=["Pending1"]), 503, "service_unavailable", None)
+    assert_error(client.get("/api/v1/books/Pending1/similar"), 503, "service_unavailable", None)
 
 
 def test_health_checks_actual_recommendation_source(snapshot, monkeypatch):

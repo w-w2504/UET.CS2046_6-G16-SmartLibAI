@@ -29,17 +29,33 @@ def check_deadline(deadline):
 
 
 @dataclass(frozen=True)
-class RecommendationSnapshot:
+class RecommendationCatalog:
     snapshot_id: str
     books: Mapping[str, BookSummary]
     metadata: Mapping[str, BookMetadata]
     labels: Mapping[str, Mapping[str, str]]
     eligible_ids: frozenset[str]
-    ranker: RecommendationRanker
     manifest_sha256: str
 
 
-def load_recommendation_snapshot(snapshot_id=None, *, deadline=None) -> RecommendationSnapshot:
+@dataclass(frozen=True)
+class RecommendationSnapshot(RecommendationCatalog):
+    ranker: RecommendationRanker
+
+
+def _check_catalog_unchanged(directory, manifest, manifest_bytes):
+    catalog_entry = next(row for row in manifest["files"] if row["path"] == "catalog.sqlite")
+    if (hashlib.sha256((directory / "catalog.sqlite").read_bytes()).hexdigest() != catalog_entry["sha256"]
+            or (directory / "manifest.json").read_bytes() != manifest_bytes):
+        raise ValueError("Metadata hoặc manifest thay đổi trong lúc nạp.")
+
+
+def load_recommendation_snapshot(snapshot_id=None, *, deadline=None, validate_catalog=None) -> RecommendationSnapshot:
+    """Verify catalog, run optional input preflight, then load AI artifacts.
+
+    Preflight receives only catalog data. It shares the same open snapshot,
+    manifest and deadline as the subsequent FAISS stage; active is never reread.
+    """
     deadline = monotonic() + 10 if deadline is None else deadline
     try:
         # SnapshotService resolves active exactly once and owns connection lifetime.
@@ -52,6 +68,25 @@ def load_recommendation_snapshot(snapshot_id=None, *, deadline=None) -> Recommen
             manifest_bytes = (directory / "manifest.json").read_bytes()
             if json.loads(manifest_bytes) != manifest:
                 raise ValueError("Manifest thay đổi sau khi mở catalog.")
+            labels = {kind: {} for kind in ("genre", "topic")}
+            for row in handle.rows("SELECT kind,code,label FROM taxonomy WHERE snapshot_id=?", (sid,)):
+                labels[row["kind"]][row["code"]] = row["label"]
+            books, metadata = {}, {}
+            for row in handle.rows("SELECT * FROM books WHERE snapshot_id=? ORDER BY book_id COLLATE BINARY", (sid,)):
+                bid = row["book_id"]
+                summary = BookSummary(**handle.summary(row))
+                topics = tuple(r[0] for r in handle.rows("SELECT code FROM book_labels WHERE snapshot_id=? AND book_id=? AND kind='topic' ORDER BY code COLLATE BINARY", (sid, bid)))
+                books[bid] = summary
+                metadata[bid] = BookMetadata(bid, summary.work_id, tuple(summary.authors), tuple(summary.genres), summary.has_fulltext, topics)
+            eligible = eligible_book_ids(handle.conn, sid)
+            catalog = RecommendationCatalog(sid, MappingProxyType(books), MappingProxyType(metadata),
+                MappingProxyType({kind: MappingProxyType(values) for kind, values in labels.items()}),
+                eligible, hashlib.sha256(manifest_bytes).hexdigest())
+            _check_catalog_unchanged(directory, manifest, manifest_bytes)
+            check_deadline(deadline)
+            if validate_catalog is not None:
+                validate_catalog(catalog)
+            check_deadline(deadline)
             if manifest["embedding"] != embedding_config() or type(manifest["embedding"]["dimension"]) is not int:
                 raise ValueError("Cấu hình E5 không đúng SPEC.")
             raw_files = {}
@@ -81,16 +116,6 @@ def load_recommendation_snapshot(snapshot_id=None, *, deadline=None) -> Recommen
             if not isinstance(index, faiss.IndexFlatIP) or index.d != 384 or index.ntotal != count:
                 raise ValueError("Sai loại, chiều hoặc số vector FAISS.")
             validate_vectors(index.reconstruct_n(0, count), count)
-            labels = {kind: {} for kind in ("genre", "topic")}
-            for row in handle.rows("SELECT kind,code,label FROM taxonomy WHERE snapshot_id=?", (sid,)):
-                labels[row["kind"]][row["code"]] = row["label"]
-            books, metadata = {}, {}
-            for row in handle.rows("SELECT * FROM books WHERE snapshot_id=? ORDER BY book_id COLLATE BINARY", (sid,)):
-                bid = row["book_id"]
-                summary = BookSummary(**handle.summary(row))
-                topics = tuple(r[0] for r in handle.rows("SELECT code FROM book_labels WHERE snapshot_id=? AND book_id=? AND kind='topic' ORDER BY code COLLATE BINARY", (sid, bid)))
-                books[bid] = summary
-                metadata[bid] = BookMetadata(bid, summary.work_id, tuple(summary.authors), tuple(summary.genres), summary.has_fulltext, topics)
             indexed_ids = {row["object_id"] for row in book_rows}
             for row in book_rows:
                 bid = row["object_id"]
@@ -99,7 +124,6 @@ def load_recommendation_snapshot(snapshot_id=None, *, deadline=None) -> Recommen
                     genres=book.genres, topics=metadata[bid].topics, summary=book.summary), labels["genre"], labels["topic"])
                 if hashlib.sha256(representation.encode()).hexdigest() != row["content_hash"]:
                     raise ValueError("content_hash không khớp metadata cùng snapshot.")
-            eligible = eligible_book_ids(handle.conn, sid)
             scorer = FaissBookScorer(BookIndex(index, book_rows, manifest))
             # Include ineligible books in source validation, but filter before top-k.
             ranker = RecommendationRanker({bid: metadata[bid] for bid in indexed_ids}, scorer,
@@ -108,14 +132,11 @@ def load_recommendation_snapshot(snapshot_id=None, *, deadline=None) -> Recommen
             for name, payload in raw_files.items():
                 if (directory / name).read_bytes() != payload:
                     raise ValueError("Artefact thay đổi trong lúc nạp.")
-            catalog_entry = next(row for row in manifest["files"] if row["path"] == "catalog.sqlite")
-            if (hashlib.sha256((directory / "catalog.sqlite").read_bytes()).hexdigest() != catalog_entry["sha256"]
-                    or (directory / "manifest.json").read_bytes() != manifest_bytes):
-                raise ValueError("Metadata hoặc manifest thay đổi trong lúc nạp.")
+            _check_catalog_unchanged(directory, manifest, manifest_bytes)
             check_deadline(deadline)
-            return RecommendationSnapshot(sid, MappingProxyType(books), MappingProxyType(metadata),
-                MappingProxyType({kind: MappingProxyType(values) for kind, values in labels.items()}),
-                eligible, ranker, hashlib.sha256(manifest_bytes).hexdigest())
+            return RecommendationSnapshot(snapshot_id=catalog.snapshot_id, books=catalog.books,
+                metadata=catalog.metadata, labels=catalog.labels, eligible_ids=catalog.eligible_ids,
+                manifest_sha256=catalog.manifest_sha256, ranker=ranker)
     except CatalogError as exc:
         exc.module = "recommend"
         raise

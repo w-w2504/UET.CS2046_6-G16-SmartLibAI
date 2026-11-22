@@ -6,12 +6,11 @@ from src.services.preference import PreferenceDataError, PreferenceInputError
 from src.services.recommendation_reasons import recommendation_item
 
 
-def build_response(snapshot, payload, request_id, *, seed_field="seed_book_ids"):
-    """Reject unapproved seeds: 422 invalid_input, POST seed_book_ids / GET id."""
+def validate_catalog_input(snapshot, payload, *, seed_field="seed_book_ids"):
+    """Validate IDs/rights/relations against verified catalog, without FAISS."""
     for bid in payload.seed_book_ids:
         if bid not in snapshot.books:
-            raise CatalogError(404 if seed_field == "id" else 422,
-                "resource_not_found" if seed_field == "id" else "invalid_input",
+            raise CatalogError(422, "invalid_input",
                 "Không tìm thấy sách đã chọn", seed_field, "recommend")
         if bid not in snapshot.eligible_ids:
             raise CatalogError(422, "invalid_input", "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt", seed_field, "recommend")
@@ -24,6 +23,16 @@ def build_response(snapshot, payload, request_id, *, seed_field="seed_book_ids")
     excluded_works = {snapshot.metadata[bid].work_id for bid in payload.exclude_book_ids}
     if excluded_works.intersection(works):
         raise CatalogError(422, "invalid_input", "Tác phẩm vừa được chọn vừa bị ẩn", "exclude_book_ids", "recommend")
+    for position, code in enumerate(payload.filters.genres if payload.filters else ()):
+        if code not in snapshot.labels["genre"]:
+            field = f"genres.{position}" if seed_field == "id" else f"filters.genres.{position}"
+            raise CatalogError(422, "invalid_input", "Mã thể loại không tồn tại", field, "recommend")
+    return excluded_works
+
+
+def build_response(snapshot, payload, request_id, *, seed_field="seed_book_ids"):
+    """Reject unapproved seeds: 422 invalid_input, POST seed_book_ids / GET id."""
+    excluded_works = validate_catalog_input(snapshot, payload, seed_field=seed_field)
     if any(bid not in snapshot.ranker.books for bid in payload.seed_book_ids):
         raise CatalogError(503, "service_unavailable", "Vector sách đã chọn chưa sẵn sàng", module="recommend")
     # A catalog-only edition can still hide every indexed edition of its work.
