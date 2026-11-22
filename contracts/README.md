@@ -20,7 +20,9 @@ Chỉ authors và genres được lặp ở query. Endpoint dữ liệu nhận s
 
 Ngày 22/11/2026, Vân/P02 xác nhận hành vi cho sách tồn tại nhưng chưa có đủ nguồn `metadata` và `summary` với `rights_status=approved` trong snapshot của request: `POST /recommend` trả **422 invalid_input**, field `seed_book_ids`; `GET /books/{id}/similar` trả **422 invalid_input**, field `id`. Không tự thay seed bằng ấn bản khác. Đây là xác nhận của P02, không phải biên bản phê duyệt toàn nhóm. Chi tiết eligibility và triển khai tại [C17](../documents/C17.md).
 
-Theo chỉ định mới nhất của Vân/P02, seed không tồn tại trả 422 `invalid_input`, field `seed_book_ids` cho POST; Similar trả 404 `resource_not_found`, field `id`. Đây là ngoại lệ do P02 chỉ định, không suy từ quy tắc chung của SPEC hoặc tuyên bố cả nhóm đã phê duyệt. Seed pending vẫn trả 422 trên cả hai endpoint; snapshot không còn được phục vụ vẫn trả 404 `resource_not_found`. Exclude được kiểm tồn tại và xung đột work; không áp dụng điều kiện quyền của seed cho exclude.
+Theo yêu cầu review của nhóm trưởng cho PR #23 do Vân/P02 chuyển lại, **Similar với book_id không tồn tại trả 404 `resource_not_found`, field `id`**; **POST Recommend với seed không tồn tại giữ 422 `invalid_input`, field `seed_book_ids`**. Seed pending vẫn trả 422 `invalid_input` ở cả hai endpoint, field lần lượt `seed_book_ids` và `id`. Ngoại lệ Similar áp dụng khi FAISS bình thường hoặc lỗi; vẫn xác thực snapshot/catalog và ID trước khi nạp FAISS. Snapshot không còn được phục vụ trả 404 `resource_not_found`. Exclude được kiểm tồn tại và xung đột work; không áp dụng điều kiện quyền của seed cho exclude.
+
+Đây là ngoại lệ theo yêu cầu review, không suy từ API chi tiết sách. SPEC 10.5 ghi seed thiếu trả 422 và 12.4 ghi Similar tương đương Recommend; cách diễn đạt SPEC còn cần nhóm thống nhất/cập nhật cho ngoại lệ này. Không tự sửa SPEC, eligibility, top-k hoặc thứ tự validation để xử lý khác biệt tài liệu.
 
 ## Sinh và kiểm tra
 
