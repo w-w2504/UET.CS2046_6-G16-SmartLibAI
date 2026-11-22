@@ -1,0 +1,30 @@
+{
+  "scope": "classroom_demo",
+  "source_git": "a0666cc7fc531a70498aef1943b0cc67f0207455",
+  "book_rights_status_counts": {
+    "approved": 286,
+    "pending": 3
+  },
+  "verification": {
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "books": 289,
+    "top5_reference_matches": 289,
+    "sqlite_imported": 289,
+    "sqlite_quarantined": 0
+  },
+  "files": {
+    "bundle/manifest.json": "089b3abbf889849d0b5491928bf30cd813de21b16be7a2d2bafe2b23d8977231",
+    "bundle/mapping.jsonl": "ad7f8932f405b26902c3bb6b1fba7785f73648fc459f738a45fc58731346a4ef",
+    "bundle/vectors.npy": "2f385fc860a344dc199bcd3e980d9097a747052485ed3151ac711d46a86ad852",
+    "index/books.faiss": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+    "index/index_manifest.json": "9b6ad48e92904748c8320194f7fb5afeb01ff23f534a9483232ef6008a576bfb",
+    "index/mapping.jsonl": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+    "review.json": "f00ae695376cb346edfd4095fddcb0a655f5e16362cf69ae61fde7ed9a0cc0d5",
+    "search/catalog.jsonl": "686e23559e18fee745b9729945c73b1435cf5445493b7dec2b742fead37a02c7",
+    "search/taxonomy.json": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+    "snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+    "snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite": "c316b90fe4c383d4abbac1488453bf76f62e11d4327b47a9cffd06e8cf2ba28b",
+    "snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json": "1abb673bb0dcec99e23e124f973f0909cc9e00cd6e97dfaef01cafd200d7bf6c",
+    "snapshot/p4-w03-c38-reviewed-r8-20261122/mapping.jsonl": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37"
+  }
+}
