@@ -50,12 +50,12 @@ class SnapshotService:
         return path
 
     @contextmanager
-    def open_catalog(self, snapshot_id: str | None = None, *, allow_demo: bool = True):
+    def open_catalog(self, snapshot_id: str | None = None, *, allow_demo: bool = True, filter_ai_sources: bool = False):
         if snapshot_id is not None:
             check_id(snapshot_id, "snapshot_id")
         if allow_demo and settings.demo_snapshot is not None:
             directory = self.demo_snapshot_dir(snapshot_id)
-            with open_catalog(directory, directory.name, classroom_demo=True) as handle:
+            with open_catalog(directory, directory.name, classroom_demo=True, filter_ai_sources=filter_ai_sources) as handle:
                 yield handle
             return
         sid = snapshot_id if snapshot_id is not None else self.active_snapshot_id
@@ -66,7 +66,7 @@ class SnapshotService:
             if snapshot_id is not None:
                 raise CatalogError(404, "resource_not_found", "Phiên bản dữ liệu không còn được phục vụ")
             raise CatalogError(503, "service_unavailable", "Danh mục đang hoạt động chưa sẵn sàng")
-        with open_catalog(directory, sid) as handle:
+        with open_catalog(directory, sid, filter_ai_sources=filter_ai_sources) as handle:
             yield handle
 
     def is_catalog_ready(self) -> bool:
@@ -82,10 +82,13 @@ class SnapshotService:
         return search_service.is_ready()
 
     def is_recommend_ready(self) -> bool:
-        """recommend_ready có cùng phụ thuộc như search."""
-        if settings.demo_snapshot is not None:
+        """Validate the actual C13 serving source; encoder readiness is combined by health."""
+        from src.services.recommendation_snapshot import load_recommendation_snapshot
+        try:
+            load_recommendation_snapshot()
+            return True
+        except CatalogError:
             return False
-        return self.is_search_ready()
 
     def is_rag_ready(self) -> bool:
         """rag_ready cần catalog, encoder, ít nhất một chỉ mục đoạn, khóa Gemini."""

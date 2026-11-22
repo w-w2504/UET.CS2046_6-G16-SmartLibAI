@@ -1,12 +1,12 @@
-from fastapi import APIRouter, Request, Query, HTTPException
+from fastapi import APIRouter, Request, Query
 from ai_library.collation import generate_title_sort_key
-from src.schemas.common import Identifier
+from src.schemas.common import Identifier, Filters
 from src.schemas.catalog import BookDetailResponse, BooksResponse, FacetsResponse
-from src.schemas.recommend import RecommendationResponse
+from src.schemas.recommend import RecommendationRequest, RecommendationResponse
 from src.services import catalog as catalog_service
 from src.services.catalog import invalid
 from src.services.catalog_http import catalog, filters
-from src.services.snapshot import snapshot_service
+from src.services.recommendation_service import recommend
 from src.routes.contract import errors, query_boundary, require_valid_boundary
 
 router = APIRouter(tags=["Books & Catalog"])
@@ -69,7 +69,7 @@ def get_facets(request: Request, snapshot_id: Identifier | None = Query(None)):
 
 
 @router.get("/books/{id}/similar", response_model=RecommendationResponse, responses=errors(404, 503, 504), dependencies=query_boundary("k", "authors", "genres", "has_fulltext", "snapshot_id"))
-async def get_similar_books(
+def get_similar_books(
     id: Identifier,
     request: Request,
     k: int = Query(5, ge=1, le=10),
@@ -80,15 +80,9 @@ async def get_similar_books(
 ):
     """Gợi ý sách tương tự từ 1 sách cụ thể (Mục 12.4)."""
     require_valid_boundary(request)
-    req_id = getattr(request.state, "request_id", "unknown")
-    sid = snapshot_id or snapshot_service.active_snapshot_id
-    if not sid:
-        raise HTTPException(503, detail={"code": "service_unavailable", "message": "Gợi ý chưa sẵn sàng", "module": "recommend"})
-    return {
-        "status": "no_candidates",
-        "message": "Chưa có dữ liệu để gợi ý",
-        "items": [],
-        "snapshot_id": sid,
-        "request_id": req_id,
-    }
+    payload = RecommendationRequest(seed_book_ids=[id], k=k,
+        filters=Filters(authors=authors, genres=genres, has_fulltext=has_fulltext),
+        **({"snapshot_id": snapshot_id} if snapshot_id is not None else {}))
+    return recommend(payload, request.state.request_id, seed_field="id",
+                     deadline=getattr(request.state, "recommendation_deadline", None))
 

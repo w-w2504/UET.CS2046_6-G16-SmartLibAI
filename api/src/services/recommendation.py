@@ -88,7 +88,7 @@ class RecommendationRanker:
     """Use providers from the same validated dataset; prefer from_source for C11."""
 
     def __init__(self, books: Mapping[str, BookMetadata], scorer: BookScorer,
-                 *, genre_codes: frozenset[str], dataset_id: str):
+                 *, genre_codes: frozenset[str], dataset_id: str, eligible_book_ids=None):
         identifier = TypeAdapter(Identifier)
         try:
             if set(books) != set(scorer.book_ids) or len(scorer.book_ids) != len(books) or not books:
@@ -109,6 +109,9 @@ class RecommendationRanker:
         self.scorer = scorer
         self.genre_codes = frozenset(genre_codes)
         self.dataset_id = dataset_id
+        self.eligible_book_ids = frozenset(books if eligible_book_ids is None else eligible_book_ids)
+        if not self.eligible_book_ids <= self.books.keys():
+            raise PreferenceDataError("Tập eligibility không thuộc dataset đang xét.")
 
     @classmethod
     def from_source(cls, source: PreferenceSource) -> "RecommendationRanker":
@@ -156,7 +159,7 @@ class RecommendationRanker:
         blocked = seed_works | excluded_works
         authors, genres = set(selected_filters.authors), set(selected_filters.genres)
         candidates = [bid for bid, book in self.books.items()
-            if book.work_id not in blocked
+            if bid in self.eligible_book_ids and book.work_id not in blocked
             and (not authors or authors.intersection(book.authors))
             and (not genres or genres.intersection(book.genres))
             and (selected_filters.has_fulltext is None or book.has_fulltext == selected_filters.has_fulltext)]

@@ -11,6 +11,7 @@ from src.config import settings
 from src.middleware.contract import ContractMiddleware, error_response
 from src.middleware.request_id import RequestIDMiddleware
 from src.middleware.search_deadline import SearchDeadlineMiddleware
+from src.middleware.recommendation_deadline import RecommendationDeadlineMiddleware
 from src.routes import health, books, search, recommend, reader, qa
 from src.services.catalog import CatalogError
 from src.schemas.common import Filters
@@ -62,6 +63,7 @@ app.add_middleware(
 # 2. Gắn Middleware X-Request-ID
 app.add_middleware(ContractMiddleware)
 app.add_middleware(SearchDeadlineMiddleware)
+app.add_middleware(RecommendationDeadlineMiddleware)
 app.add_middleware(RequestIDMiddleware)
 
 
