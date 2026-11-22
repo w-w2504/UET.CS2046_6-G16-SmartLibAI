@@ -24,6 +24,7 @@ from src.config import settings
 from src.schemas.common import BookSummary, Filters
 from src.schemas.search import SearchItem, SearchRequest, SearchResponse
 from src.services.catalog import CatalogError
+from src.services.eligibility import eligible_book_ids
 from src.services.query_encoder import QueryEncoderProvider, encode_query
 from src.services.snapshot import snapshot_service
 
@@ -79,34 +80,58 @@ def _sources_are_approved(conn, sid, book, *, classroom_demo=False):
         return
     approved = set()
     for row in rows:
+        kind = row["content_type"]
         if (row["rights_status"] == "approved" and row["rights_note"].strip()
                 and row["reviewed_by"] and row["reviewed_at"] and _url(row["source_url"])):
-            approved.add(row["content_type"])
+            approved.add(kind)
     required = {"metadata", "summary"}
     if book["has_fulltext"]:
         required.add("fulltext")
-        chapters = conn.execute("SELECT * FROM chapters WHERE snapshot_id=? AND book_id=? ORDER BY order_no",
-                                (sid, book["book_id"])).fetchall()
-        if not chapters:
-            raise ValueError("Sách toàn văn thiếu chương")
-        for chapter in chapters:
-            paragraphs = conn.execute("SELECT * FROM paragraphs WHERE snapshot_id=? AND chapter_id=? ORDER BY order_no",
-                                      (sid, chapter["chapter_id"])).fetchall()
-            if (not paragraphs or hashlib.sha256(chapter["text"].encode()).hexdigest() != chapter["text_hash"]
-                    or "\n\n".join(row["text"] for row in paragraphs) != chapter["text"]):
-                raise ValueError("Chương hoặc đoạn toàn văn không hợp lệ")
-            offset = 0
-            for order, row in enumerate(paragraphs, 1):
-                if (row["order_no"] != order or not row["text"]
-                        or row["char_start"] != offset or row["char_end"] != offset + len(row["text"])):
-                    raise ValueError("Offset đoạn không hợp lệ")
-                offset = row["char_end"] + 2
     if book["cover_url"] is not None:
         required.add("cover")
         if not _url(book["cover_url"]):
             raise ValueError("URL ảnh không hợp lệ")
     if not required <= approved:
-        raise ValueError("Thiếu nguồn được duyệt để phục vụ")
+        raise ValueError("Thiếu nguồn toàn văn/ảnh bìa được duyệt")
+
+
+def _validate_fulltext(conn, sid, book):
+    if not book["has_fulltext"]:
+        return
+    chapters = conn.execute("SELECT * FROM chapters WHERE snapshot_id=? AND book_id=? ORDER BY order_no",
+                            (sid, book["book_id"])).fetchall()
+    if not chapters:
+        raise ValueError("Sách toàn văn thiếu chương")
+    for chapter in chapters:
+        paragraphs = conn.execute("SELECT * FROM paragraphs WHERE snapshot_id=? AND chapter_id=? ORDER BY order_no",
+                                  (sid, chapter["chapter_id"])).fetchall()
+        if (not paragraphs or hashlib.sha256(chapter["text"].encode()).hexdigest() != chapter["text_hash"]
+                or "\n\n".join(row["text"] for row in paragraphs) != chapter["text"]):
+            raise ValueError("Chương hoặc đoạn toàn văn không hợp lệ")
+        offset = 0
+        for order, row in enumerate(paragraphs, 1):
+            if (row["order_no"] != order or not row["text"]
+                    or row["char_start"] != offset or row["char_end"] != offset + len(row["text"])):
+                raise ValueError("Offset đoạn không hợp lệ")
+            offset = row["char_end"] + 2
+
+
+def _rank_candidates(index, candidate_ids, query, k, deadline):
+    """Rank only books that passed Search filters and snapshot eligibility."""
+    ordered_ids = sorted(candidate_ids)
+    if not ordered_ids:
+        return []
+    vectors = []
+    for book_id in ordered_ids:
+        check_deadline(deadline)
+        vectors.append(index.get_vector(book_id))
+    candidate_index = faiss.IndexFlatIP(query.size)
+    candidate_index.add(np.ascontiguousarray(np.stack(vectors), dtype=np.float32))
+    scores, positions = candidate_index.search(query.reshape(1, -1), len(ordered_ids))
+    hits = [SimpleNamespace(book_id=ordered_ids[int(position)], score=float(score))
+            for score, position in zip(scores[0], positions[0])]
+    hits.sort(key=lambda hit: (-hit.score, hit.book_id))
+    return hits[:k]
 
 
 @dataclass(frozen=True)
@@ -212,14 +237,18 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
             conn.set_progress_handler(lambda: int(monotonic() >= deadline), 1000)
             if conn.execute("PRAGMA foreign_key_check").fetchone():
                 raise ValueError("Khóa ngoại không hợp lệ")
+            eligible_ids = eligible_book_ids(conn, sid)
             if classroom_demo and any(conn.execute(f"SELECT 1 FROM {table} LIMIT 1").fetchone()
                                       for table in ("chapters", "paragraphs", "chunks")):
                 raise ValueError("Snapshot demo không nhận dữ liệu toàn văn")
             if classroom_demo:
                 rights = {"approved": 0, "pending": 0}
-                rights.update(dict(conn.execute("SELECT rights_status,count(*) FROM sources GROUP BY rights_status")))
-                if (rights != manifest["demo"]["source_rights_status_counts"]
-                        or manifest["demo"]["unverified_rights"] is not bool(rights["pending"])):
+                try:
+                    rights.update(dict(conn.execute("SELECT rights_status,count(*) FROM sources GROUP BY rights_status")))
+                except sqlite3.Error:
+                    rights = None
+                if (rights is not None and (rights != manifest["demo"]["source_rights_status_counts"]
+                        or manifest["demo"]["unverified_rights"] is not bool(rights["pending"]))):
                     raise ValueError("Trạng thái quyền của snapshot demo không khớp")
             sql_rows = conn.execute("SELECT * FROM vector_mapping WHERE index_name='books' ORDER BY row_id").fetchall()
             if [dict(row) for row in sql_rows] != book_rows:
@@ -240,6 +269,7 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
                     raise ValueError("Taxonomy sai snapshot")
                 labels[row["kind"]][row["code"]] = row["label"]
             books = {}
+            mapped_ids = set()
             hashes = {row["object_id"]: row["content_hash"] for row in book_rows}
             for row in raw_books:
                 if row["snapshot_id"] != sid or row["language"] != "vi" or row["has_fulltext"] not in (0, 1):
@@ -249,20 +279,24 @@ def load_snapshot(snapshot_id, deadline=float("inf")):
                 kinds = {kind: [x[0] for x in conn.execute("SELECT code FROM book_labels WHERE snapshot_id=? AND book_id=? AND kind=? ORDER BY code COLLATE BINARY", (sid, bid, kind))] for kind in labels}
                 if not row["title"].strip() or not row["summary"].strip() or not authors:
                     raise ValueError("Metadata thiếu nội dung")
-                _sources_are_approved(conn, sid, row, classroom_demo=classroom_demo)
+                _validate_fulltext(conn, sid, row)
                 if bid not in hashes:
                     # A valid catalog entry without an embedding is not a
                     # Search candidate (SPEC 10.2), but can remain in catalog.
                     continue
+                mapped_ids.add(bid)
                 representation = book_text(SimpleNamespace(title=row["title"], authors=authors,
                     genres=kinds["genre"], topics=kinds["topic"], summary=row["summary"]), labels["genre"], labels["topic"])
                 if hashlib.sha256(representation.encode()).hexdigest() != hashes[bid]:
                     raise ValueError("content_hash sai metadata")
+                if bid not in eligible_ids:
+                    continue
+                _sources_are_approved(conn, sid, row, classroom_demo=classroom_demo)
                 books[bid] = BookSummary(book_id=bid, work_id=row["work_id"], title=row["title"],
                     authors=authors, genres=kinds["genre"], summary=row["summary"],
                     has_fulltext=bool(row["has_fulltext"]), cover_url=row["cover_url"])
                 check_deadline(deadline)
-            if len(books) != count:
+            if len(mapped_ids) != count:
                 raise ValueError("Mapping trỏ tới sách không tồn tại")
         finally:
             conn.close()
@@ -320,8 +354,7 @@ class SearchService:
             raise SearchError(422, "invalid_input", "Câu tìm kiếm vượt quá 480 token", "q") from exc
         except (ModelUnavailableError, ValueError) as exc:
             raise SearchError(503, message="Không thể nạp encoder phù hợp với phiên bản dữ liệu") from exc
-        hits = snapshot.index.search(query, len(snapshot.books))
-        hits = [hit for hit in hits if hit.book_id in candidates][:payload.k]
+        hits = _rank_candidates(snapshot.index, candidates, query, payload.k, deadline)
         check_deadline(deadline)
         weak = hits[0].score < snapshot.threshold
         return SearchResponse(status="weak_match" if weak else "ok",
