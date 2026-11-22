@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "component": "index",
+  "scope": "classroom_demo_localhost_only",
+  "snapshot_id": "p4-c38-demo289-20261122",
+  "source_code_commit": "7b8ff16218f4d9e2b1e0941e789d5e4a03fe02fe",
+  "source_P3_commit": "a0666cc7fc531a70498aef1943b0cc67f0207455",
+  "files": [
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/index/books.faiss",
+      "bytes": 443949,
+      "sha256": "9043b0ee53a3bf320025f6fb7fa1f1edf536a9280f1cd23818e2eab5a7dae9c9"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/index/index_manifest.json",
+      "bytes": 1427,
+      "sha256": "826fe278fce61b6abe89478b948e5d76a4be9981fe6c97c2d521f436fdcbba21"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/index/mapping.jsonl",
+      "bytes": 60578,
+      "sha256": "2dd85689c7be6db6d34b09a331f56ebcc0bb487ca20fcba2bf563cd119d79c61"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/README.md",
+      "bytes": 1447,
+      "sha256": "2278646aa06520339ca69609d62b8a8e239cae223febe9714aba3790fed7aba2"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/snapshot/p4-c38-demo289-20261122/books.faiss",
+      "bytes": 443949,
+      "sha256": "9043b0ee53a3bf320025f6fb7fa1f1edf536a9280f1cd23818e2eab5a7dae9c9"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/snapshot/p4-c38-demo289-20261122/catalog.sqlite",
+      "bytes": 1019904,
+      "sha256": "da2dfe3fdd6ce2baab5f7b6ff9c0fc95a6564fef9a9bd0c7ade8252a9d237b45"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/snapshot/p4-c38-demo289-20261122/manifest.json",
+      "bytes": 1997,
+      "sha256": "0fec4ec5b1faddd4dda4fc0652b206732b49f85d57ce6a43431d283f7b43dbc3"
+    },
+    {
+      "path": "data/demo/p4-w03-c38-289-20261122/snapshot/p4-c38-demo289-20261122/mapping.jsonl",
+      "bytes": 60578,
+      "sha256": "2dd85689c7be6db6d34b09a331f56ebcc0bb487ca20fcba2bf563cd119d79c61"
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/manifest.json",
+      "bytes": 1118,
+      "sha256": "57b828c01fe59e0c5eb51277937fe8b8625fd220dc4ae554597c0b67695e313f"
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/mapping.jsonl",
+      "bytes": 43527,
+      "sha256": "8df986800c38c4052c0fc8cac13e5edcb37f1d78b2a13fdf96760ce432486dd7"
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/vectors.npy",
+      "bytes": 444032,
+      "sha256": "a97e4eefb1dfefee045c2ba3359a98b0e8d0cb2dad87cf385530d35e869fff17"
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/taxonomy.json",
+      "bytes": 969,
+      "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789"
+    },
+    {
+      "path": "data/raw/p3_v4/search/catalog.jsonl",
+      "bytes": 470059,
+      "sha256": "3b4b52a48e1e95a4047a9c41cf9ea62d7acd3d11d029252e49f718982f379675"
+    }
+  ],
+  "model_files_included": false,
+  "secrets_included": false
+}

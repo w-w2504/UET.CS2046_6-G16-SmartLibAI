@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-21T17:55:04Z",
+  "reviewed_by": "AI Codex: independent source, license and EPUB paragraph verification 2026-11-22",
+  "scope": "reader_localhost_Vietnam_only",
+  "decision_basis": "User approved source review and conditionally eligible localhost use; no human attestation or global publication approval.",
+  "legal_reference": "https://cov.gov.vn/quyen-tac-gia-quyen-lien-quan/thoi-han-bao-ho-quyen-tac-gia-la-bao-nhieu-nam-168808.html",
+  "evidence": {
+    "cha_con_toc": {
+      "url": "https://vi.wikisource.org/wiki/Cha_con_ngh%C4%A9a_n%E1%BA%B7ng?oldid=156330",
+      "sha256": "93dd1ec7cbf907ec91fa611aa1ce72676dea1e626a926e704d43653cae5b7a86"
+    },
+    "nua_chung_toc": {
+      "url": "https://vi.wikisource.org/wiki/N%E1%BB%ADa_ch%E1%BB%ABng_xu%C3%A2n?oldid=106616",
+      "sha256": "b3538e9f149e2c677cca3a4bcacdbbcc2e019ee6b4baf2947d0116a85b061ab7"
+    },
+    "author_hbc": {
+      "url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+      "sha256": "06f0819a7f7cf29246a21e2b29dd069f24a875b85a222684013584deaed1f027"
+    },
+    "author_kh": {
+      "url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:Kh%C3%A1i_H%C6%B0ng",
+      "sha256": "c633645066cf11d3e127d7b759625fbb376995d000fe852a2c0bbd9d21f1bf24"
+    },
+    "law27": {
+      "url": "https://cov.gov.vn/quyen-tac-gia-quyen-lien-quan/thoi-han-bao-ho-quyen-tac-gia-la-bao-nhieu-nam-168808.html",
+      "sha256": "c0fc111b92cab26c56c6d6c9ffdd1f18163b94a65357b48a08ec1d948f4b7c6c"
+    }
+  },
+  "source_P3_sha256": {
+    "catalog.jsonl": "4436facf6ddb28b37d591ae9ab6ce49c35b9a5b15a7d71859e3e4d0e0fee5143",
+    "chapters.jsonl": "53e15051e29728073368dc401bf288a913f3b33d60ca76f6ae65d4a4f8e84970",
+    "id_registry.json": "2f70d750c2c597e6f0bac6403047f4562c63ab15544653715ce7285530d5e476",
+    "NOTICE.md": "6fbbd5ff18b9bed225f5e23e4b9dd0ec95ccecc5cc0a8dd4eb7f5b7efa47c045",
+    "source_manifest.json": "4b568583c9ca5554d67c57a4ec4013346bd8bec15bf5939510274ed3b279e357",
+    "taxonomy.json": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+    "raw/ho-bieu-chanh-cha-con-nghia-nang.epub": "ad37e7fc13e19a5286bab4d003d610fd3c2a401c020143c62d47ed36c398cf49",
+    "raw/khai-hung-nua-chung-xuan.epub": "16b9bb3230a25fa9b802c29c7be8a6376e4e41cbf2e61bb4610d9e2102cbfec4"
+  },
+  "books": 2,
+  "chapters": 28,
+  "paragraphs": 4301,
+  "all_epub_paragraphs_equal": true,
+  "metadata_summary_reviewed_separately": true,
+  "original_ids_preserved": true,
+  "new_source_ids_only_for_new_URLs": true,
+  "parent_source_manifest_applies_to_original_P3_batch": true,
+  "no_images_fonts_translations": true,
+  "notice": "P3 source batch stays pending/unchanged. Nua chung xuan old magazine/essay records remain pending; approved editorial sources refer to independently checked original. NOTICE attribution and CC BY-SA4.0 obligations retained."
+}
