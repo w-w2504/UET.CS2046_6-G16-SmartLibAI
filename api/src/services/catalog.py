@@ -180,7 +180,7 @@ class CatalogHandle:
         _deadline(self.deadline)
         return self.conn.execute(sql, params).fetchall()
 
-    def validate(self) -> None:
+    def validate(self, *, filter_ai_sources: bool = False) -> None:
         sid = self.snapshot_id
         _require(self.conn.execute("PRAGMA quick_check").fetchone()[0] == "ok")
         _require(not self.rows("PRAGMA foreign_key_check"))
@@ -230,9 +230,19 @@ class CatalogHandle:
             authors = self.rows("SELECT * FROM book_authors WHERE snapshot_id=? AND book_id=? ORDER BY order_no", (sid, book["book_id"]))
             _require(bool(authors) and [row["order_no"] for row in authors] == list(range(1, len(authors) + 1)) and all(_metadata(row["author_name"]) for row in authors))
             sources = self.rows("SELECT * FROM sources WHERE snapshot_id=? AND book_id=?", (sid, book["book_id"]))
+            if filter_ai_sources:
+                from src.services.eligibility import is_book_eligible
+                # AI routes keep incomplete approvals as ineligible books instead
+                # of failing the whole catalog. Default C25 validation is intact.
+                # Demo approvals are deliberately not public-license validation.
+                if not is_book_eligible(sources, snapshot_id=sid, book_id=book["book_id"]):
+                    continue
             _require(all(bool(ID_PATTERN.fullmatch(row["source_id"])) and row["rights_status"] in {"approved", "pending", "rejected"} and row["content_type"] in {"metadata", "summary", "cover", "fulltext"} for row in sources))
             if self.classroom_demo:
-                _require(book["cover_url"] is None and sorted(row["content_type"] for row in sources) == ["metadata", "summary"]
+                kinds = [row["content_type"] for row in sources]
+                valid_kinds = (set(kinds) == {"metadata", "summary"} if filter_ai_sources
+                               else sorted(kinds) == ["metadata", "summary"])
+                _require(book["cover_url"] is None and valid_kinds
                          and all(row["rights_status"] in {"approved", "pending"} and _url(row["source_url"])
                                  and row["source_note"].strip() and row["rights_note"].strip() for row in sources))
                 continue
@@ -287,7 +297,7 @@ class CatalogHandle:
 
 
 @contextmanager
-def open_catalog(directory: Path, sid: str, *, classroom_demo: bool = False):
+def open_catalog(directory: Path, sid: str, *, classroom_demo: bool = False, filter_ai_sources: bool = False):
     conn = None
     try:
         deadline = time.monotonic() + 10
@@ -299,7 +309,7 @@ def open_catalog(directory: Path, sid: str, *, classroom_demo: bool = False):
         conn.execute("PRAGMA query_only=ON")
         conn.set_progress_handler(lambda: int(time.monotonic() > deadline), 1000)
         handle = CatalogHandle(sid, conn, manifest, deadline, classroom_demo=classroom_demo)
-        handle.validate()
+        handle.validate(filter_ai_sources=filter_ai_sources)
         yield handle
         _deadline(deadline)
     except CatalogError:

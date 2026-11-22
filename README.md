@@ -31,7 +31,8 @@ UET.CS2046_6-G16-SmartLibAI/
 ├── documents/
 │   ├── SPEC.md                # Đặc tả gốc, căn cứ thiết kế và nghiệm thu
 │   ├── C09.md                 # Hướng dẫn tạo vector sở thích
-│   └── C13.md                 # Hướng dẫn chọn và xếp hạng gợi ý
+│   ├── C13.md                 # Hướng dẫn chọn và xếp hạng gợi ý
+│   └── C17.md                 # API Recommendation/Similar và eligibility dùng chung
 ├── specs/
 │   └── p4/                    # Phân công, đặc tả task và nghiệm thu theo tuần
 │       ├── README.md
@@ -200,7 +201,9 @@ docker run --rm --network none --read-only smartlib-api:c08 python -c "from ai_l
 
 Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 được mô tả tại [`documents/C09.md`](documents/C09.md), gồm hàm thuần, loader kiểm tra tính đồng bộ bundle/catalog, unit test và lệnh kiểm tra tích hợp. C09 không triển khai xếp hạng C13 hoặc endpoint C17.
 
-Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](documents/C13.md): tái sử dụng C09, tính điểm toàn bộ vector bằng NumPy trên bundle C11, lọc và khử trùng theo tác phẩm rồi lấy top-k. Tích hợp FAISS/C14 thật còn chờ bàn giao; API và lý do gợi ý thuộc C17.
+Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](documents/C13.md): tái sử dụng C09, nạp gói P4 reviewed r8 qua C14/C21 và tính điểm đủ ứng viên bằng FAISS, sau đó lọc/khử trùng tác phẩm rồi lấy top-k. NumPy giữ làm baseline đối chiếu; classroom demo phải bật chủ động, API và lý do gợi ý thuộc C17.
+
+API Recommendation/Similar, helper eligibility dùng chung và hướng dẫn P1 tích hợp Search được mô tả tại [`documents/C17.md`](documents/C17.md). API chỉ trả sách có cả metadata và summary approved trong đúng snapshot; seed chưa đủ approved trả 422 theo xác nhận của Vân/P02, Search do P1 cập nhật trong PR riêng.
 
 #### Frontend (React + Vite):
 

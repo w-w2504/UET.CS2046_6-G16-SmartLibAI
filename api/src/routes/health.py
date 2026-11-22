@@ -32,16 +32,17 @@ async def get_health(request: Request) -> HealthResponse:
 
     # C25 verifies SQLite/hashes: all probes need the health budget and must
     # run outside the event loop. Cancelled probes only read immutable data.
-    catalog_ready, rag_ready, search_ready = await asyncio.gather(
+    catalog_ready, rag_ready, search_ready, recommendation_ready = await asyncio.gather(
         probe(snapshot_service.is_catalog_ready),
         probe(snapshot_service.is_rag_ready),
         probe(snapshot_service.is_search_ready),
+        probe(snapshot_service.is_recommend_ready),
     )
     
     return HealthResponse(
         catalog_ready=catalog_ready,
         search_ready=search_ready,
-        recommend_ready=search_ready and demo is None,
+        recommend_ready=search_ready and recommendation_ready,
         rag_ready=rag_ready,
         snapshot_id=sid,
         request_id=req_id,

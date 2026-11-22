@@ -164,15 +164,21 @@ def test_error_handlers_and_retry_header(monkeypatch):
     assert "private detail" not in response.text
 
 
-@pytest.mark.parametrize("path", ["/books", "/facets", "/books/B_1/similar"])
+@pytest.mark.parametrize("path", ["/books", "/facets", "/books/Seed/similar"])
 def test_catalog_envelope(path, tmp_path, monkeypatch):
     from catalog_fixture import create_snapshot
     from src.config import settings
     from src.services import catalog as catalog_service
 
-    fixture = create_snapshot(tmp_path, "test_snapshot")
-    monkeypatch.setattr(settings, "SNAPSHOT_ROOT", str(fixture["snapshot_root"]))
-    monkeypatch.setattr(settings, "CONTROL_ROOT", str(fixture["control_root"]))
+    if path.endswith("/similar"):
+        from recommendation_fixture import create_snapshot as create_recommendation_snapshot
+        create_recommendation_snapshot(tmp_path, "test_snapshot")
+        monkeypatch.setattr(settings, "SNAPSHOT_ROOT", str(tmp_path / "snapshots"))
+        monkeypatch.setattr(settings, "CONTROL_ROOT", str(tmp_path / "control"))
+    else:
+        fixture = create_snapshot(tmp_path, "test_snapshot")
+        monkeypatch.setattr(settings, "SNAPSHOT_ROOT", str(fixture["snapshot_root"]))
+        monkeypatch.setattr(settings, "CONTROL_ROOT", str(fixture["control_root"]))
     # Chỉ kiểm envelope; collator tiêm cho fixture không xác nhận ICU thật.
     monkeypatch.setattr(catalog_service, "author_sort_key", lambda value: value.encode("utf-8"))
     response = client.get("/api/v1" + path)

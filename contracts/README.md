@@ -16,6 +16,12 @@ FastAPI và Pydantic định nghĩa schema cho 10 endpoint. Các route hiện c�
 
 Chỉ authors và genres được lặp ở query. Endpoint dữ liệu nhận snapshot_id tùy chọn. Reader đặt text và paragraphs bên trong chapter, phù hợp cấu trúc client hiện dùng.
 
+## Seed chưa đủ quyền trong Recommendation/Similar
+
+Ngày 22/11/2026, Vân/P02 xác nhận hành vi cho sách tồn tại nhưng chưa có đủ nguồn `metadata` và `summary` với `rights_status=approved` trong snapshot của request: `POST /recommend` trả **422 invalid_input**, field `seed_book_ids`; `GET /books/{id}/similar` trả **422 invalid_input**, field `id`. Không tự thay seed bằng ấn bản khác. Đây là xác nhận của P02, không phải biên bản phê duyệt toàn nhóm. Chi tiết eligibility và triển khai tại [C17](../documents/C17.md).
+
+Theo chỉ định mới nhất của Vân/P02, seed không tồn tại trả 422 `invalid_input`, field `seed_book_ids` cho POST; Similar trả 404 `resource_not_found`, field `id`. Đây là ngoại lệ do P02 chỉ định, không suy từ quy tắc chung của SPEC hoặc tuyên bố cả nhóm đã phê duyệt. Seed pending vẫn trả 422 trên cả hai endpoint; snapshot không còn được phục vụ vẫn trả 404 `resource_not_found`. Exclude được kiểm tồn tại và xung đột work; không áp dụng điều kiện quyền của seed cho exclude.
+
 ## Sinh và kiểm tra
 
 Từ thư mục gốc, dùng Python có các gói trong api/requirements-contract.txt và đặt PYTHONPATH=api. Cần Node.js có ICU tiếng Việt để tạo fixture facets theo vi-VN, phân biệt dấu, không phân biệt hoa/thường và giữ dấu câu.
