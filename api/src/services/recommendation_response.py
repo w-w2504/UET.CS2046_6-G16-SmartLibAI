@@ -10,7 +10,8 @@ def validate_catalog_input(snapshot, payload, *, seed_field="seed_book_ids"):
     """Validate IDs/rights/relations against verified catalog, without FAISS."""
     for bid in payload.seed_book_ids:
         if bid not in snapshot.books:
-            raise CatalogError(422, "invalid_input",
+            raise CatalogError(404 if seed_field == "id" else 422,
+                "resource_not_found" if seed_field == "id" else "invalid_input",
                 "Không tìm thấy sách đã chọn", seed_field, "recommend")
         if bid not in snapshot.eligible_ids:
             raise CatalogError(422, "invalid_input", "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt", seed_field, "recommend")

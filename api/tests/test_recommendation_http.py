@@ -66,7 +66,7 @@ def test_confirmed_pending_seed_policy_post_and_similar(snapshot, bid):
 
 def test_missing_ids_seed_exclude_conflict_and_work_duplicates(snapshot):
     assert_error(post(seed_book_ids=["missing"]), 422, "invalid_input", "seed_book_ids")
-    assert_error(client.get("/api/v1/books/missing/similar"), 422, "invalid_input", "id")
+    assert_error(client.get("/api/v1/books/missing/similar"), 404, "resource_not_found", "id")
     assert_error(client.get("/api/v1/books/missing/similar?snapshot_id=retired"), 404, "resource_not_found", None)
     assert_error(post(exclude_book_ids=["missing"]), 422, "invalid_input", "exclude_book_ids.0")
     assert_error(post(seed_book_ids=["A"], exclude_book_ids=["A_alt"]), 422, "invalid_input", "exclude_book_ids")
@@ -164,7 +164,7 @@ def test_no_active_corrupt_index_and_source_immutability(snapshot):
     ("recommend", {"seed_book_ids": ["Pending1"]}, 422, "invalid_input", "seed_book_ids"),
     ("similar", {"id": "Pending1"}, 422, "invalid_input", "id"),
     ("recommend", {"seed_book_ids": ["missing"]}, 422, "invalid_input", "seed_book_ids"),
-    ("similar", {"id": "missing"}, 422, "invalid_input", "id"),
+    ("similar", {"id": "missing"}, 404, "resource_not_found", "id"),
     ("recommend", {"seed_book_ids": ["A", "A_alt"]}, 422, "invalid_input", "seed_book_ids"),
     ("recommend", {"exclude_book_ids": ["missing"]}, 422, "invalid_input", "exclude_book_ids.0"),
     ("recommend", {"seed_book_ids": ["A"], "exclude_book_ids": ["A_alt"]}, 422, "invalid_input", "exclude_book_ids"),
