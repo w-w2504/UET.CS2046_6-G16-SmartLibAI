@@ -10,6 +10,14 @@ Cập nhật 22/11/2026. Tuần 3 chưa hoàn thành: C42 đạt phạm vi hai t
 
 ## Kiểm chứng đã chạy
 
+### C38 — Search demo r8
+
+Đối chiếu 122 sách còn `pending`, duyệt 119 cho demo nội bộ, sửa mô tả của 63 sách và thay nguồn cho 64 sách. Search có 286/289 sách `approved` về dữ kiện thư mục và mô tả. Ba hồ sơ còn pending cần xác minh tên tác giả hoặc ấn bản.
+
+Gói `data/demo/p4-w03-c38-reviewed-r8-20261122/` gồm batch Search, bundle E5, index và snapshot kèm SHA-256. Bản bàn giao bỏ trường người duyệt nội bộ và giữ byte vector r8. SQLite nạp 289 sách, 0 cách ly, qua kiểm toàn vẹn và khóa ngoại. FAISS đạt 289/289 đối chiếu top 5 NumPy. Bản local r8 kiểm API chi tiết 266 sách được duyệt qua các lượt và 3 truy vấn ngữ nghĩa. Với bản bàn giao, kiểm lại 13 SHA-256 và API danh sách, bộ lọc, 3 chi tiết sách cùng 3 truy vấn E5 đều đạt. Trạng thái nghiệm thu ở phạm vi ứng viên demo theo SPEC 3.1–3.2 và 9.3. C37/C45 và chất lượng AI C39/C40 có tiêu chí riêng.
+
+### Kiểm hồi quy và bản bàn giao đầu tuần
+
 142 test sau tích hợp develop/P3 đạt, gồm catalog/Reader/ICU/classroom Search/health/C11/index/refresh/handoff. Sau adapter Reader, 73 test liên quan đạt. Một cảnh báo deprecation Starlette/httpx, không có test lỗi.
 
 ```powershell
