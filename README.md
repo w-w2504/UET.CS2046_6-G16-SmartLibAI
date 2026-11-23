@@ -32,7 +32,8 @@ UET.CS2046_6-G16-SmartLibAI/
 │   ├── SPEC.md                # Đặc tả gốc, căn cứ thiết kế và nghiệm thu
 │   ├── C09.md                 # Hướng dẫn tạo vector sở thích
 │   ├── C13.md                 # Hướng dẫn chọn và xếp hạng gợi ý
-│   └── C17.md                 # API Recommendation/Similar và eligibility dùng chung
+│   ├── C17.md                 # API Recommendation/Similar và eligibility dùng chung
+│   └── C23.md                 # Kiểm thử biên API Recommendation/Similar
 ├── specs/
 │   └── p4/                    # Phân công, đặc tả task và nghiệm thu theo tuần
 │       ├── README.md
@@ -204,6 +205,8 @@ Phần C09 tạo vector sở thích từ 1–3 sách đã có vector C11 đượ
 Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](documents/C13.md): tái sử dụng C09, nạp gói P4 reviewed r8 qua C14/C21 và tính điểm đủ ứng viên bằng FAISS, sau đó lọc/khử trùng tác phẩm rồi lấy top-k. NumPy giữ làm baseline đối chiếu; classroom demo phải bật chủ động, API và lý do gợi ý thuộc C17.
 
 API Recommendation/Similar, helper eligibility dùng chung và hướng dẫn P1 tích hợp Search được mô tả tại [`documents/C17.md`](documents/C17.md). API chỉ trả sách có cả metadata và summary approved trong đúng snapshot; seed chưa đủ approved trả 422 theo xác nhận của Vân/P02, Search do P1 cập nhật trong PR riêng.
+
+Kiểm thử biên C23 và bảng bao phủ HTTP, căn cứ contract, fixture tổng hợp cùng kết quả tích hợp snapshot P4 được ghi tại [`documents/C23.md`](documents/C23.md). C23 tái sử dụng C17, không thay thuật toán hoặc contract.
 
 #### Frontend (React + Vite):
 
