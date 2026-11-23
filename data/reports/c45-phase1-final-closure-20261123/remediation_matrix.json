@@ -1,0 +1,386 @@
+[
+  {
+    "check_id": "C45-NODE-P3_CATALOG",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "Node passed + flagged = received; chưa chạy importer Python",
+    "evidence": "data/raw/p3_v4/catalog.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-NODE-SEARCH_R8",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "Node passed + flagged = received; chưa chạy importer Python",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-CATALOG-SETS",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": {
+      "p3": 294,
+      "search": 289,
+      "excluded": 5
+    },
+    "evidence": "data/raw/p3_v4/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-TAXONOMY",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "mã duy nhất, định dạng đúng",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-TEXT-BASE",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "NFC, summary không rỗng và không bất thường ngắn",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-REVIEW-DISPOSITION",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "needs_evidence ↔ pending trong các record đã review",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-REVIEW-URL",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "WARNING",
+    "final_status": "PASS",
+    "pass_condition": "URL trong review và URL nguồn catalog có thể truy vết theo mục đích",
+    "evidence": "data\\reports\\c45-phase1-final-closure-20261123\\url_resolution.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "record_id": "R_f5b6fa96-8db6-4934-8bdb-37ae63b6c2a2",
+    "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:32; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_ec9d7595-0257-43d5-83cf-15d83d8640b9]",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "record_id": "R_69eba5f4-26d3-587f-b55c-0d7ba19c4172",
+    "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:32; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_ec9d7595-0257-43d5-83cf-15d83d8640b9]",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "record_id": "R_b84359fd-fa40-4818-93d5-a8449acf51f6",
+    "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:56; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf]",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "record_id": "R_a8855933-110a-542c-9a24-4e7c46f05156",
+    "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:56; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf]",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "record_id": "R_d96fb63a-4380-4eed-b251-a3f776731bec",
+    "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:88; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_753970d9-0b2f-43b9-90aa-36f52e68d4c2]",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "record_id": "R_b8069995-7003-52ed-90f7-ea2336c49a9d",
+    "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:88; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_753970d9-0b2f-43b9-90aa-36f52e68d4c2]",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-SOURCE-TOTAL",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": {
+      "manifest": {
+        "approved": 572,
+        "pending": 6
+      },
+      "rejected": 0
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json:demo",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-REVIEW-SCOPE",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "UNVERIFIED",
+    "final_status": "UNVERIFIED",
+    "pass_condition": "chứng cứ người duyệt và quyền cho phạm vi ngoài demo",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data\\reports\\c45-phase1-final-closure-20261123\\historical_review_recovered.jsonl",
+    "resolution": "documented_exception",
+    "next_action": "P3/P4 cung cấp hồ sơ duyệt nội bộ nếu cần mở rộng phạm vi; giữ nguyên nguồn hiện tại."
+  },
+  {
+    "check_id": "C45-HANDOFF-HASH",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "mọi hash handoff khớp",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-LINEAGE-HASH",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "mỗi content_hash và chuỗi manifest gắn đúng input r8",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-VECTOR-INDEX",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "NPY float32 (N,384), finite/L2, định dạng IndexFlatIP r8 được nhận diện và khớp byte vector",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy; data/demo/p4-w03-c38-reviewed-r8-20261122/index/books.faiss; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-EMBED-CONFIG",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": {
+      "model_id": "intfloat/multilingual-e5-small",
+      "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+      "tokenizer": "intfloat/multilingual-e5-small",
+      "dimension": 384,
+      "prefixes": {
+        "query": "query: ",
+        "passage": "passage: "
+      },
+      "pooling": "mean_attention_mask",
+      "normalization": "L2"
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-TOKEN-LIMIT",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "mọi passage <=480 token, tokenizer đúng revision gồm prefix/special tokens",
+    "evidence": "data/reports/c45-r8-token-limit-20261123.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-E5-INFERENCE",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "bằng chứng từng vector được encode bằng model pinned trên nội dung r8",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl; data/reports/c45-r8-phase1-20261123-v12/e5_full_inference.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-FAISS-TOP5",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "top5 thực tế của FAISS khớp kết quả inner product tham chiếu",
+    "evidence": "data/reports/c45-r8-faiss-top5-20261123.json; data/reports/c45-r8-recommendation-faiss-20261123.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-P3-V4-DIFF",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "mọi summary đổi từ P3 v4 đi kèm vector row đổi",
+    "evidence": "data/raw/p3_v4/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-P4-BASELINE",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "UNVERIFIED",
+    "final_status": "UNVERIFIED",
+    "pass_condition": "baseline P4 tức thời để tái hiện 119/63/64",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; specs/p4/week-03/acceptance.md; data\\reports\\c45-phase1-final-closure-20261123\\historical_lineage_resolution.json",
+    "resolution": "documented_exception",
+    "next_action": "P3: truy đúng input và quy tắc đếm ngay trước review r8; không thay 119/63/64 bằng diff candidate."
+  },
+  {
+    "check_id": "C45-ID-REGISTRY",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "ID registry cho toàn bộ r8",
+    "evidence": "data/raw/c20_c34/id_registry.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-SQLITE-INTEGRITY",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "quick_check ok, foreign keys 0, books/mapping đúng r8",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite:PRAGMA quick_check; PRAGMA foreign_key_check; books/vector_mapping",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-PENDING-DB-LINK",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "mỗi nguồn pending trong catalog khớp SQLite theo book_id/source_id/type/status",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite:sources",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-PENDING-INDEX",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "WARNING",
+    "final_status": "WARNING",
+    "pass_condition": "SPEC §5.1 chỉ chọn sách đã duyệt; đo riêng tập có nguồn pending nằm trong vector mapping",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite:sources; data/demo/p4-w03-c38-reviewed-r8-20261122/index/mapping.jsonl",
+    "resolution": "owner_accepted_pending_exclusion",
+    "next_action": "Keep pending and exclude from Search/Recommendation; do not change approval."
+  },
+  {
+    "check_id": "C45-PENDING-API",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "kiểm bằng runtime Search xem từng sách pending có xuất hiện trong kết quả hay không",
+    "evidence": "data/reports/c45-r8-search-api-20261123.json; data/reports/c45-r8-recommendation-api-20261123.json; data/reports/c45-r8-recommendation-errors-20261123.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-SNAPSHOT-FILES",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "3 file snapshot có hash và size đúng",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-SNAPSHOT-COUNTS",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "manifest count khớp dữ liệu r8; số import trong handoff là thông tin bàn giao",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-PYTHON-VALIDATORS",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "kết quả độc lập validate_and_load_batch/load_c11_bundle/load_book_index và pytest",
+    "evidence": "Python validate_and_load_batch(metadata_only=True) on r8; data/reports/c45-r8-recommendation-faiss-20261123.json; node --experimental-sqlite --test pipeline/tests/test_c45_phase1.mjs",
+    "resolution": "satisfied",
+    "next_action": null
+  },
+  {
+    "check_id": "C45-READ-ONLY",
+    "record_id": null,
+    "book_id": null,
+    "original_status": "PASS",
+    "final_status": "PASS",
+    "pass_condition": "SHA input trước/sau không đổi",
+    "evidence": "data/raw/p3_v4/catalog.jsonl; data/raw/p3_v4/search/catalog.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/mapping.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/vectors.npy; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy; data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/index/mapping.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/index/books.faiss; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/mapping.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite",
+    "resolution": "satisfied",
+    "next_action": null
+  }
+]

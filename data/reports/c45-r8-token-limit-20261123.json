@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "model_id": "intfloat/multilingual-e5-small",
+  "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+  "books": 289,
+  "max_tokens": 155,
+  "over_limit": 0,
+  "tokenizer_config_sha256": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+}

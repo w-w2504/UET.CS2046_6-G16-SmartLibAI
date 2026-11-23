@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "phase": "Phase 1",
+  "scope": "classroom_demo_metadata_summary_only",
+  "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+  "git_commit": "b80c3c3e21394dd3eb41c753c418a3a2cd3a21f7",
+  "generated_at": "2026-11-23T05:50:16.703Z",
+  "tool": "pipeline/scripts/audit_c45_phase1.mjs",
+  "tool_version": 2,
+  "runtime": "v22.11.0",
+  "inputs": {
+    "p3_catalog": {
+      "path": "data/raw/p3_v4/catalog.jsonl",
+      "sha256": "9cc9dff9531dba5838d135271916de653fe17bdf87932d3b911f37205a5616f2",
+      "size_bytes": 461846
+    },
+    "p3_search": {
+      "path": "data/raw/p3_v4/search/catalog.jsonl",
+      "sha256": "3b4b52a48e1e95a4047a9c41cf9ea62d7acd3d11d029252e49f718982f379675",
+      "size_bytes": 470059
+    },
+    "p3_verification": {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json",
+      "sha256": "08fc34cad81eedec9891124378881bd47c8175220e0ca017b742b5961c192bf2",
+      "size_bytes": 5800
+    },
+    "p3_bundle_mapping": {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/mapping.jsonl",
+      "sha256": "8df986800c38c4052c0fc8cac13e5edcb37f1d78b2a13fdf96760ce432486dd7",
+      "size_bytes": 43527
+    },
+    "p3_bundle_vectors": {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/vectors.npy",
+      "sha256": "a97e4eefb1dfefee045c2ba3359a98b0e8d0cb2dad87cf385530d35e869fff17",
+      "size_bytes": 444032
+    },
+    "catalog": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+      "sha256": "686e23559e18fee745b9729945c73b1435cf5445493b7dec2b742fead37a02c7",
+      "size_bytes": 578340
+    },
+    "taxonomy": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json",
+      "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+      "size_bytes": 969
+    },
+    "review": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json",
+      "sha256": "f00ae695376cb346edfd4095fddcb0a655f5e16362cf69ae61fde7ed9a0cc0d5",
+      "size_bytes": 267040
+    },
+    "handoff": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json",
+      "sha256": "f49695814514eb4945de41aea82b3da0954d5c4503e8d30a1ea53f881d8a71f0",
+      "size_bytes": 1746
+    },
+    "bundle_manifest": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json",
+      "sha256": "089b3abbf889849d0b5491928bf30cd813de21b16be7a2d2bafe2b23d8977231",
+      "size_bytes": 1117
+    },
+    "bundle_mapping": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl",
+      "sha256": "ad7f8932f405b26902c3bb6b1fba7785f73648fc459f738a45fc58731346a4ef",
+      "size_bytes": 43527
+    },
+    "vectors": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy",
+      "sha256": "2f385fc860a344dc199bcd3e980d9097a747052485ed3151ac711d46a86ad852",
+      "size_bytes": 444032
+    },
+    "index_manifest": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json",
+      "sha256": "9b6ad48e92904748c8320194f7fb5afeb01ff23f534a9483232ef6008a576bfb",
+      "size_bytes": 1434
+    },
+    "index_mapping": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/index/mapping.jsonl",
+      "sha256": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+      "size_bytes": 62890
+    },
+    "index": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/index/books.faiss",
+      "sha256": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+      "size_bytes": 443949
+    },
+    "snapshot_manifest": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+      "sha256": "1abb673bb0dcec99e23e124f973f0909cc9e00cd6e97dfaef01cafd200d7bf6c",
+      "size_bytes": 2004
+    },
+    "snapshot_mapping": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/mapping.jsonl",
+      "sha256": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+      "size_bytes": 62890
+    },
+    "snapshot_index": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss",
+      "sha256": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+      "size_bytes": 443949
+    },
+    "sqlite": {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite",
+      "sha256": "c316b90fe4c383d4abbac1488453bf76f62e11d4327b47a9cffd06e8cf2ba28b",
+      "size_bytes": 1183744
+    }
+  },
+  "input_hashes_unchanged": true,
+  "node_screening": {
+    "p3_catalog": {
+      "engine": "node_static_screening",
+      "received": {
+        "books": 294,
+        "chapters": 0
+      },
+      "passed": {
+        "books": 294,
+        "chapters": 0
+      },
+      "flagged": {
+        "books": 0,
+        "chapters": 0
+      },
+      "errors": []
+    },
+    "search_r8": {
+      "engine": "node_static_screening",
+      "received": {
+        "books": 289,
+        "chapters": 0
+      },
+      "passed": {
+        "books": 289,
+        "chapters": 0
+      },
+      "flagged": {
+        "books": 0,
+        "chapters": 0
+      },
+      "errors": []
+    }
+  },
+  "python_import": {
+    "status": "PASS",
+    "received": {
+      "books": 289,
+      "chapters": 0
+    },
+    "valid": {
+      "books": 289,
+      "chapters": 0
+    },
+    "quarantined": {
+      "books": 0,
+      "chapters": 0
+    },
+    "errors": []
+  },
+  "counts": {
+    "p3_catalog": 294,
+    "search": 289,
+    "excluded_from_search": 5,
+    "reviewed_sources": {
+      "approved": 572,
+      "pending": 6,
+      "rejected": 0
+    },
+    "approval_by_book": {
+      "approved": 286,
+      "pending": 3,
+      "rejected": 0,
+      "mixed": 0
+    },
+    "pending_books": 3,
+    "pending_in_vector_mapping": 3,
+    "sqlite": {
+      "books": 289,
+      "works": 289,
+      "sources": 578,
+      "vector_mapping": 289,
+      "chapters": 0,
+      "paragraphs": 0,
+      "chunks": 0
+    }
+  },
+  "totals": {
+    "PASS": 23,
+    "WARNING": 8,
+    "FAIL": 0,
+    "UNVERIFIED": 2
+  },
+  "limitations": [
+    "Chưa đối chứng vector E5 từng sách với build log/model lineage",
+    "Thiếu baseline P4 tức thời và registry",
+    "URL review và ba sách pending cần xác nhận quyền nguồn",
+    "Chưa kiểm thử HTTP TCP hoặc frontend E2E; chưa audit Phase 2/quyền phát hành công khai"
+  ],
+  "integration": {
+    "search": {
+      "status": "passed",
+      "level": "in_process_HTTP_ASGI_real_E5",
+      "cases": 13
+    },
+    "recommendation": {
+      "status": "passed",
+      "level": "in_process_HTTP_ASGI",
+      "cases": 11,
+      "error_cases": 4
+    },
+    "faiss": {
+      "status": "passed",
+      "cases": 10,
+      "independent_top5_queries": 289
+    },
+    "tokenizer": {
+      "status": "passed",
+      "books": 289,
+      "max_tokens": 155
+    },
+    "tcp_http": false,
+    "frontend_e2e": false
+  },
+  "v12_evidence": {
+    "url_comparisons": 114,
+    "url_classes": {
+      "different_host_unverified": 111,
+      "same_host_distinct_url_unverified": 3
+    },
+    "pending_books": 3,
+    "registry_match": 289,
+    "e5_reencoded": 289,
+    "source_hashes_from_v11": true
+  }
+}
