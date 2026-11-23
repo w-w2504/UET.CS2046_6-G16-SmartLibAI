@@ -1,0 +1,793 @@
+[
+  {
+    "check_id": "C45-NODE-P3_CATALOG",
+    "category": "catalog",
+    "status": "PASS",
+    "severity": "non_blocking",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45 supplemental Node screening",
+    "expected": "Node passed + flagged = received; chưa chạy importer Python",
+    "observed": {
+      "engine": "node_static_screening",
+      "received": {
+        "books": 294,
+        "chapters": 0
+      },
+      "passed": {
+        "books": 294,
+        "chapters": 0
+      },
+      "flagged": {
+        "books": 0,
+        "chapters": 0
+      },
+      "errors": []
+    },
+    "evidence": "data/raw/p3_v4/catalog.jsonl",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-NODE-SEARCH_R8",
+    "category": "catalog",
+    "status": "PASS",
+    "severity": "non_blocking",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45 supplemental Node screening",
+    "expected": "Node passed + flagged = received; chưa chạy importer Python",
+    "observed": {
+      "engine": "node_static_screening",
+      "received": {
+        "books": 289,
+        "chapters": 0
+      },
+      "passed": {
+        "books": 289,
+        "chapters": 0
+      },
+      "flagged": {
+        "books": 0,
+        "chapters": 0
+      },
+      "errors": []
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-CATALOG-SETS",
+    "category": "catalog",
+    "status": "PASS",
+    "severity": "blocking_content_scope",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3 / C45",
+    "expected": {
+      "p3": 294,
+      "search": 289,
+      "excluded": 5
+    },
+    "observed": {
+      "p3": 294,
+      "search": 289,
+      "p3_search": 289,
+      "excluded": [
+        "B_13c0fe01-1d0f-4547-94ac-2fe5f10a8bc9",
+        "B_58de12b8-a8b7-4372-a7bd-b5a4d71d7165",
+        "B_69396a85-c897-4c23-9222-69b27b0c6491",
+        "B_7c109f15-d72f-4220-a85d-a1c45c6196d9",
+        "B_8d2791a4-90cb-4c2d-9bc4-0764bae4a6ba"
+      ]
+    },
+    "evidence": "data/raw/p3_v4/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-TAXONOMY",
+    "category": "catalog",
+    "status": "PASS",
+    "severity": "blocking_content_scope",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3.1",
+    "expected": "mã duy nhất, định dạng đúng",
+    "observed": {
+      "genres": 8,
+      "topics": 7
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-TEXT-BASE",
+    "category": "text",
+    "status": "PASS",
+    "severity": "non_blocking",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3 / C45",
+    "expected": "NFC, summary không rỗng và không bất thường ngắn",
+    "observed": {
+      "nfc": 0,
+      "short_or_empty": 0,
+      "near_duplicate_candidates": 0
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-REVIEW-DISPOSITION",
+    "category": "source",
+    "status": "PASS",
+    "severity": "blocking_content_scope",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": "needs_evidence ↔ pending trong các record đã review",
+    "observed": {
+      "decisions": 269,
+      "inconsistent": 0
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-REVIEW-URL",
+    "category": "source",
+    "status": "PASS",
+    "severity": "human_review",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": "URL trong review và URL nguồn catalog có thể truy vết theo mục đích",
+    "observed": {
+      "pairs": 114,
+      "replacement_id_url_matches": 114,
+      "unresolved_references": 0
+    },
+    "evidence": "data\\reports\\c45-phase1-final-closure-20261123\\url_resolution.jsonl",
+    "recommended_action": null,
+    "owner": "P3",
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": "R_f5b6fa96-8db6-4934-8bdb-37ae63b6c2a2",
+    "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / C45",
+    "expected": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "observed": "pending (metadata); NXB nguyên tác và bản dịch 2006 ghi Will và Ariel Durant; danh mục Lá Bối 1972 chỉ ghi Will Durant. Cần bản trang nhan đề 1972 hoặc chốt chuẩn hóa tác giả theo nguyên tác. Giữ pending vì mô tả và trường authors hiện không khớp.",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:32; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_ec9d7595-0257-43d5-83cf-15d83d8640b9]",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": "R_69eba5f4-26d3-587f-b55c-0d7ba19c4172",
+    "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / C45",
+    "expected": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "observed": "pending (summary); NXB nguyên tác và bản dịch 2006 ghi Will và Ariel Durant; danh mục Lá Bối 1972 chỉ ghi Will Durant. Cần bản trang nhan đề 1972 hoặc chốt chuẩn hóa tác giả theo nguyên tác. Giữ pending vì mô tả và trường authors hiện không khớp.",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:32; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_ec9d7595-0257-43d5-83cf-15d83d8640b9]",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": "R_b84359fd-fa40-4818-93d5-a8449acf51f6",
+    "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / C45",
+    "expected": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "observed": "pending (metadata); Thư viện UIT giới thiệu đúng sách và phạm vi, nhưng ghi Đặng Lê Bảo Chương; danh mục giáo trình và catalog P3 ghi Lê Bảo Chương. Cần chuẩn hóa tên theo trang nhan đề hoặc đính chính từ UIT/P3.",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:56; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf]",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": "R_a8855933-110a-542c-9a24-4e7c46f05156",
+    "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / C45",
+    "expected": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "observed": "pending (summary); Thư viện UIT giới thiệu đúng sách và phạm vi, nhưng ghi Đặng Lê Bảo Chương; danh mục giáo trình và catalog P3 ghi Lê Bảo Chương. Cần chuẩn hóa tên theo trang nhan đề hoặc đính chính từ UIT/P3.",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:56; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf]",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": "R_d96fb63a-4380-4eed-b251-a3f776731bec",
+    "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / C45",
+    "expected": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "observed": "pending (metadata); Open Library xếp bản Việt 1974 theo Shakespeare với Hoàng Kim Quang, trong khi nhà nghiên cứu mô tả đó là bản phóng tác Lời Vàng. Chưa có trang nhan đề và văn bản của bản Việt để xác định vai trò ghi công và kiểm các tình tiết đang lấy từ bản kịch gốc.",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:88; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_753970d9-0b2f-43b9-90aa-36f52e68d4c2]",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-PENDING-SOURCE",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": "R_b8069995-7003-52ed-90f7-ea2336c49a9d",
+    "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / C45",
+    "expected": "nguồn approved theo SPEC UC-S; demo có thể giữ pending",
+    "observed": "pending (summary); Open Library xếp bản Việt 1974 theo Shakespeare với Hoàng Kim Quang, trong khi nhà nghiên cứu mô tả đó là bản phóng tác Lời Vàng. Chưa có trang nhan đề và văn bản của bản Việt để xác định vai trò ghi công và kiểm các tình tiết đang lấy từ bản kịch gốc.",
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl:88; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json:decisions[book_id=B_753970d9-0b2f-43b9-90aa-36f52e68d4c2]",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-SOURCE-TOTAL",
+    "category": "source",
+    "status": "PASS",
+    "severity": "blocking_content_scope",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": {
+      "manifest": {
+        "approved": 572,
+        "pending": 6
+      },
+      "rejected": 0
+    },
+    "observed": {
+      "approved": 572,
+      "pending": 6,
+      "rejected": 0
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json:demo",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-REVIEW-SCOPE",
+    "category": "source",
+    "status": "UNVERIFIED",
+    "severity": "human_review",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": "chứng cứ người duyệt và quyền cho phạm vi ngoài demo",
+    "observed": {
+      "historical_approved_sources": 572,
+      "inferred_reviewers": {
+        "P3": 40,
+        "P4": 532
+      },
+      "reference_dates_bound_to_commits": 572,
+      "actual_review_times_verified": 0,
+      "public_or_outside_demo_permissions": "not established"
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data\\reports\\c45-phase1-final-closure-20261123\\historical_review_recovered.jsonl",
+    "recommended_action": "P3/P4 cung cấp hồ sơ duyệt nội bộ nếu cần mở rộng phạm vi; giữ nguyên nguồn hiện tại.",
+    "owner": "P3",
+    "closure_disposition": "documented_exception"
+  },
+  {
+    "check_id": "C45-HANDOFF-HASH",
+    "category": "snapshot",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3 / PR #22",
+    "expected": "mọi hash handoff khớp",
+    "observed": {
+      "files": 13,
+      "mismatches": 0
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-LINEAGE-HASH",
+    "category": "embedding",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §10.4 / PR #22",
+    "expected": "mỗi content_hash và chuỗi manifest gắn đúng input r8",
+    "observed": {
+      "rows": 289,
+      "mismatches": 0,
+      "source_hashes_match": true
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-VECTOR-INDEX",
+    "category": "embedding",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3 / §10.4",
+    "expected": "NPY float32 (N,384), finite/L2, định dạng IndexFlatIP r8 được nhận diện và khớp byte vector",
+    "observed": {
+      "shape": [
+        289,
+        384
+      ],
+      "dtype": "float32",
+      "norm_min": 0.999999889047235,
+      "norm_max": 1.0000000999583034,
+      "invalid_rows": [],
+      "index": {
+        "signature": "IxFI",
+        "dimension": 384,
+        "count": 289,
+        "payload_matches": true
+      },
+      "snapshot_index": {
+        "signature": "IxFI",
+        "dimension": 384,
+        "count": 289,
+        "payload_matches": true
+      }
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy; data/demo/p4-w03-c38-reviewed-r8-20261122/index/books.faiss; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-EMBED-CONFIG",
+    "category": "embedding",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §10.4",
+    "expected": {
+      "model_id": "intfloat/multilingual-e5-small",
+      "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+      "tokenizer": "intfloat/multilingual-e5-small",
+      "dimension": 384,
+      "prefixes": {
+        "query": "query: ",
+        "passage": "passage: "
+      },
+      "pooling": "mean_attention_mask",
+      "normalization": "L2"
+    },
+    "observed": {
+      "bundle": {
+        "model_id": "intfloat/multilingual-e5-small",
+        "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+        "tokenizer": "intfloat/multilingual-e5-small",
+        "dimension": 384,
+        "prefixes": {
+          "query": "query: ",
+          "passage": "passage: "
+        },
+        "pooling": "mean_attention_mask",
+        "normalization": "L2"
+      },
+      "max_tokens": 480
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-TOKEN-LIMIT",
+    "category": "text",
+    "status": "PASS",
+    "severity": "environment_dependent",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §10.4 / C45",
+    "expected": "mọi passage <=480 token, tokenizer đúng revision gồm prefix/special tokens",
+    "observed": {
+      "books": 289,
+      "max_tokens": 155,
+      "over_limit": 0,
+      "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98"
+    },
+    "evidence": "data/reports/c45-r8-token-limit-20261123.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-E5-INFERENCE",
+    "category": "embedding",
+    "status": "PASS",
+    "severity": "environment_dependent",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "PR #22",
+    "expected": "bằng chứng từng vector được encode bằng model pinned trên nội dung r8",
+    "observed": {
+      "reencoded": 289,
+      "content_hash_mismatch": 0,
+      "vector_mismatch": 0,
+      "max_abs_diff": 1.4901161193847656e-07,
+      "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98"
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl; data/reports/c45-r8-phase1-20261123-v12/e5_full_inference.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-FAISS-TOP5",
+    "category": "embedding",
+    "status": "PASS",
+    "severity": "environment_dependent",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3 / PR #22",
+    "expected": "top5 thực tế của FAISS khớp kết quả inner product tham chiếu",
+    "observed": {
+      "queries": 289,
+      "top5_set_matches": 289,
+      "max_score_error": 8.344650268554688e-07,
+      "faiss_numpy_recommendation_cases": 10
+    },
+    "evidence": "data/reports/c45-r8-faiss-top5-20261123.json; data/reports/c45-r8-recommendation-faiss-20261123.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-P3-V4-DIFF",
+    "category": "embedding",
+    "status": "PASS",
+    "severity": "non_blocking",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "PR #22",
+    "expected": "mọi summary đổi từ P3 v4 đi kèm vector row đổi",
+    "observed": {
+      "summary_changed": 116,
+      "url_changed": 101,
+      "vector_rows_changed": 116,
+      "same_book_ids": true,
+      "baseline": "P3 Search v4, không phải ngay trước r8"
+    },
+    "evidence": "data/raw/p3_v4/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-P4-BASELINE",
+    "category": "source",
+    "status": "UNVERIFIED",
+    "severity": "human_review",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "PR #22",
+    "expected": "baseline P4 tức thời để tái hiện 119/63/64",
+    "observed": {
+      "candidate_commit": "b944395",
+      "candidate_snapshot_books": 289,
+      "candidate_vs_r8_shared_ids": 289,
+      "summary_changed": 116,
+      "requested_119_63_64": "not reproduced; exact review input/rules missing"
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; specs/p4/week-03/acceptance.md; data\\reports\\c45-phase1-final-closure-20261123\\historical_lineage_resolution.json",
+    "recommended_action": "P3: truy đúng input và quy tắc đếm ngay trước review r8; không thay 119/63/64 bằng diff candidate.",
+    "owner": "P3",
+    "closure_disposition": "documented_exception"
+  },
+  {
+    "check_id": "C45-ID-REGISTRY",
+    "category": "catalog",
+    "status": "PASS",
+    "severity": "human_review",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3.1 / C45",
+    "expected": "ID registry cho toàn bộ r8",
+    "observed": {
+      "registry_books": 294,
+      "r8_matched": 289,
+      "mismatch": 0,
+      "scope": "repository registry; r8 handoff itself has no registry"
+    },
+    "evidence": "data/raw/c20_c34/id_registry.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-SQLITE-INTEGRITY",
+    "category": "snapshot",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": "quick_check ok, foreign keys 0, books/mapping đúng r8",
+    "observed": {
+      "counts": {
+        "books": 289,
+        "works": 289,
+        "sources": 578,
+        "vector_mapping": 289,
+        "chapters": 0,
+        "paragraphs": 0,
+        "chunks": 0
+      },
+      "rights": {
+        "approved": 572,
+        "pending": 6
+      },
+      "quick": "ok",
+      "foreign_key_errors": 0,
+      "mismatches": 0
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite:PRAGMA quick_check; PRAGMA foreign_key_check; books/vector_mapping",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-PENDING-DB-LINK",
+    "category": "source",
+    "status": "PASS",
+    "severity": "blocking_content_scope",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3.1 / C45",
+    "expected": "mỗi nguồn pending trong catalog khớp SQLite theo book_id/source_id/type/status",
+    "observed": {
+      "pending_sources": 6,
+      "inconsistent": []
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite:sources",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-PENDING-INDEX",
+    "category": "source",
+    "status": "WARNING",
+    "severity": "human_review",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / PR #22",
+    "expected": "SPEC §5.1 chỉ chọn sách đã duyệt; đo riêng tập có nguồn pending nằm trong vector mapping",
+    "observed": {
+      "book_ids": [
+        "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+        "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+        "B_ec9d7595-0257-43d5-83cf-15d83d8640b9"
+      ],
+      "source_ids": [
+        "R_f5b6fa96-8db6-4934-8bdb-37ae63b6c2a2",
+        "R_69eba5f4-26d3-587f-b55c-0d7ba19c4172",
+        "R_b84359fd-fa40-4818-93d5-a8449acf51f6",
+        "R_a8855933-110a-542c-9a24-4e7c46f05156",
+        "R_d96fb63a-4380-4eed-b251-a3f776731bec",
+        "R_b8069995-7003-52ed-90f7-ea2336c49a9d"
+      ]
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite:sources; data/demo/p4-w03-c38-reviewed-r8-20261122/index/mapping.jsonl",
+    "recommended_action": "Keep pending and exclude from Search/Recommendation; do not change approval.",
+    "owner": "P3",
+    "closure_disposition": "owner_accepted_pending_exclusion"
+  },
+  {
+    "check_id": "C45-PENDING-API",
+    "category": "source",
+    "status": "PASS",
+    "severity": "environment_dependent",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §5.1 / PR #22",
+    "expected": "kiểm bằng runtime Search xem từng sách pending có xuất hiện trong kết quả hay không",
+    "observed": {
+      "search_cases": 13,
+      "eligible": 286,
+      "pending_rank1_queries": 3,
+      "pending_returned": 0,
+      "k10_filled": 3,
+      "recommend_cases": 11,
+      "recommendation_error_cases": 4
+    },
+    "evidence": "data/reports/c45-r8-search-api-20261123.json; data/reports/c45-r8-recommendation-api-20261123.json; data/reports/c45-r8-recommendation-errors-20261123.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-SNAPSHOT-FILES",
+    "category": "snapshot",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §14.6",
+    "expected": "3 file snapshot có hash và size đúng",
+    "observed": {
+      "declared_files": 3,
+      "valid": true
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-SNAPSHOT-COUNTS",
+    "category": "snapshot",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "SPEC §3 / §14.6",
+    "expected": "manifest count khớp dữ liệu r8; số import trong handoff là thông tin bàn giao",
+    "observed": {
+      "manifest": {
+        "book_count": 289,
+        "work_count": 289,
+        "fulltext_work_count": 0,
+        "vector_count": {
+          "books": 289
+        }
+      },
+      "handoff_verification": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "books": 289,
+        "top5_reference_matches": 289,
+        "sqlite_imported": 289,
+        "sqlite_quarantined": 0
+      },
+      "node_screening": {
+        "engine": "node_static_screening",
+        "received": {
+          "books": 289,
+          "chapters": 0
+        },
+        "passed": {
+          "books": 289,
+          "chapters": 0
+        },
+        "flagged": {
+          "books": 0,
+          "chapters": 0
+        },
+        "errors": []
+      }
+    },
+    "evidence": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-PYTHON-VALIDATORS",
+    "category": "catalog",
+    "status": "PASS",
+    "severity": "environment_dependent",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": "kết quả độc lập validate_and_load_batch/load_c11_bundle/load_book_index và pytest",
+    "observed": {
+      "python": "3.13.14",
+      "importer": {
+        "received": 289,
+        "valid": 289,
+        "quarantined": 0
+      },
+      "bundle_index_loaded": true,
+      "node_tests": "4/4"
+    },
+    "evidence": "Python validate_and_load_batch(metadata_only=True) on r8; data/reports/c45-r8-recommendation-faiss-20261123.json; node --experimental-sqlite --test pipeline/tests/test_c45_phase1.mjs; data/reports/c45-phase1-final-closure-20261123/validation.json:tests",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  },
+  {
+    "check_id": "C45-READ-ONLY",
+    "category": "snapshot",
+    "status": "PASS",
+    "severity": "blocking_snapshot",
+    "record_id": null,
+    "book_id": null,
+    "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+    "phase": "Phase 1",
+    "source_requirement": "C45",
+    "expected": "SHA input trước/sau không đổi",
+    "observed": {
+      "files": 19,
+      "changed": 0
+    },
+    "evidence": "data/raw/p3_v4/catalog.jsonl; data/raw/p3_v4/search/catalog.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/mapping.jsonl; data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/vectors.npy; data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json; data/demo/p4-w03-c38-reviewed-r8-20261122/review.json; data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy; data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/index/mapping.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/index/books.faiss; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/mapping.jsonl; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss; data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite",
+    "recommended_action": null,
+    "closure_disposition": "satisfied"
+  }
+]

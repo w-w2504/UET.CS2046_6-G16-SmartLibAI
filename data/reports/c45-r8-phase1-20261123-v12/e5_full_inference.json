@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "model_revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+  "books": 289,
+  "content_hash_mismatch": 0,
+  "vector_mismatch": 0,
+  "mismatch_rows": [],
+  "max_abs_diff": 1.4901161193847656e-07,
+  "mean_abs_diff": 5.846550799049055e-09,
+  "bundle_vectors_sha256": "2f385fc860a344dc199bcd3e980d9097a747052485ed3151ac711d46a86ad852",
+  "source_unchanged": true
+}
