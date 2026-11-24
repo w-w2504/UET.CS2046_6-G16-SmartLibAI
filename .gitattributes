@@ -10,3 +10,5 @@ data/raw/p4_w03_reader2/** -text
 data/demo/p4-w03-c38-289-20261122/** -text
 data/demo/p4-w03-c42-reader2-20261122/** -text
 data/demo/p4-w03-c38-reviewed-r8-20261122/** -text
+data/raw/c41_reader20_integrated_batch3/NOTICE.md text eol=lf
+data/raw/c41_reader20_integrated_batch3/taxonomy.json text eol=lf
