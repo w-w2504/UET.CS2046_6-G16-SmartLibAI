@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "snapshot_id": "c41-reader20-batch3-20261123",
+  "batch": "D:\\UET.CS2046_6-G16-SmartLibAI\\data\\raw\\c41_reader20_integrated_batch3",
+  "sqlite_counts": {
+    "books": 20,
+    "works": 20,
+    "chapters": 1020,
+    "paragraphs": 13292
+  },
+  "sqlite_integrity": "ok",
+  "foreign_key_violations": 0,
+  "reader_api": {
+    "book_details": 20,
+    "chapter_lists": 20,
+    "paragraph_offsets": 13292,
+    "chapter_details": 1020,
+    "missing_id_404": 2,
+    "missing_chunk_404": 1
+  },
+  "scope": "ASGI TestClient and real SQLite; no Uvicorn or browser E2E"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "books": 20,
+  "chapters": 1020,
+  "paragraphs": 13292,
+  "health": {
+    "catalog_ready": false,
+    "search_ready": false,
+    "recommend_ready": false,
+    "rag_ready": false,
+    "snapshot_id": null,
+    "request_id": "f282c634-bffc-47be-ae93-ff763095a0a5"
+  },
+  "missing_id_404": 2,
+  "missing_chunk_404": 1,
+  "all_text_ids_orders_offsets_equal_sqlite": true,
+  "sources_approved": true,
+  "scope": "real HTTP TCP Uvicorn, all reading items; no browser E2E",
+  "server_stopped": true
+}
