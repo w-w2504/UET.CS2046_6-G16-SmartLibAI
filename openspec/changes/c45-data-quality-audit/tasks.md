@@ -54,9 +54,16 @@ Bộ `data/reports/c45-phase1-final-closure-20261123/` có 33 dòng check (28 ch
 
 ## 7. Review / acceptance
 
-- [ ] 7.1 P3/P1 review Phase 1, đối chiếu exceptions theo book_id và bằng chứng thực thi quyết định đã thống nhất; chỉ ghi Phase 1 complete khi check bắt buộc đã có kết luận rõ, không tính UNVERIFIED là PASS.
-- [ ] 7.2 P3/P4 review Phase 2 sau khi có C41/Reader evidence và từng batch; ghi chấp nhận ngoại lệ có thẩm quyền và điều kiện ảnh hưởng C50/C53/C60; chỉ khi cả hai phase đủ bằng chứng mới đề nghị cập nhật C45 Done ở tracker riêng.
+- [x] 7.1 P3/P1 review Phase 1, đối chiếu exceptions theo book_id và bằng chứng thực thi quyết định đã thống nhất; chỉ ghi Phase 1 complete khi check bắt buộc đã có kết luận rõ, không tính UNVERIFIED là PASS. Xác nhận nghiệm thu được người dùng thông báo ngày 26/11/2026; không có biên bản review độc lập đính kèm.
+- [x] 7.2 P3/P4 review Phase 2 sau khi có C41/Reader evidence và từng batch; ghi chấp nhận ngoại lệ có thẩm quyền và điều kiện ảnh hưởng C50/C53/C60; chỉ khi cả hai phase đủ bằng chứng mới đề nghị cập nhật C45 Done ở tracker riêng. Xác nhận nghiệm thu có ngoại lệ trong phạm vi BTL/demo nội bộ được người dùng thông báo ngày 26/11/2026; không có biên bản review độc lập đính kèm; C50/C53/C60 không được nghiệm thu bởi kết luận này.
 
 ## Workflow follow-up
 
 - Việc sửa dữ liệu, phê duyệt nguồn, rebuild embedding/index/snapshot và chuyển active cần luồng công việc và review riêng sau audit; checklist này không cho phép thực hiện chúng trong lượt planning.
+
+## C45 Phase 2 — chốt kiểm tra kỹ thuật có điều kiện (24/11/2026)
+
+- `data/reports/c45-phase2-reader-provenance-20261124/provenance_matrix.jsonl` có 20 book_id: 8 ngoại lệ được đánh giá sâu, 12 dòng kiểm kê `NOT_REASSESSED`. Không suy quyền từ `rights_status=approved`.
+- Trên `feature/data-embedding` HEAD `9cbd4ce`, kiểm trực tiếp 20 book/work, 1.020 mục, 13.292 đoạn, 0 ID/liên kết sai ở các lớp đã kiểm; SQLite `integrity_check=ok`, `foreign_key_check=0`, hash snapshot khớp manifest. Phase 1 giữ 24 PASS / 7 WARNING / 0 FAIL / 2 UNVERIFIED, không chạy lại.
+- [x] **Kiểm chứng corpus manifest sau đồng bộ 26/11/2026 (HEAD `8a392e7`):** commit `72c4006` đã có trên nhánh; kiểm đủ 108 entry, 0 file thiếu. Hai file được theo dõi có `text eol=lf` được hash bằng bytes blob HEAD và đối chiếu checkout với blob; 106 entry còn lại dùng bytes gốc của nguồn đã lưu. **CORPUS MANIFEST: 108/108 PASS (canonical LF verification)**. Raw checkout Windows: **107/108** do riêng `NOTICE.md` có CRLF; blob LF của nó khớp manifest và phần nội dung còn lại trùng khít. `taxonomy.json` đạt cả hai cách đo. Chi tiết và hai SHA-256 của NOTICE trong `data/reports/c45-phase2-reader-provenance-20261124/summary.md`.
+- **TECHNICAL CLOSURE — ACCEPTED WITH DOCUMENTED EXCEPTIONS** cho kiểm toán kỹ thuật demo nội bộ của Phase 1 và Phase 2 theo kết quả đã kiểm và xác nhận P3/P1, P3/P4 do người dùng thông báo ngày 26/11/2026. Các ngoại lệ provenance được nhóm chấp nhận trong phạm vi này; không chuyển UNVERIFIED/PARTIAL thành VERIFIED, không tuyên bố quyền phát hành công khai. Mục 3.4 và các checkbox có phạm vi kiểm tra rộng hơn bằng chứng vẫn để mở; nghiệm thu kỹ thuật C45 không đồng nghĩa mọi mục mở đã PASS hoặc các task tích hợp khác hoàn tất.
