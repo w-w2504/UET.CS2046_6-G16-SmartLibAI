@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "record_type": "owner_confirmation_linked_to_existing_automated_assessment",
+  "approved_by": "P3",
+  "approval_date": "2026-11-23",
+  "approval_scope": "Reader metadata/summary internal demo; localhost Vietnam only",
+  "approval_evidence": "owner confirmation dated 2026-11-23, directly supplied in current conversation",
+  "owner_confirmation_quote": "Tớ xác nhận approval Reader cho hai nguồn metadata/summary của Con nhà nghèo trong phạm vi demo nội bộ.",
+  "automated_review_tool": "Codex",
+  "book_id": "B_cdd4a3dc-ce1b-4840-b9ee-3344862da924",
+  "work_id": "W_4b924c46-49cb-4c44-a663-d68075f5cf93",
+  "sources": [
+    {
+      "source_id": "R_8dad32a8-e983-405c-83df-67a645c8c225",
+      "content_type": "metadata",
+      "source_url": "https://vi.wikisource.org/wiki/T%C3%A1c_gia:H%E1%BB%93_Bi%E1%BB%83u_Ch%C3%A1nh",
+      "rights_status": "approved",
+      "source_record_sha256": "d03ca2acf2c9aa54e5dd85ec89c498cc5ef8fd307eefd1605d8a4e54a6298c41"
+    },
+    {
+      "source_id": "R_6e91f1a2-4f6e-447b-ab9a-f300ad5cd65b",
+      "content_type": "summary",
+      "source_url": "https://www.sachweb.com/danh-tac-viet-nam/sach-con-nha-ngheo-tai-ban-dt3879.html",
+      "rights_status": "approved",
+      "source_record_sha256": "2f357e9c838b77b94a1af34b361bea49c6d7bfa72491f7bcb8cb1b41784a1beb"
+    }
+  ],
+  "assessment": {
+    "path": "data/raw/c41_reader20_batch1/reader_metadata_summary_review.json",
+    "sha256": "24cd115b7227c8a0d1dca883121bb78c6dd3d30bcde46ca34ef698f02e9c2dd3",
+    "metadata_content_sha256": "92dfbf22ae256a383109970e21f9777fb99bb125b18c80e28c0933461fa15017",
+    "summary_sha256": "d08714f65296f7cde1c0ba2202ca9673e51f7f4aa68bf7867fda4489a352d207"
+  },
+  "catalog_sha256": "98e94de78974a0afaa69b1390b4734ec31e58cd84e4174902484175cd5a78b3b",
+  "exclusions": [
+    "public release",
+    "distribution of copies",
+    "cover images",
+    "new fulltext rights"
+  ],
+  "fulltext_decision": "unchanged; separate existing review remains authoritative",
+  "p4_acceptance_claimed": false,
+  "historical_review_claimed": false,
+  "loader_inputs_changed": false
+}

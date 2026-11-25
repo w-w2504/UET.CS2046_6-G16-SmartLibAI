@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "c41-reader20-batch3-20261123",
+  "created_at": "2026-11-23T16:56:52Z",
+  "dataset_hash": "1c0da5c4782e99db802f8bf4e20c48f4f25b9b7510969e712cda557534e8ff5f",
+  "counts": {
+    "book_count": 20,
+    "work_count": 20,
+    "fulltext_work_count": 20,
+    "vector_count": {
+      "books": 0
+    }
+  },
+  "embedding": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+    "tokenizer": "intfloat/multilingual-e5-small",
+    "dimension": 384,
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "pooling": "mean_attention_mask",
+    "normalization": "L2"
+  },
+  "chunking": {
+    "version": "not-built-reader-only",
+    "limits": {}
+  },
+  "collation": {
+    "locale": "vi_VN",
+    "strength": "SECONDARY",
+    "icu_version": "79.1",
+    "cldr_version": "49.0"
+  },
+  "thresholds": {
+    "search": null,
+    "rag": null
+  },
+  "files": [
+    {
+      "path": "catalog.sqlite",
+      "sha256": "7985dc5d37139203965a04616068c359176bf6ffa6dcb99720da620b74408b7f",
+      "size_bytes": 16965632
+    }
+  ],
+  "qa_config": {
+    "provider": "gemini_developer",
+    "model": "gemini-3.5-flash-lite",
+    "prompt_hash": "72dea3808ca7de2b28b8bfacd319dd17fc7768d21015f5dedf993fd5237ace13",
+    "context_budget": 8192,
+    "output_reserve": 2048,
+    "thinking_level": "minimal"
+  },
+  "code_commit": "3c723b2fa1fcfaa3956e60eb9863557f30f46262",
+  "lock_hashes": {},
+  "data_kind": "real_licensed_reader_development",
+  "capabilities": {
+    "catalog": true,
+    "reader": true,
+    "search": false,
+    "rag": false
+  },
+  "source_batch": {
+    "catalog.jsonl": "dc0482879e0efbf554175a66f8d191c75efd73d50c738dead28c17e71838a0cc",
+    "chapters.jsonl": "9399a25fcb7c046eaad56c72f087744f0d26c1743c3e4fa9765a1b1f5756694e",
+    "taxonomy.json": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+    "id_registry.json": "738e736ee523f97962e27f3ac4b64b735a47f511a04524443081d6f81064a597",
+    "review.json": "dd6191b39488860cdbbb51c924ed3f23136fa1285e6ad05b37e50592243be122"
+  },
+  "acceptance_scope": "C41 Batch3 twenty independent works; isolated Reader test; localhost Vietnam; no activation"
+}

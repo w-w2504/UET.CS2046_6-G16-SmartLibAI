@@ -1,0 +1,16 @@
+{
+  "batch_id": "c41_reader20_integrated_batch3",
+  "received": {
+    "books": 20,
+    "chapters": 1020
+  },
+  "valid": {
+    "books": 20,
+    "chapters": 1020
+  },
+  "quarantined": {
+    "books": 0,
+    "chapters": 0
+  },
+  "errors": []
+}

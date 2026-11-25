@@ -1,0 +1,49 @@
+{
+  "batch1_status": "ACCEPTED_BY_P3_FOR_SCOPED_INTERNAL_DEMO",
+  "total_c41_progress": {
+    "prepared_works": 4,
+    "target_works": 20,
+    "c41_done": false
+  },
+  "counts": {
+    "books": 4,
+    "works": 4,
+    "chapters": 43,
+    "paragraphs": 6387
+  },
+  "owner_confirmation": "CONFIRMED_P3_2026-11-23",
+  "sqlite_asgi": "PASS_REUSED_HASH_UNCHANGED",
+  "http_tcp": "PASS_REUSED_HASH_UNCHANGED",
+  "pytest": {
+    "passed": 62,
+    "failed": 0,
+    "execution": "prior evidence reused; loader inputs unchanged"
+  },
+  "node": {
+    "passed": 4,
+    "failed": 0,
+    "execution": "prior evidence reused; loader inputs unchanged"
+  },
+  "frontend_build": "PASS_REUSED",
+  "browser_e2e": "ENVIRONMENT_BLOCKED",
+  "protected_files": {
+    "count": 125,
+    "unchanged": true
+  },
+  "evidence": {
+    "data/reports/c41-batch1-self-acceptance-20261123/verification.json": "1c1c87d522f72416b58b9b7408348cbc3d9e52989b3ca11ea1b01a61e4aee6a9",
+    "data/reports/c41-batch1-self-acceptance-20261123/http_tcp.json": "9440751d8038b4617eeccff844d9adcd93e46454beee3fc9b6480db30c6663a6",
+    "data/reports/c41-batch1-self-acceptance-20261123/final_status.json": "f18c0dc77c71a5278563dd390c75ff5e7865c580b040582ec6c637325f7652ec",
+    "data/reports/c41-batch1-self-acceptance-20261123/summary.md": "a1cdc6fff394acdb0cd2e47560614b66d69eb479dfcdbb88cdc2a0d9f294b2b3",
+    "data/reports/c41-reader-approval-20261123/c42_regression.json": "8d0da985762b6c8bcd9ce5c36e65ed75a122e64f3c96278527445e19c6475ad9",
+    "data/reports/c41-reader-approval-20261123/validation.json": "8b8f8bac3379df71200566431aef1ed009cf525b7e068d4adf02101a6725ab17",
+    "data/raw/c41_reader20_batch1/reader_metadata_summary_review.json": "24cd115b7227c8a0d1dca883121bb78c6dd3d30bcde46ca34ef698f02e9c2dd3"
+  },
+  "batch2_started": false,
+  "active_snapshot_changed": false,
+  "owner_approval_record_sha256": "dc89a75976800bb8a9cc95fb8844b567552216bd96fd9376af6f592935e0021e",
+  "final_protection_check": "125/125 unchanged",
+  "openspec_strict": "PASS",
+  "git_diff_check": "PASS",
+  "head": "3c723b2fa1fcfaa3956e60eb9863557f30f46262"
+}
