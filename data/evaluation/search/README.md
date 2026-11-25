@@ -17,7 +17,8 @@ Thông báo này cập nhật tiến độ chuẩn bị bộ truy vấn và cand
 - BM25 dùng biểu diễn sách năm dòng theo SPEC 10.4: title, authors, tên hiển thị genres, tên hiển thị topics và summary. Mã sắp xếp taxonomy theo code; giữ dòng rỗng; chuẩn hóa NFC và khoảng trắng từng dòng. Tokenizer dùng NFC + casefold, tách theo dãy chữ/số Unicode, giữ dấu tiếng Việt và không loại stopword.
 - Cấu hình là `k1=1.5`, `b=0.75`, `IDF=ln(1+(N-df+0.5)/(df+0.5))`. Bộ lọc authors/genres dùng OR trong từng danh sách và AND giữa các bộ lọc; lọc được áp dụng trước khi lấy top-20. Kết quả xếp theo điểm giảm dần, hòa điểm theo `book_id` tăng dần. Mỗi ấn bản được giữ riêng, không gộp theo `work_id`.
 - Baseline đã chạy cho 50 truy vấn và tạo 1.000 dòng top-20 trong `search_eval_bm25_top20.csv`. Lượt chạy dùng catalog `data/raw/c20_c34/catalog.jsonl` gồm 294 sách cùng taxonomy hiện có; CSV kết quả ghi `source_corpus_id` và SHA-256 của catalog/taxonomy để truy vết.
-- Kết quả hiện có chỉ là BM25 trên catalog 294 sách, với trạng thái `bm25_only_provisional_not_e5_union`. Nhánh hiện tại chưa có snapshot E5 tương ứng; PR #20 đang mở trên GitHub nên dữ liệu của PR đó chưa được dùng trong lần chạy này. Chưa có kết quả semantic hoặc pool hợp nhất E5/BM25 trên cùng snapshot.
+- Snapshot E5 `p4-w03-c38-reviewed-r8-20261122` hiện có trong nhánh, gồm 289 sách và 289 vector; manifest và SHA-256 của các tệp đã kiểm tra khớp. Helper eligibility dùng trong Search xác nhận 286 sách đủ cả metadata và summary `approved` trong đúng snapshot. Tuy nhiên, máy hiện tại chưa có trọng số model `intfloat/multilingual-e5-small` revision `fd1525a9fd15316a2d503bf26ab031a61d056e98`, PyTorch, Sentence Transformers hoặc FAISS; vì vậy chưa thể mã hóa query và chạy top-20 E5.
+- Output BM25 hiện có vẫn dùng corpus `catalog-c20-c34-e37d367e9cae` gồm 294 sách; output không ghi `snapshot_id` và chưa áp dụng eligibility của snapshot r8. Vì thế đây vẫn là BM25-only provisional, không phải pool cuối cùng và không thể ghép với kết quả E5 để so sánh cùng snapshot. Chưa có kết quả semantic hoặc pool hợp nhất E5/BM25.
 - Các `proposed_relevance` được giữ lại khi candidate gợi ý xuất hiện trong top-20 BM25. Chúng là gợi ý heuristic từ metadata, không phải nhãn người chấm và chưa được dùng để tính metric.
 
 ### Trạng thái chấm nhãn
@@ -28,7 +29,7 @@ Thông báo này cập nhật tiến độ chuẩn bị bộ truy vấn và cand
 
 ## Phần tiếp theo
 
-Khi snapshot E5 phù hợp có mặt trong nhánh cơ sở, semantic và BM25 sẽ được chạy trên cùng snapshot, truy vấn, bộ lọc và luật hòa điểm. Pool cuối sẽ hợp các `book_id` top-20 của từng phương pháp cho mỗi query, đồng thời ghi lại snapshot/cấu hình/nguồn tạo pool. Sau đó mới tiến hành chấm nhãn và đánh giá. Hiện chưa có kết quả metric để báo cáo.
+Khi trọng số E5 đúng revision sẵn sàng, cần chạy E5 và BM25 trên cùng snapshot r8, cùng 50 query, filters, tập sách eligible và luật hòa điểm. Pool cuối sẽ hợp `book_id` top-20 của từng phương pháp cho mỗi query, đồng thời ghi snapshot/corpus ID, hash, cấu hình và nguồn tạo pool. Sau đó mới chấm nhãn; `proposed_relevance` tiếp tục chỉ là gợi ý cho tới khi người chấm xác nhận. Test phải được giữ riêng, không dùng để chọn threshold hoặc chỉnh model. Hiện chưa có pool cuối, nhãn chính thức, review chéo hay metric để báo cáo.
 
 ## Phần cần review độc lập
 
