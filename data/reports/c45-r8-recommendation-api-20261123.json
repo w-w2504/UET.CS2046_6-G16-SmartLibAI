@@ -1,0 +1,2148 @@
+{
+  "status": "passed",
+  "level": "in_process_HTTP_ASGI",
+  "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+  "data_kind": "classroom_demo",
+  "classroom_demo": true,
+  "backend": "C14 FAISS IndexFlatIP float32",
+  "python": "3.13.14",
+  "interpreter": "C:\\Users\\hoang\\AppData\\Local\\Temp\\smartlib-fasttrack-python313\\python.exe",
+  "numpy": "2.5.4",
+  "faiss": "1.15.1",
+  "book_count": 289,
+  "eligible_count": 286,
+  "source_status_counts": {
+    "approved": 572,
+    "pending": 6
+  },
+  "ineligible": [
+    {
+      "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "title": "Mối tình Rômêô Juliét"
+    },
+    {
+      "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "title": "Giải pháp công nghệ IoTs sử dụng kỹ thuật xử lý dữ liệu lớn và trí tuệ nhân tạo cho đô thị thông minh"
+    },
+    {
+      "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "title": "Bài học lịch sử"
+    }
+  ],
+  "source_hashes": {
+    "catalog.sqlite": "c316b90fe4c383d4abbac1488453bf76f62e11d4327b47a9cffd06e8cf2ba28b",
+    "books.faiss": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+    "mapping.jsonl": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+    "manifest.json": "1abb673bb0dcec99e23e124f973f0909cc9e00cd6e97dfaef01cafd200d7bf6c"
+  },
+  "source_unchanged": true,
+  "embedding": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+    "tokenizer": "intfloat/multilingual-e5-small",
+    "dimension": 384,
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "pooling": "mean_attention_mask",
+    "normalization": "L2"
+  },
+  "seed_policy": "422 invalid_input; seed_book_ids for recommend, id for similar",
+  "cases": [
+    {
+      "name": "one_seed",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [],
+        "k": 5,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+            "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+            "title": "Mai Hương và Lê Phong",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phóng viên Lê Phong nhặt được một mẩu giấy báo trước cái chết của bác sĩ Trần Thế Đoàn và cảnh cáo anh đứng ngoài vụ việc. Cuộc gặp Mai Hương đưa thêm manh mối vào cuộc điều tra, khiến công việc đưa tin của anh gắn với việc tìm hiểu vụ án.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+            "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+            "title": "Lê Phong phóng viên",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám của Thế Lữ, Lê Phong kết hợp công việc phóng viên với việc tìm hiểu các tình tiết của vụ án. Văn Bình xuất hiện bên cạnh anh, tạo nên một cặp nhân vật thường được đối chiếu với Sherlock Holmes và bác sĩ Watson.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+            "work_id": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+            "title": "Bên đường thiên lôi",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Tập truyện ngắn của Thế Lữ kết hợp tình huống bí ẩn với không khí kinh dị. Trong truyện cùng tên, Sắc, người kéo xe thất nghiệp ở Hải Phòng, nhận việc tại nhà một người lạ. Chiếc đầu lâu và giao ước phải ở lại ba năm khiến anh nghi ngại về công việc vừa nhận.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+            "work_id": "W_cd5f658b-58fb-47fa-9628-e55fd4117db7",
+            "title": "Chút phận linh đinh",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Thu Vân đưa chồng là Lê Hiển Vinh ra bến tàu Hải Phòng khi ông lên đường sang Pháp. Cảnh chia tay mở đầu chuỗi biến cố khiến mẹ con nàng lâm vào cảnh đói nghèo và bệnh tật. Về sau, bí mật về người bị tưởng đã chết được làm sáng tỏ, dẫn đến cuộc đoàn tụ cha con.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+            "work_id": "W_ae3e8e9a-41a0-4dbe-932f-656db1c3dfa2",
+            "title": "Người thất chí",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phụng viết một bài công kích những quan niệm đạo đức cũ và tranh luận với người đọc bài. Qua các cuộc gặp sau đó, anh phải đối diện với chuyện sống và làm việc của mình. Khi Phụng rơi vào chán nản, Trinh tìm cách đưa anh ra ngoài cho khuây khỏa.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "c6d1bbc8-77a4-464a-a65d-4f20b5dc99de"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "two_seeds",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e",
+          "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+        ],
+        "exclude_book_ids": [],
+        "k": 5,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+            "work_id": "W_e5c7e40b-7427-408a-abbb-880763b4e8cc",
+            "title": "Một nửa còn ở lại",
+            "authors": [
+              "Vương Thị Thu Thủy"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Đặt trong những năm khốc liệt của cuộc kháng chiến chống Mỹ, câu chuyện đi theo tình yêu và những lựa chọn sống giữa bom đạn. Những người mẹ Nam Bộ chia sẻ khó khăn với bộ đội, làm nổi bật sự đùm bọc giữa người dân và người lính trong hành trình tới ngày thống nhất.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_f0144600-1833-4a36-83b5-68b19a20099c",
+            "work_id": "W_1e029c0d-8d65-4515-912a-ce73187786ba",
+            "title": "Thoát ly",
+            "authors": [
+              "Khái Hưng"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Hồng tìm cách thoát khỏi cảnh sống do dì ghẻ là bà Phán Trinh kiểm soát. Mâu thuẫn giữa hai người làm lộ ra những quy tắc vốn khiến người con gái khó có tiếng nói trong gia đình. Tiểu thuyết nhìn vào sự lệ thuộc trong đời sống gia đình và cái giá của việc tìm cho mình một lối ra.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_f0144600-1833-4a36-83b5-68b19a20099c",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+            "work_id": "W_96c4d187-45d5-4090-9d1a-3b004fb829e7",
+            "title": "Lạc đường",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Lý Trường Mậu làm việc cho hãng vận tải ở Xóm Chiếu và sống bên kinh Dérivation. Sau khi Mậu bị giam, cuộc sống của Ba Trâm ở nhà và những ngày Hiệp xa gia đình diễn ra theo hai hướng khác nhau. Từ đó, truyện theo dõi những người trong một mái nhà phải sống cách biệt.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_c645734e-e000-49e1-9972-f7e87ddd52f1",
+            "work_id": "W_dc6440b3-5d65-4df3-bd8e-1ac68b32b1b8",
+            "title": "Harry Potter và Tên tù nhân ngục Azkaban",
+            "authors": [
+              "J. K. Rowling"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_nuoc_ngoai"
+            ],
+            "summary": "Tin Sirius Black trốn khỏi nhà tù Azkaban khiến năm học thứ ba của Harry trở nên căng thẳng. Trong khi các giám ngục bao vây Hogwarts, Harry lần theo câu chuyện về bạn bè cũ của cha mẹ mình. Những gì cậu biết được buộc cậu xem lại lời đồn về tội phản bội và lòng trung thành.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_c645734e-e000-49e1-9972-f7e87ddd52f1",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_efe108e8-1f14-4ee7-b414-76dc82de281b",
+            "work_id": "W_fdde6436-57ce-4061-a608-a02dd5454f45",
+            "title": "Harry Potter và Chiếc cốc lửa",
+            "authors": [
+              "J. K. Rowling"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_nuoc_ngoai"
+            ],
+            "summary": "Harry bị đưa vào giải đấu Tam Pháp Thuật ở Hogwarts, phải vượt qua những thử thách cùng các quán quân đến từ nhiều trường. Sự kiện mở rộng thế giới phù thủy ra ngoài nước Anh và dần bộc lộ một âm mưu lớn hơn cuộc thi. Tình bạn và công bằng bị thử thách trước sức ép cạnh tranh.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_efe108e8-1f14-4ee7-b414-76dc82de281b",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "99b15d13-e9af-4677-ba5e-2534d084a937"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "three_seeds",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e",
+          "B_014c6234-d7d2-4e57-9877-e72f367b85b7",
+          "B_0254bb4d-a391-42ef-8d41-0045676928c0"
+        ],
+        "exclude_book_ids": [],
+        "k": 5,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+            "work_id": "W_7197246c-6748-4300-bcaa-cef8952160c6",
+            "title": "Lịch sử và văn hóa Việt Nam – Tiếp cận bộ phận",
+            "authors": [
+              "Phan Huy Lê"
+            ],
+            "genres": [
+              "lich_su"
+            ],
+            "summary": "Phan Huy Lê tập hợp các khảo cứu về lịch sử và văn hóa Việt Nam, từ những nhà nước cổ đến sự chuyển biến của nông thôn và đô thị. Sách xem xét Thăng Long – Hà Nội cùng các dấu tích Hoàng thành, đồng thời có phần bàn về sử học và giao lưu văn hóa.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Lịch sử với Di sản văn hóa Việt Nam dưới góc nhìn lịch sử",
+            "evidence_fields": [
+              {
+                "book_id": "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+                "field": "genres",
+                "value": "lich_su",
+                "seed_book_id": "B_0254bb4d-a391-42ef-8d41-0045676928c0"
+              }
+            ]
+          },
+          {
+            "book_id": "B_f0144600-1833-4a36-83b5-68b19a20099c",
+            "work_id": "W_1e029c0d-8d65-4515-912a-ce73187786ba",
+            "title": "Thoát ly",
+            "authors": [
+              "Khái Hưng"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Hồng tìm cách thoát khỏi cảnh sống do dì ghẻ là bà Phán Trinh kiểm soát. Mâu thuẫn giữa hai người làm lộ ra những quy tắc vốn khiến người con gái khó có tiếng nói trong gia đình. Tiểu thuyết nhìn vào sự lệ thuộc trong đời sống gia đình và cái giá của việc tìm cho mình một lối ra.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_f0144600-1833-4a36-83b5-68b19a20099c",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_446b0259-9de5-403b-835d-7a479b3a0e71",
+            "work_id": "W_014b127a-096e-4937-b216-f0178c37b6c4",
+            "title": "Con đường sáng",
+            "authors": [
+              "Nhất Linh",
+              "Hoàng Đạo"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong bản đăng trên Ngày Nay, Duy muốn thoát khỏi những ký ức về quãng đời phóng túng. Bên Thơ, anh hình dung một đời sống khác và nhớ về những ngày ở thôn quê. Những hồi tưởng xen vào hiện tại cho thấy sự khó khăn của Duy khi muốn thay đổi.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_446b0259-9de5-403b-835d-7a479b3a0e71",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+            "work_id": "W_e5c7e40b-7427-408a-abbb-880763b4e8cc",
+            "title": "Một nửa còn ở lại",
+            "authors": [
+              "Vương Thị Thu Thủy"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Đặt trong những năm khốc liệt của cuộc kháng chiến chống Mỹ, câu chuyện đi theo tình yêu và những lựa chọn sống giữa bom đạn. Những người mẹ Nam Bộ chia sẻ khó khăn với bộ đội, làm nổi bật sự đùm bọc giữa người dân và người lính trong hành trình tới ngày thống nhất.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          },
+          {
+            "book_id": "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+            "work_id": "W_96c4d187-45d5-4090-9d1a-3b004fb829e7",
+            "title": "Lạc đường",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Lý Trường Mậu làm việc cho hãng vận tải ở Xóm Chiếu và sống bên kinh Dérivation. Sau khi Mậu bị giam, cuộc sống của Ba Trâm ở nhà và những ngày Hiệp xa gia đình diễn ra theo hai hướng khác nhau. Từ đó, truyện theo dõi những người trong một mái nhà phải sống cách biệt.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Tiểu thuyết với Đấu trường sinh tử",
+            "evidence_fields": [
+              {
+                "book_id": "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+                "field": "genres",
+                "value": "tieu_thuyet",
+                "seed_book_id": "B_014c6234-d7d2-4e57-9877-e72f367b85b7"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "ee99a43c-3801-471f-9b3f-5f6d7c808b43"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "similar",
+      "operation": "similar",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [],
+        "k": 5,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+            "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+            "title": "Mai Hương và Lê Phong",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phóng viên Lê Phong nhặt được một mẩu giấy báo trước cái chết của bác sĩ Trần Thế Đoàn và cảnh cáo anh đứng ngoài vụ việc. Cuộc gặp Mai Hương đưa thêm manh mối vào cuộc điều tra, khiến công việc đưa tin của anh gắn với việc tìm hiểu vụ án.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+            "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+            "title": "Lê Phong phóng viên",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám của Thế Lữ, Lê Phong kết hợp công việc phóng viên với việc tìm hiểu các tình tiết của vụ án. Văn Bình xuất hiện bên cạnh anh, tạo nên một cặp nhân vật thường được đối chiếu với Sherlock Holmes và bác sĩ Watson.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+            "work_id": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+            "title": "Bên đường thiên lôi",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Tập truyện ngắn của Thế Lữ kết hợp tình huống bí ẩn với không khí kinh dị. Trong truyện cùng tên, Sắc, người kéo xe thất nghiệp ở Hải Phòng, nhận việc tại nhà một người lạ. Chiếc đầu lâu và giao ước phải ở lại ba năm khiến anh nghi ngại về công việc vừa nhận.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+            "work_id": "W_cd5f658b-58fb-47fa-9628-e55fd4117db7",
+            "title": "Chút phận linh đinh",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Thu Vân đưa chồng là Lê Hiển Vinh ra bến tàu Hải Phòng khi ông lên đường sang Pháp. Cảnh chia tay mở đầu chuỗi biến cố khiến mẹ con nàng lâm vào cảnh đói nghèo và bệnh tật. Về sau, bí mật về người bị tưởng đã chết được làm sáng tỏ, dẫn đến cuộc đoàn tụ cha con.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+            "work_id": "W_ae3e8e9a-41a0-4dbe-932f-656db1c3dfa2",
+            "title": "Người thất chí",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phụng viết một bài công kích những quan niệm đạo đức cũ và tranh luận với người đọc bài. Qua các cuộc gặp sau đó, anh phải đối diện với chuyện sống và làm việc của mình. Khi Phụng rơi vào chán nản, Trinh tìm cách đưa anh ra ngoài cho khuây khỏa.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "b1c2fc1e-7ff2-45c0-8e21-0b04a4252881"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "duplicate_exclude",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [
+          "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9"
+        ],
+        "k": 5,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+            "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+            "title": "Lê Phong phóng viên",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám của Thế Lữ, Lê Phong kết hợp công việc phóng viên với việc tìm hiểu các tình tiết của vụ án. Văn Bình xuất hiện bên cạnh anh, tạo nên một cặp nhân vật thường được đối chiếu với Sherlock Holmes và bác sĩ Watson.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+            "work_id": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+            "title": "Bên đường thiên lôi",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Tập truyện ngắn của Thế Lữ kết hợp tình huống bí ẩn với không khí kinh dị. Trong truyện cùng tên, Sắc, người kéo xe thất nghiệp ở Hải Phòng, nhận việc tại nhà một người lạ. Chiếc đầu lâu và giao ước phải ở lại ba năm khiến anh nghi ngại về công việc vừa nhận.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+            "work_id": "W_cd5f658b-58fb-47fa-9628-e55fd4117db7",
+            "title": "Chút phận linh đinh",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Thu Vân đưa chồng là Lê Hiển Vinh ra bến tàu Hải Phòng khi ông lên đường sang Pháp. Cảnh chia tay mở đầu chuỗi biến cố khiến mẹ con nàng lâm vào cảnh đói nghèo và bệnh tật. Về sau, bí mật về người bị tưởng đã chết được làm sáng tỏ, dẫn đến cuộc đoàn tụ cha con.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+            "work_id": "W_ae3e8e9a-41a0-4dbe-932f-656db1c3dfa2",
+            "title": "Người thất chí",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phụng viết một bài công kích những quan niệm đạo đức cũ và tranh luận với người đọc bài. Qua các cuộc gặp sau đó, anh phải đối diện với chuyện sống và làm việc của mình. Khi Phụng rơi vào chán nản, Trinh tìm cách đưa anh ra ngoài cho khuây khỏa.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+            "work_id": "W_e28b4371-a815-4f21-be83-c47cc370ac84",
+            "title": "Đòn hẹn",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám Đòn hẹn, Lê Phong bất ngờ gặp lại Mai Hương giữa lúc anh đang đối mặt với một người đeo mặt nạ. Từ cuộc gặp ấy, câu chuyện lần trở lại vụ Nguyễn Bồng để hai nhân vật cân nhắc mức độ nguy hiểm của những người họ đang theo dõi.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "58a3955c-3ff5-4cfb-b683-12132f5923f7"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "k_1",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [],
+        "k": 1,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+            "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+            "title": "Mai Hương và Lê Phong",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phóng viên Lê Phong nhặt được một mẩu giấy báo trước cái chết của bác sĩ Trần Thế Đoàn và cảnh cáo anh đứng ngoài vụ việc. Cuộc gặp Mai Hương đưa thêm manh mối vào cuộc điều tra, khiến công việc đưa tin của anh gắn với việc tìm hiểu vụ án.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "e286f263-0993-4b6f-8f65-ba7250acb5fc"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "k_10",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [],
+        "k": 10,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+            "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+            "title": "Mai Hương và Lê Phong",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phóng viên Lê Phong nhặt được một mẩu giấy báo trước cái chết của bác sĩ Trần Thế Đoàn và cảnh cáo anh đứng ngoài vụ việc. Cuộc gặp Mai Hương đưa thêm manh mối vào cuộc điều tra, khiến công việc đưa tin của anh gắn với việc tìm hiểu vụ án.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+            "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+            "title": "Lê Phong phóng viên",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám của Thế Lữ, Lê Phong kết hợp công việc phóng viên với việc tìm hiểu các tình tiết của vụ án. Văn Bình xuất hiện bên cạnh anh, tạo nên một cặp nhân vật thường được đối chiếu với Sherlock Holmes và bác sĩ Watson.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+            "work_id": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+            "title": "Bên đường thiên lôi",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Tập truyện ngắn của Thế Lữ kết hợp tình huống bí ẩn với không khí kinh dị. Trong truyện cùng tên, Sắc, người kéo xe thất nghiệp ở Hải Phòng, nhận việc tại nhà một người lạ. Chiếc đầu lâu và giao ước phải ở lại ba năm khiến anh nghi ngại về công việc vừa nhận.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+            "work_id": "W_cd5f658b-58fb-47fa-9628-e55fd4117db7",
+            "title": "Chút phận linh đinh",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Thu Vân đưa chồng là Lê Hiển Vinh ra bến tàu Hải Phòng khi ông lên đường sang Pháp. Cảnh chia tay mở đầu chuỗi biến cố khiến mẹ con nàng lâm vào cảnh đói nghèo và bệnh tật. Về sau, bí mật về người bị tưởng đã chết được làm sáng tỏ, dẫn đến cuộc đoàn tụ cha con.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_88f2988f-7cde-4954-844e-5d0664609651",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+            "work_id": "W_ae3e8e9a-41a0-4dbe-932f-656db1c3dfa2",
+            "title": "Người thất chí",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phụng viết một bài công kích những quan niệm đạo đức cũ và tranh luận với người đọc bài. Qua các cuộc gặp sau đó, anh phải đối diện với chuyện sống và làm việc của mình. Khi Phụng rơi vào chán nản, Trinh tìm cách đưa anh ra ngoài cho khuây khỏa.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+            "work_id": "W_e28b4371-a815-4f21-be83-c47cc370ac84",
+            "title": "Đòn hẹn",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám Đòn hẹn, Lê Phong bất ngờ gặp lại Mai Hương giữa lúc anh đang đối mặt với một người đeo mặt nạ. Từ cuộc gặp ấy, câu chuyện lần trở lại vụ Nguyễn Bồng để hai nhân vật cân nhắc mức độ nguy hiểm của những người họ đang theo dõi.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 6,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+            "work_id": "W_e5c7e40b-7427-408a-abbb-880763b4e8cc",
+            "title": "Một nửa còn ở lại",
+            "authors": [
+              "Vương Thị Thu Thủy"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Đặt trong những năm khốc liệt của cuộc kháng chiến chống Mỹ, câu chuyện đi theo tình yêu và những lựa chọn sống giữa bom đạn. Những người mẹ Nam Bộ chia sẻ khó khăn với bộ đội, làm nổi bật sự đùm bọc giữa người dân và người lính trong hành trình tới ngày thống nhất.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 7,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_235d5c08-2853-4251-b96a-6624f9cca0bb",
+            "work_id": "W_d0c923e0-e9df-496a-b7d4-81f2d4fb584c",
+            "title": "Người xa lạ",
+            "authors": [
+              "Albert Camus"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_nuoc_ngoai"
+            ],
+            "summary": "Meursault tự kể lại quãng đời từ ngày nhận tin mẹ qua đời trong viện dưỡng lão tới khi chính mình đối diện cái chết. Qua lời kể của một nhân viên làm công việc gửi hàng, Albert Camus theo dõi cách nhân vật nhìn bản thân và các mối quan hệ xung quanh.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 8,
+            "reason_codes": [
+              "content_similarity"
+            ],
+            "reason_text": "Nội dung mô tả gần với sách đã chọn",
+            "evidence_fields": [
+              {
+                "book_id": "B_235d5c08-2853-4251-b96a-6624f9cca0bb",
+                "field": "summary",
+                "value": null,
+                "seed_book_id": null
+              },
+              {
+                "book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e",
+                "field": "summary",
+                "value": null,
+                "seed_book_id": null
+              }
+            ]
+          },
+          {
+            "book_id": "B_67af733c-b8eb-462c-8e32-d22924b8f640",
+            "work_id": "W_3e71420b-ff38-418a-8d42-21a0d1134ac8",
+            "title": "Dây oan",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Thầy thông ngôn Phan Thanh Nhãn bị cuốn vào cuộc điều tra cái chết của Bành Nghiệp. Quan thẩm án nghi Nhãn và cô Đằng có liên quan đến vụ đầu độc. Phần sau của truyện chuyển sang Thanh Khải và Cúc Hương, mở ra một tuyến nhân vật khác.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 9,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_67af733c-b8eb-462c-8e32-d22924b8f640",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d",
+            "work_id": "W_fb26f38f-5f04-4305-a1c1-5205fa76a98d",
+            "title": "Cư Kỉnh",
+            "authors": [
+              "Hồ Biểu Chánh"
+            ],
+            "genres": [
+              "tieu_thuyet",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Cái chết vì bị đâm của Chí Cao ở Ô Môn kéo theo cuộc điều tra của quan chủ quận và những lời đồn ngoài chợ. Ngô Thị Lịnh, người chung sống với Chí Cao, lâm cảnh túng quẫn vì hai người không có hôn thú. Các cuộc hỏi cung đưa chuyện riêng của gia đình vào hồ sơ án mạng.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 10,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "c575e574-4823-4316-b7c4-42da92ffcf8d"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "combined_filters",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [],
+        "k": 5,
+        "filters": {
+          "authors": [
+            "Thế Lữ"
+          ],
+          "genres": [
+            "van_hoc_viet_nam"
+          ],
+          "has_fulltext": false
+        }
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+            "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+            "title": "Mai Hương và Lê Phong",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phóng viên Lê Phong nhặt được một mẩu giấy báo trước cái chết của bác sĩ Trần Thế Đoàn và cảnh cáo anh đứng ngoài vụ việc. Cuộc gặp Mai Hương đưa thêm manh mối vào cuộc điều tra, khiến công việc đưa tin của anh gắn với việc tìm hiểu vụ án.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+            "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+            "title": "Lê Phong phóng viên",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám của Thế Lữ, Lê Phong kết hợp công việc phóng viên với việc tìm hiểu các tình tiết của vụ án. Văn Bình xuất hiện bên cạnh anh, tạo nên một cặp nhân vật thường được đối chiếu với Sherlock Holmes và bác sĩ Watson.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+            "work_id": "W_27953cec-4859-403d-a078-a6c5f77a3c2c",
+            "title": "Bên đường thiên lôi",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Tập truyện ngắn của Thế Lữ kết hợp tình huống bí ẩn với không khí kinh dị. Trong truyện cùng tên, Sắc, người kéo xe thất nghiệp ở Hải Phòng, nhận việc tại nhà một người lạ. Chiếc đầu lâu và giao ước phải ở lại ba năm khiến anh nghi ngại về công việc vừa nhận.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 3,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_639219b7-eb9c-49be-b21a-08259245516b",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+            "work_id": "W_e28b4371-a815-4f21-be83-c47cc370ac84",
+            "title": "Đòn hẹn",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám Đòn hẹn, Lê Phong bất ngờ gặp lại Mai Hương giữa lúc anh đang đối mặt với một người đeo mặt nạ. Từ cuộc gặp ấy, câu chuyện lần trở lại vụ Nguyễn Bồng để hai nhân vật cân nhắc mức độ nguy hiểm của những người họ đang theo dõi.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 4,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+            "work_id": "W_9bb7a3a7-aa1f-4401-b8d1-967538ca18cf",
+            "title": "Gió trăng ngàn",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "truyen_ngan",
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong tập truyện ngắn của Thế Lữ, truyện Chim đèo được kể qua lá thư của Khôi Giang gửi một người bạn làm báo ở Hà Nội. Anh kể về quãng sống ở miền núi và những đổi thay của mình, rồi gửi kèm thơ cho người bạn cũ.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 5,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "d90089ae-9521-4b19-8491-9fe7fa8547b9"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "fulltext_filter",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [],
+        "k": 5,
+        "filters": {
+          "authors": [],
+          "genres": [],
+          "has_fulltext": true
+        }
+      },
+      "response": {
+        "status": "no_candidates",
+        "message": "Không còn sách phù hợp",
+        "items": [],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "03d9daa7-3770-447e-8e1f-db1303368812"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "fewer_than_k",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [
+          "B_014c6234-d7d2-4e57-9877-e72f367b85b7",
+          "B_0254bb4d-a391-42ef-8d41-0045676928c0",
+          "B_02cb9aa1-03fc-4ddf-bbd6-e6f4d50add2b",
+          "B_040e8144-75a8-4464-9048-6033ad3ac1b7",
+          "B_064f82b2-38ca-4c0a-9344-2dad0f519888",
+          "B_071590ec-d155-4878-bffc-e0e24c905eca",
+          "B_07ec13f8-396a-4f20-a33e-d1dfcd3cd7a8",
+          "B_090e84c3-4e3a-4baa-b559-b172ba0952b2",
+          "B_091f4ae5-f8c2-4e77-a1c5-454256503179",
+          "B_094580a0-da33-40e8-a329-fea28e85ef5b",
+          "B_09b842ab-d398-48ed-9bbd-10a519f8ffc3",
+          "B_09d51271-7c78-47b2-9df4-3eefab5a50af",
+          "B_0a477c89-efad-4ccf-805a-6ff8c8f7a7b7",
+          "B_0b294557-ff2f-4ea4-b93a-f0771704a4d3",
+          "B_0c8bff0b-df2b-48b2-bcdf-36a78a441e85",
+          "B_0caebad1-2fdc-4982-b7be-309c3339268c",
+          "B_0dd3e264-f3c1-47a1-baa9-8cafeba7f67b",
+          "B_0e447b13-278f-47bc-9e51-0a6ca62c2293",
+          "B_0edf4cd3-cd26-40e4-95ff-c941616310a5",
+          "B_0f27dbd0-771e-4729-8c4b-0b1c8204ae16",
+          "B_0f6e01de-698a-4836-aea8-aa7b52d5ccec",
+          "B_10b9db0f-3d23-48a8-8195-49ac4c7c2aba",
+          "B_116345c1-faa2-4c62-aa42-1d512315ed0b",
+          "B_14555110-4174-4d73-a214-a027bad725b0",
+          "B_145f2ed9-f02b-4152-9e43-d5fd167d8748",
+          "B_17788bb6-b25c-4733-9a95-cc7927614e94",
+          "B_18c14530-cde0-4b13-ab4b-d790c0f522bc",
+          "B_1ade6312-55c1-4525-b410-9e704863f3ac",
+          "B_1b403b41-40d8-40de-a6e9-a538c0a1c971",
+          "B_1d3878a4-b385-419b-b2ff-0256340a610d",
+          "B_1f73bcce-a349-4347-9676-7339cade7923",
+          "B_1fb428bc-f051-4698-9450-1261a28bab8f",
+          "B_2044ec79-ac9a-423a-955d-95d903638f53",
+          "B_20c72d6f-fafe-4081-8bf8-f1ec7c58a38e",
+          "B_20cb3077-0908-4152-b8ab-272003aeaefe",
+          "B_2316104b-dcbe-492c-a99e-79fdead63b63",
+          "B_235d5c08-2853-4251-b96a-6624f9cca0bb",
+          "B_23e41d73-849b-4188-93e7-9eb84f018a94",
+          "B_276c5876-6e56-441c-b092-bac558e94638",
+          "B_282e8dd6-97aa-4024-9663-71d74edfed8c",
+          "B_28850112-31ca-4d3a-9c18-1fbecfd64e3e",
+          "B_29702a48-38a9-4bcf-ae0d-5760cd0680f1",
+          "B_2a5f1211-d281-4348-9e8a-0e5d7c45b79a",
+          "B_2bca1a81-33be-43e1-a93a-9dafbf0abb48",
+          "B_2cec1b46-389f-407b-93e7-3c74fc5aff0b",
+          "B_2e1b699e-189a-4087-8417-8f2ca461b59b",
+          "B_2e384ecf-a5a7-4d5b-9914-e33f8c89818d",
+          "B_3191cdd4-5113-4c4a-bb52-ba1369e85cb5",
+          "B_31eb8d83-e50f-4e59-898d-f0477adc8047",
+          "B_32382b88-6314-44fb-9fd3-85c3478b2839",
+          "B_33676d9f-48db-46a7-9814-ccf35fda8caa",
+          "B_359c9ec1-609a-43cd-be78-91daf4a022d7",
+          "B_360df0ab-cd01-4423-8dc3-a3d0658517bc",
+          "B_368e8df4-3aee-4092-81ab-0c8d222447dd",
+          "B_36b89aca-1443-4a81-984a-7f616c224dc7",
+          "B_37165d46-9270-4848-9ff2-0e683d418e0d",
+          "B_37ba57a2-524f-47d9-9a4c-59de8a891b01",
+          "B_39fafb79-f843-4956-9819-d1e09a6f0696",
+          "B_3a3e93a1-9261-4d76-a201-6a91ace10131",
+          "B_3aa3196f-96d6-4c54-be14-2cf50d6ca69d",
+          "B_3adaf906-6b43-4844-b8d3-f840ff5ae0cc",
+          "B_3c6ed075-dcd8-417e-bd67-c2bc4aaebfbe",
+          "B_3de943a6-7b14-46de-9f00-2b6faafdfedf",
+          "B_3e132910-8b7e-4c3a-b9ea-0cc6ac88d20e",
+          "B_3e421c69-491b-4562-9b6a-e9e6cae64c54",
+          "B_3eb6e624-74f3-48eb-b2db-51dcb124944a",
+          "B_3eb86ed2-f14d-4ed1-8318-2dc47333366c",
+          "B_406f09c7-d6cd-444c-9762-e5e5de66aabb",
+          "B_41ae964b-ed42-4500-8b32-ee622d51d19d",
+          "B_41bdc2e1-ad03-4e27-9a43-f30a642bef31",
+          "B_41e6dd15-7561-47f9-9145-8552a6e13456",
+          "B_42155da7-3828-46bf-97c2-ef572eb233d0",
+          "B_42a282f4-cb6c-40d7-936b-b558e37f833b",
+          "B_446b0259-9de5-403b-835d-7a479b3a0e71",
+          "B_4631e319-5136-44bd-91de-b707e681730d",
+          "B_47d6f1de-5e1c-4acc-99c9-6b098dc719e2",
+          "B_47dbba8f-5f8d-4333-b2a6-63b3be05c214",
+          "B_48948b37-fece-4cdc-8fff-f66517ebafbc",
+          "B_4b120e08-b328-4712-970e-f611c0247772",
+          "B_4ea2e3d8-fc88-4278-97c4-59cd9969adbc",
+          "B_4eea12fb-aa7e-4ff9-8a6f-1d906a36b0b7",
+          "B_4efd32d4-c955-4d9f-a617-f7636c7f08bf",
+          "B_4fadfede-84dd-4e7f-b0d5-10f1b8e37564",
+          "B_51918731-48ae-4e88-b668-84b9f25d639a",
+          "B_548c49c8-b479-49e9-9ad8-72f57a0e27ad",
+          "B_5607b002-87ca-4d54-9ce2-fef192df47fa",
+          "B_560b39ef-b2bb-4cfc-851d-e458e0f1bed2",
+          "B_568c55dc-431f-4d40-9946-4836b1fe894d",
+          "B_57d7a73e-5415-43b0-9d14-ec3cdbddb243",
+          "B_587aac00-e538-4905-a78b-b6d57617c085",
+          "B_58d5554a-227c-42e4-9a9f-f765f9236359",
+          "B_59ca9c49-368c-493c-8d3c-a33751306bfe",
+          "B_5a0b9aeb-8788-47ab-9045-509cd04bc44d",
+          "B_5caca43d-14e9-4f95-89d8-02aee12a289f",
+          "B_5cc8e6ec-ac3c-4172-ba2a-c318cdf8a905",
+          "B_5d258049-1a0e-4e70-a3e4-1f6b3d30e2f4",
+          "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+          "B_5fd5fbc5-2f06-4362-b6d0-eea38da88f98",
+          "B_6013ee85-3d7c-43d3-bd1d-a9a8d0b10eb9",
+          "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+          "B_6352c457-c7bd-4995-b6cc-b32504b9b16a",
+          "B_636f973d-abf9-4557-9030-b6cb0d9e7782",
+          "B_639219b7-eb9c-49be-b21a-08259245516b",
+          "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d",
+          "B_644f912f-35ed-4a31-8718-cd3ce1311608",
+          "B_64ac9b00-e35a-47a7-b296-197fbaa67f9d",
+          "B_64f27e25-5162-4e1e-980b-3928bc47195c",
+          "B_66623562-c47b-48a2-be5b-5c18c6521982",
+          "B_67af733c-b8eb-462c-8e32-d22924b8f640",
+          "B_67c206ca-dad0-42ad-a9a9-aa625ab36d29",
+          "B_682b4da7-dcd4-4ab9-bb5b-8f93ba5f9ebd",
+          "B_6a61003e-47dd-4f27-a27a-983716fdbedd",
+          "B_6c89d774-46c2-4c68-a98f-e08f50056f33",
+          "B_6fa7b11e-a056-4ea0-a20c-bc72c0689ca6",
+          "B_71105ea4-fea8-4f5f-a7b8-48227bd0e7e3",
+          "B_7124c039-6217-4bb0-aa2f-25f9ecb578d4",
+          "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+          "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+          "B_73bddc1b-5c0f-4035-a624-fc3fe558bd95",
+          "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+          "B_75c7f8e4-92c0-4dbb-950e-f0ec4db2441b",
+          "B_779312f6-f212-4010-9e22-11d6d8b1a80b",
+          "B_789a230f-1782-4a4c-9995-ca7b8c79db7d",
+          "B_79d77e14-5a64-4830-ba31-ff058313c002",
+          "B_7a945e2e-8a3d-493f-9b41-d8991dd15802",
+          "B_7b0dae33-dc87-42e6-8a16-1b5db223ee76",
+          "B_7bbad463-6b33-41e7-be08-55adea6ebda2",
+          "B_7cdacc51-d49d-49c1-a8d3-997e2350ea48",
+          "B_8122a3fe-c94b-4435-90f4-2f03c336eb2b",
+          "B_84a27951-a762-4d96-9e58-df49d35bb744",
+          "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+          "B_88ecc589-bf4f-4521-8fa6-f1157931c797",
+          "B_88f2988f-7cde-4954-844e-5d0664609651",
+          "B_892bd46c-3864-4e62-9a80-a9ac955c2de8",
+          "B_8972fc5a-48d6-4212-807a-0b980aa5b096",
+          "B_8a7aa487-a13f-4b86-a693-cbc0dc364020",
+          "B_8b200109-5ecd-4557-950d-5207a3554e48",
+          "B_8b67998d-2325-4384-ace6-543986fa5159",
+          "B_8c116b89-652a-4b76-b45d-3b02ec22d923",
+          "B_8c4af470-4b1b-4690-a652-6a3764ba6428",
+          "B_8d5a1944-2811-4cf6-9afd-052069d6cfa1",
+          "B_8dede192-59bd-439b-b07b-d3daad85d135",
+          "B_8f07c9f5-d120-41a9-8336-ed81d4c77528",
+          "B_92279d64-9d28-448f-9806-b3637a73150e",
+          "B_95fcebaf-5ecf-423e-9118-93c79920f7ed",
+          "B_961380f5-1ac2-476e-96e6-8c3c231317c8",
+          "B_9662dca8-d351-493c-ae61-d3ddbce63a04",
+          "B_966e9022-6923-4f87-877b-36b8909b9693",
+          "B_96d9cede-2905-422f-b8de-791b709d2715",
+          "B_97fca1c6-5a00-4ee3-bd23-3426084171e0",
+          "B_9b31bdee-6bd6-4ca2-b4dc-60b1ca5532d3",
+          "B_9b331911-f500-4ac1-b4a1-aa340e6b40ec",
+          "B_9bd96c05-d248-4295-8414-4d19bc8eea6b",
+          "B_9c358089-8835-480a-aff4-4993a60c47a6",
+          "B_9c689ac7-f38f-4aaf-b3ff-bc4b12b4c5be",
+          "B_9e0cb114-3409-4989-a2a2-6ec86e14e65f",
+          "B_9f259bba-3657-48b3-8e14-5e29818e7d24",
+          "B_a00f6ca8-6bad-4214-b8fd-20871232352b",
+          "B_a040879f-9590-4623-8bb7-a3fba7ab04d5",
+          "B_a05863b4-54fc-48a5-883f-826f06cb96e2",
+          "B_a1fcae75-0d85-4875-b080-8a6353ec8cbf",
+          "B_a2b939b9-3010-4522-a3a9-0b4ccb22f6a1",
+          "B_a2c727cd-d08f-4510-835c-bc32354b6bae",
+          "B_a3971784-fcd5-4564-92ff-24d9bd92d244",
+          "B_a3d2c5c0-569f-4d79-9762-47714b79e964",
+          "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb",
+          "B_a4097d2b-f4ca-45a2-925e-49a8a8f4f091",
+          "B_a478d293-fd2f-4ee4-8c37-8e22a1cfb7e5",
+          "B_a4e1870a-147e-4ae2-9897-056f76e6fd66",
+          "B_a5babaa1-3bd1-4832-8c1f-cfb6bbd7086a",
+          "B_a6e04ad2-b00d-405c-abd0-e38086d10e4f",
+          "B_a7a0b412-52d2-46e9-8b8b-5f93764f5a16",
+          "B_a7c885a8-647e-404b-818b-3a1d00a0dc3a",
+          "B_ac2ff3c2-f755-42a0-a25b-0374cab019f0",
+          "B_ac7c393b-ea29-4026-bdae-afe148374d71",
+          "B_aca0d387-cf7a-43cb-9025-ece0356b4a01",
+          "B_ae7e3e57-3ab0-456d-a008-402fbf33359b",
+          "B_aeee1e7d-65c7-467c-bd25-f00204c43e8d",
+          "B_af007d41-c8fb-4e03-9941-12af9ec3f90a",
+          "B_af235487-79e3-4095-be42-28556c6dc3b0",
+          "B_b0806210-6e41-4521-ae5c-dd9c5d8b3a4b",
+          "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+          "B_b1e08017-4852-4c85-b64c-6fffc0455d70",
+          "B_b226e9c3-30d3-4fcb-9949-a878693b9c73",
+          "B_b3795bc8-a1c8-4900-941e-eefdb758bb66",
+          "B_b7ce0d07-d867-49f2-8ae1-46fac9d650cc",
+          "B_b7db132d-5754-49e1-8ea3-fb5733fc1fb1",
+          "B_b7fa034a-7114-4730-8369-93b319f538b7",
+          "B_b81e5eb4-860c-4541-b636-34c7706717dd",
+          "B_b8553ec8-32fe-4b5e-9094-273545371e55",
+          "B_b8b37d3c-d44d-4d5e-a627-7aa675a0daee",
+          "B_bad93c10-a2e9-4498-b960-fe9c4707693a",
+          "B_bcb8e4d6-1805-4975-bc5a-41c25d00d725",
+          "B_bd4b0df9-f41f-4466-b61a-c1952b6ec2d6",
+          "B_bd6be029-dae8-47ab-b3bb-2dddb84a23de",
+          "B_bdf43a62-b008-407d-b5ec-753abb2a5a6a",
+          "B_bec89c3c-b6c8-4c9c-8c72-7b82fb93c970",
+          "B_bf1e373d-e132-4380-9c8f-9a20ac64fa8a",
+          "B_c1d6dafd-a2a5-4a1d-8675-25c0ff14ce4a",
+          "B_c20df173-400a-48af-a440-00d54d589a17",
+          "B_c29b8809-6839-40ee-b518-bb4d6e8f6db7",
+          "B_c43b1475-0093-4151-8738-60886042491f",
+          "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+          "B_c4eb5f32-6546-4a51-b980-4a1e88dea0f6",
+          "B_c645734e-e000-49e1-9972-f7e87ddd52f1",
+          "B_c675ad22-711d-46f3-b6f5-56b0c6b0824a",
+          "B_c6974e69-49b2-493a-93ea-21058983417a",
+          "B_c77ddf98-34c9-4919-b2ae-88913c294c72",
+          "B_c7f38206-06ec-4f9f-b268-a92bcc309710",
+          "B_c8399366-defe-4aab-8915-2e91dfbfdeb4",
+          "B_c864f774-8dba-4bfb-a5c7-a9e3d8dcd134",
+          "B_c88b4f06-6bc5-4a65-ae9b-d5c30f945c4b",
+          "B_ca5c968c-a416-4af6-85a0-241adebbbcab",
+          "B_ca966f77-62fc-4369-885f-c6922d41b360",
+          "B_cdd4a3dc-ce1b-4840-b9ee-3344862da924",
+          "B_cf681c23-613e-45ba-8357-c23078c7e539",
+          "B_d068429d-12ca-44af-9390-5e0256956050",
+          "B_d15d4d77-c7f2-43e0-bdb3-ffde17a1b940",
+          "B_d17e5ca6-cdf9-4a75-b182-dcee4a547735",
+          "B_d2417acb-b655-4fcf-828a-d4eecce2f1e0",
+          "B_d2bef0f2-4037-47ee-a31f-11877654aa03",
+          "B_d3f3ea12-be05-47b9-899f-2f9c1d83bbe7",
+          "B_d4dab4ea-4cd8-44cb-93a2-dc167eaaeb03",
+          "B_d960e70f-7539-43fc-a10c-3f9ca1d315c2",
+          "B_da5dc4e6-454a-4771-8316-3daaee9a2b1b",
+          "B_dac02bdd-7b6d-4a1b-b173-0f024a2328e7",
+          "B_dbf4208a-e8e1-4a22-8c76-a44a261ab89e",
+          "B_ddd93cdd-5e8d-4a9c-97a6-754739fc9ebf",
+          "B_df9f7669-1b89-42fa-9c3e-4de426566166",
+          "B_e0555cbf-b347-4cb0-bcb3-4da25ee7fe2f",
+          "B_e1624f25-bcba-43db-83bf-cd6fb9cd4e30",
+          "B_e456ff95-5309-4a92-8fb6-391cf718f71c",
+          "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+          "B_e84c2c42-fb20-479a-83f6-19d2c841cc6f",
+          "B_e84e5ba3-35dc-4d4b-a295-6a91ae390496",
+          "B_e8c21323-6b46-45d0-9b5b-90226e61f8bb",
+          "B_e9d56e15-5396-4cb6-ada6-aa8680b28f5a",
+          "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+          "B_ecaf98b7-9c95-4d5f-a461-19db5da75e73",
+          "B_ecdf9b2a-199f-431d-81b2-922be53ed596",
+          "B_ece10aa1-7984-446c-90c8-b2f1d81704e3",
+          "B_ee99a087-bcb8-48e4-9ac1-d6d411dec73b",
+          "B_eee09745-32ce-42e0-b563-70f7cc0e97ff",
+          "B_efae0ad7-e8af-4609-8990-f9a5edfd38ff",
+          "B_efe108e8-1f14-4ee7-b414-76dc82de281b",
+          "B_f0144600-1833-4a36-83b5-68b19a20099c",
+          "B_f0f9faee-6b65-48d7-9428-19aea98544c3",
+          "B_f1cf76e5-9368-440a-9a44-9b7d01151db7",
+          "B_f1d89ecb-c5bb-4477-86dd-5ab740cdaca8",
+          "B_f31d2e7e-5b86-4dff-a213-8f1983eab026",
+          "B_f3b72399-f600-43c8-9805-19c7632abe83",
+          "B_f59f36da-4aa2-444a-8e0d-51cc9d92f24e",
+          "B_f6f5e63f-0390-4851-b013-04c2854a6fcb",
+          "B_f78b6c4c-ab28-406e-b6b3-04051c75521d",
+          "B_f8266356-2210-492f-82b0-6f17b2ac0292",
+          "B_f8c0b6f2-fb30-40c5-ba90-4bfac6083eaf",
+          "B_f8eaad8a-724f-4583-9872-64adb410a757",
+          "B_fa6c7fa1-02da-4c8c-ba44-5baa67f34d6c",
+          "B_fab8a078-9691-48b6-b005-49649998cd55",
+          "B_fbdbf3f2-0b27-4612-83ca-1e9acfd9bbf0",
+          "B_fca90f42-09cf-4c20-a0f5-914858a6fda9",
+          "B_fd69b40e-c689-434e-a3e0-18fb751b77f0",
+          "B_fd813f3f-fd53-4ea7-9b83-4c3c1c6da8a4",
+          "B_fe82477e-ca89-4f71-a50a-0d51de7ae45e",
+          "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+          "B_ffbdf4b2-16b9-4e88-8dc8-6de8da212bcd",
+          "SLB_B0001",
+          "SLB_B0002",
+          "SLB_B0003",
+          "SLB_B0004",
+          "SLB_B0005",
+          "SLB_B0006",
+          "SLB_B0007",
+          "SLB_B0008",
+          "SLB_B0009",
+          "SLB_B0010",
+          "SLB_B0011",
+          "SLB_B0012",
+          "SLB_B0013",
+          "SLB_B0014",
+          "SLB_B0015",
+          "SLB_B0016",
+          "SLB_B0017",
+          "SLB_B0018",
+          "SLB_B0019",
+          "SLB_B0020"
+        ],
+        "k": 10,
+        "filters": null
+      },
+      "response": {
+        "status": "ok",
+        "message": null,
+        "items": [
+          {
+            "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+            "work_id": "W_b0a54dbc-4c34-47c3-8e0a-9d7551bfa96d",
+            "title": "Mai Hương và Lê Phong",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Phóng viên Lê Phong nhặt được một mẩu giấy báo trước cái chết của bác sĩ Trần Thế Đoàn và cảnh cáo anh đứng ngoài vụ việc. Cuộc gặp Mai Hương đưa thêm manh mối vào cuộc điều tra, khiến công việc đưa tin của anh gắn với việc tìm hiểu vụ án.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 1,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          },
+          {
+            "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+            "work_id": "W_4b4aeb3a-e0a3-4d96-a1cb-45e2f984ecae",
+            "title": "Lê Phong phóng viên",
+            "authors": [
+              "Thế Lữ"
+            ],
+            "genres": [
+              "van_hoc_viet_nam"
+            ],
+            "summary": "Trong truyện trinh thám của Thế Lữ, Lê Phong kết hợp công việc phóng viên với việc tìm hiểu các tình tiết của vụ án. Văn Bình xuất hiện bên cạnh anh, tạo nên một cặp nhân vật thường được đối chiếu với Sherlock Holmes và bác sĩ Watson.",
+            "has_fulltext": false,
+            "cover_url": null,
+            "rank": 2,
+            "reason_codes": [
+              "shared_genre"
+            ],
+            "reason_text": "Cùng thể loại Văn học Việt Nam với Gói thuốc lá",
+            "evidence_fields": [
+              {
+                "book_id": "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+                "field": "genres",
+                "value": "van_hoc_viet_nam",
+                "seed_book_id": "B_004b82b3-a444-44ed-8146-a46247021c5e"
+              }
+            ]
+          }
+        ],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "ed4d4593-662f-42fb-bd83-198e7af7ccbf"
+      },
+      "reference_matches": true
+    },
+    {
+      "name": "all_eligible_works_hidden",
+      "operation": "recommend",
+      "input": {
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "seed_book_ids": [
+          "B_004b82b3-a444-44ed-8146-a46247021c5e"
+        ],
+        "exclude_book_ids": [
+          "B_014c6234-d7d2-4e57-9877-e72f367b85b7",
+          "B_0254bb4d-a391-42ef-8d41-0045676928c0",
+          "B_02cb9aa1-03fc-4ddf-bbd6-e6f4d50add2b",
+          "B_040e8144-75a8-4464-9048-6033ad3ac1b7",
+          "B_064f82b2-38ca-4c0a-9344-2dad0f519888",
+          "B_071590ec-d155-4878-bffc-e0e24c905eca",
+          "B_07ec13f8-396a-4f20-a33e-d1dfcd3cd7a8",
+          "B_090e84c3-4e3a-4baa-b559-b172ba0952b2",
+          "B_091f4ae5-f8c2-4e77-a1c5-454256503179",
+          "B_094580a0-da33-40e8-a329-fea28e85ef5b",
+          "B_09b842ab-d398-48ed-9bbd-10a519f8ffc3",
+          "B_09d51271-7c78-47b2-9df4-3eefab5a50af",
+          "B_0a477c89-efad-4ccf-805a-6ff8c8f7a7b7",
+          "B_0b294557-ff2f-4ea4-b93a-f0771704a4d3",
+          "B_0c8bff0b-df2b-48b2-bcdf-36a78a441e85",
+          "B_0caebad1-2fdc-4982-b7be-309c3339268c",
+          "B_0dd3e264-f3c1-47a1-baa9-8cafeba7f67b",
+          "B_0e447b13-278f-47bc-9e51-0a6ca62c2293",
+          "B_0edf4cd3-cd26-40e4-95ff-c941616310a5",
+          "B_0f27dbd0-771e-4729-8c4b-0b1c8204ae16",
+          "B_0f6e01de-698a-4836-aea8-aa7b52d5ccec",
+          "B_10b9db0f-3d23-48a8-8195-49ac4c7c2aba",
+          "B_116345c1-faa2-4c62-aa42-1d512315ed0b",
+          "B_14555110-4174-4d73-a214-a027bad725b0",
+          "B_145f2ed9-f02b-4152-9e43-d5fd167d8748",
+          "B_17788bb6-b25c-4733-9a95-cc7927614e94",
+          "B_18c14530-cde0-4b13-ab4b-d790c0f522bc",
+          "B_1ade6312-55c1-4525-b410-9e704863f3ac",
+          "B_1b403b41-40d8-40de-a6e9-a538c0a1c971",
+          "B_1d3878a4-b385-419b-b2ff-0256340a610d",
+          "B_1f73bcce-a349-4347-9676-7339cade7923",
+          "B_1fb428bc-f051-4698-9450-1261a28bab8f",
+          "B_2044ec79-ac9a-423a-955d-95d903638f53",
+          "B_20c72d6f-fafe-4081-8bf8-f1ec7c58a38e",
+          "B_20cb3077-0908-4152-b8ab-272003aeaefe",
+          "B_2316104b-dcbe-492c-a99e-79fdead63b63",
+          "B_235d5c08-2853-4251-b96a-6624f9cca0bb",
+          "B_23e41d73-849b-4188-93e7-9eb84f018a94",
+          "B_276c5876-6e56-441c-b092-bac558e94638",
+          "B_282e8dd6-97aa-4024-9663-71d74edfed8c",
+          "B_28850112-31ca-4d3a-9c18-1fbecfd64e3e",
+          "B_29702a48-38a9-4bcf-ae0d-5760cd0680f1",
+          "B_2a5f1211-d281-4348-9e8a-0e5d7c45b79a",
+          "B_2bca1a81-33be-43e1-a93a-9dafbf0abb48",
+          "B_2cec1b46-389f-407b-93e7-3c74fc5aff0b",
+          "B_2e1b699e-189a-4087-8417-8f2ca461b59b",
+          "B_2e384ecf-a5a7-4d5b-9914-e33f8c89818d",
+          "B_3191cdd4-5113-4c4a-bb52-ba1369e85cb5",
+          "B_31eb8d83-e50f-4e59-898d-f0477adc8047",
+          "B_32382b88-6314-44fb-9fd3-85c3478b2839",
+          "B_33676d9f-48db-46a7-9814-ccf35fda8caa",
+          "B_359c9ec1-609a-43cd-be78-91daf4a022d7",
+          "B_360df0ab-cd01-4423-8dc3-a3d0658517bc",
+          "B_368e8df4-3aee-4092-81ab-0c8d222447dd",
+          "B_36b89aca-1443-4a81-984a-7f616c224dc7",
+          "B_37165d46-9270-4848-9ff2-0e683d418e0d",
+          "B_37ba57a2-524f-47d9-9a4c-59de8a891b01",
+          "B_39fafb79-f843-4956-9819-d1e09a6f0696",
+          "B_3a3e93a1-9261-4d76-a201-6a91ace10131",
+          "B_3aa3196f-96d6-4c54-be14-2cf50d6ca69d",
+          "B_3adaf906-6b43-4844-b8d3-f840ff5ae0cc",
+          "B_3c6ed075-dcd8-417e-bd67-c2bc4aaebfbe",
+          "B_3de943a6-7b14-46de-9f00-2b6faafdfedf",
+          "B_3e132910-8b7e-4c3a-b9ea-0cc6ac88d20e",
+          "B_3e421c69-491b-4562-9b6a-e9e6cae64c54",
+          "B_3eb6e624-74f3-48eb-b2db-51dcb124944a",
+          "B_3eb86ed2-f14d-4ed1-8318-2dc47333366c",
+          "B_406f09c7-d6cd-444c-9762-e5e5de66aabb",
+          "B_41ae964b-ed42-4500-8b32-ee622d51d19d",
+          "B_41bdc2e1-ad03-4e27-9a43-f30a642bef31",
+          "B_41e6dd15-7561-47f9-9145-8552a6e13456",
+          "B_42155da7-3828-46bf-97c2-ef572eb233d0",
+          "B_42a282f4-cb6c-40d7-936b-b558e37f833b",
+          "B_446b0259-9de5-403b-835d-7a479b3a0e71",
+          "B_4631e319-5136-44bd-91de-b707e681730d",
+          "B_47d6f1de-5e1c-4acc-99c9-6b098dc719e2",
+          "B_47dbba8f-5f8d-4333-b2a6-63b3be05c214",
+          "B_48948b37-fece-4cdc-8fff-f66517ebafbc",
+          "B_4b120e08-b328-4712-970e-f611c0247772",
+          "B_4ea2e3d8-fc88-4278-97c4-59cd9969adbc",
+          "B_4eea12fb-aa7e-4ff9-8a6f-1d906a36b0b7",
+          "B_4efd32d4-c955-4d9f-a617-f7636c7f08bf",
+          "B_4fadfede-84dd-4e7f-b0d5-10f1b8e37564",
+          "B_51918731-48ae-4e88-b668-84b9f25d639a",
+          "B_548c49c8-b479-49e9-9ad8-72f57a0e27ad",
+          "B_5607b002-87ca-4d54-9ce2-fef192df47fa",
+          "B_560b39ef-b2bb-4cfc-851d-e458e0f1bed2",
+          "B_568c55dc-431f-4d40-9946-4836b1fe894d",
+          "B_57d7a73e-5415-43b0-9d14-ec3cdbddb243",
+          "B_587aac00-e538-4905-a78b-b6d57617c085",
+          "B_58d5554a-227c-42e4-9a9f-f765f9236359",
+          "B_59ca9c49-368c-493c-8d3c-a33751306bfe",
+          "B_5a0b9aeb-8788-47ab-9045-509cd04bc44d",
+          "B_5caca43d-14e9-4f95-89d8-02aee12a289f",
+          "B_5cc8e6ec-ac3c-4172-ba2a-c318cdf8a905",
+          "B_5d258049-1a0e-4e70-a3e4-1f6b3d30e2f4",
+          "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+          "B_5fd5fbc5-2f06-4362-b6d0-eea38da88f98",
+          "B_6013ee85-3d7c-43d3-bd1d-a9a8d0b10eb9",
+          "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+          "B_6352c457-c7bd-4995-b6cc-b32504b9b16a",
+          "B_636f973d-abf9-4557-9030-b6cb0d9e7782",
+          "B_639219b7-eb9c-49be-b21a-08259245516b",
+          "B_64033ef4-20fb-45e0-93db-67ac57fdfe0d",
+          "B_644f912f-35ed-4a31-8718-cd3ce1311608",
+          "B_64ac9b00-e35a-47a7-b296-197fbaa67f9d",
+          "B_64f27e25-5162-4e1e-980b-3928bc47195c",
+          "B_66623562-c47b-48a2-be5b-5c18c6521982",
+          "B_67af733c-b8eb-462c-8e32-d22924b8f640",
+          "B_67c206ca-dad0-42ad-a9a9-aa625ab36d29",
+          "B_682b4da7-dcd4-4ab9-bb5b-8f93ba5f9ebd",
+          "B_6a61003e-47dd-4f27-a27a-983716fdbedd",
+          "B_6c89d774-46c2-4c68-a98f-e08f50056f33",
+          "B_6fa7b11e-a056-4ea0-a20c-bc72c0689ca6",
+          "B_71105ea4-fea8-4f5f-a7b8-48227bd0e7e3",
+          "B_7124c039-6217-4bb0-aa2f-25f9ecb578d4",
+          "B_7244b590-c5a7-4ca7-8c41-629a4b63ffec",
+          "B_7344b6e0-ef30-4a98-8743-86aee17bac40",
+          "B_73bddc1b-5c0f-4035-a624-fc3fe558bd95",
+          "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+          "B_75c7f8e4-92c0-4dbb-950e-f0ec4db2441b",
+          "B_779312f6-f212-4010-9e22-11d6d8b1a80b",
+          "B_789a230f-1782-4a4c-9995-ca7b8c79db7d",
+          "B_79d77e14-5a64-4830-ba31-ff058313c002",
+          "B_7a945e2e-8a3d-493f-9b41-d8991dd15802",
+          "B_7b0dae33-dc87-42e6-8a16-1b5db223ee76",
+          "B_7bbad463-6b33-41e7-be08-55adea6ebda2",
+          "B_7cdacc51-d49d-49c1-a8d3-997e2350ea48",
+          "B_8122a3fe-c94b-4435-90f4-2f03c336eb2b",
+          "B_84a27951-a762-4d96-9e58-df49d35bb744",
+          "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+          "B_88ecc589-bf4f-4521-8fa6-f1157931c797",
+          "B_88f2988f-7cde-4954-844e-5d0664609651",
+          "B_892bd46c-3864-4e62-9a80-a9ac955c2de8",
+          "B_8972fc5a-48d6-4212-807a-0b980aa5b096",
+          "B_8a7aa487-a13f-4b86-a693-cbc0dc364020",
+          "B_8b200109-5ecd-4557-950d-5207a3554e48",
+          "B_8b67998d-2325-4384-ace6-543986fa5159",
+          "B_8c116b89-652a-4b76-b45d-3b02ec22d923",
+          "B_8c4af470-4b1b-4690-a652-6a3764ba6428",
+          "B_8d5a1944-2811-4cf6-9afd-052069d6cfa1",
+          "B_8dede192-59bd-439b-b07b-d3daad85d135",
+          "B_8f07c9f5-d120-41a9-8336-ed81d4c77528",
+          "B_92279d64-9d28-448f-9806-b3637a73150e",
+          "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+          "B_95fcebaf-5ecf-423e-9118-93c79920f7ed",
+          "B_961380f5-1ac2-476e-96e6-8c3c231317c8",
+          "B_9662dca8-d351-493c-ae61-d3ddbce63a04",
+          "B_966e9022-6923-4f87-877b-36b8909b9693",
+          "B_96d9cede-2905-422f-b8de-791b709d2715",
+          "B_97fca1c6-5a00-4ee3-bd23-3426084171e0",
+          "B_9b31bdee-6bd6-4ca2-b4dc-60b1ca5532d3",
+          "B_9b331911-f500-4ac1-b4a1-aa340e6b40ec",
+          "B_9bd96c05-d248-4295-8414-4d19bc8eea6b",
+          "B_9c358089-8835-480a-aff4-4993a60c47a6",
+          "B_9c689ac7-f38f-4aaf-b3ff-bc4b12b4c5be",
+          "B_9e0cb114-3409-4989-a2a2-6ec86e14e65f",
+          "B_9f259bba-3657-48b3-8e14-5e29818e7d24",
+          "B_a00f6ca8-6bad-4214-b8fd-20871232352b",
+          "B_a040879f-9590-4623-8bb7-a3fba7ab04d5",
+          "B_a05863b4-54fc-48a5-883f-826f06cb96e2",
+          "B_a1fcae75-0d85-4875-b080-8a6353ec8cbf",
+          "B_a2b939b9-3010-4522-a3a9-0b4ccb22f6a1",
+          "B_a2c727cd-d08f-4510-835c-bc32354b6bae",
+          "B_a3971784-fcd5-4564-92ff-24d9bd92d244",
+          "B_a3d2c5c0-569f-4d79-9762-47714b79e964",
+          "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb",
+          "B_a4097d2b-f4ca-45a2-925e-49a8a8f4f091",
+          "B_a478d293-fd2f-4ee4-8c37-8e22a1cfb7e5",
+          "B_a4e1870a-147e-4ae2-9897-056f76e6fd66",
+          "B_a5babaa1-3bd1-4832-8c1f-cfb6bbd7086a",
+          "B_a6e04ad2-b00d-405c-abd0-e38086d10e4f",
+          "B_a7a0b412-52d2-46e9-8b8b-5f93764f5a16",
+          "B_a7c885a8-647e-404b-818b-3a1d00a0dc3a",
+          "B_ac2ff3c2-f755-42a0-a25b-0374cab019f0",
+          "B_ac7c393b-ea29-4026-bdae-afe148374d71",
+          "B_aca0d387-cf7a-43cb-9025-ece0356b4a01",
+          "B_ae7e3e57-3ab0-456d-a008-402fbf33359b",
+          "B_aeee1e7d-65c7-467c-bd25-f00204c43e8d",
+          "B_af007d41-c8fb-4e03-9941-12af9ec3f90a",
+          "B_af235487-79e3-4095-be42-28556c6dc3b0",
+          "B_b0806210-6e41-4521-ae5c-dd9c5d8b3a4b",
+          "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+          "B_b1e08017-4852-4c85-b64c-6fffc0455d70",
+          "B_b226e9c3-30d3-4fcb-9949-a878693b9c73",
+          "B_b3795bc8-a1c8-4900-941e-eefdb758bb66",
+          "B_b7ce0d07-d867-49f2-8ae1-46fac9d650cc",
+          "B_b7db132d-5754-49e1-8ea3-fb5733fc1fb1",
+          "B_b7fa034a-7114-4730-8369-93b319f538b7",
+          "B_b81e5eb4-860c-4541-b636-34c7706717dd",
+          "B_b8553ec8-32fe-4b5e-9094-273545371e55",
+          "B_b8b37d3c-d44d-4d5e-a627-7aa675a0daee",
+          "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31",
+          "B_bad93c10-a2e9-4498-b960-fe9c4707693a",
+          "B_bcb8e4d6-1805-4975-bc5a-41c25d00d725",
+          "B_bd4b0df9-f41f-4466-b61a-c1952b6ec2d6",
+          "B_bd6be029-dae8-47ab-b3bb-2dddb84a23de",
+          "B_bdf43a62-b008-407d-b5ec-753abb2a5a6a",
+          "B_bec89c3c-b6c8-4c9c-8c72-7b82fb93c970",
+          "B_bf1e373d-e132-4380-9c8f-9a20ac64fa8a",
+          "B_c1d6dafd-a2a5-4a1d-8675-25c0ff14ce4a",
+          "B_c20df173-400a-48af-a440-00d54d589a17",
+          "B_c29b8809-6839-40ee-b518-bb4d6e8f6db7",
+          "B_c43b1475-0093-4151-8738-60886042491f",
+          "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+          "B_c4eb5f32-6546-4a51-b980-4a1e88dea0f6",
+          "B_c645734e-e000-49e1-9972-f7e87ddd52f1",
+          "B_c675ad22-711d-46f3-b6f5-56b0c6b0824a",
+          "B_c6974e69-49b2-493a-93ea-21058983417a",
+          "B_c77ddf98-34c9-4919-b2ae-88913c294c72",
+          "B_c7f38206-06ec-4f9f-b268-a92bcc309710",
+          "B_c8399366-defe-4aab-8915-2e91dfbfdeb4",
+          "B_c864f774-8dba-4bfb-a5c7-a9e3d8dcd134",
+          "B_c88b4f06-6bc5-4a65-ae9b-d5c30f945c4b",
+          "B_ca5c968c-a416-4af6-85a0-241adebbbcab",
+          "B_ca966f77-62fc-4369-885f-c6922d41b360",
+          "B_cdd4a3dc-ce1b-4840-b9ee-3344862da924",
+          "B_cf681c23-613e-45ba-8357-c23078c7e539",
+          "B_d068429d-12ca-44af-9390-5e0256956050",
+          "B_d15d4d77-c7f2-43e0-bdb3-ffde17a1b940",
+          "B_d17e5ca6-cdf9-4a75-b182-dcee4a547735",
+          "B_d2417acb-b655-4fcf-828a-d4eecce2f1e0",
+          "B_d2bef0f2-4037-47ee-a31f-11877654aa03",
+          "B_d3f3ea12-be05-47b9-899f-2f9c1d83bbe7",
+          "B_d4dab4ea-4cd8-44cb-93a2-dc167eaaeb03",
+          "B_d960e70f-7539-43fc-a10c-3f9ca1d315c2",
+          "B_da5dc4e6-454a-4771-8316-3daaee9a2b1b",
+          "B_dac02bdd-7b6d-4a1b-b173-0f024a2328e7",
+          "B_dbf4208a-e8e1-4a22-8c76-a44a261ab89e",
+          "B_ddd93cdd-5e8d-4a9c-97a6-754739fc9ebf",
+          "B_df9f7669-1b89-42fa-9c3e-4de426566166",
+          "B_e0555cbf-b347-4cb0-bcb3-4da25ee7fe2f",
+          "B_e1624f25-bcba-43db-83bf-cd6fb9cd4e30",
+          "B_e456ff95-5309-4a92-8fb6-391cf718f71c",
+          "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+          "B_e84c2c42-fb20-479a-83f6-19d2c841cc6f",
+          "B_e84e5ba3-35dc-4d4b-a295-6a91ae390496",
+          "B_e8c21323-6b46-45d0-9b5b-90226e61f8bb",
+          "B_e9d56e15-5396-4cb6-ada6-aa8680b28f5a",
+          "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+          "B_ecaf98b7-9c95-4d5f-a461-19db5da75e73",
+          "B_ecdf9b2a-199f-431d-81b2-922be53ed596",
+          "B_ece10aa1-7984-446c-90c8-b2f1d81704e3",
+          "B_ee99a087-bcb8-48e4-9ac1-d6d411dec73b",
+          "B_eee09745-32ce-42e0-b563-70f7cc0e97ff",
+          "B_efae0ad7-e8af-4609-8990-f9a5edfd38ff",
+          "B_efe108e8-1f14-4ee7-b414-76dc82de281b",
+          "B_f0144600-1833-4a36-83b5-68b19a20099c",
+          "B_f0f9faee-6b65-48d7-9428-19aea98544c3",
+          "B_f1cf76e5-9368-440a-9a44-9b7d01151db7",
+          "B_f1d89ecb-c5bb-4477-86dd-5ab740cdaca8",
+          "B_f31d2e7e-5b86-4dff-a213-8f1983eab026",
+          "B_f3b72399-f600-43c8-9805-19c7632abe83",
+          "B_f59f36da-4aa2-444a-8e0d-51cc9d92f24e",
+          "B_f6f5e63f-0390-4851-b013-04c2854a6fcb",
+          "B_f78b6c4c-ab28-406e-b6b3-04051c75521d",
+          "B_f8266356-2210-492f-82b0-6f17b2ac0292",
+          "B_f8c0b6f2-fb30-40c5-ba90-4bfac6083eaf",
+          "B_f8eaad8a-724f-4583-9872-64adb410a757",
+          "B_fa6c7fa1-02da-4c8c-ba44-5baa67f34d6c",
+          "B_fab8a078-9691-48b6-b005-49649998cd55",
+          "B_fbdbf3f2-0b27-4612-83ca-1e9acfd9bbf0",
+          "B_fca90f42-09cf-4c20-a0f5-914858a6fda9",
+          "B_fd69b40e-c689-434e-a3e0-18fb751b77f0",
+          "B_fd813f3f-fd53-4ea7-9b83-4c3c1c6da8a4",
+          "B_fe82477e-ca89-4f71-a50a-0d51de7ae45e",
+          "B_ff23eed1-7326-43d7-9be8-69239d32adcb",
+          "B_ffbdf4b2-16b9-4e88-8dc8-6de8da212bcd",
+          "SLB_B0001",
+          "SLB_B0002",
+          "SLB_B0003",
+          "SLB_B0004",
+          "SLB_B0005",
+          "SLB_B0006",
+          "SLB_B0007",
+          "SLB_B0008",
+          "SLB_B0009",
+          "SLB_B0010",
+          "SLB_B0011",
+          "SLB_B0012",
+          "SLB_B0013",
+          "SLB_B0014",
+          "SLB_B0015",
+          "SLB_B0016",
+          "SLB_B0017",
+          "SLB_B0018",
+          "SLB_B0019",
+          "SLB_B0020"
+        ],
+        "k": 5,
+        "filters": null
+      },
+      "response": {
+        "status": "no_candidates",
+        "message": "Không còn sách phù hợp",
+        "items": [],
+        "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+        "request_id": "2dde60a8-f3a1-439e-908a-ff91d5cbbcf7"
+      },
+      "reference_matches": true
+    }
+  ],
+  "ineligible_seed_rejections": [
+    {
+      "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "operation": "recommend",
+      "response": {
+        "code": "invalid_input",
+        "message": "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt",
+        "field": "seed_book_ids",
+        "module": "recommend",
+        "request_id": "6576510e-5af1-4223-ba40-be2759bc1e81"
+      }
+    },
+    {
+      "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "operation": "similar",
+      "response": {
+        "code": "invalid_input",
+        "message": "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt",
+        "field": "id",
+        "module": "recommend",
+        "request_id": "ab3a2345-bec8-49c9-a0d1-e94108f16908"
+      }
+    },
+    {
+      "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "operation": "recommend",
+      "response": {
+        "code": "invalid_input",
+        "message": "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt",
+        "field": "seed_book_ids",
+        "module": "recommend",
+        "request_id": "c87113c1-7a42-4dd3-b802-57102c189f6f"
+      }
+    },
+    {
+      "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "operation": "similar",
+      "response": {
+        "code": "invalid_input",
+        "message": "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt",
+        "field": "id",
+        "module": "recommend",
+        "request_id": "09105c29-2889-47b6-b11e-575010529f8b"
+      }
+    },
+    {
+      "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "operation": "recommend",
+      "response": {
+        "code": "invalid_input",
+        "message": "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt",
+        "field": "seed_book_ids",
+        "module": "recommend",
+        "request_id": "0a90f94d-9839-4bcd-a57c-466a3f3762ed"
+      }
+    },
+    {
+      "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "operation": "similar",
+      "response": {
+        "code": "invalid_input",
+        "message": "Sách đã chọn chưa có đủ nguồn metadata và summary được duyệt",
+        "field": "id",
+        "module": "recommend",
+        "request_id": "2e4d30a3-23cc-4a26-883d-0703ba6bc8b3"
+      }
+    }
+  ],
+  "encoder_run": false,
+  "quality_evaluation": false,
+  "frontend_E2E": false
+}

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "level": "ASGI_real_snapshot",
+  "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+  "cases": [
+    {
+      "name": "recommend_unknown",
+      "status": 422,
+      "code": "invalid_input"
+    },
+    {
+      "name": "similar_unknown",
+      "status": 404,
+      "code": "resource_not_found"
+    },
+    {
+      "name": "recommend_missing_snapshot",
+      "status": 404,
+      "code": "resource_not_found"
+    },
+    {
+      "name": "similar_missing_snapshot",
+      "status": 404,
+      "code": "resource_not_found"
+    }
+  ],
+  "source_unchanged": true
+}

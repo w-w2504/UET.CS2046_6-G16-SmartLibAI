@@ -1,0 +1,391 @@
+{
+  "files": [
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/acceptance.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 1589,
+      "sha256": "b741898cfd8a4be8a6fc06fff9aa271c20727d99b7a8010caf979bda119129d1"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/checks_final.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 32515,
+      "sha256": "b5c89742a8c4452de863972c48eefc466b3fd6ea6bfdb05e218ba24a7e1c9c1d"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/exceptions_final.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 10625,
+      "sha256": "829261f29215aa47ec94d9500c417fbfc527ad334861314ab78a80f80165012f"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/historical_lineage_resolution.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 11873,
+      "sha256": "5a142134074e69e24bba31bf89cd68a96f912123ba13d0d17545fef5e1b82b51"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/historical_review_recovered.jsonl",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 586402,
+      "sha256": "6fe0a8a208157556d023c10d133251f64531115170400b6c9c9222355d8ff331"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/remediation_matrix.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 18510,
+      "sha256": "91f3a69aa4de4c3f3a2eb77f8fe36ad2f0edb7a9aa5ee0c79b5338f88400bb13"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/summary.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 1870,
+      "sha256": "cc147c347d9ac3b8dbce29633d7dc56f89fa20913e49d4262ef929c79dd18701"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/url_resolution.jsonl",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 240567,
+      "sha256": "4f4e25cb7805c8da5435f80a0df06760480c541c84fe8e15f5ffa360bd672242"
+    },
+    {
+      "path": "data/reports/c45-phase1-final-closure-20261123/validation.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 8275,
+      "sha256": "64ce8edfbffe62e3dfd91109193fc45c546d7abcb2f8d0513c29b3f1e13340aa"
+    },
+    {
+      "path": "data/reports/c45-phase1-handoff-20261123/audit_recheck_policy.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 1277,
+      "sha256": "fbf024dd072ab7948933f9d4dea3d282bdf2889770878815608c1f6ab96962c2"
+    },
+    {
+      "path": "data/reports/c45-phase1-handoff-20261123/exception_register.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 13281,
+      "sha256": "af12dd8e2489ede7b3813367b0ec568bddd2323a33d38702e941dcbc6eb2c303"
+    },
+    {
+      "path": "data/reports/c45-phase1-handoff-20261123/phase1_handoff.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 1614,
+      "sha256": "650139f1c20f2fde3da7b91d57eb0f41d671e28d7c263180a52743343e59e84b"
+    },
+    {
+      "path": "data/reports/c45-phase1-handoff-20261123/precommit_review.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 2347,
+      "sha256": "a1818d2166bce9fb5b0bc35bde646a4bc33455528f3392b38ed8f34501e6d15a"
+    },
+    {
+      "path": "data/reports/c45-r8-faiss-top5-20261123.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 296,
+      "sha256": "91e42e44328dee781b6a12bbc984672b4aad8caa66a72d9068086bb4b24776f8"
+    },
+    {
+      "path": "data/reports/c45-r8-phase1-20261123-v12/audit_run.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 7293,
+      "sha256": "6840bc29ec46dfcda5de176f923156982345fdc20e2ea9ef650f426cf8bfbc01"
+    },
+    {
+      "path": "data/reports/c45-r8-phase1-20261123-v12/checks.jsonl",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 26099,
+      "sha256": "5f1f7f35b4cb59b610439c71ac184a0d502c21933cc9ca4ec278fc35b814a81c"
+    },
+    {
+      "path": "data/reports/c45-r8-phase1-20261123-v12/e5_full_inference.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 401,
+      "sha256": "2b6e32836be54c3fc4751e523b98872d7077fcf76e252b3829b25d37bb24aba7"
+    },
+    {
+      "path": "data/reports/c45-r8-phase1-20261123-v12/url_comparison.jsonl",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 136139,
+      "sha256": "5316604ef1770201cb11b4823d52b5dead64b2dc9d865b9efdfed54c0a42d1c9"
+    },
+    {
+      "path": "data/reports/c45-r8-recommendation-api-20261123.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 97131,
+      "sha256": "5b814b7565a6bd67e03f34a8ea26d52f25887f742889698395f1ed3a8704b947"
+    },
+    {
+      "path": "data/reports/c45-r8-recommendation-errors-20261123.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 608,
+      "sha256": "50053e2696ed660e6d6271eb6cdf572373fc7fa7ed24b73ec5acac63beb9519a"
+    },
+    {
+      "path": "data/reports/c45-r8-recommendation-faiss-20261123.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 48766,
+      "sha256": "8d3534df4bf9d327f66e6b9f831e43b6fb2bef0d010c8ab6707a9a32bb3c73c1"
+    },
+    {
+      "path": "data/reports/c45-r8-search-api-20261123.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 8614,
+      "sha256": "94e1b47455e9cf578d9adbd39353b91e068e328c0b2c747cf8715b138e795eb6"
+    },
+    {
+      "path": "data/reports/c45-r8-token-limit-20261123.json",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 293,
+      "sha256": "4694b04f5188bce108faa8e58cf7f01b3fb9672144826d6fb03a1111093cd275"
+    },
+    {
+      "path": "openspec/changes/c45-data-quality-audit/.openspec.yaml",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 40,
+      "sha256": "6780cbd140e267f34848ed93509ee0e1c20861939579ff1c3bb74a2b85a86700"
+    },
+    {
+      "path": "openspec/changes/c45-data-quality-audit/design.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 14898,
+      "sha256": "e3cf56ac96ee453b4a0da628a6c005ceaf830ee8ef34d16cd859e1c9ade15e6d"
+    },
+    {
+      "path": "openspec/changes/c45-data-quality-audit/proposal.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 3465,
+      "sha256": "72a5325a147fadb0082819dd05a5baa6073a0f2f0555f9e418fddfb741a20a81"
+    },
+    {
+      "path": "openspec/changes/c45-data-quality-audit/specs/data-quality-audit/spec.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 10528,
+      "sha256": "39747bb31194a840a0298e63601f9acb9aa6e8ec60a15acc226c19e5df26c842"
+    },
+    {
+      "path": "openspec/changes/c45-data-quality-audit/tasks.md",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "ignored",
+      "size_bytes": 9206,
+      "sha256": "b7a6702f68c7baa39fd002858ba22ce2c8b247ad5719f519257788c8b740e68f"
+    },
+    {
+      "path": "pipeline/scripts/audit_c45_phase1.mjs",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "untracked",
+      "size_bytes": 42355,
+      "sha256": "24dafd9893c0187aa20d3f9ef02e36cb8dddf6af75456da93e956330e0924fec"
+    },
+    {
+      "path": "pipeline/scripts/check_c45_r8_search.py",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "untracked",
+      "size_bytes": 6222,
+      "sha256": "f226d379e235f8fd36ee80b4d54c1fb6d084a81a27ac8193b38058d6b7dc5303"
+    },
+    {
+      "path": "pipeline/scripts/close_c45_phase1.py",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "untracked",
+      "size_bytes": 14893,
+      "sha256": "e0509ab49e9ee2cfd5d9f093b72716f7863653b76c1587a73cd82f088d9b1127"
+    },
+    {
+      "path": "pipeline/scripts/handoff_c45_phase1.py",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "untracked",
+      "size_bytes": 12083,
+      "sha256": "27f94cbd03905249657269d2b111ba3450d6062f29a2f77c745cf85a899ba9cc"
+    },
+    {
+      "path": "pipeline/tests/test_c45_phase1.mjs",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "untracked",
+      "size_bytes": 7872,
+      "sha256": "d8c2a82c3154b58430a6c1bdfcdd3804b4ce815b8ae8567f6bfe45f4c6b60803"
+    },
+    {
+      "path": "pipeline/tests/test_c45_review_replacements.mjs",
+      "purpose": "C45 script/test/spec or pinned evidence needed for handoff and reproduction",
+      "git_status": "untracked",
+      "size_bytes": 930,
+      "sha256": "615e8bcb088ee69957a3ff3eacdeaed16900901c4052b3d8382509d919c71cc6"
+    },
+    {
+      "path": "pipeline/requirements-c45-tests.txt",
+      "purpose": "Explicit C45 test/runtime dependency declaration",
+      "git_status": "untracked",
+      "size_bytes": 94,
+      "sha256": "e3fb94605ead230ca85c8feedd404352904c3d01a26b0de353f173f978e10bf1"
+    }
+  ],
+  "file_count": 36,
+  "total_bytes_without_manifest": 1378971,
+  "self": {
+    "path": "data/reports/c45-phase1-handoff-20261123/commit_manifest.json",
+    "purpose": "This manifest; self hash omitted to avoid circular hashing"
+  },
+  "tracked_dependencies": [
+    {
+      "path": "data/raw/p3_v4/catalog.jsonl",
+      "sha256": "9cc9dff9531dba5838d135271916de653fe17bdf87932d3b911f37205a5616f2",
+      "tracked": true
+    },
+    {
+      "path": "data/raw/p3_v4/search/catalog.jsonl",
+      "sha256": "3b4b52a48e1e95a4047a9c41cf9ea62d7acd3d11d029252e49f718982f379675",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/verification.json",
+      "sha256": "08fc34cad81eedec9891124378881bd47c8175220e0ca017b742b5961c192bf2",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/mapping.jsonl",
+      "sha256": "8df986800c38c4052c0fc8cac13e5edcb37f1d78b2a13fdf96760ce432486dd7",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/smartlibai-fasttrack/smartlibai-demo-v4/bundle/vectors.npy",
+      "sha256": "a97e4eefb1dfefee045c2ba3359a98b0e8d0cb2dad87cf385530d35e869fff17",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl",
+      "sha256": "686e23559e18fee745b9729945c73b1435cf5445493b7dec2b742fead37a02c7",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json",
+      "sha256": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/review.json",
+      "sha256": "f00ae695376cb346edfd4095fddcb0a655f5e16362cf69ae61fde7ed9a0cc0d5",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json",
+      "sha256": "f49695814514eb4945de41aea82b3da0954d5c4503e8d30a1ea53f881d8a71f0",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json",
+      "sha256": "089b3abbf889849d0b5491928bf30cd813de21b16be7a2d2bafe2b23d8977231",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl",
+      "sha256": "ad7f8932f405b26902c3bb6b1fba7785f73648fc459f738a45fc58731346a4ef",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy",
+      "sha256": "2f385fc860a344dc199bcd3e980d9097a747052485ed3151ac711d46a86ad852",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/index/index_manifest.json",
+      "sha256": "9b6ad48e92904748c8320194f7fb5afeb01ff23f534a9483232ef6008a576bfb",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/index/mapping.jsonl",
+      "sha256": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/index/books.faiss",
+      "sha256": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json",
+      "sha256": "1abb673bb0dcec99e23e124f973f0909cc9e00cd6e97dfaef01cafd200d7bf6c",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/mapping.jsonl",
+      "sha256": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss",
+      "sha256": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+      "tracked": true
+    },
+    {
+      "path": "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite",
+      "sha256": "c316b90fe4c383d4abbac1488453bf76f62e11d4327b47a9cffd06e8cf2ba28b",
+      "tracked": true
+    },
+    {
+      "path": "data/raw/c35_reviewed150/quality_by_book_id.jsonl",
+      "sha256": "1524220957c18860d119eb21bc58deac03f6a226cf1777607da042facef4ea3a",
+      "tracked": true
+    },
+    {
+      "path": "data/raw/c20_c34/id_registry.json",
+      "sha256": "e1efb4ede720509cc846a5ed14019b8252107a9f2afbb306f12f74790e9c7cc9",
+      "tracked": true
+    },
+    {
+      "path": "pipeline/scripts/in_memory_http.py",
+      "sha256": "74146328d941a39576002fcc1f9c318e1a111de62ccb9e30ff748e5d29415b97",
+      "tracked": true
+    },
+    {
+      "path": "pipeline/requirements-p3-demo.txt",
+      "sha256": "17c8e481647030acead12d55eb2b498699b1b87f07c841993aa1560d7d56283a",
+      "tracked": true
+    },
+    {
+      "path": "pipeline/requirements.txt",
+      "sha256": "34e8b059638231a43491086e11dbbca44357013ffe5ed5560e2f48a2ac96196c",
+      "tracked": true
+    },
+    {
+      "path": "pipeline/requirements-embedding.txt",
+      "sha256": "ab209d792a0c10855e5c539eadffa05acad0beb59aec2adbb921c4cca482d231",
+      "tracked": true
+    }
+  ],
+  "excluded_shared_files": [
+    ".gitignore",
+    ".gitattributes"
+  ],
+  "excluded_work": [
+    "C41 datasets/scripts/tests",
+    "old C45 exploratory reports and scripts not used by closure"
+  ],
+  "clean_checkout_verification": "dependency manifest simulation only; real clean checkout required after commit"
+}

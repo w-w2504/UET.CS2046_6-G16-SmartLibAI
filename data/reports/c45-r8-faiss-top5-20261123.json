@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "queries": 289,
+  "top5_set_matches": 289,
+  "max_score_error": 8.344650268554688e-07,
+  "vectors_sha256": "2f385fc860a344dc199bcd3e980d9097a747052485ed3151ac711d46a86ad852",
+  "index_sha256": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c"
+}

@@ -1,0 +1,253 @@
+{
+  "status": "passed",
+  "level": "in_process_HTTP_ASGI_real_E5",
+  "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+  "book_count": 289,
+  "eligible_count": 286,
+  "pending_ids": [
+    "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+    "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+    "B_ec9d7595-0257-43d5-83cf-15d83d8640b9"
+  ],
+  "sqlite_integrity": "ok",
+  "foreign_keys": 0,
+  "source_hashes": {
+    "catalog.sqlite": "c316b90fe4c383d4abbac1488453bf76f62e11d4327b47a9cffd06e8cf2ba28b",
+    "books.faiss": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+    "mapping.jsonl": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+    "manifest.json": "1abb673bb0dcec99e23e124f973f0909cc9e00cd6e97dfaef01cafd200d7bf6c"
+  },
+  "source_unchanged": true,
+  "model_root": "C:\\Users\\hoang\\.cache\\huggingface",
+  "cases": [
+    {
+      "name": "nfc_k1",
+      "status": 200,
+      "returned": 1,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_276c5876-6e56-441c-b092-bac558e94638"
+      ]
+    },
+    {
+      "name": "nfc_k5",
+      "status": 200,
+      "returned": 5,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_276c5876-6e56-441c-b092-bac558e94638",
+        "SLB_B0014",
+        "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+        "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+        "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb"
+      ]
+    },
+    {
+      "name": "nfc_k10",
+      "status": 200,
+      "returned": 10,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_276c5876-6e56-441c-b092-bac558e94638",
+        "SLB_B0014",
+        "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+        "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+        "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb",
+        "B_ae7e3e57-3ab0-456d-a008-402fbf33359b",
+        "B_0254bb4d-a391-42ef-8d41-0045676928c0",
+        "B_0edf4cd3-cd26-40e4-95ff-c941616310a5",
+        "B_a4097d2b-f4ca-45a2-925e-49a8a8f4f091",
+        "B_c675ad22-711d-46f3-b6f5-56b0c6b0824a"
+      ]
+    },
+    {
+      "name": "decomposed_unicode",
+      "status": 200,
+      "returned": 5,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_276c5876-6e56-441c-b092-bac558e94638",
+        "SLB_B0014",
+        "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+        "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+        "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb"
+      ]
+    },
+    {
+      "name": "author",
+      "status": 200,
+      "returned": 5,
+      "eligible_candidates": 9,
+      "book_ids": [
+        "B_779312f6-f212-4010-9e22-11d6d8b1a80b",
+        "B_639219b7-eb9c-49be-b21a-08259245516b",
+        "B_004b82b3-a444-44ed-8146-a46247021c5e",
+        "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+        "B_64ac9b00-e35a-47a7-b296-197fbaa67f9d"
+      ]
+    },
+    {
+      "name": "genre",
+      "status": 200,
+      "returned": 5,
+      "eligible_candidates": 111,
+      "book_ids": [
+        "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+        "B_ae7e3e57-3ab0-456d-a008-402fbf33359b",
+        "B_b8553ec8-32fe-4b5e-9094-273545371e55",
+        "SLB_B0016",
+        "B_360df0ab-cd01-4423-8dc3-a3d0658517bc"
+      ]
+    },
+    {
+      "name": "combined",
+      "status": 200,
+      "returned": 9,
+      "eligible_candidates": 9,
+      "book_ids": [
+        "B_779312f6-f212-4010-9e22-11d6d8b1a80b",
+        "B_639219b7-eb9c-49be-b21a-08259245516b",
+        "B_004b82b3-a444-44ed-8146-a46247021c5e",
+        "B_5e7bf35a-d1b9-42a4-88f9-c3d22e9594ca",
+        "B_64ac9b00-e35a-47a7-b296-197fbaa67f9d",
+        "B_95c15eb3-07a4-4053-b8d5-96cf0e65d6c9",
+        "B_3de943a6-7b14-46de-9f00-2b6faafdfedf",
+        "B_b099451b-901c-4879-8e39-bbf3c78b5c7e",
+        "B_b8cea61e-d73f-41cf-b708-eedfabdc6d31"
+      ]
+    },
+    {
+      "name": "fulltext_true",
+      "status": 200,
+      "returned": 0,
+      "eligible_candidates": 0,
+      "book_ids": []
+    },
+    {
+      "name": "fulltext_false",
+      "status": 200,
+      "returned": 5,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_276c5876-6e56-441c-b092-bac558e94638",
+        "SLB_B0014",
+        "B_63304964-eada-4cd8-abb7-46b5d9c7d20c",
+        "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+        "B_a3f3d77d-a2da-4540-8189-9d436d0b98cb"
+      ]
+    },
+    {
+      "name": "none",
+      "status": 200,
+      "returned": 0,
+      "eligible_candidates": 0,
+      "book_ids": []
+    },
+    {
+      "name": "pending_title_B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "status": 200,
+      "returned": 10,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_0caebad1-2fdc-4982-b7be-309c3339268c",
+        "B_d2bef0f2-4037-47ee-a31f-11877654aa03",
+        "B_1ade6312-55c1-4525-b410-9e704863f3ac",
+        "B_23e41d73-849b-4188-93e7-9eb84f018a94",
+        "B_1b403b41-40d8-40de-a6e9-a538c0a1c971",
+        "B_a6e04ad2-b00d-405c-abd0-e38086d10e4f",
+        "B_040e8144-75a8-4464-9048-6033ad3ac1b7",
+        "B_b1e08017-4852-4c85-b64c-6fffc0455d70",
+        "B_41ae964b-ed42-4500-8b32-ee622d51d19d",
+        "B_28850112-31ca-4d3a-9c18-1fbecfd64e3e"
+      ]
+    },
+    {
+      "name": "pending_title_B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "status": 200,
+      "returned": 10,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_d17e5ca6-cdf9-4a75-b182-dcee4a547735",
+        "B_145f2ed9-f02b-4152-9e43-d5fd167d8748",
+        "B_a1fcae75-0d85-4875-b080-8a6353ec8cbf",
+        "B_a478d293-fd2f-4ee4-8c37-8e22a1cfb7e5",
+        "B_97fca1c6-5a00-4ee3-bd23-3426084171e0",
+        "B_6013ee85-3d7c-43d3-bd1d-a9a8d0b10eb9",
+        "B_3adaf906-6b43-4844-b8d3-f840ff5ae0cc",
+        "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+        "B_b7ce0d07-d867-49f2-8ae1-46fac9d650cc",
+        "B_bdf43a62-b008-407d-b5ec-753abb2a5a6a"
+      ]
+    },
+    {
+      "name": "pending_title_B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "status": 200,
+      "returned": 10,
+      "eligible_candidates": 286,
+      "book_ids": [
+        "B_d15d4d77-c7f2-43e0-bdb3-ffde17a1b940",
+        "SLB_B0014",
+        "B_33676d9f-48db-46a7-9814-ccf35fda8caa",
+        "B_360df0ab-cd01-4423-8dc3-a3d0658517bc",
+        "B_5caca43d-14e9-4f95-89d8-02aee12a289f",
+        "B_3aa3196f-96d6-4c54-be14-2cf50d6ca69d",
+        "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+        "B_789a230f-1782-4a4c-9995-ca7b8c79db7d",
+        "B_0edf4cd3-cd26-40e4-95ff-c941616310a5",
+        "B_ff23eed1-7326-43d7-9be8-69239d32adcb"
+      ]
+    }
+  ],
+  "pending_rank_evidence": [
+    {
+      "pending_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "full_index_top10": [
+        "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+        "B_0caebad1-2fdc-4982-b7be-309c3339268c",
+        "B_d2bef0f2-4037-47ee-a31f-11877654aa03",
+        "B_1ade6312-55c1-4525-b410-9e704863f3ac",
+        "B_23e41d73-849b-4188-93e7-9eb84f018a94",
+        "B_1b403b41-40d8-40de-a6e9-a538c0a1c971",
+        "B_a6e04ad2-b00d-405c-abd0-e38086d10e4f",
+        "B_040e8144-75a8-4464-9048-6033ad3ac1b7",
+        "B_b1e08017-4852-4c85-b64c-6fffc0455d70",
+        "B_41ae964b-ed42-4500-8b32-ee622d51d19d"
+      ],
+      "api_returned": 10
+    },
+    {
+      "pending_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "full_index_top10": [
+        "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+        "B_d17e5ca6-cdf9-4a75-b182-dcee4a547735",
+        "B_145f2ed9-f02b-4152-9e43-d5fd167d8748",
+        "B_a1fcae75-0d85-4875-b080-8a6353ec8cbf",
+        "B_a478d293-fd2f-4ee4-8c37-8e22a1cfb7e5",
+        "B_97fca1c6-5a00-4ee3-bd23-3426084171e0",
+        "B_6013ee85-3d7c-43d3-bd1d-a9a8d0b10eb9",
+        "B_3adaf906-6b43-4844-b8d3-f840ff5ae0cc",
+        "B_859f7abf-07e8-4e07-9480-5630bc9d923d",
+        "B_b7ce0d07-d867-49f2-8ae1-46fac9d650cc"
+      ],
+      "api_returned": 10
+    },
+    {
+      "pending_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "full_index_top10": [
+        "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+        "B_d15d4d77-c7f2-43e0-bdb3-ffde17a1b940",
+        "SLB_B0014",
+        "B_33676d9f-48db-46a7-9814-ccf35fda8caa",
+        "B_360df0ab-cd01-4423-8dc3-a3d0658517bc",
+        "B_5caca43d-14e9-4f95-89d8-02aee12a289f",
+        "B_3aa3196f-96d6-4c54-be14-2cf50d6ca69d",
+        "B_c4928027-5988-47ce-8af7-e6dba3aca2aa",
+        "B_789a230f-1782-4a4c-9995-ca7b8c79db7d",
+        "B_0edf4cd3-cd26-40e4-95ff-c941616310a5"
+      ],
+      "api_returned": 10
+    }
+  ],
+  "frontend_E2E": false,
+  "tcp_HTTP": false
+}
