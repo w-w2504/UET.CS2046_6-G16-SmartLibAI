@@ -1,4 +1,4 @@
-# Frontend SmartLib AI — C04 và Reader C18
+# Frontend SmartLib AI — C04, Reader C18 và Gợi ý C27
 
 React 18 + TypeScript + Vite 5, CSS và Lucide. Dùng Node.js 22 như Dockerfile.
 
@@ -74,7 +74,8 @@ Trong Search, checkbox toàn văn gửi lại yêu cầu ngay khi bật hoặc t
 - `/`: Khám phá, danh mục C15 và tìm kiếm nhanh.
 - `/search`: Tìm sách theo nhu cầu với bộ lọc tác giả, thể loại và toàn văn.
 - `/books/:book_id`: Chi tiết — phối hợp P3.
-- `/recommendations`: Gợi ý — P2 tiếp tục C27.
+- `/recommendations`: Gợi ý C27 — chọn 1–3 tác phẩm, bộ lọc, lý do từ API và ẩn/thử lại.
+- `/recommendations?similar=<book_id>&snapshot_id=<snapshot>`: Sách tương tự tạm, không thay sở thích đã lưu; có nút Dùng làm sở thích.
 - `/read/:book_id/:chapter_id`: Reader C18 trong layout chung, có mục lục, Trước/Sau và lỗi/thử lại riêng vùng đọc. `/read/:book_id` tải mục lục rồi chuyển sang chương đầu cùng snapshot.
 
 ### Kiểm tra Reader khi C02 chưa có chương
@@ -94,7 +95,9 @@ Sách C02 có `fulltext_approved=false` vẫn hiển thị **Chỉ có thông ti
 
 Các trang danh mục/chi tiết/gợi ý dùng API client chuyển giữa demo và API thật; Reader giữ transport riêng như trên. State demo C02 dùng `ai_library_demo_c02_v1`, tách với `ai_library_v1`; không lưu ID mẫu vào phiên thật. Không đưa khóa Gemini vào frontend.
 
-Liên kết nội bộ giữ `snapshot_id` nếu đã có, kể cả mở bằng href; snapshot trên URL được ưu tiên khi gọi API thật. Health chỉ khởi tạo phiên chưa có snapshot, không tự chuyển snapshot đang dùng. Demo chỉ có một bộ C02 nên query snapshot trong demo dùng để thử giữ URL, không mô phỏng nhiều phiên bản dữ liệu. Bộ chọn snapshot mới/xử lý xung đột ID đầy đủ cần tích hợp tiếp theo mục 13.5.
+Liên kết nội bộ giữ `snapshot_id` nếu đã có, kể cả mở bằng href; snapshot trên URL được ưu tiên khi gọi API thật. Health chỉ khởi tạo phiên chưa có snapshot, không tự chuyển snapshot đang dùng. Demo chỉ có một bộ C02 nên query snapshot trong demo dùng để thử giữ URL, không mô phỏng nhiều phiên bản dữ liệu. C27 bổ sung nút Tải dữ liệu mới trên Gợi ý và đối chiếu xung đột ID/work trước khi gửi theo mục 13.5.
+
+Chi tiết C27, optional fields trong `ai_library_v1`, điểm nối DetailPage cho P3, cấu hình snapshot P4 thật, lệnh kiểm thử và bằng chứng local: [documents/C27.md](../documents/C27.md). Khi Similar có tập ẩn tạm, client dùng POST Recommend vì GET Similar không nhận exclude; sở thích đã lưu vẫn giữ nguyên. Frontend không tự tính score/lý do hoặc suy eligibility.
 
 tabStorage kiểm tra cấu trúc trước khi dùng, báo trạng thái lưu lỗi và giữ lựa chọn trong bộ nhớ nếu sessionStorage không hoạt động. Điều hướng đặt focus vào vùng main; form tìm kiếm không lấy focus khỏi ô nhập khi nhận kết quả.
 

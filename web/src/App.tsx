@@ -17,6 +17,7 @@ export const App: React.FC = () => {
   const [seedCount, setSeedCount] = useState(0);
   const [snapshotId, setSnapshotId] = useState(getSnapshotId);
   const [storageNotice, setStorageNotice] = useState<string | null>(null);
+  const [activeSnapshot, setActiveSnapshot] = useState<string | null>(null);
   useEffect(() => { document.getElementById('main-content')?.focus({ preventScroll: true }); }, [currentPath]);
 
   const updateSeeds = () => {
@@ -29,7 +30,8 @@ export const App: React.FC = () => {
   useEffect(() => {
     updateSeeds();
     // Kiểm tra health check và ghi nhận snapshot_id ban đầu
-    checkHealth().then(updateSeeds).catch((err) => console.warn('Health check warning:', err));
+    let active = true;
+    checkHealth().then(data => { if (active) { setActiveSnapshot(data.snapshot_id); updateSeeds(); } }).catch((err) => console.warn('Health check warning:', err));
 
     const handlePopState = () => {
       setCurrentPath(window.location.pathname);
@@ -37,7 +39,7 @@ export const App: React.FC = () => {
       setSnapshotId(getSnapshotId());
     };
     window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    return () => { active = false; window.removeEventListener('popstate', handlePopState); };
   }, []);
 
   const navigate = useCallback((path: string) => {
@@ -58,11 +60,11 @@ export const App: React.FC = () => {
       return <SearchPage onNavigate={navigate} />;
     }
     if (currentPath === '/recommendations') {
-      return <RecommendPage onNavigate={navigate} onSeedChange={updateSeeds} />;
+      return <RecommendPage key={currentSearch} onNavigate={navigate} onSeedChange={updateSeeds} onActiveSnapshot={setActiveSnapshot} />;
     }
     if (currentPath.startsWith('/books/')) {
       const bookId = currentPath.replace('/books/', '');
-      return <DetailPage key={bookId} bookId={bookId} onNavigate={navigate} onSeedChange={updateSeeds} />;
+      return <DetailPage key={`${bookId}:${currentSearch}`} bookId={bookId} onNavigate={navigate} onSeedChange={updateSeeds} />;
     }
     const readerRoute = currentPath.match(/^\/read\/([^/]+)(?:\/([^/]+))?\/?$/);
     if (readerRoute) {
@@ -89,6 +91,10 @@ export const App: React.FC = () => {
       <Header currentPath={currentPath} onNavigate={navigate} seedCount={seedCount} />
       {isDemo && <DemoPanel />}
       {storageNotice && <p className="app-container alert alert-warning" role="status">{storageNotice}</p>}
+      {!isDemo && activeSnapshot && snapshotId && activeSnapshot !== snapshotId && <p className="app-container alert alert-warning" role="status">
+        Có bộ dữ liệu mới. <button className="btn btn-outline" type="button"
+          onClick={() => navigate('/recommendations')}>Kiểm tra trên trang Gợi ý rồi bấm Tải dữ liệu mới</button>
+      </p>}
       <main id="main-content" data-snapshot-id={snapshotId || undefined} tabIndex={-1} style={{ flex: 1 }}>{renderPage()}</main>
       <footer style={{ borderTop: '1px solid var(--border-color)', background: 'var(--bg-card)', padding: '24px 0', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
         <div className="app-container">

@@ -92,7 +92,7 @@ try {
     const fixtureHtml = renderToStaticMarkup(createElement(App));
     assert.ok(fixtureHtml.includes('Dữ liệu mẫu phát triển'));
     assert.ok(fixtureHtml.includes('reader-fixture-v1'));
-    for (const [path, label] of [['/', 'Khám phá những cuốn sách'], ['/search', 'Tìm cuốn sách phù hợp'], ['/books/' + rows[0].book_id, 'Đang tải thông tin sách'], ['/recommendations', 'Gợi ý sách theo nội dung sở thích']]) {
+    for (const [path, label] of [['/', 'Khám phá những cuốn sách'], ['/search', 'Tìm cuốn sách phù hợp'], ['/books/' + rows[0].book_id, 'Đang tải thông tin sách'], ['/recommendations', 'Gợi ý sách theo sở thích']]) {
       globalThis.window = mockWindow(path);
       assert.ok(renderToStaticMarkup(createElement(App)).includes(label));
     }
