@@ -29,9 +29,9 @@ Tài liệu ghi lại bộ truy vấn C30, baseline BM25 C32 và kết quả t�
 
 ### Trạng thái C30
 
-- **C30 — Done theo phạm vi bàn giao nội bộ của công cụ và pool:** đã tạo 1.530 cặp và đối chiếu thứ tự top-20 với FAISS trên cả 50 truy vấn.
-- Bảng Excel chấm nhãn được lưu nội bộ. Các bảng đã kiểm tra gồm bảng trống và bản dữ liệu mẫu. Chưa có bằng chứng chấm nhãn thật cho 1.530 cặp. Pool và manifest ghi kết quả xếp hạng của lượt chạy.
-- Lượt bàn giao này bỏ qua chấm chéo độc lập theo quyết định của người phụ trách C30. Tiêu chí chấm nhãn và review chéo tại SPEC 15.1 vẫn chưa được xác nhận đã đạt.
+- **C30 — Done theo phạm vi bàn giao nội bộ**, theo xác nhận của người phụ trách C30. Lượt bàn giao gồm công cụ, pool 1.530 cặp và manifest ghi NumPy khớp thứ tự top-20 với FAISS trên 50/50 truy vấn.
+- Bảng Excel chấm nhãn được lưu nội bộ. Bản Excel có 1.530 nhãn đã kiểm tra được điền tự động và có ghi chú dữ liệu mẫu ở từng dòng. Nhãn do người chấm cho 1.530 cặp chưa được xác minh trong lượt rà soát này.
+- Lượt bàn giao nội bộ bỏ qua chấm chéo độc lập theo quyết định của người phụ trách C30. Trạng thái bàn giao nội bộ chưa xác nhận đạt tiêu chí chấm nhãn và review chéo của SPEC 15.1.
 
 ## Phần tiếp theo
 
