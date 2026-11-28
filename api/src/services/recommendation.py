@@ -32,6 +32,29 @@ class RecommendationHit:
     rank: int
 
 
+def select_candidate_ids(books, scores, *, eligible_ids, blocked_works, filters, limit):
+    """Shared exact C13 edition filtering, BINARY ties and work deduplication.
+
+    Internal callers validate inputs/scores first; this accepts baseline scores
+    without rounding them or changing the serving float32 scoring contract.
+    """
+    authors, genres = set(filters.authors), set(filters.genres)
+    candidates = [bid for bid, book in books.items()
+        if bid in eligible_ids and book.work_id not in blocked_works
+        and (not authors or authors.intersection(book.authors))
+        and (not genres or genres.intersection(book.genres))
+        and (filters.has_fulltext is None or book.has_fulltext == filters.has_fulltext)]
+    candidates.sort(key=lambda bid: (-float(scores[bid]), bid))
+    selected, seen = [], set()
+    for bid in candidates:
+        if books[bid].work_id not in seen:
+            selected.append(bid)
+            seen.add(books[bid].work_id)
+            if len(selected) == limit:
+                break
+    return selected
+
+
 class BookScorer(Protocol):
     """One immutable dataset. score_all MUST return every book, not an early top-k.
 
@@ -120,6 +143,14 @@ class RecommendationRanker:
 
     def recommend(self, seed_book_ids: Sequence[str], *, exclude_book_ids: Sequence[str] = (),
                   k: int = 5, filters: Filters | Mapping | None = None) -> list[RecommendationHit]:
+        return self._recommend(seed_book_ids, exclude_book_ids=exclude_book_ids, k=k, filters=filters)
+
+    def evaluation_top20(self, seed_book_ids, *, exclude_book_ids=(), filters=None):
+        """Internal SPEC 15.2 pool; public RecommendationRequest remains k<=10."""
+        return self._recommend(seed_book_ids, exclude_book_ids=exclude_book_ids,
+                               k=10, filters=filters, pool_limit=20)
+
+    def _recommend(self, seed_book_ids, *, exclude_book_ids=(), k=5, filters=None, pool_limit=None):
         def request_list(value):
             return list(value) if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)) else value
 
@@ -156,21 +187,7 @@ class RecommendationRanker:
         except (KeyError, OSError, ValueError, TypeError, RuntimeError) as exc:
             raise PreferenceDataError("Không lấy được đầy đủ điểm ứng viên.") from exc
 
-        blocked = seed_works | excluded_works
-        authors, genres = set(selected_filters.authors), set(selected_filters.genres)
-        candidates = [bid for bid, book in self.books.items()
-            if bid in self.eligible_book_ids and book.work_id not in blocked
-            and (not authors or authors.intersection(book.authors))
-            and (not genres or genres.intersection(book.genres))
-            and (selected_filters.has_fulltext is None or book.has_fulltext == selected_filters.has_fulltext)]
-        # Identifiers are ASCII by C03, so Python ordering equals SQLite BINARY.
-        candidates.sort(key=lambda bid: (-float(scores[bid]), bid))
-        hits, seen_works = [], set()
-        for bid in candidates:
-            work_id = self._book_to_work[bid]
-            if work_id not in seen_works:
-                hits.append(RecommendationHit(bid, work_id, scores[bid], len(hits) + 1))
-                seen_works.add(work_id)
-                if len(hits) == payload.k:
-                    break
-        return hits
+        selected = select_candidate_ids(self.books, scores, eligible_ids=self.eligible_book_ids,
+            blocked_works=seed_works | excluded_works, filters=selected_filters, limit=pool_limit or payload.k)
+        return [RecommendationHit(bid, self._book_to_work[bid], scores[bid], rank)
+                for rank, bid in enumerate(selected, 1)]
