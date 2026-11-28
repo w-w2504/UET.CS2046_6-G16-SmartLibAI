@@ -1,0 +1,509 @@
+{
+  "schema_version": 2,
+  "pool_status": "draft_numpy_pending_review",
+  "snapshot_id": "p4-w03-c38-reviewed-r8-20261122",
+  "source_git": "a0666cc7fc531a70498aef1943b0cc67f0207455",
+  "input_sha256": {
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/search/catalog.jsonl": "686e23559e18fee745b9729945c73b1435cf5445493b7dec2b742fead37a02c7",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/search/taxonomy.json": "61c6524925ef8db443a05a4530bd5c72fa22eb9e2e458ce583d3a39b31045789",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/manifest.json": "1abb673bb0dcec99e23e124f973f0909cc9e00cd6e97dfaef01cafd200d7bf6c",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/catalog.sqlite": "c316b90fe4c383d4abbac1488453bf76f62e11d4327b47a9cffd06e8cf2ba28b",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/mapping.jsonl": "c887c33df6e51f84e996db180d0cbd52fe05f56bdc400e9532e69d1694b4fb37",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/snapshot/p4-w03-c38-reviewed-r8-20261122/books.faiss": "a5fef4ca07d7d61099ec6363d3c25ba4b339e7d7805ec3fbfb9015c04f6ff05c",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/handoff_manifest.json": "f49695814514eb4945de41aea82b3da0954d5c4503e8d30a1ea53f881d8a71f0",
+    "data/evaluation/search/search_eval_cases.csv": "5cc4c007049d02b3a02694478091e605a8c9e391139192e0809510722541afa3",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/manifest.json": "089b3abbf889849d0b5491928bf30cd813de21b16be7a2d2bafe2b23d8977231",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/mapping.jsonl": "ad7f8932f405b26902c3bb6b1fba7785f73648fc459f738a45fc58731346a4ef",
+    "data/demo/p4-w03-c38-reviewed-r8-20261122/bundle/vectors.npy": "2f385fc860a344dc199bcd3e980d9097a747052485ed3151ac711d46a86ad852"
+  },
+  "catalog_book_count": 289,
+  "eligible_book_count": 286,
+  "query_counts": {
+    "dev": 20,
+    "test": 30
+  },
+  "ineligible_anchors": [
+    {
+      "query_id": "DEV-018",
+      "split": "dev",
+      "query_text": "Bi kịch tình yêu của hai người trẻ thuộc hai gia đình thù địch ở Verona.",
+      "book_id": "B_753970d9-0b2f-43b9-90aa-36f52e68d4c2",
+      "title": "Mối tình Rômêô Juliét"
+    },
+    {
+      "query_id": "TEST-014",
+      "split": "test",
+      "query_text": "Sách về đô thị thông minh kết hợp IoT, dữ liệu lớn và AI từ cảm biến tới ứng dụng.",
+      "book_id": "B_e5fdd2af-666c-4cb8-bd9e-0e02ef3dfedf",
+      "title": "Giải pháp công nghệ IoTs sử dụng kỹ thuật xử lý dữ liệu lớn và trí tuệ nhân tạo cho đô thị thông minh"
+    },
+    {
+      "query_id": "TEST-017",
+      "split": "test",
+      "query_text": "Sách rút ra những quy luật lặp lại trong lịch sử qua nhiều thời đại, theo chủ đề thay vì triều đại.",
+      "book_id": "B_ec9d7595-0257-43d5-83cf-15d83d8640b9",
+      "title": "Bài học lịch sử"
+    }
+  ],
+  "embedding": {
+    "model_id": "intfloat/multilingual-e5-small",
+    "revision": "fd1525a9fd15316a2d503bf26ab031a61d056e98",
+    "tokenizer": "intfloat/multilingual-e5-small",
+    "dimension": 384,
+    "prefixes": {
+      "query": "query: ",
+      "passage": "passage: "
+    },
+    "pooling": "mean_attention_mask",
+    "normalization": "L2"
+  },
+  "e5_ranker": "numpy",
+  "e5_score": "float32 inner product over L2-normalized vectors",
+  "faiss_comparison": {
+    "status": "matched",
+    "queries_compared": 50,
+    "query_differences": []
+  },
+  "top_k_per_method": 20,
+  "tie_break": "score descending, book_id ascending",
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "idf_formula": "ln(1+(N-df+0.5)/(df+0.5))"
+  },
+  "model_file_sha256": {
+    "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+    "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477",
+    "modules.json": "c6e29747481e8b5dd2b58401966aeac910de39092f90cda9a704b1545f902b04",
+    "sentence_bert_config.json": "948201d8329907aae938fa62f9ceeed53f5694dacc2b87b9f3b78b37ee986529",
+    "sentencepiece.bpe.model": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+    "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+    "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+    "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+  },
+  "code_sha256": {
+    "pipeline/scripts/build_c30_pool.py": "aa138d8f28ffff4184468736ac4518401082fd017b99de7872bc3dd015940b4e",
+    "pipeline/ai_library/bm25_search.py": "baf8501840cb3c3503ae62a372b4f48deb9c128d76af0925e8bd0734e445f8a2",
+    "pipeline/ai_library/e5_encoder.py": "7ffe89456a70f00e74fc2df0d2b83c688fa17e6fa61e3c34f96633562ee1fc6c",
+    "pipeline/ai_library/search_eval.py": "a0ce1074d159abfc0ebf24d60924397ffd4261608c1f9bb07b0d8e12b8cb3722",
+    "api/src/services/search.py": "9b647c3fdecc797fc50577bbf0bcc28e0acf2a2f3157dcca9207e7a97b37e1e4",
+    "api/src/services/eligibility.py": "ceb81bedf92710211c597cece3f2a63f67e66476c480bfe840bd918cd75d4597",
+    "api/src/services/query_encoder.py": "5d057312853429bd536ee67b2b996c1e1b1e451b8c67d0529a31a35974cb73d7",
+    "api/src/schemas/search.py": "8e2052f2d0fdc1e4b6848410bace169d2015d496795e30e744a922d8cf756830"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "platform": "Linux",
+    "architecture": "x86_64",
+    "torch_threads": 1,
+    "torch": "2.10.0+cpu",
+    "transformers": "4.57.6",
+    "numpy": "2.5.5",
+    "pydantic": "2.14.4",
+    "faiss-cpu": "1.16.0"
+  },
+  "pair_count": 1530,
+  "queries": [
+    {
+      "query_id": "DEV-001",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 34
+    },
+    {
+      "query_id": "DEV-002",
+      "split": "dev",
+      "eligible_after_filters": 26,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 24
+    },
+    {
+      "query_id": "DEV-003",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "DEV-004",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 36
+    },
+    {
+      "query_id": "DEV-005",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "DEV-006",
+      "split": "dev",
+      "eligible_after_filters": 64,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 27
+    },
+    {
+      "query_id": "DEV-007",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 30
+    },
+    {
+      "query_id": "DEV-008",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 33
+    },
+    {
+      "query_id": "DEV-009",
+      "split": "dev",
+      "eligible_after_filters": 26,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 23
+    },
+    {
+      "query_id": "DEV-010",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 34
+    },
+    {
+      "query_id": "DEV-011",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 35
+    },
+    {
+      "query_id": "DEV-012",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "DEV-013",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 29
+    },
+    {
+      "query_id": "DEV-014",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "DEV-015",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 26
+    },
+    {
+      "query_id": "DEV-016",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "DEV-017",
+      "split": "dev",
+      "eligible_after_filters": 46,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 28
+    },
+    {
+      "query_id": "DEV-018",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 34
+    },
+    {
+      "query_id": "DEV-019",
+      "split": "dev",
+      "eligible_after_filters": 26,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 22
+    },
+    {
+      "query_id": "DEV-020",
+      "split": "dev",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 36
+    },
+    {
+      "query_id": "TEST-001",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 35
+    },
+    {
+      "query_id": "TEST-002",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 29
+    },
+    {
+      "query_id": "TEST-003",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-004",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-005",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "TEST-006",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 33
+    },
+    {
+      "query_id": "TEST-007",
+      "split": "test",
+      "eligible_after_filters": 20,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 20
+    },
+    {
+      "query_id": "TEST-008",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 27
+    },
+    {
+      "query_id": "TEST-009",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-010",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "TEST-011",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 33
+    },
+    {
+      "query_id": "TEST-012",
+      "split": "test",
+      "eligible_after_filters": 54,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 29
+    },
+    {
+      "query_id": "TEST-013",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "TEST-014",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-015",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 35
+    },
+    {
+      "query_id": "TEST-016",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 34
+    },
+    {
+      "query_id": "TEST-017",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-018",
+      "split": "test",
+      "eligible_after_filters": 111,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 30
+    },
+    {
+      "query_id": "TEST-019",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-020",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-021",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 27
+    },
+    {
+      "query_id": "TEST-022",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 34
+    },
+    {
+      "query_id": "TEST-023",
+      "split": "test",
+      "eligible_after_filters": 26,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 22
+    },
+    {
+      "query_id": "TEST-024",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 35
+    },
+    {
+      "query_id": "TEST-025",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 31
+    },
+    {
+      "query_id": "TEST-026",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 32
+    },
+    {
+      "query_id": "TEST-027",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 29
+    },
+    {
+      "query_id": "TEST-028",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 34
+    },
+    {
+      "query_id": "TEST-029",
+      "split": "test",
+      "eligible_after_filters": 286,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 35
+    },
+    {
+      "query_id": "TEST-030",
+      "split": "test",
+      "eligible_after_filters": 26,
+      "e5_count": 20,
+      "bm25_count": 20,
+      "pool_count": 22
+    }
+  ],
+  "pool_csv_sha256": "15f4c7fa2ec5fb1d81ab20243662034fb1744aaf0495df323c79a32c87b20f11"
+}
