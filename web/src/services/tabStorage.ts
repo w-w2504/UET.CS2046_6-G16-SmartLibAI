@@ -15,6 +15,10 @@ export interface TabSessionState {
   exclude_book_ids: string[];
   filters: Filters;
   search_filters?: Filters;
+  recommendation_filters?: Filters;
+  recommendation_k?: number;
+  preference_books?: Record<string, { book_id: string; work_id: string; title: string }>;
+  preference_conflicts?: Record<string, string>;
   query: string;
   list_state: {
     mode: 'catalog' | 'search';
@@ -56,8 +60,18 @@ function validState(value: unknown): value is TabSessionState {
     && (filters.has_fulltext == null || typeof filters.has_fulltext === 'boolean');
   return s.schema_version === SCHEMA_VERSION && (s.snapshot_id === null || typeof s.snapshot_id === 'string')
     && strings(s.seed_book_ids) && strings(s.exclude_book_ids) && typeof s.query === 'string'
+    && s.seed_book_ids.length <= 3 && new Set(s.seed_book_ids).size === s.seed_book_ids.length
+    && [...s.seed_book_ids, ...s.exclude_book_ids].every(id => /^[A-Za-z0-9_-]{1,128}$/.test(id))
+    && new Set(s.exclude_book_ids).size <= 300
     && validFilters(s.filters)
     && (s.search_filters === undefined || validFilters(s.search_filters))
+    && (s.recommendation_filters === undefined || validFilters(s.recommendation_filters))
+    && (s.recommendation_k === undefined || Number.isInteger(s.recommendation_k) && s.recommendation_k >= 1 && s.recommendation_k <= 10)
+    && (s.preference_books === undefined || !!s.preference_books && typeof s.preference_books === 'object'
+      && !Array.isArray(s.preference_books) && Object.entries(s.preference_books).every(([id, book]) =>
+        !!book && book.book_id === id && typeof book.work_id === 'string' && typeof book.title === 'string'))
+    && (s.preference_conflicts === undefined || !!s.preference_conflicts && typeof s.preference_conflicts === 'object'
+      && !Array.isArray(s.preference_conflicts) && Object.values(s.preference_conflicts).every(v => typeof v === 'string'))
     && !!s.list_state && ['catalog', 'search'].includes(s.list_state.mode)
     && Number.isInteger(s.list_state.offset) && s.list_state.offset >= 0
     && Number.isInteger(s.list_state.limit) && s.list_state.limit >= 1 && s.list_state.limit <= 20

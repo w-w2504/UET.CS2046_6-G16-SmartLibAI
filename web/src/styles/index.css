@@ -351,6 +351,17 @@ h2 { font-size: 20px; }
 .reader-placeholder-layout .state-panel { margin: 0; }
 .reader-placeholder-layout h2 { display: flex; align-items: center; gap: 8px; }
 .recommendation-card { display: flex; justify-content: space-between; gap: 20px; }
+.recommend-page { padding-bottom: 64px; }
+.recommend-page > * { margin-bottom: 20px; }
+.recommend-page h1 { font-size: 28px; }
+.recommend-page h2 { font-size: 20px; margin-bottom: 12px; }
+.recommend-results { min-width: 0; }
+.recommend-results > * { margin-bottom: 16px; }
+.recommend-page .seed-chip { display: inline-flex; gap: 10px; align-items: center; white-space: normal; }
+.recommend-page .input-field { width: 100%; }
+.recommend-reason { padding: 10px; background: #EFF6FF; margin: 12px 0; border-radius: var(--radius); }
+.recommend-page .recommendation-card > div:first-child { flex: 1; }
+.recommend-page .recommend-card-actions { flex: 0 0 144px; flex-direction: column; flex-wrap: nowrap; align-items: stretch; min-width: 144px; }
 .card, .reader-layout > *, .detail-layout > *, .recommendation-card > * { min-width: 0; overflow-wrap: anywhere; }
 .reader-placeholder-layout, .page-heading, #main-content { overflow-wrap: anywhere; }
 .seed-chip { max-width: 100%; }
@@ -370,6 +381,7 @@ select:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 
   .reader-placeholder-layout { grid-template-columns: minmax(0,1fr); }
   .reader-layout > aside:last-child { grid-column: auto; }
   .recommendation-card { flex-direction: column; }
+  .recommend-page .recommend-card-actions { flex-basis: auto; width: 144px; }
   .page { padding-top: 24px; }
   .reader-content { padding: 16px; min-height: 250px; }
   .section-heading { flex-wrap: wrap; }

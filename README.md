@@ -33,7 +33,8 @@ UET.CS2046_6-G16-SmartLibAI/
 │   ├── C09.md                 # Hướng dẫn tạo vector sở thích
 │   ├── C13.md                 # Hướng dẫn chọn và xếp hạng gợi ý
 │   ├── C17.md                 # API Recommendation/Similar và eligibility dùng chung
-│   └── C23.md                 # Kiểm thử biên API Recommendation/Similar
+│   ├── C23.md                 # Kiểm thử biên API Recommendation/Similar
+│   └── C27.md                 # Giao diện gợi ý nối API thật và kiểm thử browser
 ├── specs/
 │   └── p4/                    # Phân công, đặc tả task và nghiệm thu theo tuần
 │       ├── README.md
@@ -207,6 +208,8 @@ Phần C13 chọn và xếp hạng gợi ý nằm tại [`documents/C13.md`](doc
 API Recommendation/Similar, helper eligibility dùng chung và hướng dẫn P1 tích hợp Search được mô tả tại [`documents/C17.md`](documents/C17.md). API chỉ trả sách có cả metadata và summary approved trong đúng snapshot; seed chưa đủ approved trả 422 theo xác nhận của Vân/P02, Search do P1 cập nhật trong PR riêng.
 
 Kiểm thử biên C23 và bảng bao phủ HTTP, căn cứ contract, fixture tổng hợp cùng kết quả tích hợp snapshot P4 được ghi tại [`documents/C23.md`](documents/C23.md). C23 tái sử dụng C17, không thay thuật toán hoặc contract.
+
+Giao diện gợi ý C27, chế độ Similar tạm, bảo toàn trạng thái/snapshot và cách chạy browser test với API FAISS thật được ghi tại [`documents/C27.md`](documents/C27.md).
 
 #### Frontend (React + Vite):
 

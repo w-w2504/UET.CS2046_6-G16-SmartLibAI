@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BookOpen, Sparkles, Check, ArrowLeft } from 'lucide-react';
-import type { BookDetail } from '../types/api';
+import type { BookDetail, BookDetailResponse } from '../types/api';
 import type { DemoBookDetail } from '../services/demoTypes';
 import { apiRequest } from '../services/apiClient';
 import { isDemo } from '../services/demo';
@@ -8,6 +8,8 @@ import { loadTabState, saveTabState } from '../services/tabStorage';
 import { LoadingState, ErrorState } from '../components/ui';
 import { BookCover } from '../components/BookCover';
 import { genreLabel, topicLabel } from '../services/taxonomy';
+import { selectPreference } from '../services/preferenceSelection';
+import { getSnapshotId, withSnapshot } from '../services/navigation';
 
 interface DetailPageProps {
   bookId: string;
@@ -24,6 +26,12 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
   const [error, setError] = useState<string | null>(null);
   const [isSeed, setIsSeed] = useState(false);
   const [retry, setRetry] = useState(0);
+  const [selectionNotice, setSelectionNotice] = useState<string | null>(null);
+  const [selecting, setSelecting] = useState(false);
+  const [detailSnapshot, setDetailSnapshot] = useState(getSnapshotId);
+  const selection = useRef<AbortController | null>(null);
+  const mounted = useRef(true);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; selection.current?.abort(); }; }, []);
 
   useEffect(() => {
     let active = true;
@@ -36,10 +44,10 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
       try {
         if (isDemo) {
           const res = await apiRequest<{ book: DemoBookDetail }>(`/books/${bookId}`);
-          if (active) setDetail({ mode: 'demo', book: res.data.book });
+          if (active) { setDetail({ mode: 'demo', book: res.data.book }); setDetailSnapshot(getSnapshotId()); }
         } else {
-          const res = await apiRequest<{ book: BookDetail }>(`/books/${bookId}`);
-          if (active) setDetail({ mode: 'api', book: res.data.book });
+          const res = await apiRequest<BookDetailResponse>(`/books/${bookId}`);
+          if (active) { setDetail({ mode: 'api', book: res.data.book }); setDetailSnapshot(res.data.snapshot_id); }
         }
       } catch (err: any) {
         if (!active) return;
@@ -53,21 +61,30 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
     return () => { active = false; };
   }, [bookId, retry]);
 
-  const toggleSeed = () => {
+  const toggleSeed = async () => {
+    if (!book || !detailSnapshot) return;
+    setSelectionNotice(null);
     const state = loadTabState();
-    let updatedSeeds = [...state.seed_book_ids];
     if (isSeed) {
-      updatedSeeds = updatedSeeds.filter((id) => id !== bookId);
+      const conflicts = { ...state.preference_conflicts }; delete conflicts[bookId];
+      saveTabState({ seed_book_ids: state.seed_book_ids.filter(id => id !== bookId), preference_conflicts: conflicts });
       setIsSeed(false);
     } else {
-      if (updatedSeeds.length >= 3) {
-        alert('Bạn chỉ có thể chọn tối đa 3 tác phẩm làm sở thích gợi ý.');
-        return;
+      setSelecting(true);
+      const abort = new AbortController(); selection.current = abort;
+      const timer = window.setTimeout(() => abort.abort(), 12_000);
+      try {
+        await selectPreference(book, detailSnapshot, abort.signal);
+        if (abort.signal.aborted) return;
+        setIsSeed(true);
+      } catch (error) {
+        if (!mounted.current) return;
+        if (abort.signal.aborted) setSelectionNotice('Chọn sách quá thời gian chờ. Hãy thử lại.');
+        else setSelectionNotice(error instanceof Error ? error.message : 'Chưa chọn được sách. Hãy thử lại.');
+      } finally {
+        window.clearTimeout(timer); if (mounted.current) setSelecting(false);
       }
-      updatedSeeds.push(bookId);
-      setIsSeed(true);
     }
-    saveTabState({ seed_book_ids: updatedSeeds });
     onSeedChange();
   };
 
@@ -148,7 +165,8 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
             <button
               type="button"
               className={`btn ${isSeed ? 'btn-outline' : 'btn-primary'}`}
-              onClick={toggleSeed}
+              onClick={() => void toggleSeed()}
+              disabled={selecting}
             >
               {isSeed ? (
                 <>
@@ -160,6 +178,11 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
                 </>
               )}
             </button>
+
+            <button type="button" className="btn btn-outline"
+              onClick={() => onNavigate(withSnapshot(`/recommendations?similar=${encodeURIComponent(book.book_id)}`, detailSnapshot))}>Sách tương tự</button>
+            <button type="button" className="btn btn-outline"
+              onClick={() => onNavigate(withSnapshot('/recommendations', detailSnapshot))}>Xem gợi ý</button>
 
             {book.has_fulltext ? (
               <button
@@ -175,6 +198,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({ bookId, onNavigate, onSe
               </button>
             )}
           </div>
+          {selectionNotice && <p className="alert alert-warning" role="status">{selectionNotice}</p>}
         </div>
       </div>
     </div>
