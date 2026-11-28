@@ -29,13 +29,13 @@ Tài liệu ghi lại bộ truy vấn C30, baseline BM25 C32 và kết quả t�
 
 ### Trạng thái C30
 
-- **C30 — Done theo phạm vi bàn giao nội bộ**, theo xác nhận của người phụ trách C30. Lượt bàn giao gồm công cụ, pool 1.530 cặp và manifest ghi NumPy khớp thứ tự top-20 với FAISS trên 50/50 truy vấn.
-- Bảng Excel chấm nhãn được lưu nội bộ. Bản Excel có 1.530 nhãn đã kiểm tra được điền tự động và có ghi chú dữ liệu mẫu ở từng dòng. Nhãn do người chấm cho 1.530 cặp chưa được xác minh trong lượt rà soát này.
-- Lượt bàn giao nội bộ bỏ qua chấm chéo độc lập theo quyết định của người phụ trách C30. Trạng thái bàn giao nội bộ chưa xác nhận đạt tiêu chí chấm nhãn và review chéo của SPEC 15.1.
+- **C30 — Done theo phạm vi bàn giao nội bộ.** Lượt bàn giao gồm công cụ, pool 1.530 cặp và manifest ghi NumPy khớp thứ tự top-20 với FAISS trên 50/50 truy vấn.
+- Nhóm đã chấm đủ 611 cặp `dev` và 919 cặp `test`. Đã đối chiếu toàn bộ nhãn với pool theo `(split, query_id, book_id)` và xác nhận mỗi cặp có đúng một nhãn `0–2`. Nhãn được gộp vào CSV nội bộ với các cột `split`, `query_id`, `book_id` và `relevance_label` để C39 có thể đọc.
+- Lượt bàn giao nội bộ bỏ qua chấm chéo độc lập theo quyết định của người phụ trách C30. Trạng thái này chỉ ghi nhận phần bàn giao nội bộ.
 
 ## Phần tiếp theo
 
-Khi có nhãn người chấm đã xác nhận, C39 sẽ dùng tập `dev` để chọn `search_threshold`, rồi dùng tập `test` để đo nDCG@10 và Precision@5 theo SPEC 15.1–15.2. Hiện chưa chọn ngưỡng hoặc tính các chỉ số này.
+C39 sẽ dùng tập `dev` để chọn `search_threshold`, rồi dùng tập `test` để đo nDCG@10 và Precision@5 theo SPEC 15.1–15.2. Hiện chưa chọn ngưỡng hoặc tính các chỉ số này.
 
 ## Chạy baseline BM25
 
